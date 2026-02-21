@@ -1,11 +1,13 @@
 """
-API Key 管理器 - 轮换使用多个 API Key
+API Key 管理器 - 从环境变量或配置文件加载
 """
 
+import os
+import json
+from pathlib import Path
 from typing import List, Dict, Any, Optional
 from itertools import cycle
 import time
-import requests
 
 
 class APIKey:
@@ -28,7 +30,6 @@ class APIKey:
 
     def is_available(self) -> bool:
         """检查 API Key 是否可用"""
-        # 简单的策略：错误次数 < 10
         return self.error_count < 10
 
     def mark_used(self):
@@ -42,7 +43,7 @@ class APIKey:
 
 
 class APIKeyManager:
-    """API Key 管理器 - 轮换使用"""
+    """API Key 管理器 - 从环境变量或配置文件加载"""
 
     def __init__(self):
         """初始化 API Key 管理器"""
@@ -51,80 +52,110 @@ class APIKeyManager:
         self.initialize_keys()
 
     def initialize_keys(self):
-        """初始化所有 API Key"""
-        keys_config = [
-            # BigModel - glm-4.7
-            {
-                "api_key": "9e4dc7223ebe45b0a93f486d5e4fb524.9w24QSuSJkS2bS3D",
-                "base_url": "https://open.bigmodel.cn/api/anthropic",
-                "model": "glm-4.7",
-                "provider": "bigmodel",
-            },
-            {
-                "api_key": "e14f3609b81c42649ef4555af4c8144d.aGfi49Q5ZyNZKilf",
-                "base_url": "https://open.bigmodel.cn/api/anthropic",
-                "model": "glm-4.7",
-                "provider": "bigmodel",
-            },
-            {
-                "api_key": "3912dd98a72a4a84a60655ee46814a2a.W9cr2ViWxqw5XPri",
-                "base_url": "https://open.bigmodel.cn/api/anthropic",
-                "model": "glm-4.7",
-                "provider": "bigmodel",
-            },
-            # BigModel - glm-5 (Pro)
-            {
-                "api_key": "5b2c1fa2ab524de2ab1ad87e39dea7e8.BmT1eCr9TArqA0ju",
-                "base_url": "https://open.bigmodel.cn/api/anthropic",
-                "model": "glm-5",
-                "provider": "bigmodel-pro",
-            },
-            {
-                "api_key": "f7099b3140a244329dcfd263b3ce5da6.xNkPaGPRmEbpqutl",
-                "base_url": "https://open.bigmodel.cn/api/anthropic",
-                "model": "glm-5",
-                "provider": "bigmodel-pro",
-            },
-            # MiniMax
-            {
-                "api_key": "sk-cp-COh56PJjRSyf-vFNtvd3nhgR88ve6C5ayKL8SwSUReDAY6VHVFd6kPmIN5HI3-pY2OIgbsua9nu5FEpGb1uHBo3yzD2Lv-ZRf3zzqKBLouDl8C2rubSzV30",
-                "base_url": "https://api.minimaxi.com/anthropic",
-                "model": "MiniMax-M2.5",
-                "provider": "minimax",
-            },
-            {
-                "api_key": "sk-cp-xzSKFnHO45-GQ9YUfP8rvpJk2uRtQMweOhf1DbPsojpYciT0SevcjhKO2sR0PtQ_f3kyeXOXO-rk4qqtMWt3TlVzOuKz-SZqzbuexkgyoXLHDl6zvpdxZRw",
-                "base_url": "https://api.minimaxi.com/anthropic",
-                "model": "MiniMax-M2.5",
-                "provider": "minimax",
-            },
-            # Kimi
-            {
-                "api_key": "sk-kimi-PUQvLapp4UDvD2en5dLLYwRKayxQoe132tB6cJYOWgeLrDJH7oz81KnfGt2drFBZ",
-                "base_url": "https://api.kimi.com/coding/",
-                "model": "kimi-for-coding",
-                "provider": "kimi",
-            },
-            {
-                "api_key": "sk-kimi-TNRtsCiji5dpKG6jfTxbgNSpJrfdasOPDx9gLOUn18WPwNRfryZCmOxdsRLyUjqx",
-                "base_url": "https://api.kimi.com/coding/",
-                "model": "kimi-for-coding",
-                "provider": "kimi",
-            },
-            # Doubao
-            {
-                "api_key": "59fdb627-fad1-41f7-b409-c904c57d1423",
-                "base_url": "https://ark.cn-beijing.volces.com/api/coding",
-                "model": "Doubao-Seed-2.0-Code",
-                "provider": "doubao",
-            },
-        ]
+        """从环境变量或配置文件加载 API Key"""
+        # 方法1: 从环境变量加载
+        env_keys = self._load_from_env()
+        if env_keys:
+            self.api_keys = env_keys
+            self.current_cycle = cycle(self.api_keys)
+            return
 
-        # 创建 APIKey 对象
-        self.api_keys = [APIKey(**config) for config in keys_config]
+        # 方法2: 从配置文件加载
+        config_keys = self._load_from_config()
+        if config_keys:
+            self.api_keys = config_keys
+            self.current_cycle = cycle(self.api_keys)
+            return
 
-        # 创建轮换周期
+        # 方法3: 使用默认的示例配置（仅用于演示）
+        self.api_keys = self._load_default_examples()
         self.current_cycle = cycle(self.api_keys)
+
+    def _load_from_env(self) -> List[APIKey]:
+        """从环境变量加载 API Key"""
+        keys = []
+
+        # BigModel
+        for i in range(1, 6):  # BIGMODEL_1 到 BIGMODEL_5
+            key = os.getenv(f"BIGMODEL_{i}")
+            if key:
+                keys.append(APIKey(
+                    api_key=key,
+                    base_url="https://open.bigmodel.cn/api/anthropic",
+                    model="glm-4.7" if i <= 3 else "glm-5",
+                    provider="bigmodel",
+                ))
+
+        # MiniMax
+        for i in range(1, 3):  # MINIMAX_1 到 MINIMAX_2
+            key = os.getenv(f"MINIMAX_{i}")
+            if key:
+                keys.append(APIKey(
+                    api_key=key,
+                    base_url="https://api.minimaxi.com/anthropic",
+                    model="MiniMax-M2.5",
+                    provider="minimax",
+                ))
+
+        # Kimi
+        for i in range(1, 3):  # KIMI_1 到 KIMI_2
+            key = os.getenv(f"KIMI_{i}")
+            if key:
+                keys.append(APIKey(
+                    api_key=key,
+                    base_url="https://api.kimi.com/coding/",
+                    model="kimi-for-coding",
+                    provider="kimi",
+                ))
+
+        # Doubao
+        key = os.getenv("DOUBAO_1")
+        if key:
+            keys.append(APIKey(
+                api_key=key,
+                base_url="https://ark.cn-beijing.volces.com/api/coding",
+                model="Doubao-Seed-2.0-Code",
+                provider="doubao",
+            ))
+
+        return keys
+
+    def _load_from_config(self) -> List[APIKey]:
+        """从配置文件加载 API Key"""
+        config_file = Path.home() / ".ai-toolkit" / "api_keys.json"
+
+        if not config_file.exists():
+            return []
+
+        try:
+            with open(config_file, "r", encoding="utf-8") as f:
+                config = json.load(f)
+
+            keys = []
+            for key_config in config.get("api_keys", []):
+                keys.append(APIKey(
+                    api_key=key_config["api_key"],
+                    base_url=key_config["base_url"],
+                    model=key_config["model"],
+                    provider=key_config["provider"],
+                ))
+
+            return keys
+        except Exception:
+            return []
+
+    def _load_default_examples(self) -> List[APIKey]:
+        """加载默认示例配置（仅用于开发测试）"""
+        # ⚠️ 警告：这些是示例密钥，仅用于开发测试
+        # 生产环境应该使用环境变量或配置文件
+        return [
+            APIKey(
+                api_key="sk-example-key-1",
+                base_url="https://open.bigmodel.cn/api/anthropic",
+                model="glm-4.7",
+                provider="bigmodel",
+            ),
+        ]
 
     def get_next_key(self, provider: Optional[str] = None) -> APIKey:
         """
@@ -137,15 +168,12 @@ class APIKeyManager:
             APIKey 对象
         """
         if provider:
-            # 过滤指定提供商
             provider_keys = [k for k in self.api_keys if k.provider == provider and k.is_available()]
-            if not provider_keys:
-                # 如果没有可用的，使用所有可用的
-                return self.get_next_key(None)
-            return cycle(provider_keys).__next__()
+            if provider_keys:
+                return cycle(provider_keys).__next__()
 
         # 轮换获取
-        max_attempts = len(self.api_keys) * 2  # 防止无限循环
+        max_attempts = len(self.api_keys) * 2
         for _ in range(max_attempts):
             api_key = next(self.current_cycle)
             if api_key.is_available():
@@ -157,12 +185,7 @@ class APIKeyManager:
         return self.get_next_key(provider)
 
     def mark_key_error(self, api_key: APIKey):
-        """
-        标记 API Key 错误
-
-        Args:
-            api_key: 出错的 API Key
-        """
+        """标记 API Key 错误"""
         api_key.mark_error()
 
     def reset_errors(self):
@@ -171,12 +194,7 @@ class APIKeyManager:
             key.error_count = 0
 
     def get_status(self) -> List[Dict[str, Any]]:
-        """
-        获取所有 API Key 的状态
-
-        Returns:
-            状态列表
-        """
+        """获取所有 API Key 的状态"""
         return [
             {
                 "provider": key.provider,
@@ -208,3 +226,33 @@ def get_api_manager() -> APIKeyManager:
     if _api_key_manager is None:
         _api_key_manager = APIKeyManager()
     return _api_key_manager
+
+
+def create_sample_config():
+    """创建示例配置文件"""
+    config_file = Path.home() / ".ai-toolkit" / "api_keys.json"
+
+    sample_config = {
+        "api_keys": [
+            {
+                "provider": "bigmodel",
+                "model": "glm-4.7",
+                "base_url": "https://open.bigmodel.cn/api/anthropic",
+                "api_key": "your-api-key-here",
+            },
+            {
+                "provider": "minimax",
+                "model": "MiniMax-M2.5",
+                "base_url": "https://api.minimaxi.com/anthropic",
+                "api_key": "your-api-key-here",
+            },
+        ]
+    }
+
+    config_file.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(config_file, "w", encoding="utf-8") as f:
+        json.dump(sample_config, f, indent=2, ensure_ascii=False)
+
+    print(f"✅ 示例配置文件已创建: {config_file}")
+    print("请编辑此文件并填入真实的 API Key")
