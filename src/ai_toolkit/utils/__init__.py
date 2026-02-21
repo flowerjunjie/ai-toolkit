@@ -4,6 +4,8 @@
 
 from ai_toolkit.utils.helpers import *
 from ai_toolkit.utils.logger import setup_logger, get_logger, LoggerMixin
+from ai_toolkit.utils.progress import get_progress, get_download_progress, ProgressTracker, progress_iterator
+from ai_toolkit.utils.errors import *
 
 __all__ = [
     # helpers
@@ -22,4 +24,19 @@ __all__ = [
     "setup_logger",
     "get_logger",
     "LoggerMixin",
+    # progress
+    "get_progress",
+    "get_download_progress",
+    "ProgressTracker",
+    "progress_iterator",
+    # errors
+    "ToolkitError",
+    "OllamaConnectionError",
+    "ModelNotFoundError",
+    "PromptNotFoundError",
+    "RAGNotFoundError",
+    "ConfigurationError",
+    "APIKeyError",
+    "handle_error",
+    "safe_execute",
 ]

@@ -15,6 +15,9 @@ from ai_toolkit.commands.benchmark import benchmark_cli
 from ai_toolkit.commands.init import init_command
 from ai_toolkit.commands.upgrade import upgrade_command
 from ai_toolkit.commands.coding import coding_cli
+from ai_toolkit.commands.alias import alias_cli
+from ai_toolkit.commands.history import history_cli, add_history
+from ai_toolkit.commands.config_cmd import config_cli
 
 console = Console()
 
@@ -69,6 +72,9 @@ main.add_command(coding_cli)  # AI编码助手
 main.add_command(benchmark_cli)
 main.add_command(init_command)
 main.add_command(upgrade_command)
+main.add_command(alias_cli)  # 命令别名
+main.add_command(history_cli)  # 历史记录
+main.add_command(config_cli)  # 配置管理
 
 
 if __name__ == "__main__":
