@@ -23,6 +23,7 @@ from ai_toolkit.commands.content import content_cli
 from ai_toolkit.commands.diag import diag_cli
 from ai_toolkit.commands.docs import docs_cli
 from ai_toolkit.commands.docker import docker_cli
+from ai_toolkit.commands.edge import edge_cli
 from ai_toolkit.commands.event import event_cli
 from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.feedback import feedback_cli
@@ -60,6 +61,7 @@ from ai_toolkit.commands.upgrade import upgrade_command
 from ai_toolkit.commands.web3 import web3_cli
 from ai_toolkit.commands.webui import webui
 from ai_toolkit.commands.workflow import workflow_cli
+from ai_toolkit.commands.xr import xr_cli
 
 console = Console()
 
@@ -164,6 +166,8 @@ main.add_command(agent_cli)
 main.add_command(event_cli)
 main.add_command(web3_cli)
 main.add_command(cloud_cli)
+main.add_command(edge_cli)
+main.add_command(xr_cli)
 
 
 if __name__ == "__main__":
