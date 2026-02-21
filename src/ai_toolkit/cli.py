@@ -23,12 +23,14 @@ from ai_toolkit.commands.docs import docs_cli
 from ai_toolkit.commands.docker import docker_cli
 from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.feedback import feedback_cli
+from ai_toolkit.commands.gateway import gateway_cli
 from ai_toolkit.commands.guide import examples, quickstart
 from ai_toolkit.commands.history import add_history, history_cli
 from ai_toolkit.commands.i18n import i18n_cli
 from ai_toolkit.commands.init import init_command
 from ai_toolkit.commands.market import market_cli
 from ai_toolkit.commands.ml import ml_cli
+from ai_toolkit.commands.microservice import microservice_cli
 from ai_toolkit.commands.monitor import monitor_cli
 from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.perf import perf_cli
@@ -144,6 +146,8 @@ main.add_command(analytics_cli)
 main.add_command(ml_cli)
 main.add_command(team_cli)
 main.add_command(project_cli)
+main.add_command(gateway_cli)
+main.add_command(microservice_cli)
 
 
 if __name__ == "__main__":
