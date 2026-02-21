@@ -41,11 +41,13 @@ from ai_toolkit.commands.microservice import microservice_cli
 from ai_toolkit.commands.monitor import monitor_cli
 from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.orchestrate import orchestrate_cli
+from ai_toolkit.commands.outreach import outreach_cli
 from ai_toolkit.commands.payment import payment_cli
 from ai_toolkit.commands.perf import perf_cli
 from ai_toolkit.commands.pipeline import pipeline_cli
 from ai_toolkit.commands.plugin import plugin_cli
 from ai_toolkit.commands.project import project_cli
+from ai_toolkit.commands.promote import promote_cli
 from ai_toolkit.commands.prompts import prompts_cli
 from ai_toolkit.commands.qa import qa_cli
 from ai_toolkit.commands.quantum import quantum_cli
@@ -182,6 +184,8 @@ main.add_command(commercial_cli)
 main.add_command(payment_cli)
 main.add_command(subscription_cli)
 main.add_command(transaction_cli)
+main.add_command(promote_cli)
+main.add_command(outreach_cli)
 
 
 if __name__ == "__main__":
