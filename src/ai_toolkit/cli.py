@@ -20,12 +20,14 @@ from ai_toolkit.commands.history import history_cli, add_history
 from ai_toolkit.commands.config_cmd import config_cli
 from ai_toolkit.commands.webui import webui
 from ai_toolkit.commands.plugin import plugin_cli
+from ai_toolkit.commands.batch import batch
+from ai_toolkit.commands.schedule_cmd import schedule_cli
 
 console = Console()
 
 
 @click.group()
-@click.version_option(version="0.2.0", prog_name="ai-toolkit")
+@click.version_option(version="0.3.0", prog_name="ai-toolkit")
 @click.option("--verbose", "-v", is_flag=True, help="启用详细输出")
 @click.option("--completion", is_flag=True, help="生成Bash自动补全脚本")
 def main(verbose: bool = False, completion: bool = False):
@@ -57,7 +59,7 @@ def status():
     table.add_column("状态", style="green")
     table.add_column("说明")
 
-    table.add_row("版本", "0.2.0", "交互式初始化和自动补全")
+    table.add_row("版本", "0.3.0", "生产就绪")
     table.add_row("配置文件", str(config.config_path), "配置文件路径")
     table.add_row("数据目录", str(config.data_dir), "数据存储目录")
     table.add_row("模型目录", str(config.models_dir), "本地模型存储")
@@ -79,6 +81,8 @@ main.add_command(history_cli)  # 历史记录
 main.add_command(config_cli)  # 配置管理
 main.add_command(webui)  # Web UI
 main.add_command(plugin_cli)  # 插件系统
+main.add_command(batch)  # 批处理
+main.add_command(schedule_cli)  # 任务调度
 
 
 if __name__ == "__main__":
