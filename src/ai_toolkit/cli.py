@@ -8,6 +8,7 @@ import click
 from rich.console import Console
 from rich.table import Table
 
+from ai_toolkit.commands.agent import agent_cli
 from ai_toolkit.commands.alias import alias_cli
 from ai_toolkit.commands.analytics import analytics_cli
 from ai_toolkit.commands.backup import backup_cli
@@ -21,6 +22,7 @@ from ai_toolkit.commands.content import content_cli
 from ai_toolkit.commands.diag import diag_cli
 from ai_toolkit.commands.docs import docs_cli
 from ai_toolkit.commands.docker import docker_cli
+from ai_toolkit.commands.event import event_cli
 from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.feedback import feedback_cli
 from ai_toolkit.commands.gateway import gateway_cli
@@ -156,6 +158,8 @@ main.add_command(pipeline_cli)
 main.add_command(stream_cli)
 main.add_command(workflow_cli)
 main.add_command(orchestrate_cli)
+main.add_command(agent_cli)
+main.add_command(event_cli)
 
 
 if __name__ == "__main__":
