@@ -14,6 +14,7 @@ from ai_toolkit.commands.analytics import analytics_cli
 from ai_toolkit.commands.backup import backup_cli
 from ai_toolkit.commands.batch import batch
 from ai_toolkit.commands.benchmark import benchmark_cli
+from ai_toolkit.commands.bio import bio_cli
 from ai_toolkit.commands.cicd import cicd_cli
 from ai_toolkit.commands.cloud import cloud_cli
 from ai_toolkit.commands.coding import coding_cli
@@ -44,6 +45,7 @@ from ai_toolkit.commands.plugin import plugin_cli
 from ai_toolkit.commands.project import project_cli
 from ai_toolkit.commands.prompts import prompts_cli
 from ai_toolkit.commands.qa import qa_cli
+from ai_toolkit.commands.quantum import quantum_cli
 from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.rag_v2 import rag2_cli
 from ai_toolkit.commands.revenue import revenue_cli
@@ -168,6 +170,8 @@ main.add_command(web3_cli)
 main.add_command(cloud_cli)
 main.add_command(edge_cli)
 main.add_command(xr_cli)
+main.add_command(bio_cli)
+main.add_command(quantum_cli)
 
 
 if __name__ == "__main__":
