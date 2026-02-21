@@ -11,6 +11,8 @@ from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.prompts import prompts_cli
 from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.benchmark import benchmark_cli
+from ai_toolkit.commands.init import init_command
+from ai_toolkit.commands.upgrade import upgrade_command
 
 console = Console()
 
@@ -18,12 +20,20 @@ console = Console()
 @click.group()
 @click.version_option(version="0.1.0", prog_name="ai-toolkit")
 @click.option("--verbose", "-v", is_flag=True, help="启用详细输出")
-def main(verbose: bool = False):
+@click.option("--completion", is_flag=True, help="生成Bash自动补全脚本")
+def main(verbose: bool = False, completion: bool = False):
     """
     🤖 AI Toolkit - 本地AI工具箱
 
     一个强大的本地AI模型管理和工具集，让AI开发更简单。
     """
+    if completion:
+        from ai_toolkit.utils.completion import _ai_toolkit_completion
+        import inspect
+        source = inspect.getsource(_ai_toolkit_completion)
+        print(source)
+        return
+
     if verbose:
         console.print("[dim]调试模式已启用[/dim]")
 
@@ -48,21 +58,13 @@ def status():
     console.print(table)
 
 
-@main.command()
-def init():
-    """初始化配置"""
-    from ai_toolkit.core.config import initialize_config
-
-    config = initialize_config()
-    console.print(f"✅ 配置已初始化: {config.config_path}")
-    console.print(f"📁 数据目录: {config.data_dir}")
-
-
 # 添加子命令组
 main.add_command(models_cli)
 main.add_command(prompts_cli)
 main.add_command(rag_cli)
 main.add_command(benchmark_cli)
+main.add_command(init_command)
+main.add_command(upgrade_command)
 
 
 if __name__ == "__main__":
