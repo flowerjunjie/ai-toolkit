@@ -33,6 +33,7 @@ from ai_toolkit.commands.monitor import monitor_cli
 from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.perf import perf_cli
 from ai_toolkit.commands.plugin import plugin_cli
+from ai_toolkit.commands.project import project_cli
 from ai_toolkit.commands.prompts import prompts_cli
 from ai_toolkit.commands.qa import qa_cli
 from ai_toolkit.commands.rag import rag_cli
@@ -43,6 +44,7 @@ from ai_toolkit.commands.security import security_cli
 from ai_toolkit.commands.seo import seo_cli
 from ai_toolkit.commands.shell import shell
 from ai_toolkit.commands.system_cmd import system_cli
+from ai_toolkit.commands.team import team_cli
 from ai_toolkit.commands.template import template_cli
 from ai_toolkit.commands.test import test
 from ai_toolkit.commands.ux import ux_cli
@@ -140,6 +142,8 @@ main.add_command(cicd_cli)
 main.add_command(docker_cli)
 main.add_command(analytics_cli)
 main.add_command(ml_cli)
+main.add_command(team_cli)
+main.add_command(project_cli)
 
 
 if __name__ == "__main__":
