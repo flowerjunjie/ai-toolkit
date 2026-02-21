@@ -13,10 +13,11 @@ from ai_toolkit.commands.backup import backup_cli
 from ai_toolkit.commands.batch import batch
 from ai_toolkit.commands.benchmark import benchmark_cli
 from ai_toolkit.commands.coding import coding_cli
-from ai-toolkit.commands.config_cmd import config_cli
+from ai_toolkit.commands.config_cmd import config_cli
 from ai_toolkit.commands.community import community_cli
 from ai_toolkit.commands.content import content_cli
 from ai_toolkit.commands.diag import diag_cli
+from ai_toolkit.commands.docs import docs_cli
 from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.feedback import feedback_cli
 from ai_toolkit.commands.guide import examples, quickstart
@@ -29,6 +30,7 @@ from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.perf import perf_cli
 from ai_toolkit.commands.plugin import plugin_cli
 from ai_toolkit.commands.prompts import prompts_cli
+from ai_toolkit.commands.qa import qa_cli
 from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.rag_v2 import rag2_cli
 from ai_toolkit.commands.revenue import revenue_cli
@@ -128,6 +130,8 @@ main.add_command(perf_cli)
 main.add_command(ux_cli)
 main.add_command(security_cli)
 main.add_command(i18n_cli)
+main.add_command(docs_cli)
+main.add_command(qa_cli)
 
 
 if __name__ == "__main__":
