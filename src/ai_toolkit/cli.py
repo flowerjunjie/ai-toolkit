@@ -21,17 +21,19 @@ from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.feedback import feedback_cli
 from ai_toolkit.commands.guide import examples, quickstart
 from ai_toolkit.commands.history import add_history, history_cli
+from ai_toolkit.commands.i18n import i18n_cli
 from ai_toolkit.commands.init import init_command
 from ai_toolkit.commands.market import market_cli
 from ai_toolkit.commands.monitor import monitor_cli
-from ai_toolkit.commands.perf import perf_cli
 from ai_toolkit.commands.models import models_cli
+from ai_toolkit.commands.perf import perf_cli
 from ai_toolkit.commands.plugin import plugin_cli
 from ai_toolkit.commands.prompts import prompts_cli
 from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.rag_v2 import rag2_cli
 from ai_toolkit.commands.revenue import revenue_cli
 from ai_toolkit.commands.schedule_cmd import schedule_cli
+from ai_toolkit.commands.security import security_cli
 from ai_toolkit.commands.seo import seo_cli
 from ai_toolkit.commands.shell import shell
 from ai_toolkit.commands.system_cmd import system_cli
@@ -124,6 +126,8 @@ main.add_command(content_cli)
 main.add_command(seo_cli)
 main.add_command(perf_cli)
 main.add_command(ux_cli)
+main.add_command(security_cli)
+main.add_command(i18n_cli)
 
 
 if __name__ == "__main__":
