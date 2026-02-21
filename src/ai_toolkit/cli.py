@@ -10,6 +10,7 @@ from pathlib import Path
 from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.prompts import prompts_cli
 from ai_toolkit.commands.rag import rag_cli
+from ai_toolkit.commands.rag_v2 import rag2_cli
 from ai_toolkit.commands.benchmark import benchmark_cli
 from ai_toolkit.commands.init import init_command
 from ai_toolkit.commands.upgrade import upgrade_command
@@ -62,6 +63,7 @@ def status():
 main.add_command(models_cli)
 main.add_command(prompts_cli)
 main.add_command(rag_cli)
+main.add_command(rag2_cli)  # 新增：向量检索RAG
 main.add_command(benchmark_cli)
 main.add_command(init_command)
 main.add_command(upgrade_command)
