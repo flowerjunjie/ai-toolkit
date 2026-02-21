@@ -153,12 +153,22 @@ ai-toolkit benchmark compare llama3.2 mistral --prompt "介绍一下机器学习
 
 MIT License - 详见 [LICENSE](LICENSE) 文件
 
+## ☕️ 赞助支持
+
+如果 AI Toolkit 对你有帮助，欢迎请我喝杯咖啡！
+
+[![微信](https://img.shields.io/badge/微信-赞助-green?style=flat-square&logo=wechat)](docs/images/wechat-pay.jpg)
+[![支付宝](https://img.shields.io/badge/支付宝-赞助-blue?style=flat-square&logo=alipay)](docs/images/alipay.jpg)
+[![GitHub Sponsor](https://img.shields.io/badge/GitHub-Sponsor-EA4AAA?style=flat-square&logo=GitHub+Sponsors)](https://github.com/sponsors/flowerjunjie)
+
+详情请查看：[赞助说明](SPONSORSHIP.md)
+
 ## 🌟 Star History
 
-如果这个项目对你有帮助，请给个Star支持一下！
+如果这个项目对你有帮助，请给个 Star 支持一下！
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/ai-toolkit&type=Date)](https://star-history.com/#yourusername/ai-toolkit&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=flowerjunjie/ai-toolkit&type=Date)](https://star-history.com/#flowerjunjie/ai-toolkit&Date)
 
 ---
 
-Made with ❤️ by David and BOSS
+Made with ❤️ by [David](https://github.com/flowerjunjie)

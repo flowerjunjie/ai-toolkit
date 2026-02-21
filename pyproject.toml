@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ai-toolkit"
-version = "0.1.0"
+version = "0.2.0"
 description = "一个强大的本地AI模型管理和工具集"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "David", email = "david@example.com"}
+    {name = "flowerjunjie", email = "your@email.com"}
 ]
 keywords = ["ai", "llm", "cli", "toolkit", "local-ai"]
 classifiers = [

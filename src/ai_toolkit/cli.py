@@ -18,7 +18,7 @@ console = Console()
 
 
 @click.group()
-@click.version_option(version="0.1.0", prog_name="ai-toolkit")
+@click.version_option(version="0.2.0", prog_name="ai-toolkit")
 @click.option("--verbose", "-v", is_flag=True, help="启用详细输出")
 @click.option("--completion", is_flag=True, help="生成Bash自动补全脚本")
 def main(verbose: bool = False, completion: bool = False):
@@ -50,7 +50,7 @@ def status():
     table.add_column("状态", style="green")
     table.add_column("说明")
 
-    table.add_row("版本", "0.1.0", "初始发布")
+    table.add_row("版本", "0.2.0", "交互式初始化和自动补全")
     table.add_row("配置文件", str(config.config_path), "配置文件路径")
     table.add_row("数据目录", str(config.data_dir), "数据存储目录")
     table.add_row("模型目录", str(config.models_dir), "本地模型存储")
