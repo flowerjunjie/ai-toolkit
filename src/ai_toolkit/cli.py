@@ -16,6 +16,7 @@ from ai_toolkit.commands.coding import coding_cli
 from ai_toolkit.commands.config_cmd import config_cli
 from ai_toolkit.commands.diag import diag_cli
 from ai_toolkit.commands.export_cmd import export_cli
+from ai_toolkit.commands.guide import examples, quickstart
 from ai_toolkit.commands.history import add_history, history_cli
 from ai_toolkit.commands.init import init_command
 from ai_toolkit.commands.monitor import monitor_cli
@@ -25,6 +26,7 @@ from ai_toolkit.commands.prompts import prompts_cli
 from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.rag_v2 import rag2_cli
 from ai_toolkit.commands.schedule_cmd import schedule_cli
+from ai_toolkit.commands.shell import shell
 from ai_toolkit.commands.system_cmd import system_cli
 from ai_toolkit.commands.upgrade import upgrade_command
 from ai_toolkit.commands.webui import webui
@@ -93,6 +95,9 @@ main.add_command(monitor_cli)
 main.add_command(backup_cli)
 main.add_command(system_cli)
 main.add_command(diag_cli)
+main.add_command(shell)
+main.add_command(quickstart)
+main.add_command(examples)
 
 
 if __name__ == "__main__":
