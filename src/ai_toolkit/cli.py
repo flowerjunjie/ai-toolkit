@@ -33,6 +33,7 @@ from ai_toolkit.commands.ml import ml_cli
 from ai_toolkit.commands.microservice import microservice_cli
 from ai_toolkit.commands.monitor import monitor_cli
 from ai_toolkit.commands.models import models_cli
+from ai_toolkit.commands.orchestrate import orchestrate_cli
 from ai_toolkit.commands.perf import perf_cli
 from ai_toolkit.commands.pipeline import pipeline_cli
 from ai_toolkit.commands.plugin import plugin_cli
@@ -54,6 +55,7 @@ from ai_toolkit.commands.test import test
 from ai_toolkit.commands.ux import ux_cli
 from ai_toolkit.commands.upgrade import upgrade_command
 from ai_toolkit.commands.webui import webui
+from ai_toolkit.commands.workflow import workflow_cli
 
 console = Console()
 
@@ -152,6 +154,8 @@ main.add_command(gateway_cli)
 main.add_command(microservice_cli)
 main.add_command(pipeline_cli)
 main.add_command(stream_cli)
+main.add_command(workflow_cli)
+main.add_command(orchestrate_cli)
 
 
 if __name__ == "__main__":
