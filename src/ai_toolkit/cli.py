@@ -34,6 +34,7 @@ from ai_toolkit.commands.microservice import microservice_cli
 from ai_toolkit.commands.monitor import monitor_cli
 from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.perf import perf_cli
+from ai_toolkit.commands.pipeline import pipeline_cli
 from ai_toolkit.commands.plugin import plugin_cli
 from ai_toolkit.commands.project import project_cli
 from ai_toolkit.commands.prompts import prompts_cli
@@ -45,6 +46,7 @@ from ai_toolkit.commands.schedule_cmd import schedule_cli
 from ai_toolkit.commands.security import security_cli
 from ai_toolkit.commands.seo import seo_cli
 from ai_toolkit.commands.shell import shell
+from ai_toolkit.commands.stream import stream_cli
 from ai_toolkit.commands.system_cmd import system_cli
 from ai_toolkit.commands.team import team_cli
 from ai_toolkit.commands.template import template_cli
@@ -148,6 +150,8 @@ main.add_command(team_cli)
 main.add_command(project_cli)
 main.add_command(gateway_cli)
 main.add_command(microservice_cli)
+main.add_command(pipeline_cli)
+main.add_command(stream_cli)
 
 
 if __name__ == "__main__":
