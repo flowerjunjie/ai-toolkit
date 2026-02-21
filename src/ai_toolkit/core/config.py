@@ -6,6 +6,13 @@ import json
 from pathlib import Path
 from typing import Any, Optional
 from pydantic import BaseModel, Field
+from functools import lru_cache
+import threading
+
+# 配置锁，防止并发写入
+_config_lock = threading.Lock()
+# 配置缓存
+_config_cache: Optional["Config"] = None
 
 
 class Config(BaseModel):
@@ -30,12 +37,9 @@ class Config(BaseModel):
         arbitrary_types_allowed = True
 
 
-# 全局配置实例
-_config: Optional[Config] = None
-
-
+@lru_cache(maxsize=1)
 def get_config() -> Config:
-    """获取配置实例"""
+    """获取配置实例（带缓存）"""
     global _config
     if _config is None:
         _config = Config()
