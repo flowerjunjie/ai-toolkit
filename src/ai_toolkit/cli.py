@@ -24,6 +24,7 @@ from ai_toolkit.commands.history import add_history, history_cli
 from ai_toolkit.commands.init import init_command
 from ai_toolkit.commands.market import market_cli
 from ai_toolkit.commands.monitor import monitor_cli
+from ai_toolkit.commands.perf import perf_cli
 from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.plugin import plugin_cli
 from ai_toolkit.commands.prompts import prompts_cli
@@ -36,6 +37,7 @@ from ai_toolkit.commands.shell import shell
 from ai_toolkit.commands.system_cmd import system_cli
 from ai_toolkit.commands.template import template_cli
 from ai_toolkit.commands.test import test
+from ai_toolkit.commands.ux import ux_cli
 from ai_toolkit.commands.upgrade import upgrade_command
 from ai_toolkit.commands.webui import webui
 
@@ -120,6 +122,8 @@ main.add_command(community_cli)
 main.add_command(feedback_cli)
 main.add_command(content_cli)
 main.add_command(seo_cli)
+main.add_command(perf_cli)
+main.add_command(ux_cli)
 
 
 if __name__ == "__main__":
