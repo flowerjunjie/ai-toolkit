@@ -19,6 +19,7 @@ from ai_toolkit.commands.alias import alias_cli
 from ai_toolkit.commands.history import history_cli, add_history
 from ai_toolkit.commands.config_cmd import config_cli
 from ai_toolkit.commands.webui import webui
+from ai_toolkit.commands.plugin import plugin_cli
 
 console = Console()
 
@@ -77,6 +78,7 @@ main.add_command(alias_cli)  # 命令别名
 main.add_command(history_cli)  # 历史记录
 main.add_command(config_cli)  # 配置管理
 main.add_command(webui)  # Web UI
+main.add_command(plugin_cli)  # 插件系统
 
 
 if __name__ == "__main__":
