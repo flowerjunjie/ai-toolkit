@@ -9,18 +9,23 @@ from rich.console import Console
 from rich.table import Table
 
 from ai_toolkit.commands.alias import alias_cli
+from ai_toolkit.commands.backup import backup_cli
 from ai_toolkit.commands.batch import batch
 from ai_toolkit.commands.benchmark import benchmark_cli
 from ai_toolkit.commands.coding import coding_cli
 from ai_toolkit.commands.config_cmd import config_cli
+from ai_toolkit.commands.diag import diag_cli
+from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.history import add_history, history_cli
 from ai_toolkit.commands.init import init_command
+from ai_toolkit.commands.monitor import monitor_cli
 from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.plugin import plugin_cli
 from ai_toolkit.commands.prompts import prompts_cli
 from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.rag_v2 import rag2_cli
 from ai_toolkit.commands.schedule_cmd import schedule_cli
+from ai_toolkit.commands.system_cmd import system_cli
 from ai_toolkit.commands.upgrade import upgrade_command
 from ai_toolkit.commands.webui import webui
 
@@ -38,7 +43,6 @@ def main(verbose: bool = False, completion: bool = False):
     一个强大的本地AI模型管理和工具集，让AI开发更简单。
     """
     if completion:
-        import os
         completion_file = Path(__file__).parent / "utils" / "completion.sh"
         if completion_file.exists():
             print(completion_file.read_text())
@@ -68,22 +72,27 @@ def status():
     console.print(table)
 
 
-# 添加子命令组
+# 添加所有子命令
 main.add_command(models_cli)
 main.add_command(prompts_cli)
 main.add_command(rag_cli)
-main.add_command(rag2_cli)  # 向量检索RAG
-main.add_command(coding_cli)  # AI编码助手
+main.add_command(rag2_cli)
+main.add_command(coding_cli)
 main.add_command(benchmark_cli)
 main.add_command(init_command)
 main.add_command(upgrade_command)
-main.add_command(alias_cli)  # 命令别名
-main.add_command(history_cli)  # 历史记录
-main.add_command(config_cli)  # 配置管理
-main.add_command(webui)  # Web UI
-main.add_command(plugin_cli)  # 插件系统
-main.add_command(batch)  # 批处理
-main.add_command(schedule_cli)  # 任务调度
+main.add_command(alias_cli)
+main.add_command(history_cli)
+main.add_command(config_cli)
+main.add_command(webui)
+main.add_command(plugin_cli)
+main.add_command(batch)
+main.add_command(schedule_cli)
+main.add_command(export_cli)
+main.add_command(monitor_cli)
+main.add_command(backup_cli)
+main.add_command(system_cli)
+main.add_command(diag_cli)
 
 
 if __name__ == "__main__":
