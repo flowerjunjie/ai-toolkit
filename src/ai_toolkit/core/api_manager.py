@@ -2,12 +2,11 @@
 API Key 管理器 - 从环境变量或配置文件加载
 """
 
-import json
 import os
-import time
-from itertools import cycle
+import json
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import List, Dict, Any, Optional
+from itertools import cycle
 
 
 class APIKey:
@@ -67,8 +66,8 @@ class APIKeyManager:
             self.current_cycle = cycle(self.api_keys)
             return
 
-        # 方法3: 使用默认的示例配置（仅用于演示）
-        self.api_keys = self._load_default_examples()
+        # 方法3: 空列表（不包含任何硬编码）
+        self.api_keys = []
         self.current_cycle = cycle(self.api_keys)
 
     def _load_from_env(self) -> List[APIKey]:
@@ -76,55 +75,48 @@ class APIKeyManager:
         keys = []
 
         # BigModel
-        for i in range(1, 6):  # BIGMODEL_1 到 BIGMODEL_5
+        for i in range(1, 11):  # BIGMODEL_1 到 BIGMODEL_10
             key = os.getenv(f"BIGMODEL_{i}")
             if key:
-                keys.append(
-                    APIKey(
-                        api_key=key,
-                        base_url="https://open.bigmodel.cn/api/anthropic",
-                        model="glm-4.7" if i <= 3 else "glm-5",
-                        provider="bigmodel",
-                    )
-                )
+                keys.append(APIKey(
+                    api_key=key,
+                    base_url="https://open.bigmodel.cn/api/anthropic",
+                    model="glm-4.7" if i <= 3 else "glm-5",
+                    provider="bigmodel",
+                ))
 
         # MiniMax
-        for i in range(1, 3):  # MINIMAX_1 到 MINIMAX_2
+        for i in range(1, 11):  # MINIMAX_1 到 MINIMAX_10
             key = os.getenv(f"MINIMAX_{i}")
             if key:
-                keys.append(
-                    APIKey(
-                        api_key=key,
-                        base_url="https://api.minimaxi.com/anthropic",
-                        model="MiniMax-M2.5",
-                        provider="minimax",
-                    )
-                )
+                keys.append(APIKey(
+                    api_key=key,
+                    base_url="https://api.minimaxi.com/anthropic",
+                    model="MiniMax-M2.5",
+                    provider="minimax",
+                ))
 
         # Kimi
-        for i in range(1, 3):  # KIMI_1 到 KIMI_2
+        for i in range(1, 11):  # KIMI_1 到 KIMI_10
             key = os.getenv(f"KIMI_{i}")
             if key:
-                keys.append(
-                    APIKey(
-                        api_key=key,
-                        base_url="https://api.kimi.com/coding/",
-                        model="kimi-for-coding",
-                        provider="kimi",
-                    )
-                )
+                keys.append(APIKey(
+                    api_key=key,
+                    base_url="https://api.kimi.com/coding/",
+                    model="kimi-for-coding",
+                    provider="kimi",
+                ))
 
         # Doubao
-        key = os.getenv("DOUBAO_1")
-        if key:
-            keys.append(
-                APIKey(
+        for i in range(1, 11):  # DOUBAO_1 到 DOUBAO_10
+            key = os.getenv(f"DOUBAO_{i}")
+            if key:
+                keys.append(APIKey(
                     api_key=key,
                     base_url="https://ark.cn-beijing.volces.com/api/coding",
                     model="Doubao-Seed-2.0-Code",
                     provider="doubao",
-                )
-            )
+                ))
 
         return keys
 
@@ -141,31 +133,16 @@ class APIKeyManager:
 
             keys = []
             for key_config in config.get("api_keys", []):
-                keys.append(
-                    APIKey(
-                        api_key=key_config["api_key"],
-                        base_url=key_config["base_url"],
-                        model=key_config["model"],
-                        provider=key_config["provider"],
-                    )
-                )
+                keys.append(APIKey(
+                    api_key=key_config["api_key"],
+                    base_url=key_config["base_url"],
+                    model=key_config["model"],
+                    provider=key_config["provider"],
+                ))
 
             return keys
         except Exception:
             return []
-
-    def _load_default_examples(self) -> List[APIKey]:
-        """加载默认示例配置（仅用于开发测试）"""
-        # ⚠️ 警告：这些是示例密钥，仅用于开发测试
-        # 生产环境应该使用环境变量或配置文件
-        return [
-            APIKey(
-                api_key="sk-example-key-1",
-                base_url="https://open.bigmodel.cn/api/anthropic",
-                model="glm-4.7",
-                provider="bigmodel",
-            ),
-        ]
 
     def get_next_key(self, provider: Optional[str] = None) -> APIKey:
         """
@@ -178,9 +155,7 @@ class APIKeyManager:
             APIKey 对象
         """
         if provider:
-            provider_keys = [
-                k for k in self.api_keys if k.provider == provider and k.is_available()
-            ]
+            provider_keys = [k for k in self.api_keys if k.provider == provider and k.is_available()]
             if provider_keys:
                 return cycle(provider_keys).__next__()
 
@@ -238,33 +213,3 @@ def get_api_manager() -> APIKeyManager:
     if _api_key_manager is None:
         _api_key_manager = APIKeyManager()
     return _api_key_manager
-
-
-def create_sample_config():
-    """创建示例配置文件"""
-    config_file = Path.home() / ".ai-toolkit" / "api_keys.json"
-
-    sample_config = {
-        "api_keys": [
-            {
-                "provider": "bigmodel",
-                "model": "glm-4.7",
-                "base_url": "https://open.bigmodel.cn/api/anthropic",
-                "api_key": "your-api-key-here",
-            },
-            {
-                "provider": "minimax",
-                "model": "MiniMax-M2.5",
-                "base_url": "https://api.minimaxi.com/anthropic",
-                "api_key": "your-api-key-here",
-            },
-        ]
-    }
-
-    config_file.parent.mkdir(parents=True, exist_ok=True)
-
-    with open(config_file, "w", encoding="utf-8") as f:
-        json.dump(sample_config, f, indent=2, ensure_ascii=False)
-
-    print(f"✅ 示例配置文件已创建: {config_file}")
-    print("请编辑此文件并填入真实的 API Key")
