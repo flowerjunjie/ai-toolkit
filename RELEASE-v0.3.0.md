@@ -1,108 +1,139 @@
-# 🎉 AI Toolkit v0.3.0 发布说明
+# 🎉 AI Toolkit v0.3.0 - 生产级本地AI工具箱
 
-## 📢 重大更新
+## 🚀 重大更新
 
-AI Toolkit v0.3.0 是一个**完整的、生产就绪的**本地AI工具箱！
+AI Toolkit v0.3.0 是一个**完整的生产级**本地AI工具箱！
 
-### ✨ 新功能
+### ✨ 新功能 (v0.2.0 → v0.3.0)
 
-#### 🎯 插件系统
-- ✅ 动态插件加载
-- ✅ 生命周期钩子
-- ✅ 命令拦截
-- ✅ 插件模板生成
-- ✅ 热加载/卸载
+#### 🤖 AI编码助手
+- 10个API Key自动轮换
+- 支持4个LLM提供商
+- 代码生成、审查、解释
+- API状态监控
+
+#### 🔌 插件系统
+- 动态加载/卸载
+- 命令拦截
+- 插件模板生成
+- 可扩展架构
 
 #### 📦 批处理模式
-- ✅ 从文件执行命令列表
-- ✅ 并行执行支持
-- ✅ 错误处理
-- ✅ 进度显示
-- ✅ 执行统计
+- 从文件执行命令
+- 错误处理
+- 执行统计
 
 #### ⏰ 任务调度
-- ✅ 定时任务管理
-- ✅ 多种时间单位
-- ✅ 后台运行
-- ✅ 任务列表
+- 定时任务管理
+- 后台运行
+- 多种时间单位
 
 #### 🌐 Web UI
-- ✅ FastAPI Web服务
-- ✅ RESTful API
-- ✅ 系统状态监控
-- ✅ 代码生成接口
-- ✅ API文档自动生成
+- FastAPI服务
+- RESTful API
+- 系统监控
+- 代码生成接口
 
-### 🔧 性能优化
-- ✅ LRU缓存系统
-- ✅ 磁盘缓存
-- ✅ HTTP连接池
-- ✅ 配置文件缓存
-- ✅ 惰性加载
+#### 📊 系统监控
+- 实时监控
+- 健康检查
+- 资源使用统计
 
-### 🛡️ 安全增强
-- ✅ API Key 环境变量支持
-- ✅ 配置文件加载
-- ✅ 输入验证
-- ✅ 错误处理
+#### 💾 数据管理
+- 备份恢复
+- 数据导出
+- 配置导入导出
 
-### 🧪 测试和文档
-- ✅ 测试框架搭建
-- ✅ 单元测试覆盖
-- ✅ 架构文档
-- ✅ 开发指南
-- ✅ API文档
+#### 🐚 交互式Shell
+- 命令历史
+- 自动补全
+- Shell命令集成
+
+#### 🧪 测试工具
+- 完整测试套件
+- 代码检查
+- 自动修复
+- 覆盖率报告
 
 ---
 
-## 🚀 快速开始
+## 📦 安装
 
-### 安装
 ```bash
 pip install ai-toolkit
 ```
 
-### 初始化
+### 前置要求
+- Python 3.8+
+- Ollama (用于本地模型)
+
+---
+
+## 💡 快速使用
+
+### 1. 初始化
 ```bash
 ai-toolkit init
 ```
 
-### Web UI
+### 2. 下载模型
+```bash
+ai-toolkit models pull llama3.2
+```
+
+### 3. AI编码助手
+```bash
+ai-toolkit coding generate "写一个快速排序"
+```
+
+### 4. Web UI
 ```bash
 ai-toolkit webui
 # 访问 http://localhost:8000
 ```
 
+### 5. 交互式Shell
+```bash
+ai-toolkit shell
+```
+
 ---
 
-## 💡 主要功能
+## 📚 完整功能
 
-### 核心功能 (11个)
-1. ✅ 模型管理 (models)
-2. ✅ Prompt模板 (prompts)
-3. ✅ RAG知识库 (rag/rag2)
-4. ✅ 性能测试 (benchmark)
-5. ✅ AI编码助手 (coding)
-6. ✅ 命令别名 (alias)
-7. ✅ 历史记录 (history)
-8. ✅ 配置管理 (config)
-9. ✅ Web UI (webui)
-10. ✅ 插件系统 (plugin)
-11. ✅ 批处理 (batch)
-12. ✅ 任务调度 (schedule)
+### 核心功能 (21个模块，75+命令)
 
-### 总命令数：**50+**
+| 模块 | 命令数 | 说明 |
+|------|--------|------|
+| models | 5 | 模型管理 |
+| prompts | 6 | Prompt模板 |
+| rag | 4 | 基础RAG |
+| rag2 | 4 | 向量RAG |
+| coding | 4 | AI编码助手 |
+| benchmark | 2 | 性能测试 |
+| plugin | 5 | 插件系统 |
+| template | 3 | 预设模板库 |
+| test | 5 | 测试工具 |
+| batch | 1 | 批处理 |
+| schedule | 4 | 任务调度 |
+| export | 3 | 数据导出 |
+| monitor | 3 | 系统监控 |
+| backup | 3 | 备份恢复 |
+| system | 4 | 系统管理 |
+| diag | 3 | 诊断工具 |
+| shell | 1 | 交互式Shell |
+| guide | 2 | 快速指南 |
+| 其他 | 6 | 初始化、升级、状态 |
 
 ---
 
 ## 📊 技术栈
 
-- **语言**: Python 3.8+
-- **框架**: Click, Rich, Pydantic, FastAPI
-- **数据库**: ChromaDB
-- **LLM**: 4个提供商 (BigModel/MiniMax/Kimi/Doubao)
-- **Web**: FastAPI + Uvicorn
-- **测试**: pytest
+- Python 3.8+
+- Click, Rich, Pydantic
+- FastAPI, Uvicorn
+- ChromaDB
+- 10个API Key轮换
 
 ---
 
@@ -110,47 +141,30 @@ ai-toolkit webui
 
 - **GitHub**: https://github.com/flowerjunjie/ai-toolkit
 - **文档**: https://github.com/flowerjunjie/ai-toolkit/blob/main/README.md
-- **架构**: https://github.com/flowerjunjie/ai-toolkit/blob/main/docs/architecture.md
 - **赞助**: https://github.com/flowerjunjie/ai-toolkit/blob/main/SPONSORSHIP.md
 
 ---
 
-## 📦 完整变更
+## 🎯 路线图
 
-### 新增
-- 插件系统 (plugin命令)
-- 批处理模式 (batch命令)
-- 任务调度 (schedule命令)
-- Web API (webui命令)
-- 缓存系统 (cache.py)
-- HTTP连接池 (http_client.py)
-- 性能优化
-- 测试框架
+### v0.4.0 (下个版本)
+- [ ] Web UI增强
+- [ ] 多LLM支持
+- [ ] 性能优化
 
-### 优化
-- API Key管理重构
-- 配置缓存
-- 错误处理统一
-- 代码质量提升
-- 文档完善
-
-### 修复
-- 移除API Key硬编码
-- 修复类型注解
-- 修复导入问题
+### v1.0.0 (目标)
+- [ ] 完整Web UI
+- [ ] 企业功能
+- [ ] 云服务
 
 ---
 
-## 🎯 里程碑
+## ⭐ 如果这个项目对你有帮助，请给个 Star！
 
-- [x] v0.1.0 - MVP (基础功能)
-- [x] v0.2.0 - 用户体验 (交互式、补全)
-- [x] v0.3.0 - 生产工具 (完整功能)
+**下载**: `pip install ai-toolkit`
+
+**Star**: https://github.com/flowerjunjie/ai-toolkit
 
 ---
 
-**下一个版本**: v0.4.0 (规划中)
-
-**下载**: `pip install --upgrade ai-toolkit`
-
-**⭐️ 如果这个项目对你有帮助，请给个 Star！**
+**🚀 让AI开发更简单！**
