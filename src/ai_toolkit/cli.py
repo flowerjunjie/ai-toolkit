@@ -15,6 +15,7 @@ from ai_toolkit.commands.backup import backup_cli
 from ai_toolkit.commands.batch import batch
 from ai_toolkit.commands.benchmark import benchmark_cli
 from ai_toolkit.commands.cicd import cicd_cli
+from ai_toolkit.commands.cloud import cloud_cli
 from ai_toolkit.commands.coding import coding_cli
 from ai_toolkit.commands.config_cmd import config_cli
 from ai_toolkit.commands.community import community_cli
@@ -56,6 +57,7 @@ from ai_toolkit.commands.template import template_cli
 from ai_toolkit.commands.test import test
 from ai_toolkit.commands.ux import ux_cli
 from ai_toolkit.commands.upgrade import upgrade_command
+from ai_toolkit.commands.web3 import web3_cli
 from ai_toolkit.commands.webui import webui
 from ai_toolkit.commands.workflow import workflow_cli
 
@@ -160,6 +162,8 @@ main.add_command(workflow_cli)
 main.add_command(orchestrate_cli)
 main.add_command(agent_cli)
 main.add_command(event_cli)
+main.add_command(web3_cli)
+main.add_command(cloud_cli)
 
 
 if __name__ == "__main__":
