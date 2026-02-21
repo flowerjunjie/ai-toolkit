@@ -14,8 +14,10 @@ from ai_toolkit.commands.batch import batch
 from ai_toolkit.commands.benchmark import benchmark_cli
 from ai_toolkit.commands.coding import coding_cli
 from ai-toolkit.commands.config_cmd import config_cli
+from ai_toolkit.commands.community import community_cli
 from ai_toolkit.commands.diag import diag_cli
 from ai_toolkit.commands.export_cmd import export_cli
+from ai_toolkit.commands.feedback import feedback_cli
 from ai_toolkit.commands.guide import examples, quickstart
 from ai_toolkit.commands.history import add_history, history_cli
 from ai_toolkit.commands.init import init_command
@@ -112,6 +114,8 @@ main.add_command(template_cli)
 main.add_command(test)
 main.add_command(market_cli)
 main.add_command(revenue_cli)
+main.add_command(community_cli)
+main.add_command(feedback_cli)
 
 
 if __name__ == "__main__":
