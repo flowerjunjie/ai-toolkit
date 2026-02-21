@@ -13,7 +13,7 @@ from ai_toolkit.commands.backup import backup_cli
 from ai_toolkit.commands.batch import batch
 from ai_toolkit.commands.benchmark import benchmark_cli
 from ai_toolkit.commands.coding import coding_cli
-from ai_toolkit.commands.config_cmd import config_cli
+from ai-toolkit.commands.config_cmd import config_cli
 from ai_toolkit.commands.diag import diag_cli
 from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.guide import examples, quickstart
@@ -28,6 +28,8 @@ from ai_toolkit.commands.rag_v2 import rag2_cli
 from ai_toolkit.commands.schedule_cmd import schedule_cli
 from ai_toolkit.commands.shell import shell
 from ai_toolkit.commands.system_cmd import system_cli
+from ai_toolkit.commands.template import template_cli
+from ai_toolkit.commands.test_cmd import test_cli
 from ai_toolkit.commands.upgrade import upgrade_command
 from ai_toolkit.commands.webui import webui
 
@@ -43,6 +45,12 @@ def main(verbose: bool = False, completion: bool = False):
     🤖 AI Toolkit - 本地AI工具箱
 
     一个强大的本地AI模型管理和工具集，让AI开发更简单。
+
+    官方文档: https://github.com/flowerjunjie/ai-toolkit
+
+    快速开始:
+    pip install ai-toolkit
+    ai-toolkit init
     """
     if completion:
         completion_file = Path(__file__).parent / "utils" / "completion.sh"
@@ -98,6 +106,8 @@ main.add_command(diag_cli)
 main.add_command(shell)
 main.add_command(quickstart)
 main.add_command(examples)
+main.add_command(template_cli)
+main.add_command(test_cli)
 
 
 if __name__ == "__main__":
