@@ -21,6 +21,7 @@ from ai_toolkit.commands.coding import coding_cli
 from ai_toolkit.commands.config_cmd import config_cli
 from ai_toolkit.commands.community import community_cli
 from ai_toolkit.commands.content import content_cli
+from ai_toolkit.commands.datalake import datalake_cli
 from ai_toolkit.commands.diag import diag_cli
 from ai_toolkit.commands.docs import docs_cli
 from ai_toolkit.commands.docker import docker_cli
@@ -69,7 +70,7 @@ console = Console()
 
 
 @click.group()
-@click.version_option(version="0.3.0", prog_name="ai-toolkit")
+@click.version_option(version="0.3.0", pro_name="ai-toolkit")
 @click.option("--verbose", "-v", is_flag=True, help="启用详细输出")
 @click.option("--completion", is_flag=True, help="生成Bash自动补全脚本")
 def main(verbose: bool = False, completion: bool = False):
@@ -172,6 +173,7 @@ main.add_command(edge_cli)
 main.add_command(xr_cli)
 main.add_command(bio_cli)
 main.add_command(quantum_cli)
+main.add_command(datalake_cli)
 
 
 if __name__ == "__main__":
