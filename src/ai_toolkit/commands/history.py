@@ -2,12 +2,13 @@
 历史记录管理
 """
 
-import click
+import json
+from datetime import datetime
 from pathlib import Path
+
+import click
 from rich.console import Console
 from rich.table import Table
-from datetime import datetime
-import json
 
 from ai_toolkit.core.config import get_config
 
@@ -96,8 +97,7 @@ def clear_history(force: bool, before: str):
         try:
             before_date = datetime.fromisoformat(before)
             new_history = [
-                h for h in history
-                if datetime.fromisoformat(h.get("timestamp", "")) >= before_date
+                h for h in history if datetime.fromisoformat(h.get("timestamp", "")) >= before_date
             ]
 
             with open(history_file, "w", encoding="utf-8") as f:
@@ -165,12 +165,14 @@ def add_history(command: str, args: list, status: str = "success"):
         history = []
 
     # 添加新记录
-    history.append({
-        "timestamp": datetime.now().isoformat(),
-        "command": command,
-        "args": args,
-        "status": status,
-    })
+    history.append(
+        {
+            "timestamp": datetime.now().isoformat(),
+            "command": command,
+            "args": args,
+            "status": status,
+        }
+    )
 
     # 限制历史记录数量（最多1000条）
     if len(history) > 1000:

@@ -6,26 +6,26 @@ import schedule
 import time
 import threading
 from pathlib import Path
-from typing import Callable, Dict, Any
+from typing import Callable, Dict, Any, Optional
 from datetime import datetime
 
 
 class TaskScheduler:
     """任务调度器"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """初始化任务调度器"""
         self.tasks: Dict[str, schedule.Job] = {}
-        self.running = False
-        self.thread: threading.Thread = None
+        self.running: bool = False
+        self.thread: Optional[threading.Thread] = None
 
     def add_task(
         self,
         name: str,
-        func: Callable,
+        func: Callable[..., None],
         interval: int,
         unit: str = "minutes",
-    ):
+    ) -> None:
         """
         添加定时任务
 
@@ -48,7 +48,7 @@ class TaskScheduler:
 
         self.tasks[name] = job
 
-    def remove_task(self, name: str):
+    def remove_task(self, name: str) -> None:
         """
         移除任务
 
@@ -71,32 +71,32 @@ class TaskScheduler:
             for name, job in self.tasks.items()
         }
 
-    def run_scheduler(self):
+    def run_scheduler(self) -> None:
         """运行调度器"""
         self.running = True
         while self.running:
             schedule.run_pending()
             time.sleep(1)
 
-    def start(self):
+    def start(self) -> None:
         """启动调度器（后台线程）"""
         if self.thread is None or not self.thread.is_alive():
             self.thread = threading.Thread(target=self.run_scheduler, daemon=True)
             self.thread.start()
 
-    def stop(self):
+    def stop(self) -> None:
         """停止调度器"""
         self.running = False
         if self.thread:
             self.thread.join(timeout=5)
 
-    def run_once(self):
+    def run_once(self) -> None:
         """运行一次所有待执行的任务"""
         schedule.run_pending()
 
 
 # 全局调度器
-_scheduler: TaskScheduler = None
+_scheduler: Optional[TaskScheduler] = None
 
 
 def get_scheduler() -> TaskScheduler:

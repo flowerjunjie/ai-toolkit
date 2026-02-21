@@ -2,11 +2,12 @@
 向量存储 - 基于 ChromaDB 的向量检索
 """
 
-import chromadb
-from pathlib import Path
-from typing import List, Dict, Any, Optional
-from sentence_transformers import SentenceTransformer
 import hashlib
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import chromadb
+from sentence_transformers import SentenceTransformer
 
 
 class VectorStore:
@@ -34,8 +35,7 @@ class VectorStore:
 
         # 获取或创建集合
         self.collection = self.client.get_or_create_collection(
-            name=collection_name,
-            metadata={"hnsw:space": "cosine"}
+            name=collection_name, metadata={"hnsw:space": "cosine"}
         )
 
         # 初始化 Embedding 模型
@@ -67,10 +67,7 @@ class VectorStore:
 
         # 添加到集合
         self.collection.add(
-            embeddings=embeddings,
-            documents=documents,
-            metadatas=metadatas,
-            ids=ids
+            embeddings=embeddings, documents=documents, metadatas=metadatas, ids=ids
         )
 
         return ids
@@ -159,8 +156,7 @@ class VectorStore:
         # 删除并重建集合
         self.client.delete_collection(self.collection.name)
         self.collection = self.client.create_collection(
-            name=self.collection.name,
-            metadata={"hnsw:space": "cosine"}
+            name=self.collection.name, metadata={"hnsw:space": "cosine"}
         )
 
     @staticmethod

@@ -2,12 +2,13 @@
 插件管理命令
 """
 
-import click
 from pathlib import Path
+
+import click
 from rich.console import Console
 from rich.table import Table
 
-from ai_toolkit.core.plugin import get_plugin_manager, Plugin
+from ai_toolkit.core.plugin import Plugin, get_plugin_manager
 
 console = Console()
 
@@ -149,13 +150,6 @@ class {name.capitalize()}Plugin(Plugin):
     console.print(f"   1. 编辑插件文件: {plugin_file}")
     console.print(f"   2. 加载插件: ai-toolkit plugin load {plugin_file}")
     console.print(f"   3. 使用插件: ai-toolkit plugin run {name} hello")
-'''
-
-    with open(plugin_file, "w", encoding="utf-8") as f:
-        f.write(template)
-
-    console.print(f"✅ 插件模板已创建: {plugin_file}")
-    console.print(f"\n编辑插件文件，然后运行: ai-toolkit plugin reload")
 
 
 @plugin_cli.command(name="run")

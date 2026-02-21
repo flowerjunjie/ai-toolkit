@@ -3,12 +3,8 @@
 """
 
 import pytest
-from ai_toolkit.utils import (
-    format_size,
-    format_duration,
-    validate_model_name,
-    sanitize_filename,
-)
+
+from ai_toolkit.utils import format_duration, format_size, sanitize_filename, validate_model_name
 
 
 def test_format_size():

@@ -2,14 +2,15 @@
 AI 编码助手命令 - 使用 LLM 帮助编码
 """
 
-import click
 from pathlib import Path
+
+import click
 from rich.console import Console
 from rich.panel import Panel
 from rich.syntax import Syntax
 
-from ai_toolkit.core.llm_client import LLMClient
 from ai_toolkit.core.api_manager import get_api_manager
+from ai_toolkit.core.llm_client import LLMClient
 
 console = Console()
 
@@ -64,11 +65,13 @@ def generate_code(prompt: str, provider: str, output: str, model: str):
             api_key.model = original_model
 
         # 显示代码
-        console.print(Panel(
-            Syntax(code, "python", line_numbers=True, theme="monokai"),
-            title="✨ 生成的代码",
-            border_style="green",
-        ))
+        console.print(
+            Panel(
+                Syntax(code, "python", line_numbers=True, theme="monokai"),
+                title="✨ 生成的代码",
+                border_style="green",
+            )
+        )
 
         # 保存到文件
         if output:
@@ -124,11 +127,13 @@ def review_code(file_path: str, provider: str):
             temperature=0.5,
         )
 
-        console.print(Panel(
-            review,
-            title="📋 审查结果",
-            border_style="yellow",
-        ))
+        console.print(
+            Panel(
+                review,
+                title="📋 审查结果",
+                border_style="yellow",
+            )
+        )
 
     except Exception as e:
         console.print(f"[red]审查失败: {e}[/red]")
@@ -168,11 +173,13 @@ def explain_code(file_path: str, provider: str):
             temperature=0.5,
         )
 
-        console.print(Panel(
-            explanation,
-            title="💡 代码解释",
-            border_style="cyan",
-        ))
+        console.print(
+            Panel(
+                explanation,
+                title="💡 代码解释",
+                border_style="cyan",
+            )
+        )
 
     except Exception as e:
         console.print(f"[red]解释失败: {e}[/red]")

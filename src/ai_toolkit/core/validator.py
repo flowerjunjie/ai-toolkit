@@ -2,10 +2,11 @@
 配置验证
 """
 
-from pydantic import BaseModel, Field, validator
 from pathlib import Path
 from typing import Optional
+
 import httpx
+from pydantic import BaseModel, Field, validator
 
 
 class OllamaConfig(BaseModel):

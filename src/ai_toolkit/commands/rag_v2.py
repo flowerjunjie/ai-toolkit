@@ -2,17 +2,18 @@
 RAG 命令 v2 - 真正的向量检索版本
 """
 
-import click
-from pathlib import Path
-from rich.console import Console
-from rich.table import Table
-from rich.panel import Panel
-from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
 import json
+from pathlib import Path
+
+import click
+from rich.console import Console
+from rich.panel import Panel
+from rich.progress import BarColumn, Progress, SpinnerColumn, TextColumn
+from rich.table import Table
 
 from ai_toolkit.core.config import get_config
-from ai_toolkit.core.vector_store import VectorStore
 from ai_toolkit.core.document_loader import DocumentLoader
+from ai_toolkit.core.vector_store import VectorStore
 
 console = Console()
 
@@ -95,7 +96,7 @@ def create_rag(
 
             batch_size = 100
             for i in range(0, len(chunked_docs), batch_size):
-                batch = chunked_docs[i:i+batch_size]
+                batch = chunked_docs[i : i + batch_size]
 
                 vector_store.add_documents(
                     documents=[doc["content"] for doc in batch],
@@ -126,7 +127,7 @@ def create_rag(
         console.print(f"   📄 文档数: [cyan]{len(documents)}[/cyan]")
         console.print(f"   📦 文本块数: [cyan]{len(chunked_docs)}[/cyan]")
         console.print(f"\n使用以下命令查询:")
-        console.print(f"   [cyan]ai-toolkit rag2 query {name} \"你的问题\"[/cyan]")
+        console.print(f'   [cyan]ai-toolkit rag2 query {name} "你的问题"[/cyan]')
 
     except Exception as e:
         console.print(f"\n[red]创建失败: {e}[/red]")
@@ -202,8 +203,9 @@ def rag_info(name: str):
     with open(metadata_file, "r", encoding="utf-8") as f:
         metadata = json.load(f)
 
-    console.print(Panel(
-        f"""[cyan]名称:[/cyan] {metadata['name']}
+    console.print(
+        Panel(
+            f"""[cyan]名称:[/cyan] {metadata['name']}
 [cyan]类型:[/cyan] 向量检索 (ChromaDB)
 [cyan]文档路径:[/cyan] {metadata['docs_path']}
 [cyan]文档数量:[/cyan] {metadata.get('num_documents', 'N/A')}
@@ -211,9 +213,10 @@ def rag_info(name: str):
 [cyan]Chunk大小:[/cyan] {metadata.get('chunk_size', 'N/A')}
 [cyan]重叠:[/cyan] {metadata.get('chunk_overlap', 'N/A')}
 [cyan]Embedding模型:[/cyan] {metadata.get('embedding_model', 'N/A')}""",
-        title=f"📚 {name}",
-        border_style="cyan",
-    ))
+            title=f"📚 {name}",
+            border_style="cyan",
+        )
+    )
 
 
 @rag2_cli.command(name="list")

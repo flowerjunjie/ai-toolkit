@@ -2,12 +2,12 @@
 API Key 管理器 - 从环境变量或配置文件加载
 """
 
-import os
 import json
-from pathlib import Path
-from typing import List, Dict, Any, Optional
-from itertools import cycle
+import os
 import time
+from itertools import cycle
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 
 class APIKey:
@@ -79,44 +79,52 @@ class APIKeyManager:
         for i in range(1, 6):  # BIGMODEL_1 到 BIGMODEL_5
             key = os.getenv(f"BIGMODEL_{i}")
             if key:
-                keys.append(APIKey(
-                    api_key=key,
-                    base_url="https://open.bigmodel.cn/api/anthropic",
-                    model="glm-4.7" if i <= 3 else "glm-5",
-                    provider="bigmodel",
-                ))
+                keys.append(
+                    APIKey(
+                        api_key=key,
+                        base_url="https://open.bigmodel.cn/api/anthropic",
+                        model="glm-4.7" if i <= 3 else "glm-5",
+                        provider="bigmodel",
+                    )
+                )
 
         # MiniMax
         for i in range(1, 3):  # MINIMAX_1 到 MINIMAX_2
             key = os.getenv(f"MINIMAX_{i}")
             if key:
-                keys.append(APIKey(
-                    api_key=key,
-                    base_url="https://api.minimaxi.com/anthropic",
-                    model="MiniMax-M2.5",
-                    provider="minimax",
-                ))
+                keys.append(
+                    APIKey(
+                        api_key=key,
+                        base_url="https://api.minimaxi.com/anthropic",
+                        model="MiniMax-M2.5",
+                        provider="minimax",
+                    )
+                )
 
         # Kimi
         for i in range(1, 3):  # KIMI_1 到 KIMI_2
             key = os.getenv(f"KIMI_{i}")
             if key:
-                keys.append(APIKey(
-                    api_key=key,
-                    base_url="https://api.kimi.com/coding/",
-                    model="kimi-for-coding",
-                    provider="kimi",
-                ))
+                keys.append(
+                    APIKey(
+                        api_key=key,
+                        base_url="https://api.kimi.com/coding/",
+                        model="kimi-for-coding",
+                        provider="kimi",
+                    )
+                )
 
         # Doubao
         key = os.getenv("DOUBAO_1")
         if key:
-            keys.append(APIKey(
-                api_key=key,
-                base_url="https://ark.cn-beijing.volces.com/api/coding",
-                model="Doubao-Seed-2.0-Code",
-                provider="doubao",
-            ))
+            keys.append(
+                APIKey(
+                    api_key=key,
+                    base_url="https://ark.cn-beijing.volces.com/api/coding",
+                    model="Doubao-Seed-2.0-Code",
+                    provider="doubao",
+                )
+            )
 
         return keys
 
@@ -133,12 +141,14 @@ class APIKeyManager:
 
             keys = []
             for key_config in config.get("api_keys", []):
-                keys.append(APIKey(
-                    api_key=key_config["api_key"],
-                    base_url=key_config["base_url"],
-                    model=key_config["model"],
-                    provider=key_config["provider"],
-                ))
+                keys.append(
+                    APIKey(
+                        api_key=key_config["api_key"],
+                        base_url=key_config["base_url"],
+                        model=key_config["model"],
+                        provider=key_config["provider"],
+                    )
+                )
 
             return keys
         except Exception:
@@ -168,7 +178,9 @@ class APIKeyManager:
             APIKey 对象
         """
         if provider:
-            provider_keys = [k for k in self.api_keys if k.provider == provider and k.is_available()]
+            provider_keys = [
+                k for k in self.api_keys if k.provider == provider and k.is_available()
+            ]
             if provider_keys:
                 return cycle(provider_keys).__next__()
 

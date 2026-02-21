@@ -2,11 +2,11 @@
 插件系统
 """
 
-from pathlib import Path
-from typing import Dict, Any, List, Optional
 import importlib.util
-import sys
 import json
+import sys
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 
 class Plugin:
@@ -86,10 +86,7 @@ class PluginManager:
         """
         try:
             # 动态导入
-            spec = importlib.util.spec_from_file_location(
-                plugin_file.stem,
-                plugin_file
-            )
+            spec = importlib.util.spec_from_file_location(plugin_file.stem, plugin_file)
             module = importlib.util.module_from_spec(spec)
             sys.modules[plugin_file.stem] = module
             spec.loader.exec_module(module)
@@ -97,11 +94,7 @@ class PluginManager:
             # 查找Plugin类
             for attr_name in dir(module):
                 attr = getattr(module, attr_name)
-                if (
-                    isinstance(attr, type)
-                    and issubclass(attr, Plugin)
-                    and attr != Plugin
-                ):
+                if isinstance(attr, type) and issubclass(attr, Plugin) and attr != Plugin:
                     # 实例化插件
                     plugin_instance = attr()
 
@@ -175,15 +168,19 @@ class PluginManager:
                 try:
                     result = plugin.on_command(command, *args, **kwargs)
                     if result is not None:
-                        results.append({
-                            "plugin": plugin.name,
-                            "result": result,
-                        })
+                        results.append(
+                            {
+                                "plugin": plugin.name,
+                                "result": result,
+                            }
+                        )
                 except Exception as e:
-                    results.append({
-                        "plugin": plugin.name,
-                        "error": str(e),
-                    })
+                    results.append(
+                        {
+                            "plugin": plugin.name,
+                            "error": str(e),
+                        }
+                    )
 
         return results
 

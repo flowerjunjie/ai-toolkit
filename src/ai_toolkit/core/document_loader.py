@@ -2,9 +2,9 @@
 文档加载器 - 支持多种文档格式
 """
 
-from pathlib import Path
-from typing import List, Dict, Any
 import re
+from pathlib import Path
+from typing import Any, Dict, List
 
 
 class DocumentLoader:
@@ -88,7 +88,7 @@ class DocumentLoader:
                     "filename": file_path.name,
                     "extension": file_path.suffix,
                     "size": file_path.stat().st_size,
-                }
+                },
             }
         except Exception:
             return None
@@ -169,13 +169,15 @@ class DocumentLoader:
 
             # 为每个块创建文档
             for i, chunk in enumerate(chunks):
-                chunked_docs.append({
-                    "content": chunk,
-                    "metadata": {
-                        **metadata,
-                        "chunk_id": i,
-                        "total_chunks": len(chunks),
+                chunked_docs.append(
+                    {
+                        "content": chunk,
+                        "metadata": {
+                            **metadata,
+                            "chunk_id": i,
+                            "total_chunks": len(chunks),
+                        },
                     }
-                })
+                )
 
         return chunked_docs

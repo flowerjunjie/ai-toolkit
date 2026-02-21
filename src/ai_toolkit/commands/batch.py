@@ -2,8 +2,9 @@
 批处理命令
 """
 
-import click
 from pathlib import Path
+
+import click
 from rich.console import Console
 from rich.progress import Progress
 

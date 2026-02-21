@@ -2,11 +2,12 @@
 命令别名管理
 """
 
-import click
+import json
 from pathlib import Path
+
+import click
 from rich.console import Console
 from rich.table import Table
-import json
 
 from ai_toolkit.core.config import get_config
 
@@ -144,6 +145,7 @@ def run_alias(name: str, args: tuple):
 
     # 执行命令
     import subprocess
+
     console.print(f"执行: [dim]{command}[/dim]\n")
     result = subprocess.run(command, shell=True)
     return result.returncode

@@ -2,26 +2,27 @@
 AI Toolkit CLI - 主命令行接口
 """
 
+from pathlib import Path
+
 import click
 from rich.console import Console
 from rich.table import Table
-from pathlib import Path
 
+from ai_toolkit.commands.alias import alias_cli
+from ai_toolkit.commands.batch import batch
+from ai_toolkit.commands.benchmark import benchmark_cli
+from ai_toolkit.commands.coding import coding_cli
+from ai_toolkit.commands.config_cmd import config_cli
+from ai_toolkit.commands.history import add_history, history_cli
+from ai_toolkit.commands.init import init_command
 from ai_toolkit.commands.models import models_cli
+from ai_toolkit.commands.plugin import plugin_cli
 from ai_toolkit.commands.prompts import prompts_cli
 from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.rag_v2 import rag2_cli
-from ai_toolkit.commands.benchmark import benchmark_cli
-from ai_toolkit.commands.init import init_command
-from ai_toolkit.commands.upgrade import upgrade_command
-from ai_toolkit.commands.coding import coding_cli
-from ai_toolkit.commands.alias import alias_cli
-from ai_toolkit.commands.history import history_cli, add_history
-from ai_toolkit.commands.config_cmd import config_cli
-from ai_toolkit.commands.webui import webui
-from ai_toolkit.commands.plugin import plugin_cli
-from ai_toolkit.commands.batch import batch
 from ai_toolkit.commands.schedule_cmd import schedule_cli
+from ai_toolkit.commands.upgrade import upgrade_command
+from ai_toolkit.commands.webui import webui
 
 console = Console()
 
@@ -37,10 +38,10 @@ def main(verbose: bool = False, completion: bool = False):
     一个强大的本地AI模型管理和工具集，让AI开发更简单。
     """
     if completion:
-        from ai_toolkit.utils.completion import _ai_toolkit_completion
-        import inspect
-        source = inspect.getsource(_ai_toolkit_completion)
-        print(source)
+        import os
+        completion_file = Path(__file__).parent / "utils" / "completion.sh"
+        if completion_file.exists():
+            print(completion_file.read_text())
         return
 
     if verbose:

@@ -3,11 +3,12 @@
 """
 
 import pytest
+
 from ai_toolkit.utils.helpers import (
-    format_size,
     format_duration,
-    validate_model_name,
+    format_size,
     sanitize_filename,
+    validate_model_name,
 )
 
 

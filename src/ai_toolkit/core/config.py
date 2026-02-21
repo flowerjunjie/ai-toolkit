@@ -3,11 +3,12 @@
 """
 
 import json
+import threading
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Optional
+
 from pydantic import BaseModel, Field
-from functools import lru_cache
-import threading
 
 # 配置锁，防止并发写入
 _config_lock = threading.Lock()

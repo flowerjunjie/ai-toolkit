@@ -2,19 +2,20 @@
 进度条工具
 """
 
+import time
+from typing import Callable, Optional
+
+from rich.console import Console
 from rich.progress import (
+    BarColumn,
+    DownloadColumn,
     Progress,
     SpinnerColumn,
-    TextColumn,
-    BarColumn,
     TaskProgressColumn,
+    TextColumn,
     TimeRemainingColumn,
-    DownloadColumn,
     TransferSpeedColumn,
 )
-from rich.console import Console
-from typing import Optional, Callable
-import time
 
 
 def get_progress(console: Optional[Console] = None):

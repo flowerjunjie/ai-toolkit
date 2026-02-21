@@ -3,26 +3,28 @@
 """
 
 import os
+import shutil
 import sys
 import time
-import shutil
 from pathlib import Path
-from typing import Optional, List, Dict, Any
-from rich.console import Console
-from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn
-import requests
+from typing import Any, Dict, List, Optional
 
+import requests
+from rich.console import Console
+from rich.progress import BarColumn, Progress, SpinnerColumn, TaskProgressColumn, TextColumn
 
 console = Console()
 
 
 class OllamaConnectionError(Exception):
     """Ollama 连接错误"""
+
     pass
 
 
 class ModelNotFoundError(Exception):
     """模型未找到错误"""
+
     pass
 
 

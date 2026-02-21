@@ -2,10 +2,12 @@
 配置管理测试
 """
 
-import pytest
 import json
 from pathlib import Path
-from ai_toolkit.core.config import Config, get_config, save_config, initialize_config
+
+import pytest
+
+from ai_toolkit.core.config import Config, get_config, initialize_config, save_config
 
 
 def test_config_creation():

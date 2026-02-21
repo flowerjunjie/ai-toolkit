@@ -2,9 +2,10 @@
 Web UI 命令
 """
 
-import click
 import threading
 import time
+
+import click
 from rich.console import Console
 
 from ai_toolkit.web.app import start_server

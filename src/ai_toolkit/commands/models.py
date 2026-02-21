@@ -2,12 +2,13 @@
 模型管理命令
 """
 
-import click
-from rich.console import Console
-from rich.table import Table
-from rich.panel import Panel
-import requests
 from pathlib import Path
+
+import click
+import requests
+from rich.console import Console
+from rich.panel import Panel
+from rich.table import Table
 
 from ai_toolkit.core.config import get_config
 

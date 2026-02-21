@@ -2,9 +2,11 @@
 LLM 客户端 - 支持多个提供商
 """
 
+from typing import Any, Dict, List, Optional
+
 import requests
-from typing import Dict, Any, Optional, List
-from ai_toolkit.core.api_manager import get_api_manager, APIKey
+
+from ai_toolkit.core.api_manager import APIKey, get_api_manager
 
 
 class LLMClient:
@@ -57,9 +59,7 @@ class LLMClient:
         data = {
             "model": api_key.model,
             "max_tokens": max_tokens,
-            "messages": [
-                {"role": "user", "content": prompt}
-            ],
+            "messages": [{"role": "user", "content": prompt}],
             "temperature": temperature,
             "stream": stream,
         }
@@ -125,9 +125,7 @@ class LLMClient:
             "model": api_key.model,
             "max_tokens": max_tokens,
             "system": system_prompt,
-            "messages": [
-                {"role": "user", "content": user_prompt}
-            ],
+            "messages": [{"role": "user", "content": user_prompt}],
             "temperature": temperature,
         }
 

@@ -2,7 +2,8 @@
 错误处理和用户友好的错误消息
 """
 
-from typing import Optional, Dict, Any
+from typing import Any, Dict, Optional
+
 from rich.console import Console
 
 
@@ -28,7 +29,7 @@ class OllamaConnectionError(ToolkitError):
     def __init__(self):
         super().__init__(
             "无法连接到 Ollama 服务",
-            "请确保 Ollama 正在运行: ollama serve\n安装: https://ollama.ai"
+            "请确保 Ollama 正在运行: ollama serve\n安装: https://ollama.ai",
         )
 
 
@@ -39,7 +40,7 @@ class ModelNotFoundError(ToolkitError):
         super().__init__(
             f"模型未找到: {model_name}",
             f"使用 'ai-toolkit models pull {model_name}' 下载模型\n"
-            f"或使用 'ai-toolkit models list' 查看可用模型"
+            f"或使用 'ai-toolkit models list' 查看可用模型",
         )
 
 
@@ -50,7 +51,7 @@ class PromptNotFoundError(ToolkitError):
         super().__init__(
             f"Prompt 模板未找到: {prompt_name}",
             f"使用 'ai-toolkit prompts list' 查看可用模板\n"
-            f"或使用 'ai-toolkit prompts add {prompt_name} \"你的内容\"' 创建"
+            f"或使用 'ai-toolkit prompts add {prompt_name} \"你的内容\"' 创建",
         )
 
 
@@ -61,7 +62,7 @@ class RAGNotFoundError(ToolkitError):
         super().__init__(
             f"RAG 知识库未找到: {rag_name}",
             f"使用 'ai-toolkit rag2 list' 查看可用知识库\n"
-            f"或使用 'ai-toolkit rag2 create <path> --name {rag_name}' 创建"
+            f"或使用 'ai-toolkit rag2 create <path> --name {rag_name}' 创建",
         )
 
 
@@ -80,8 +81,7 @@ class APIKeyError(ToolkitError):
     def __init__(self, provider: str):
         super().__init__(
             f"{provider} 的所有 API Key 都不可用",
-            "请检查 API Key 配置\n"
-            "使用 'ai-toolkit coding status' 查看状态"
+            "请检查 API Key 配置\n" "使用 'ai-toolkit coding status' 查看状态",
         )
 
 

@@ -2,15 +2,16 @@
 AI Toolkit Web API
 """
 
+from typing import List, Optional
+
+import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-from typing import List, Optional
-import uvicorn
 
-from ai_toolkit.core.config import get_config
 from ai_toolkit.core.api_manager import get_api_manager
+from ai_toolkit.core.config import get_config
 from ai_toolkit.core.llm_client import LLMClient
 
 app = FastAPI(title="AI Toolkit API", version="0.3.0")
@@ -34,7 +35,8 @@ class GenerateResponse(BaseModel):
 @app.get("/")
 async def root():
     """首页"""
-    return HTMLResponse("""
+    return HTMLResponse(
+        """
     <!DOCTYPE html>
     <html>
     <head>
@@ -59,7 +61,8 @@ async def root():
         </div>
     </body>
     </html>
-    """)
+    """
+    )
 
 
 @app.get("/status")

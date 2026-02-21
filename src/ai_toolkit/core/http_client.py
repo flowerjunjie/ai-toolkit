@@ -2,11 +2,12 @@
 HTTP客户端优化 - 连接池和复用
 """
 
+import time
+from typing import Optional
+
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-from typing import Optional
-import time
 
 
 class OptimizedHTTPClient:

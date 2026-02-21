@@ -3,8 +3,6 @@ Bash 自动补全脚本
 """
 
 # Bash completion for ai-toolkit
-# 安装: source <(ai-toolkit --completion)
-
 _ai_toolkit_completion() {
     local cur prev commands subcommands
 
@@ -12,7 +10,7 @@ _ai_toolkit_completion() {
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
 
-    commands="models prompts rag benchmark status init upgrade help"
+    commands="models prompts rag benchmark status init upgrade plugin batch schedule webui"
 
     # 主命令补全
     if [[ ${COMP_CWORD} -eq 1 ]]; then

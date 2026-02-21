@@ -2,13 +2,14 @@
 配置导入导出
 """
 
-import click
+import json
 from pathlib import Path
+
+import click
 from rich.console import Console
 from rich.panel import Panel
-import json
 
-from ai_toolkit.core.config import Config, save_config, load_config, get_config
+from ai_toolkit.core.config import Config, get_config, load_config, save_config
 
 console = Console()
 
@@ -93,14 +94,16 @@ def import_config(input_file: str, merge: bool):
 
     console.print("✅ 配置已导入")
     console.print("\n导入的配置:")
-    console.print(Panel(
-        f"""[cyan]Ollama地址:[/cyan] {config.ollama_base_url}
+    console.print(
+        Panel(
+            f"""[cyan]Ollama地址:[/cyan] {config.ollama_base_url}
 [cyan]超时:[/cyan] {config.ollama_timeout}s
 [cyan]Chunk大小:[/cyan] {config.rag_chunk_size}
 [cyan]数据目录:[/cyan] {config.data_dir}""",
-        title="📋 配置",
-        border_style="cyan",
-    ))
+            title="📋 配置",
+            border_style="cyan",
+        )
+    )
 
 
 @config_cli.command(name="show")
@@ -108,8 +111,9 @@ def show_config():
     """显示当前配置"""
     config = get_config()
 
-    console.print(Panel(
-        f"""[cyan]Ollama地址:[/cyan] {config.ollama_base_url}
+    console.print(
+        Panel(
+            f"""[cyan]Ollama地址:[/cyan] {config.ollama_base_url}
 [cyan]超时:[/cyan] {config.ollama_timeout}s
 [cyan]RAG配置:[/cyan]
   - Chunk大小: {config.rag_chunk_size}
@@ -120,9 +124,10 @@ def show_config():
   - 模型: {config.models_dir}
   - Prompts: {config.prompts_dir}
   - RAG: {config.rag_dir}""",
-        title="📋 当前配置",
-        border_style="cyan",
-    ))
+            title="📋 当前配置",
+            border_style="cyan",
+        )
+    )
 
 
 @config_cli.command(name="reset")

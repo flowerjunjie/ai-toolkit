@@ -2,11 +2,12 @@
 RAG（检索增强生成）命令
 """
 
-import click
+import json
 from pathlib import Path
+
+import click
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
-import json
 
 from ai_toolkit.core.config import get_config
 
@@ -76,7 +77,7 @@ def create_rag(docs_path: str, name: str, chunk_size: int, chunk_overlap: int):
     console.print(f"\n✅ 知识库 [cyan]{name}[/cyan] 创建完成!")
     console.print(f"   索引了 [cyan]{len(doc_files)}[/cyan] 个文件")
     console.print(f"\n使用以下命令查询:")
-    console.print(f"   [cyan]ai-toolkit rag query {name} \"你的问题\"[/cyan]")
+    console.print(f'   [cyan]ai-toolkit rag query {name} "你的问题"[/cyan]')
 
 
 @rag_cli.command(name="query")

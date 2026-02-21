@@ -2,8 +2,10 @@
 LLM客户端测试
 """
 
-import pytest
 from unittest.mock import Mock, patch
+
+import pytest
+
 from ai_toolkit.core.llm_client import LLMClient
 
 
@@ -15,13 +17,7 @@ class TestLLMClient:
         """模拟响应"""
         mock = Mock()
         mock.status_code = 200
-        mock.json.return_value = {
-            "content": [
-                {
-                    "text": "生成的代码"
-                }
-            ]
-        }
+        mock.json.return_value = {"content": [{"text": "生成的代码"}]}
         return mock
 
     def test_client_creation(self):
@@ -35,7 +31,7 @@ class TestLLMClient:
         client = LLMClient(provider="bigmodel")
         assert client.provider == "bigmodel"
 
-    @patch('requests.post')
+    @patch("requests.post")
     def test_generate(self, mock_post, mock_response):
         """测试生成文本"""
         mock_post.return_value = mock_response
@@ -45,15 +41,14 @@ class TestLLMClient:
 
         assert result == "生成的代码"
 
-    @patch('requests.post')
+    @patch("requests.post")
     def test_generate_with_system(self, mock_post, mock_response):
         """测试使用系统提示词生成"""
         mock_post.return_value = mock_response
 
         client = LLMClient()
         result = client.generate_with_system(
-            system_prompt="你是Python专家",
-            user_prompt="写一个快速排序"
+            system_prompt="你是Python专家", user_prompt="写一个快速排序"
         )
 
         assert result == "生成的代码"

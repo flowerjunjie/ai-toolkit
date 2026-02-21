@@ -2,10 +2,12 @@
 向量存储测试
 """
 
-import pytest
-from pathlib import Path
-import tempfile
 import shutil
+import tempfile
+from pathlib import Path
+
+import pytest
+
 from ai_toolkit.core.vector_store import VectorStore
 
 

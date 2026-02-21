@@ -2,12 +2,13 @@
 任务调度命令
 """
 
+import time
+
 import click
 from rich.console import Console
 from rich.table import Table
-import time
 
-from ai_toolkit.core.scheduler import get_scheduler, TaskScheduler
+from ai_toolkit.core.scheduler import TaskScheduler, get_scheduler
 
 console = Console()
 
@@ -52,6 +53,7 @@ def add_task(name: str, interval: int, command: str, unit: str):
 
     def task_func():
         import subprocess
+
         subprocess.run(command, shell=True)
 
     scheduler.add_task(name, task_func, interval, unit)

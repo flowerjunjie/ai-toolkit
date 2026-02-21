@@ -2,11 +2,12 @@
 初始化命令 - 交互式配置向导
 """
 
+from pathlib import Path
+
 import click
 from rich.console import Console
 from rich.panel import Panel
-from rich.prompt import Prompt, Confirm
-from pathlib import Path
+from rich.prompt import Confirm, Prompt
 
 from ai_toolkit.core.config import Config, save_config
 from ai_toolkit.utils.helpers import check_ollama_connection
@@ -17,18 +18,17 @@ console = Console()
 @click.command(name="init")
 def init_command():
     """初始化 AI Toolkit 配置"""
-    console.print("""
+    console.print(
+        """
 [bold cyan]🤖 欢迎使用 AI Toolkit![/bold cyan]
 
 让我帮你完成初始化配置...
-    """)
+    """
+    )
 
     # 1. 检查 Ollama
     console.print("\n[bold]1️⃣  检查 Ollama[/bold]")
-    ollama_url = Prompt.ask(
-        "Ollama 服务地址",
-        default="http://localhost:11434"
-    )
+    ollama_url = Prompt.ask("Ollama 服务地址", default="http://localhost:11434")
 
     console.print(f"检查连接: [dim]{ollama_url}[/dim]")
 
@@ -46,26 +46,14 @@ def init_command():
     # 2. 配置目录
     console.print("\n[bold]2️⃣  配置数据目录[/bold]")
 
-    data_dir = Prompt.ask(
-        "数据目录",
-        default=str(Path.home() / ".ai-toolkit" / "data")
-    )
-    models_dir = Prompt.ask(
-        "模型目录",
-        default=str(Path.home() / ".ai-toolkit" / "models")
-    )
+    data_dir = Prompt.ask("数据目录", default=str(Path.home() / ".ai-toolkit" / "data"))
+    models_dir = Prompt.ask("模型目录", default=str(Path.home() / ".ai-toolkit" / "models"))
 
     # 3. RAG 配置
     console.print("\n[bold]3️⃣  RAG 配置[/bold]")
 
-    chunk_size = Prompt.ask(
-        "文本块大小",
-        default="1000"
-    )
-    chunk_overlap = Prompt.ask(
-        "文本块重叠",
-        default="200"
-    )
+    chunk_size = Prompt.ask("文本块大小", default="1000")
+    chunk_overlap = Prompt.ask("文本块重叠", default="200")
 
     try:
         chunk_size = int(chunk_size)
@@ -98,17 +86,19 @@ def init_command():
     # 5. 显示配置摘要
     console.print("\n[bold green]✅ 配置完成![/bold green]\n")
 
-    console.print(Panel(
-        f"""[cyan]Ollama 地址:[/cyan] {config.ollama_base_url}
+    console.print(
+        Panel(
+            f"""[cyan]Ollama 地址:[/cyan] {config.ollama_base_url}
 [cyan]数据目录:[/cyan] {config.data_dir}
 [cyan]模型目录:[/cyan] {config.models_dir}
 [cyan]Prompt目录:[/cyan] {config.prompts_dir}
 [cyan]RAG目录:[/cyan] {config.rag_dir}
 [cyan]Chunk大小:[/cyan] {config.rag_chunk_size}
 [cyan]Chunk重叠:[/cyan] {config.rag_chunk_overlap}""",
-        title="📋 配置摘要",
-        border_style="cyan",
-    ))
+            title="📋 配置摘要",
+            border_style="cyan",
+        )
+    )
 
     # 6. 下一步提示
     console.print("\n[bold]🚀 下一步:[/bold]")

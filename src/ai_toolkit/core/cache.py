@@ -5,9 +5,9 @@
 import functools
 import hashlib
 import pickle
-from pathlib import Path
-from typing import Any, Optional, Callable
 import time
+from pathlib import Path
+from typing import Any, Callable, Optional
 
 
 def lru_cache_with_ttl(maxsize: int = 128, ttl: int = 3600):
@@ -28,9 +28,7 @@ def lru_cache_with_ttl(maxsize: int = 128, ttl: int = 3600):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             # 生成缓存键
-            key = hashlib.md5(
-                pickle.dumps((args, kwargs))
-            ).hexdigest()
+            key = hashlib.md5(pickle.dumps((args, kwargs))).hexdigest()
 
             # 检查缓存
             if key in cache:
@@ -166,6 +164,7 @@ def cached_disk(ttl: int = 3600):
     Returns:
         装饰器
     """
+
     def decorator(func: Callable) -> Callable:
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
