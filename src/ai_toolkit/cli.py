@@ -15,6 +15,7 @@ from ai_toolkit.commands.benchmark import benchmark_cli
 from ai_toolkit.commands.coding import coding_cli
 from ai-toolkit.commands.config_cmd import config_cli
 from ai_toolkit.commands.community import community_cli
+from ai_toolkit.commands.content import content_cli
 from ai_toolkit.commands.diag import diag_cli
 from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.feedback import feedback_cli
@@ -30,6 +31,7 @@ from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.rag_v2 import rag2_cli
 from ai_toolkit.commands.revenue import revenue_cli
 from ai_toolkit.commands.schedule_cmd import schedule_cli
+from ai_toolkit.commands.seo import seo_cli
 from ai_toolkit.commands.shell import shell
 from ai_toolkit.commands.system_cmd import system_cli
 from ai_toolkit.commands.template import template_cli
@@ -116,6 +118,8 @@ main.add_command(market_cli)
 main.add_command(revenue_cli)
 main.add_command(community_cli)
 main.add_command(feedback_cli)
+main.add_command(content_cli)
+main.add_command(seo_cli)
 
 
 if __name__ == "__main__":
