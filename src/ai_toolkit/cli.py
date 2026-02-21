@@ -19,17 +19,19 @@ from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.guide import examples, quickstart
 from ai_toolkit.commands.history import add_history, history_cli
 from ai_toolkit.commands.init import init_command
+from ai_toolkit.commands.market import market_cli
 from ai_toolkit.commands.monitor import monitor_cli
 from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.plugin import plugin_cli
 from ai_toolkit.commands.prompts import prompts_cli
 from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.rag_v2 import rag2_cli
+from ai_toolkit.commands.revenue import revenue_cli
 from ai_toolkit.commands.schedule_cmd import schedule_cli
 from ai_toolkit.commands.shell import shell
 from ai_toolkit.commands.system_cmd import system_cli
 from ai_toolkit.commands.template import template_cli
-from ai_toolkit.commands.test_cmd import test_cli
+from ai_toolkit.commands.test import test
 from ai_toolkit.commands.upgrade import upgrade_command
 from ai_toolkit.commands.webui import webui
 
@@ -107,7 +109,9 @@ main.add_command(shell)
 main.add_command(quickstart)
 main.add_command(examples)
 main.add_command(template_cli)
-main.add_command(test_cli)
+main.add_command(test)
+main.add_command(market_cli)
+main.add_command(revenue_cli)
 
 
 if __name__ == "__main__":
