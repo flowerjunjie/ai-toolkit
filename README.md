@@ -46,11 +46,94 @@ ai-toolkit rag query "什么是RAG？"
 ai-toolkit benchmark --model llama3.2 --prompts ./tests.json
 ```
 
+## 📦 安装
+
+### 使用 pip
+```bash
+pip install ai-toolkit
+```
+
+### 使用 Docker
+```bash
+docker-compose up -d
+```
+
+### 从源码安装
+```bash
+git clone https://github.com/yourusername/ai-toolkit.git
+cd ai-toolkit
+pip install -e .
+```
+
+## 🚀 快速开始
+
+### 前置要求
+- Python 3.8+
+- Ollama (用于运行本地模型)
+
+安装 Ollama:
+```bash
+curl -fsSL https://ollama.ai/install.sh | sh
+```
+
+### 初始化
+```bash
+ai-toolkit init
+```
+
+### 基本使用
+
+#### 模型管理
+```bash
+# 列出已安装的模型
+ai-toolkit models list
+
+# 下载一个模型
+ai-toolkit models pull llama3.2
+
+# 运行模型
+ai-toolkit models run llama3.2 "你好，介绍一下你自己"
+```
+
+#### Prompt 模板
+```bash
+# 列出所有模板
+ai-toolkit prompts list
+
+# 添加新模板
+ai-toolkit prompts add python-expert "你是一个专业的{language}开发者。请回答：{question}"
+
+# 使用模板
+ai-toolkit prompts run python-expert --vars language=Python,question="如何优化代码？"
+```
+
+#### RAG 知识库
+```bash
+# 创建知识库
+ai-toolkit rag create ./my-docs --name my-kb
+
+# 查询知识库
+ai-toolkit rag query my-kb "什么是RAG？"
+
+# 列出所有知识库
+ai-toolkit rag list
+```
+
+#### 性能测试
+```bash
+# 运行基准测试
+ai-toolkit benchmark run --model llama3.2 --iterations 5
+
+# 对比多个模型
+ai-toolkit benchmark compare llama3.2 mistral --prompt "介绍一下机器学习"
+```
+
 ## 📖 文档
 
 - [完整文档](https://ai-toolkit.readthedocs.io)
 - [API参考](https://ai-toolkit.readthedocs.io/api)
 - [贡献指南](CONTRIBUTING.md)
+- [更新日志](CHANGELOG.md)
 
 ## 🎯 路线图
 

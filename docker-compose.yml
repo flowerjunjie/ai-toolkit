@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  ai-toolkit:
+    build: .
+    container_name: ai-toolkit
+    volumes:
+      - ./data:/root/.ai-toolkit
+      - ./models:/root/.ollama/models
+    ports:
+      - "11434:11434"  # Ollama API
+      - "8000:8000"    # Web UI (未来)
+    environment:
+      - OLLAMA_BASE_URL=http://localhost:11434
+    restart: unless-stopped
+
+  # 可选：添加向量数据库（用于 RAG）
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: ai-toolkit-chroma
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma-data:/chroma/chroma
+    restart: unless-stopped
+
+volumes:
+  chroma-data:
