@@ -9,6 +9,7 @@ from rich.console import Console
 from rich.table import Table
 
 from ai_toolkit.commands.alias import alias_cli
+from ai_toolkit.commands.analytics import analytics_cli
 from ai_toolkit.commands.backup import backup_cli
 from ai_toolkit.commands.batch import batch
 from ai_toolkit.commands.benchmark import benchmark_cli
@@ -27,6 +28,7 @@ from ai_toolkit.commands.history import add_history, history_cli
 from ai_toolkit.commands.i18n import i18n_cli
 from ai_toolkit.commands.init import init_command
 from ai_toolkit.commands.market import market_cli
+from ai_toolkit.commands.ml import ml_cli
 from ai_toolkit.commands.monitor import monitor_cli
 from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.perf import perf_cli
@@ -136,6 +138,8 @@ main.add_command(docs_cli)
 main.add_command(qa_cli)
 main.add_command(cicd_cli)
 main.add_command(docker_cli)
+main.add_command(analytics_cli)
+main.add_command(ml_cli)
 
 
 if __name__ == "__main__":
