@@ -41,6 +41,7 @@ from ai_toolkit.commands.microservice import microservice_cli
 from ai_toolkit.commands.monitor import monitor_cli
 from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.orchestrate import orchestrate_cli
+from ai_toolkit.commands.payment import payment_cli
 from ai_toolkit.commands.perf import perf_cli
 from ai_toolkit.commands.pipeline import pipeline_cli
 from ai_toolkit.commands.plugin import plugin_cli
@@ -56,10 +57,12 @@ from ai_toolkit.commands.security import security_cli
 from ai_toolkit.commands.seo import seo_cli
 from ai_toolkit.commands.shell import shell
 from ai_toolkit.commands.stream import stream_cli
+from ai_toolkit.commands.subscription import subscription_cli
 from ai_toolkit.commands.system_cmd import system_cli
 from ai_toolkit.commands.team import team_cli
 from ai_toolkit.commands.template import template_cli
 from ai_toolkit.commands.test import test
+from ai_toolkit.commands.transaction import transaction_cli
 from ai_toolkit.commands.ux import ux_cli
 from ai_toolkit.commands.upgrade import upgrade_command
 from ai_toolkit.commands.web3 import web3_cli
@@ -176,6 +179,9 @@ main.add_command(bio_cli)
 main.add_command(quantum_cli)
 main.add_command(datalake_cli)
 main.add_command(commercial_cli)
+main.add_command(payment_cli)
+main.add_command(subscription_cli)
+main.add_command(transaction_cli)
 
 
 if __name__ == "__main__":
