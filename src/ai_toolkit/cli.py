@@ -17,6 +17,7 @@ from ai_toolkit.commands.benchmark import benchmark_cli
 from ai_toolkit.commands.bio import bio_cli
 from ai_toolkit.commands.cicd import cicd_cli
 from ai_toolkit.commands.cloud import cloud_cli
+from ai_toolkit.commands.cli_enhanced import cli_cli
 from ai_toolkit.commands.coding import coding_cli
 from ai_toolkit.commands.commercial import commercial_cli
 from ai_toolkit.commands.config_cmd import config_cli
@@ -57,7 +58,6 @@ from ai_toolkit.commands.quantum import quantum_cli
 from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.rag_v2 import rag2_cli
 from ai_toolkit.commands.revenue import revenue_cli
-from ai_toolkit.commands.sales import sales_cli
 from ai_toolkit.commands.schedule_cmd import schedule_cli
 from ai_toolkit.commands.security import security_cli
 from ai_toolkit.commands.seo import seo_cli
@@ -70,8 +70,6 @@ from ai_toolkit.commands.template import template_cli
 from ai_toolkit.commands.test import test
 from ai_toolkit.commands.transaction import transaction_cli
 from ai_toolkit.commands.ux import ux_cli
-from ai_toolkit.commands.upgrade import upgrade_command
-from ai_toolkit.commands.web3 import web3_cli
 from ai_toolkit.commands.webui import webui
 from ai_toolkit.commands.workflow import workflow_cli
 from ai_toolkit.commands.xr import xr_cli
@@ -194,6 +192,7 @@ main.add_command(monetization_cli)
 main.add_command(sales_cli)
 main.add_command(growth_cli)
 main.add_command(metrics_cli)
+main.add_command(cli_cli)
 
 
 if __name__ == "__main__":
