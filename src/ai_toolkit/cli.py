@@ -31,13 +31,16 @@ from ai_toolkit.commands.event import event_cli
 from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.feedback import feedback_cli
 from ai_toolkit.commands.gateway import gateway_cli
+from ai_toolkit.commands.growth import growth_cli
 from ai_toolkit.commands.guide import examples, quickstart
 from ai_toolkit.commands.history import add_history, history_cli
 from ai_toolkit.commands.i18n import i18n_cli
 from ai_toolkit.commands.init import init_command
 from ai_toolkit.commands.market import market_cli
+from ai_toolkit.commands.metrics import metrics_cli
 from ai_toolkit.commands.ml import ml_cli
 from ai_toolkit.commands.microservice import microservice_cli
+from ai_toolkit.commands.monetization import monetization_cli
 from ai_toolkit.commands.monitor import monitor_cli
 from ai_toolkit.commands.models import models_cli
 from ai_toolkit.commands.orchestrate import orchestrate_cli
@@ -54,6 +57,7 @@ from ai_toolkit.commands.quantum import quantum_cli
 from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.rag_v2 import rag2_cli
 from ai_toolkit.commands.revenue import revenue_cli
+from ai_toolkit.commands.sales import sales_cli
 from ai_toolkit.commands.schedule_cmd import schedule_cli
 from ai_toolkit.commands.security import security_cli
 from ai_toolkit.commands.seo import seo_cli
@@ -186,6 +190,10 @@ main.add_command(subscription_cli)
 main.add_command(transaction_cli)
 main.add_command(promote_cli)
 main.add_command(outreach_cli)
+main.add_command(monetization_cli)
+main.add_command(sales_cli)
+main.add_command(growth_cli)
+main.add_command(metrics_cli)
 
 
 if __name__ == "__main__":
