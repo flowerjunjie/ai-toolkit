@@ -25,10 +25,12 @@ from ai_toolkit.commands.config_cmd import config_cli
 from ai_toolkit.commands.community import community_cli
 from ai_toolkit.commands.content import content_cli
 from ai_toolkit.commands.datalake import datalake_cli
+from ai_toolkit.commands.dev_tools import dev_cli
 from ai_toolkit.commands.diag import diag_cli
 from ai_toolkit.commands.docs import docs_cli
 from ai_toolkit.commands.docker import docker_cli
 from ai_toolkit.commands.edge import edge_cli
+from ai_toolkit.commands.enterprise import enterprise_cli
 from ai_toolkit.commands.event import event_cli
 from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.feedback import feedback_cli
@@ -45,6 +47,7 @@ from ai_toolkit.commands.microservice import microservice_cli
 from ai_toolkit.commands.monetization import monetization_cli
 from ai_toolkit.commands.monitor import monitor_cli
 from ai_toolkit.commands.models import models_cli
+from ai_toolkit.commands.ops import ops_cli
 from ai_toolkit.commands.orchestrate import orchestrate_cli
 from ai_toolkit.commands.outreach import outreach_cli
 from ai_toolkit.commands.payment import payment_cli
@@ -199,7 +202,9 @@ main.add_command(growth_cli)
 main.add_command(metrics_cli)
 main.add_command(cli_cli)
 main.add_command(api_cli)
-main.add_command(cloud_cli)
+main.add_command(ops_cli)
+main.add_command(dev_cli)
+main.add_command(enterprise_cli)
 
 
 if __name__ == "__main__":
