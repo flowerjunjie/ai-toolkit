@@ -4,7 +4,7 @@
 
 import re
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional, Union
 
 
 class DocumentLoader:
@@ -16,7 +16,7 @@ class DocumentLoader:
 
     def load_directory(
         self,
-        directory: Path | str,
+        directory: Union[Path, str],
         extensions: Optional[List[str]] = None,
         max_size: int = 10 * 1024 * 1024,  # 10MB
     ) -> List[Dict[str, Any]]:
@@ -58,7 +58,7 @@ class DocumentLoader:
 
         return documents
 
-    def load_file(self, file_path: Path | str) -> Optional[Dict[str, Any]]:
+    def load_file(self, file_path: Union[Path, str]) -> Optional[Dict[str, Any]]:
         """
         加载单个文件
 

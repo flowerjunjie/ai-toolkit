@@ -3,7 +3,7 @@
 """
 
 from pathlib import Path
-from typing import Optional
+from typing import Optional, List, Dict, Any
 
 import httpx
 from pydantic import BaseModel, Field, validator
@@ -67,7 +67,7 @@ class ToolkitConfig(BaseModel):
         v.mkdir(parents=True, exist_ok=True)
         return v
 
-    def validate(self) -> list[str]:
+    def validate(self) -> List[str]:
         """
         验证配置
 

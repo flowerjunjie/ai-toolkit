@@ -15,7 +15,7 @@ class VectorStore:
 
     def __init__(
         self,
-        persist_directory: str | Path,
+        persist_directory: Union[str, Path],
         collection_name: str = "documents",
         embedding_model: str = "all-MiniLM-L6-v2",
     ):
