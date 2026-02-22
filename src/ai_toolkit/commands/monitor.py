@@ -36,7 +36,7 @@ def monitor_status():
 
     # 磁盘
     disk = psutil.disk_usage("/")
-    console.print(f"磁盘使用: [cyan]{disk.percent}%[/cyan] ({shutil.disk_usage("/").used // (1024**3)}GB / {shutil.disk_usage("/").total // (1024**3)}GB)")
+    console.print(f"磁盘使用: [cyan]{disk.percent}%[/cyan] ({disk.used // (1024**3)}GB / {disk.total // (1024**3)}GB)")
 
     # 网络
     net_io = psutil.net_io_counters()

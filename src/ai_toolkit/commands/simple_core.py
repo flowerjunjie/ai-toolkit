@@ -37,7 +37,7 @@ def test_command():
     console.print("\n✅ 测试通过")
 
 
-@simple_cli.command(name("status")
+@simple_cli.command(name="status")
 def status_command():
     """状态检查"""
     console.print(f"\n📊 系统状态\n")
@@ -48,7 +48,7 @@ def status_command():
     console.print("\n✅ 系统正常")
 
 
-@simple_cli.command(name("log")
+@simple_cli.command(name="log")
 def log_command():
     """系统日志"""
     console.print(f"\n📝 系统日志\n")
@@ -59,7 +59,7 @@ def log_command():
     console.print("\n✅ 日志记录完成")
 
 
-@simple_cli.command(name("info")
+@simple_cli.command(name="info")
 def info_command():
     """项目信息"""
     console.print(f"\n📋 项目信息\n")
@@ -72,7 +72,7 @@ def info_command():
     console.print("\n✅ 信息显示")
 
 
-@simple_cli.command(name("help")
+@simple_cli.command(name="help")
 def help_command():
     """帮助信息"""
     console.print(f"\n❓ 帮助信息\n")
