@@ -136,7 +136,7 @@ def batch_convert(format: str, input: str):
 @batch_cli.command(name="compress")
 @click.option("--input", "-i", help="输入目录")
 @click.option("--level", "-l", default="9", help="压缩级别")
-def batch_compress(input: level: str):
+def batch_compress(input: str, level: int):
     """批量压缩"""
     console.print(f"\n📦 批量压缩\n")
 
