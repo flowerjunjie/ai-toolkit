@@ -83,6 +83,8 @@ from ai_toolkit.commands.xr import xr_cli
 from ai_toolkit.commands.ai_advanced import ai_cli
 from ai_toolkit.commands.perf_advanced import perf_cli as perf_advanced_cli
 from ai_toolkit.commands.security_advanced import security_cli as security_advanced_cli
+from ai_toolkit.commands.data_processing import data_cli
+from ai_toolkit.commands.ml_workflow import mlflow_cli
 
 console = Console()
 
@@ -211,6 +213,8 @@ main.add_command(enterprise_cli)
 main.add_command(ai_cli)
 main.add_command(perf_advanced_cli)
 main.add_command(security_advanced_cli)
+main.add_command(data_cli)
+main.add_command(mlflow_cli)
 
 
 if __name__ == "__main__":
