@@ -375,7 +375,7 @@ def forecast_volatility(method: str):
 @click.option("--symbol2", "-s2", help="股票2")
 def pairs_trading(symbol1: str, symbol2: str):
     """配对交易"""
-    console.print(f"\n📊 配对交易\n"
+    console.print(f"\n📊 配对交易\n")
 
     console.print(f"配对: {symbol1 or 'XLE'} - {symbol2 or 'XLF'}")
 

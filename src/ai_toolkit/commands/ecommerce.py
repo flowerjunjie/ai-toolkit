@@ -49,7 +49,7 @@ def create_store(name: str, platform: str):
 
 
 @ecommerce_cli.command(name="product")
-@click.option("--name", "-n", help="产品名称"
+@click.option("--name", "-n", help="产品名称")
 @click.option("--price", "-p", default="99.99", help="产品价格")
 def add_product(name: str, price: str):
     """添加产品"""
@@ -78,7 +78,7 @@ def add_product(name: str, price: str):
     console.print("\n✅ 产品已添加")
 
 
-@ecommerce_cli.command(name="inventory"
+@ecommerce_cli.command(name="inventory")
 @click.option("--product", "-p", help="产品ID")
 def manage_inventory(product: str):
     """库存管理"""
@@ -110,7 +110,7 @@ def manage_inventory(product: str):
     console.print("\n✅ 库存已更新")
 
 
-@ecommerce_cli.command(name="order"
+@ecommerce_cli.command(name="order")
 @click.option("--id", "-i", help="订单ID")
 def process_order(id: str):
     """处理订单"""
@@ -141,7 +141,7 @@ def process_order(id: str):
     console.print("\n✅ 订单已处理")
 
 
-@ecommerce_cli.command(name="payment"
+@ecommerce_cli.command(name="payment")
 @click.option("--method", "-m", default("stripe", help="支付方式")
 def payment_integration(method: str):
     """支付集成"""
@@ -175,7 +175,7 @@ def payment_integration(method: str):
     console.print("\n✅ 支付已集成")
 
 
-@ecommerce_cli.command(name="shipping"
+@ecommerce_cli.command(name="shipping")
 @click.option("--provider", "-p", default("fedex", help="物流提供商")
 def shipping_management(provider: str):
     """物流管理"""
@@ -204,7 +204,7 @@ def shipping_management(provider: str):
     console.print("\n✅ 物流已配置")
 
 
-@ecommerce_cli.command(name="customer"
+@ecommerce_cli.command(name="customer")
 @click.option("--segment", "-s", help="客户细分")
 def customer_management(segment: str):
     """客户管理"""
@@ -238,7 +238,7 @@ def customer_management(segment: str):
     console.print("\n✅ 客户已管理")
 
 
-@ecommerce_cli.command(name="marketing"
+@ecommerce_cli.command(name="marketing")
 @click.option("--channel", "-c", default("email", help="营销渠道")
 def digital_marketing(channel: str):
     """数字营销"""
@@ -274,7 +274,7 @@ def digital_marketing(channel: str):
     console.print("\n✅ 营销已执行")
 
 
-@ecommerce_cli.command(name="seo"
+@ecommerce_cli.command(name="seo")
 @click.option("--type", "-t", default("onpage", help="SEO类型")
 def seo_optimization(type: str):
     """SEO优化"""
@@ -309,7 +309,7 @@ def seo_optimization(type: str):
     console.print("\n✅ SEO已优化")
 
 
-@ecommerce_cli.command(name="analytics"
+@ecommerce_cli.command(name="analytics")
 @click.option("--type", "-t", default("traffic", help="分析类型")
 def store_analytics(type: str):
     """店铺分析"""
@@ -380,7 +380,7 @@ def create_promotion(type: str):
     console.print("\n✅ 促销已创建")
 
 
-@ecommerce_cli.command(name="review"
+@ecommerce_cli.command(name="review")
 @click.option("--product", "-p", help="产品ID")
 def manage_reviews(product: str):
     """管理评价"""
@@ -408,7 +408,7 @@ def manage_reviews(product: str):
     console.print("\n✅ 评价已管理")
 
 
-@ecommerce_cli.command(name="affiliate"
+@ecommerce_cli.command(name="affiliate")
 @click.option("--program", "-p", help="联盟计划")
 def affiliate_marketing(program: str):
     """联盟营销"""
@@ -442,7 +442,7 @@ def affiliate_marketing(program: str):
     console.print("\n✅ 联盟已配置")
 
 
-@ecommerce_cli.command(name="abandonment"
+@ecommerce_cli.command(name="abandonment")
 @click.option("--type", "-t", default("cart", help="放弃类型")
 def recovery_cart(type: str):
     """购物车挽回"""
@@ -475,7 +475,7 @@ def recovery_cart(type: str):
     console.print("\n✅ 挽回已配置")
 
 
-@ecommerce_cli.command(name="loyalty"
+@ecommerce_cli.command(name="loyalty")
 @click.option("--program", "-p", help="忠诚度计划")
 def loyalty_program(program: str):
     """忠诚度计划"""

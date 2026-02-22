@@ -18,7 +18,7 @@ def bio_cli():
     pass
 
 
-@bio_cli.command(name="sequence"
+@bio_cli.command(name="sequence")
 @click.option("--file", "-f", required=True, help="序列文件")
 def analyze_sequence(file: str):
     """分析序列"""
@@ -34,7 +34,7 @@ def analyze_sequence(file: str):
     console.print("\n✅ 分析完成")
 
 
-@bio_cli.command(name="align"
+@bio_cli.command(name="align")
 @click.option("--method", "-m", type=click.Choice(["global", "local"]), help="比对方法")
 def align_sequences(method: str):
     """序列比对"""
@@ -50,7 +50,7 @@ def align_sequences(method: str):
     console.print("\n✅ 比对完成")
 
 
-@bio_cli.command(name="blast"
+@bio_cli.command(name="blast")
 @click.option("--query", "-q", help="查询序列")
 def run_blast(query: str):
     """BLAST搜索"""
@@ -86,7 +86,7 @@ def build_tree():
     console.print("\n✅ 树已构建")
 
 
-@bio_cli.command(name="translate"
+@bio_cli.command(name="translate")
 @click.option("--frame", "-f", default=1, help="读码框")
 def translate_dna(frame: int):
     """翻译DNA"""

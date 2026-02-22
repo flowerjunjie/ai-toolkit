@@ -62,7 +62,7 @@ def analyze_soil(ph: float, moisture: int):
 @click.option("--location", "-l", help="位置")
 def agri_weather(location: str):
     """农业气象"""
-    console.print(f"\n🌤️ 农业气象\n"
+    console.print(f"\n🌤️ 农业气象\n")
 
     console.print(f"位置: {location or '北京郊区'}")
 
@@ -233,7 +233,7 @@ def drone_operation(task: str):
 @click.option("--method", "-m", default="combine", help="收获方法")
 def harvest_plan(crop: str, method: str):
     """收获计划"""
-    console.print(f"\n🌾 收获计划\n"
+    console.print(f"\n🌾 收获计划\n")
 
     console.print(f"作物: {crop or '小麦'}")
     console.print(f"方法: {method}")

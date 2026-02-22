@@ -161,7 +161,7 @@ def show_chat_ui():
     console.print("\n✅ Chat界面已显示")
 
 
-@ui_cli.command(name="logs"
+@ui_cli.command(name="logs")
 @click.option("--lines", "-l", default=50, help="显示行数")
 def show_logs(lines: int):
     """显示日志"""
@@ -237,7 +237,7 @@ def show_settings():
     console.print("\n✅ 设置已显示")
 
 
-@ui_cli.command(name="export"
+@ui_cli.command(name="export")
 @click.option("--format", "-f", default="json", help="导出格式")
 def export_data(format: str):
     """导出数据"""
@@ -363,7 +363,7 @@ def generate_weekly(week: int):
     console.print("\n✅ 周报已生成")
 
 
-@report_cli.command(name="monthly"
+@report_cli.command(name="monthly")
 @click.option("--month", "-m", help="月份")
 def generate_monthly(month: int):
     """生成月报"""

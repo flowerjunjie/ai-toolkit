@@ -16,8 +16,8 @@ def edtech_cli():
     pass
 
 
-@edtech_cli.command(name="course"
-@click.option("--subject", "-s", help="课程科目"
+@edtech_cli.command(name="course")
+@click.option("--subject", "-s", help="课程科目")
 @click.option("--level", "-l", default("beginner", help="难度级别")
 def create_course(subject: str, level: str):
     """创建课程"""
@@ -56,8 +56,8 @@ def create_course(subject: str, level: str):
     console.print("\n✅ 课程已创建")
 
 
-@edtech_cli.command(name="lesson"
-@click.option("--topic", "-t", help="课程主题"
+@edtech_cli.command(name="lesson")
+@click.option("--topic", "-t", help="课程主题")
 @click.option("--duration", "-d", default=30, help="时长(分钟)")
 def create_lesson(topic: str, duration: int):
     """创建课程"""
@@ -88,7 +88,7 @@ def create_lesson(topic: str, duration: int):
     console.print("\n✅ 课程已创建")
 
 
-@edtech_cli.command(name="quiz"
+@edtech_cli.command(name="quiz")
 @click.option("--type", "-t", default="multiple", help="题型")
 def create_quiz(type: str):
     """创建测验"""
@@ -119,7 +119,7 @@ def create_quiz(type: str):
     console.print("\n✅ 测验已创建")
 
 
-@edtech_cli.command(name="assignment"
+@edtech_cli.command(name="assignment")
 @click.option("--type", "-t", default("code", help="作业类型")
 def create_assignment(type: str):
     """创建作业"""
@@ -149,7 +149,7 @@ def create_assignment(type: str):
     console.print("\n✅ 作业已创建")
 
 
-@edtech_cli.command(name="exam"
+@edtech_cli.command(name="exam")
 @click.option("--type", "-t", default("final", help="考试类型")
 def create_exam(type: str):
     """创建考试"""
@@ -177,7 +177,7 @@ def create_exam(type: str):
     console.print("\n✅ 考试已创建")
 
 
-@edtech_cli.command(name="grade"
+@edtech_cli.command(name="grade")
 @click.option("--type", "-t", default("auto", help="批改类型")
 def auto_grade(type: str):
     """自动批改"""
@@ -205,7 +205,7 @@ def auto_grade(type: str):
     console.print("\n✅ 批改完成")
 
 
-@edtech_cli.command(name="progress"
+@edtech_cli.command(name="progress")
 @click.option("--student", "-s", help="学生ID")
 def track_progress(student: str):
     """学习进度"""
@@ -238,7 +238,7 @@ def track_progress(student: str):
     console.print("\n✅ 进度已追踪")
 
 
-@edtech_cli.command(name="certificate"
+@edtech_cli.command(name="certificate")
 @click.option("--type", "-t", default("completion", help="证书类型")
 def generate_certificate(type: str):
     """生成证书"""
@@ -268,7 +268,7 @@ def generate_certificate(type: str):
     console.print("\n✅ 证书已生成")
 
 
-@edtech_cli.command(name="classroom"
+@edtech_cli.command(name="classroom")
 @click.option("--type", "-t", default("virtual", help="教室类型")
 def manage_classroom(type: str):
     """管理教室"""
@@ -295,7 +295,7 @@ def manage_classroom(type: str):
     console.print("\n✅ 教室已管理")
 
 
-@edtech_cli.command(name="library"
+@edtech_cli.command(name="library")
 @click.option("--type", "-t", help="资源类型")
 def resource_library(type: str):
     """资源库"""
@@ -324,7 +324,7 @@ def resource_library(type: str):
     console.print("\n✅ 资源已加载")
 
 
-@edtech_cli.command(name="study"
+@edtech_cli.command(name="study")
 @click.option("--plan", "-p", help="学习计划")
 def study_plan(plan: str):
     """学习计划"""
@@ -352,7 +352,7 @@ def study_plan(plan: str):
     console.print("\n✅ 计划已生成")
 
 
-@edtech_cli.command(name="tutor"
+@edtech_cli.command(name="tutor")
 @click.option("--subject", "-s", help="辅导科目")
 def ai_tutor(subject: str):
     """AI辅导"""
@@ -409,7 +409,7 @@ def discussion_forum(type: str):
     console.print("\n✅ 论坛已加载")
 
 
-@edtech_cli.command(name="analytics"
+@edtech_cli.command(name="analytics")
 @click.option("--type", "-t", default("learning", help="分析类型")
 def learning_analytics(type: str):
     """学习分析"""
@@ -443,7 +443,7 @@ def learning_analytics(type: str):
     console.print("\n✅ 分析完成")
 
 
-@edtech_cli.command(name="gamification"
+@edtech_cli.command(name="gamification")
 @click.option("--feature", "-f", help="游戏化功能")
 def gamification(feature: str):
     """游戏化学习"""
@@ -476,7 +476,7 @@ def gamification(feature: str):
     console.print("\n✅ 游戏化已配置")
 
 
-@edtech_cli.command(name="mobile"
+@edtech_cli.command(name="mobile")
 @click.option("--feature", "-f", help="移动功能")
 def mobile_learning(feature: str):
     """移动学习"""

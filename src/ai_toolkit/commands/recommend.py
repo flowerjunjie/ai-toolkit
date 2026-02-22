@@ -24,7 +24,7 @@ def recommend_cli():
 @click.option("--items", "-i", default=5000, help="物品数量")
 def collaborative_filtering(users: int, items: int):
     """协同过滤推荐"""
-    console.print(f"\n👥 协同过滤推荐\n"
+    console.print(f"\n👥 协同过滤推荐\n")
 
     console.print(f"用户: {users}")
     console.print(f"物品: {items}")
@@ -54,7 +54,7 @@ def collaborative_filtering(users: int, items: int):
 @click.option("--features", "-f", default=100, help="特征数量")
 def content_based(features: int):
     """基于内容的推荐"""
-    console.print(f"\n📄 基于内容的推荐\n"
+    console.print(f"\n📄 基于内容的推荐\n")
 
     console.print(f"特征: {features}")
 
@@ -135,7 +135,7 @@ def matrix_factorization(factors: int, epochs: int):
 @click.option("--layers", "-l", default="256,128,64", help="网络层数")
 def neural_cf(layers: str):
     """神经网络协同过滤"""
-    console.print(f"\n🧠 神经网络协同过滤\n"
+    console.print(f"\n🧠 神经网络协同过滤\n")
 
     console.print(f"层数: {layers}")
 
@@ -163,7 +163,7 @@ def neural_cf(layers: str):
 @click.option("--model", "-m", default="ncf", help="模型类型")
 def deep_learning(model: str):
     """深度学习推荐"""
-    console.print(f"\n🔥 深度学习推荐\n"
+    console.print(f"\n🔥 深度学习推荐\n")
 
     console.print(f"模型: {model}")
 
@@ -213,7 +213,7 @@ def session_based(window: int):
 @click.option("--features", "-f", default=50, help="上下文特征")
 def context_aware(features: int):
     """上下文感知推荐"""
-    console.print(f"\n🎯 上下文感知推荐\n"
+    console.print(f"\n🎯 上下文感知推荐\n")
 
     console.print(f"特征: {features}")
 
@@ -265,7 +265,7 @@ def cold_start(strategy: str):
 @click.option("--lambda", "-l", default=0.5, help="多样性权重")
 def diversity_optimize(lambda_param: float):
     """推荐多样性优化"""
-    console.print(f"\n🌈 推荐多样性优化\n"
+    console.print(f"\n🌈 推荐多样性优化\n")
 
     console.print(f"权重: {lambda_param}")
 
@@ -292,7 +292,7 @@ def diversity_optimize(lambda_param: float):
 @click.option("--port", "-p", default=9000, help="服务端口")
 def realtime_recommend(port: int):
     """实时推荐服务"""
-    console.print(f"\n⚡ 实时推荐服务\n"
+    console.print(f"\n⚡ 实时推荐服务\n")
 
     console.print(f"端口: {port}")
 
@@ -338,7 +338,7 @@ def batch_recommend(input: str, output: str):
 @click.option("--metrics", "-m", default="precision,recall,f1", help="评估指标")
 def evaluate_recommend(metrics: str):
     """推荐系统评估"""
-    console.print(f"\n📊 推荐系统评估\n"
+    console.print(f"\n📊 推荐系统评估\n")
 
     console.print(f"指标: {metrics}")
 
@@ -364,7 +364,7 @@ def evaluate_recommend(metrics: str):
 @click.option("--traffic", "-t", default=50, help="流量分配")
 def ab_test(variants: int, traffic: int):
     """A/B测试"""
-    console.print(f"\n🧪 A/B测试\n"
+    console.print(f"\n🧪 A/B测试\n")
 
     console.print(f"变体: {variants}")
     console.print(f"流量: {traffic}%")
@@ -413,7 +413,7 @@ def explain_recommend(item: str, user: str):
 @click.option("--method", "-m", default="ipw", help="去偏方法")
 def remove_bias(method: str):
     """推荐去偏"""
-    console.print(f"\n⚖️ 推荐去偏\n"
+    console.print(f"\n⚖️ 推荐去偏\n")
 
     console.print(f"方法: {method}")
 
@@ -441,7 +441,7 @@ def remove_bias(method: str):
 @click.option("--algorithm", "-a", default="ngcf", help="图算法")
 def graph_recommend(algorithm: str):
     """图神经网络推荐"""
-    console.print(f"\n🕸️ 图神经网络推荐\n"
+    console.print(f"\n🕸️ 图神经网络推荐\n")
 
     console.print(f"算法: {algorithm}")
 
@@ -468,7 +468,7 @@ def graph_recommend(algorithm: str):
 @click.option("--dataset", "-d", help="数据集")
 def auto_ml(dataset: str):
     """AutoML推荐"""
-    console.print(f"\n🤖 AutoML推荐\n"
+    console.print(f"\n🤖 AutoML推荐\n")
 
     console.print(f"数据集: {dataset or 'movielens'}")
 
@@ -515,7 +515,7 @@ def recommend_search(query: str, size: int):
 @click.option("--window", "-w", default=7, help="时间窗口(天)")
 def trend_detection(window: int):
     """趋势检测"""
-    console.print(f"\n📈 趋势检测\n"
+    console.print(f"\n📈 趋势检测\n")
 
     console.print(f"窗口: {window}天")
 
@@ -539,7 +539,7 @@ def trend_detection(window: int):
 @click.option("--context", "-c", help="上下文信息")
 def personalize(user: str, context: str):
     """个性化推荐"""
-    console.print(f"\n👤 个性化推荐\n"
+    console.print(f"\n👤 个性化推荐\n")
 
     console.print(f"用户: {user or 'user123'}")
     console.print(f"上下文: {context or 'evening,home'}")
@@ -563,7 +563,7 @@ def personalize(user: str, context: str):
 @click.option("--image", "-i", help="图片路径")
 def multimodal_recommend(text: str, image: str):
     """多模态推荐"""
-    console.print(f"\n🎭 多模态推荐\n"
+    console.print(f"\n🎭 多模态推荐\n")
 
     console.print(f"文本: {text or '红色连衣裙'}")
     console.print(f"图片: {image or 'dress.jpg'}")
@@ -591,7 +591,7 @@ def multimodal_recommend(text: str, image: str):
 @click.option("--length", "-l", default=10, help="序列长度")
 def sequential_recommend(length: int):
     """序列推荐"""
-    console.print(f"\n🔄 序列推荐\n"
+    console.print(f"\n🔄 序列推荐\n")
 
     console.print(f"长度: {length}")
 
@@ -619,7 +619,7 @@ def sequential_recommend(length: int):
 @click.option("--models", "-m", help="模型列表")
 def ensemble_recommend(models: str):
     """集成推荐"""
-    console.print(f"\n🔗 集成推荐\n"
+    console.print(f"\n🔗 集成推荐\n")
 
     console.print(f"模型: {models or 'cf,mf,ncf'}")
 
@@ -646,7 +646,7 @@ def ensemble_recommend(models: str):
 @recommend_cli.command(name="metrics")
 def recommend_metrics():
     """推荐指标"""
-    console.print(f"\n📊 推荐指标\n"
+    console.print(f"\n📊 推荐指标\n")
 
     console.print("预测准确度:")
     console.print("  RMSE: 0.68")

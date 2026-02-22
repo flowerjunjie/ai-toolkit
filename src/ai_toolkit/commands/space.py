@@ -181,7 +181,7 @@ def star_catalog(catalog: str, magnitude: int):
 @click.option("--type", "-t", default="spiral", help="星系类型")
 def galaxy_info(type: str):
     """星系信息"""
-    console.print(f"\n🌌 星系\n"
+    console.print(f"\n🌌 星系\n")
 
     console.print(f"类型: {type}")
 
@@ -210,7 +210,7 @@ def galaxy_info(type: str):
 @click.option("--name", "-n", help="星座名称")
 def constellation_info(name: str):
     """星座信息"""
-    console.print(f"\n✨ 星座\n"
+    console.print(f"\n✨ 星座\n")
 
     console.print(f"星座: {name or 'Orion'}")
 
@@ -331,7 +331,7 @@ def solar_eclipse(year: int):
 @click.option("--exposure", "-e", default=30, help="曝光时间")
 def telescope_control(target: str, exposure: int):
     """望远镜控制"""
-    console.print(f"\n🔭 望远镜控制\n"
+    console.print(f"\n🔭 望远镜控制\n")
 
     console.print(f"目标: {target or 'M31 Andromeda'}")
     console.print(f"曝光: {exposure}秒")

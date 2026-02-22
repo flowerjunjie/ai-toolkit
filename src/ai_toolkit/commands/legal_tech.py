@@ -16,7 +16,7 @@ def legal_tech_cli():
     pass
 
 
-@legal_tech_cli.command(name="contract"
+@legal_tech_cli.command(name="contract")
 @click.option("--type", "-t", default("employment", help="合同类型")
 def generate_contract(type: str):
     """生成合同"""
@@ -55,7 +55,7 @@ def generate_contract(type: str):
     console.print("\n✅ 合同已生成")
 
 
-@legal_tech_cli.command(name="review"
+@legal_tech_cli.command(name="review")
 @click.option("--document", "-d", help="文档路径")
 def legal_review(document: str):
     """法律审查"""
@@ -87,7 +87,7 @@ def legal_review(document: str):
     console.print("\n✅ 审查完成")
 
 
-@legal_tech_cli.command(name="search"
+@legal_tech_cli.command(name="search")
 @click.option("--query", "-q", help="搜索查询")
 @click.option("--database", "-d", default("all", help="法律数据库")
 def legal_search(query: str, database: str):
@@ -122,7 +122,7 @@ def legal_search(query: str, database: str):
     console.print("\n✅ 检索完成")
 
 
-@legal_tech_cli.command(name="template"
+@legal_tech_cli.command(name="template")
 @click.option("--category", "-c", help="合同类别")
 def legal_template(category: str):
     """合同模板"""
@@ -152,7 +152,7 @@ def legal_template(category: str):
     console.print("\n✅ 模板已加载")
 
 
-@legal_tech_cli.command(name="consultation"
+@legal_tech_cli.command(name="consultation")
 @click.option("--type", "-t", default("general", help="咨询类型")
 def legal_consultation(type: str):
     """法律咨询"""
@@ -184,7 +184,7 @@ def legal_consultation(type: str):
     console.print("\n✅ 咨询完成")
 
 
-@legal_tech_cli.command(name="ip"
+@legal_tech_cli.command(name="ip")
 @click.option("--type", "-t", help="知识产权类型")
 def ip_protection(type: str):
     """知识产权保护"""
@@ -220,7 +220,7 @@ def ip_protection(type: str):
     console.print("\n✅ 保护已配置")
 
 
-@legal_tech_cli.command(name="dispute"
+@legal_tech_cli.command(name="dispute")
 @click.option("--type", "-t", default("mediation", help="纠纷解决方式")
 def dispute_resolution(type: str):
     """纠纷解决"""
@@ -256,7 +256,7 @@ def dispute_resolution(type: str):
     console.print("\n✅ 解决方案已生成")
 
 
-@legal_tech_cli.command(name="compliance"
+@legal_tech_cli.command(name="compliance")
 @click.option("--industry", "-i", help="行业类型")
 def compliance_check(industry: str):
     """合规检查"""
@@ -290,7 +290,7 @@ def compliance_check(industry: str):
     console.print("\n✅ 检查完成")
 
 
-@legal_tech_cli.command(name="filing"
+@legal_tech_cli.command(name="filing")
 @click.option("--type", "-t", help="文件类型")
 def document_filing(type: str):
     """文件归档"""
@@ -320,7 +320,7 @@ def document_filing(type: str):
     console.print("\n✅ 归档完成")
 
 
-@legal_tech_cli.command(name="signature"
+@legal_tech_cli.command(name="signature")
 @click.option("--type", "-t", default("electronic", help="签名类型")
 def digital_signature(type: str):
     """数字签名"""
@@ -356,7 +356,7 @@ def digital_signature(type: str):
     console.print("\n✅ 签名完成")
 
 
-@legal_tech_cli.command(name="smart"
+@legal_tech_cli.command(name="smart")
 @click.option("--type", "-t", default("erc20", help="智能合约类型")
 def smart_contract(type: str):
     """智能合约"""
@@ -395,7 +395,7 @@ def smart_contract(type: str):
     console.print("\n✅ 合约已部署")
 
 
-@legal_tech_cli.command(name="evidence"
+@legal_tech_cli.command(name="evidence")
 @click.option("--type", "-t", help="证据类型")
 def evidence_management(type: str):
     """证据管理"""
@@ -431,7 +431,7 @@ def evidence_management(type: str):
     console.print("\n✅ 管理完成")
 
 
-@legal_tech_cli.command(name="court"
+@legal_tech_cli.command(name="court")
 @click.option("--type", "-t", default("civil", help="法院类型")
 def court_filing(type: str):
     """网上立案"""
@@ -466,7 +466,7 @@ def court_filing(type: str):
     console.print("\n✅ 立案申请已提交")
 
 
-@legal_tech_cli.command(name="notarization"
+@legal_tech_cli.command(name="notarization")
 @click.option("--type", "-t", help="公证类型")
 def notarization_service(type: str):
     """公证服务"""
@@ -500,7 +500,7 @@ def notarization_service(type: str):
     console.print("\n✅ 公证完成")
 
 
-@legal_tech_cli.command(name="training"
+@legal_tech_cli.command(name="training")
 @click.option("--topic", "-t", help="培训主题")
 def legal_training(topic: str):
     """法律培训"""

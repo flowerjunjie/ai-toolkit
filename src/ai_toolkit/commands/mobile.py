@@ -147,7 +147,7 @@ def data_storage(type: str):
     console.print("\n✅ 存储已配置")
 
 
-@mobile_cli.command(name="auth"
+@mobile_cli.command(name="auth")
 @click.option("--method", "-m", default("jwt", help="认证方式")
 def authentication(method: str):
     """用户认证"""
@@ -327,7 +327,7 @@ def sensor_access(type: str):
     console.print("\n✅ 传感器已访问")
 
 
-@mobile_cli.command(name="animation"
+@mobile_cli.command(name="animation")
 @click.option("--type", "-t", default("view", help="动画类型")
 def animations(type: str):
     """动画效果"""
@@ -443,7 +443,7 @@ def build_app(platform: str, mode: str):
     console.print("\n✅ 应用已构建")
 
 
-@mobile_cli.command(name="deploy"
+@mobile_cli.command(name="deploy")
 @click.option("--platform", "-p", default("play_store", help="发布平台")
 def deploy_app(platform: str):
     """发布应用"""
@@ -479,7 +479,7 @@ def deploy_app(platform: str):
     console.print("\n✅ 应用已发布")
 
 
-@mobile_cli.command(name="analyze"
+@mobile_cli.command(name="analyze")
 @click.option("--type", "-t", default("performance", help="分析类型")
 def app_analytics(type: str):
     """应用分析"""

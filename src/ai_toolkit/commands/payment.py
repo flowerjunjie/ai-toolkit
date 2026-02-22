@@ -118,7 +118,7 @@ def setup_wechat():
     console.print("\n✅ 微信支付已集成")
 
 
-@payment_cli.command(name="transaction"
+@payment_cli.command(name="transaction")
 @click.option("--id", help="交易ID")
 def process_transaction(id: str):
     """交易处理"""
@@ -136,7 +136,7 @@ def process_transaction(id: str):
     console.print("\n✅ 交易已处理")
 
 
-@payment_cli.command(name="refund"
+@payment_cli.command(name="refund")
 @click.option("--amount", help="退款金额")
 def process_refund(amount: str):
     """退款处理"""
@@ -186,7 +186,7 @@ def subscription_cli():
     pass
 
 
-@subscription_cli.command(name="create"
+@subscription_cli.command(name="create")
 @click.option("--plan", "-p", help="订阅计划")
 def create_subscription(plan: str):
     """创建订阅"""
@@ -202,7 +202,7 @@ def create_subscription(plan: str):
     console.print("\n✅ 订阅已创建")
 
 
-@subscription_cli.command(name="cancel"
+@subscription_cli.command(name="cancel")
 @click.option("--id", help="订阅ID")
 def cancel_subscription(id: str):
     """取消订阅"""
@@ -273,7 +273,7 @@ def transaction_cli():
     pass
 
 
-@transaction_cli.command(name="list"
+@transaction_cli.command(name="list")
 @click.option("--limit", "-l", default=10, help="显示数量")
 def list_transactions(limit: int):
     """列出交易"""

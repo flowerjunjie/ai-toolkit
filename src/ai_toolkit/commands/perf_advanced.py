@@ -24,7 +24,7 @@ def perf_cli():
 @click.option("--duration", "-d", default=60, help="持续时间")
 def profile_performance(target: str, duration: int):
     """性能分析"""
-    console.print(f"\n📊 性能分析\n"
+    console.print(f"\n📊 性能分析\n")
 
     console.print(f"目标: {target or 'app'}")
     console.print(f"持续时间: {duration}秒")
@@ -55,7 +55,7 @@ def profile_performance(target: str, duration: int):
 @click.option("--iterations", "-i", default=100, help="迭代次数")
 def benchmark_model(model: str, iterations: int):
     """模型基准测试"""
-    console.print(f"\n⚡ 模型基准测试\n"
+    console.print(f"\n⚡ 模型基准测试\n")
 
     console.print(f"模型: {model or 'Llama-2-7B'}")
     console.print(f"迭代: {iterations}次")
@@ -86,7 +86,7 @@ def benchmark_model(model: str, iterations: int):
 @click.option("--level", "-l", default="auto", help="优化级别")
 def optimize_performance(target: str, level: str):
     """性能优化"""
-    console.print(f"\n🚀 性能优化\n"
+    console.print(f"\n🚀 性能优化\n")
 
     console.print(f"目标: {target or 'all'}")
     console.print(f"级别: {level}")
@@ -116,7 +116,7 @@ def optimize_performance(target: str, level: str):
 @click.option("--clear", "-c", is_flag=True, help="清除缓存")
 def manage_cache(enable: bool, clear: bool):
     """缓存管理"""
-    console.print(f"\n💾 缓存管理\n"
+    console.print(f"\n💾 缓存管理\n")
 
     if enable:
         console.print("启用缓存:")
@@ -144,7 +144,7 @@ def manage_cache(enable: bool, clear: bool):
 @click.option("--workers", "-w", default=4, help="工作进程")
 def parallel_execute(tasks: str, workers: int):
     """并行执行"""
-    console.print(f"\n⚡ 并行执行\n"
+    console.print(f"\n⚡ 并行执行\n")
 
     console.print(f"任务: {tasks or 'tasks.json'}")
     console.print(f"工作进程: {workers}")
@@ -167,7 +167,7 @@ def parallel_execute(tasks: str, workers: int):
 @click.option("--size", "-s", default=32, help="批次大小")
 def batch_process(input: str, size: int):
     """批量处理"""
-    console.print(f"\n📦 批量处理\n"
+    console.print(f"\n📦 批量处理\n")
 
     console.print(f"输入: {input or 'input.jsonl'}")
     console.print(f"批次大小: {size}")
@@ -189,7 +189,7 @@ def batch_process(input: str, size: int):
 @click.option("--model", "-m", help="模型名称")
 def stream_inference(model: str):
     """流式推理"""
-    console.print(f"\n🌊 流式推理\n"
+    console.print(f"\n🌊 流式推理\n")
 
     console.print(f"模型: {model or 'Llama-2-7B'}")
 
@@ -210,7 +210,7 @@ def stream_inference(model: str):
 @click.option("--tasks", "-t", help="任务列表")
 def async_execute(tasks: str):
     """异步执行"""
-    console.print(f"\n⚡ 异步执行\n"
+    console.print(f"\n⚡ 异步执行\n")
 
     console.print(f"任务: {tasks or 'tasks.json'}")
 
@@ -232,7 +232,7 @@ def async_execute(tasks: str):
 @click.option("--memory", "-m", help="GPU内存")
 def gpu_acceleration(enable: bool, memory: str):
     """GPU加速"""
-    console.print(f"\n🎮 GPU加速\n"
+    console.print(f"\n🎮 GPU加速\n")
 
     if enable:
         console.print("启用GPU:")
@@ -253,7 +253,7 @@ def gpu_acceleration(enable: bool, memory: str):
 @click.option("--strategy", "-s", help="分布策略")
 def distributed_inference(nodes: int, strategy: str):
     """分布式推理"""
-    console.print(f"\n🌐 分布式推理\n"
+    console.print(f"\n🌐 分布式推理\n")
 
     console.print(f"节点: {nodes}")
     console.print(f"策略: {strategy or 'tensor-parallel'}")
@@ -275,7 +275,7 @@ def distributed_inference(nodes: int, strategy: str):
 @click.option("--metrics", "-m", is_flag=True, help="显示指标")
 def performance_monitor(metrics: bool):
     """性能监控"""
-    console.print(f"\n📊 性能监控\n"
+    console.print(f"\n📊 性能监控\n")
 
     if metrics:
         console.print("实时指标:")
@@ -303,7 +303,7 @@ def performance_monitor(metrics: bool):
 @click.option("--period", "-p", default="daily", help="报告周期")
 def performance_report(period: str):
     """性能报告"""
-    console.print(f"\n📊 性能报告\n"
+    console.print(f"\n📊 性能报告\n")
 
     console.print(f"周期: {period}")
 
@@ -333,7 +333,7 @@ def performance_report(period: str):
 @click.option("--load", "-l", default=1000, help="负载大小")
 def load_test(type: str, load: int):
     """负载测试"""
-    console.print(f"\n🚀 负载测试\n"
+    console.print(f"\n🚀 负载测试\n")
 
     console.print(f"类型: {type or 'stress'}")
     console.print(f"负载: {load} RPM")
@@ -361,7 +361,7 @@ def load_test(type: str, load: int):
 @click.option("--method", "-m", help="调优方法")
 def tune_performance(param: str, method: str):
     """性能调优"""
-    console.print(f"\n🎛️ 性能调优\n"
+    console.print(f"\n🎛️ 性能调优\n")
 
     console.print(f"参数: {param or 'batch-size'}")
     console.print(f"方法: {method or 'grid-search'}")
@@ -385,7 +385,7 @@ def tune_performance(param: str, method: str):
 @click.option("--models", "-m", help="模型列表")
 def compare_models(models: str):
     """模型对比"""
-    console.print(f"\n📊 模型对比\n"
+    console.print(f"\n📊 模型对比\n")
 
     console.print(f"模型: {models or 'Llama-2,GPT-4,Claude'}")
 
@@ -414,7 +414,7 @@ def compare_models(models: str):
 @click.option("--issue", "-i", help="性能问题")
 def debug_performance(issue: str):
     """性能调试"""
-    console.print(f"\n🐛 性能调试\n"
+    console.print(f"\n🐛 性能调试\n")
 
     console.print(f"问题: {issue or '高延迟'}")
 
@@ -443,7 +443,7 @@ def debug_performance(issue: str):
 @click.option("--target", "-t", help="验证目标")
 def validate_performance(target: str):
     """性能验证"""
-    console.print(f"\n✅ 性能验证\n"
+    console.print(f"\n✅ 性能验证\n")
 
     console.print(f"目标: {target or 'SLA'}")
 

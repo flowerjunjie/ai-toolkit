@@ -23,7 +23,7 @@ def enterprise_cli():
 @click.option("--provider", "-p", help="SSO提供商")
 def setup_sso(provider: str):
     """单点登录"""
-    console.print(f"\n🔐 单点登录\n"
+    console.print(f"\n🔐 单点登录\n")
 
     console.print(f"提供商: {provider or 'SAML 2.0'}")
 
@@ -46,7 +46,7 @@ def setup_sso(provider: str):
 @click.option("--period", "-p", help="审计周期")
 def generate_audit(period: str):
     """审计日志"""
-    console.print(f"\n📋 审计日志\n"
+    console.print(f"\n📋 审计日志\n")
 
     console.print(f"周期: {period or '本月'}")
 
@@ -68,7 +68,7 @@ def generate_audit(period: str):
 @click.option("--standard", "-s", help="合规标准")
 def check_compliance(standard: str):
     """合规检查"""
-    console.print(f"\n✅ 合规检查\n"
+    console.print(f"\n✅ 合规检查\n")
 
     console.print(f"标准: {standard or 'all'}")
 
@@ -92,7 +92,7 @@ def check_compliance(standard: str):
 @click.option("--role", "-r", help="角色名称")
 def setup_rbac(role: str):
     """角色权限管理"""
-    console.print(f"\n👥 角色权限管理\n"
+    console.print(f"\n👥 角色权限管理\n")
 
     console.print(f"角色: {role or 'all'}")
 
@@ -116,7 +116,7 @@ def setup_rbac(role: str):
 @click.option("--delete", "-d", help="删除租户")
 def manage_tenants(create: str, delete: str):
     """多租户管理"""
-    console.print(f"\n🏢 多租户管理\n"
+    console.print(f"\n🏢 多租户管理\n")
 
     if create:
         console.print(f"创建租户: {create}")
@@ -143,7 +143,7 @@ def manage_tenants(create: str, delete: str):
 @click.option("--tenant", "-t", help="租户名称")
 def manage_quota(tenant: str):
     """配额管理"""
-    console.print(f"\n📊 配额管理\n"
+    console.print(f"\n📊 配额管理\n")
 
     console.print(f"租户: {tenant or 'all'}")
 
@@ -166,7 +166,7 @@ def manage_quota(tenant: str):
 @click.option("--ticket", "-t", help="工单ID")
 def manage_support(ticket: str):
     """技术支持"""
-    console.print(f"\n🎧 技术支持\n"
+    console.print(f"\n🎧 技术支持\n")
 
     console.print(f"工单: {ticket or 'new'}")
 
@@ -187,7 +187,7 @@ def manage_support(ticket: str):
 @click.option("--type", "-t", help="培训类型")
 def setup_training(type: str):
     """培训系统"""
-    console.print(f"\n📚 培训系统\n"
+    console.print(f"\n📚 培训系统\n")
 
     console.print(f"类型: {type or 'all'}")
 
@@ -210,7 +210,7 @@ def setup_training(type: str):
 @click.option("--company", "-c", help="公司名称")
 def setup_onboarding(company: str):
     """入驻流程"""
-    console.print(f"\n🤝 入驻流程\n"
+    console.print(f"\n🤝 入驻流程\n")
 
     console.print(f"公司: {company or 'New Company'}")
 
@@ -230,7 +230,7 @@ def setup_onboarding(company: str):
 @enterprise_cli.command(name="sla")
 def check_sla():
     """SLA监控"""
-    console.print(f"\n📈 SLA监控\n"
+    console.print(f"\n📈 SLA监控\n")
 
     console.print("SLA承诺:")
     console.print("  可用性: 99.9%")
@@ -250,12 +250,12 @@ def check_sla():
     console.print("\n✅ SLA监控完成")
 
 
-@enterprise_cli.command(name="report"
+@enterprise_cli.command(name="report")
 @click.option("--type", "-t", help="报告类型")
 @click.option("--format", "-f", help="报告格式")
 def generate_report(type: str, format: str):
     """企业报告"""
-    console.print(f"\n📊 企业报告\n"
+    console.print(f"\n📊 企业报告\n")
 
     console.print(f"类型: {type or 'summary'}")
     console.print(f"格式: {format or 'pdf'}")
@@ -277,7 +277,7 @@ def generate_report(type: str, format: str):
 @click.option("--target", "-t", help="目标系统")
 def data_migration(source: str, target: str):
     """数据迁移"""
-    console.print(f"\n🔄 数据迁移\n"
+    console.print(f"\n🔄 数据迁移\n")
 
     console.print(f"源: {source or 'legacy'}")
     console.print(f"目标: {target or 'ai-toolkit'}")
@@ -300,7 +300,7 @@ def data_migration(source: str, target: str):
 @click.option("--schedule", "-s", help="备份计划")
 def enterprise_backup(type: str, schedule: str):
     """企业备份"""
-    console.print(f"\n💾 企业备份\n"
+    console.print(f"\n💾 企业备份\n")
 
     console.print(f"类型: {type or 'full'}")
     console.print(f"计划: {schedule or 'daily'}")
@@ -327,7 +327,7 @@ def enterprise_backup(type: str, schedule: str):
 @click.option("--scan", "-s", is_flag=True, help="安全扫描")
 def enterprise_security(scan: bool):
     """企业安全"""
-    console.print(f"\n🔒 企业安全\n"
+    console.print(f"\n🔒 企业安全\n")
 
     if scan:
         console.print("安全扫描:")
@@ -350,7 +350,7 @@ def enterprise_security(scan: bool):
 @click.option("--dashboard", "-d", is_flag=True, help="显示仪表板")
 def enterprise_monitor(dashboard: bool):
     """企业监控"""
-    console.print(f"\n📊 企业监控\n"
+    console.print(f"\n📊 企业监控\n")
 
     if dashboard:
         console.print("监控仪表板:")
@@ -377,7 +377,7 @@ def enterprise_monitor(dashboard: bool):
 @click.option("--key", "-k", help="API密钥")
 def enterprise_api(key: str):
     """企业API"""
-    console.print(f"\n🔌 企业API\n"
+    console.print(f"\n🔌 企业API\n")
 
     console.print(f"密钥: {key or 'ent_xxx'}")
 
@@ -402,7 +402,7 @@ def enterprise_api(key: str):
 @click.option("--url", "-u", help="Webhook URL")
 def setup_webhook(url: str):
     """Webhook集成"""
-    console.print(f"\n🔗 Webhook集成\n"
+    console.print(f"\n🔗 Webhook集成\n")
 
     console.print(f"URL: {url or 'https://your-domain.com/webhook'}")
 
@@ -424,7 +424,7 @@ def setup_webhook(url: str):
 @click.option("--platform", "-p", help="集成平台")
 def setup_integration(platform: str):
     """第三方集成"""
-    console.print(f"\n🔌 第三方集成\n"
+    console.print(f"\n🔌 第三方集成\n")
 
     console.print(f"平台: {platform or 'Slack'}")
 

@@ -162,8 +162,8 @@ def write_email(type: str, audience: str):
     console.print("\n✅ 文案已生成")
 
 
-@writing_cli.command(name="novel"
-@click.option("--genre", "-g", default="scifi", help="小说类型"
+@writing_cli.command(name="novel")
+@click.option("--genre", "-g", default="scifi", help="小说类型")
 @click.option("--length", "-l", default=50000, help="字数")
 def write_novel(genre: str, length: int):
     """写小说"""

@@ -24,7 +24,7 @@ def timeseries_cli():
 @click.option("--horizon", "-h", default=10, help="预测步长")
 def forecast(data: str, horizon: int):
     """时间序列预测"""
-    console.print(f"\n📈 时间序列预测\n"
+    console.print(f"\n📈 时间序列预测\n")
 
     console.print(f"数据: {data or 'sales.csv'}")
     console.print(f"步长: {horizon}")
@@ -55,7 +55,7 @@ def forecast(data: str, horizon: int):
 @click.option("--seasonal", "-s", is_flag=True, help="季节性ARIMA")
 def arima_model(order: str, seasonal: bool):
     """ARIMA模型"""
-    console.print(f"\n📊 ARIMA模型\n"
+    console.print(f"\n📊 ARIMA模型\n")
 
     console.print(f"阶数: {order}")
     console.print(f"季节性: {seasonal}")
@@ -83,7 +83,7 @@ def arima_model(order: str, seasonal: bool):
 @click.option("--seasonality", "-s", is_flag=True, help="季节性")
 def prophet_model(growth: str, seasonality: bool):
     """Prophet预测"""
-    console.print(f"\n🔮 Prophet预测\n"
+    console.print(f"\n🔮 Prophet预测\n")
 
     console.print(f"增长: {growth}")
     console.print(f"季节性: {seasonality}")
@@ -113,7 +113,7 @@ def prophet_model(growth: str, seasonality: bool):
 @click.option("--lookback", "-l", default=10, help="回看窗口")
 def lstm_forecast(units: int, lookback: int):
     """LSTM预测"""
-    console.print(f"\n🧠 LSTM预测\n"
+    console.print(f"\n🧠 LSTM预测\n")
 
     console.print(f"单元: {units}")
     console.print(f"回看: {lookback}")
@@ -148,7 +148,7 @@ def lstm_forecast(units: int, lookback: int):
 @click.option("--threshold", "-t", default=0.1, help="异常阈值")
 def detect_anomaly(method: str, threshold: float):
     """异常检测"""
-    console.print(f"\n🚨 异常检测\n"
+    console.print(f"\n🚨 异常检测\n")
 
     console.print(f"方法: {method}")
     console.print(f"阈值: {threshold}")
@@ -177,7 +177,7 @@ def detect_anomaly(method: str, threshold: float):
 @click.option("--model", "-m", default="additive", help="分解模型")
 def decompose_series(model: str):
     """时间序列分解"""
-    console.print(f"\n🔧 时间序列分解\n"
+    console.print(f"\n🔧 时间序列分解\n")
 
     console.print(f"模型: {model}")
 
@@ -205,7 +205,7 @@ def decompose_series(model: str):
 @click.option("--method", "-m", default="adf", help="平稳性检验方法")
 def test_stationarity(method: str):
     """平稳性检验"""
-    console.print(f"\n📊 平稳性检验\n"
+    console.print(f"\n📊 平稳性检验\n")
 
     console.print(f"方法: {method}")
 
@@ -232,7 +232,7 @@ def test_stationarity(method: str):
 @click.option("--lag", "-l", default=20, help="最大滞后期")
 def autocorr(lag: int):
     """自相关分析"""
-    console.print(f"\n📈 自相关分析\n"
+    console.print(f"\n📈 自相关分析\n")
 
     console.print(f"滞后期: {lag}")
 
@@ -262,7 +262,7 @@ def autocorr(lag: int):
 @click.option("--method", "-m", default="diff", help="变换方法")
 def transform_series(method: str):
     """时间序列变换"""
-    console.print(f"\n🔄 时间序列变换\n"
+    console.print(f"\n🔄 时间序列变换\n")
 
     console.print(f"方法: {method}")
 
@@ -288,7 +288,7 @@ def transform_series(method: str):
 @click.option("--variables", "-v", default=3, help="变量数量")
 def multivariate_forecast(variables: int):
     """多变量时间序列"""
-    console.print(f"\n📊 多变量时间序列\n"
+    console.print(f"\n📊 多变量时间序列\n")
 
     console.print(f"变量: {variables}")
 
@@ -319,7 +319,7 @@ def multivariate_forecast(variables: int):
 @click.option("--epochs", "-e", default=100, help="训练轮数")
 def deep_ar(epochs: int):
     """DeepAR模型"""
-    console.print(f"\n🔥 DeepAR模型\n"
+    console.print(f"\n🔥 DeepAR模型\n")
 
     console.print(f"轮数: {epochs}")
 
@@ -353,7 +353,7 @@ def deep_ar(epochs: int):
 @click.option("--stacks", "-s", default=30, help="堆栈数量")
 def n_beats(stacks: int):
     """N-BEATS模型"""
-    console.print(f"\n🏗️ N-BEATS模型\n"
+    console.print(f"\n🏗️ N-BEATS模型\n")
 
     console.print(f"堆栈: {stacks}")
 
@@ -380,7 +380,7 @@ def n_beats(stacks: int):
 @click.option("--attention", "-a", default=8, help="注意力头数")
 def temporal_fusion(attention: int):
     """时序融合Transformer"""
-    console.print(f"\n🔮 时序融合Transformer\n"
+    console.print(f"\n🔮 时序融合Transformer\n")
 
     console.print(f"注意力头: {attention}")
 
@@ -432,7 +432,7 @@ def evaluate_forecast(metrics: str):
 @click.option("--test", "-t", default=0.2, help="测试集比例")
 def cross_validate(horizon: int, test: float):
     """交叉验证"""
-    console.print(f"\n🔍 交叉验证\n"
+    console.print(f"\n🔍 交叉验证\n")
 
     console.print(f"步长: {horizon}")
     console.print(f"测试集: {test*100}%")
@@ -457,7 +457,7 @@ def cross_validate(horizon: int, test: float):
 @click.option("--models", "-m", help="模型列表")
 def ensemble_forecast(models: str):
     """集成预测"""
-    console.print(f"\n🔗 集成预测\n"
+    console.print(f"\n🔗 集成预测\n")
 
     console.print(f"模型: {models or 'arima,prophet,lstm'}")
 
@@ -484,7 +484,7 @@ def ensemble_forecast(models: str):
 @click.option("--port", "-p", default=9000, help="服务端口")
 def realtime_forecast(port: int):
     """实时预测服务"""
-    console.print(f"\n⚡ 实时预测服务\n"
+    console.print(f"\n⚡ 实时预测服务\n")
 
     console.print(f"端口: {port}")
 
@@ -507,7 +507,7 @@ def realtime_forecast(port: int):
 @click.option("--output", "-o", help="输出目录")
 def batch_forecast(input: str, output: str):
     """批量预测"""
-    console.print(f"\n📦 批量预测\n"
+    console.print(f"\n📦 批量预测\n")
 
     console.print(f"输入: {input or 'series.csv'}")
     console.print(f"输出: {output or 'forecasts/'}")
@@ -555,7 +555,7 @@ def visualize_series(file: str):
 @click.option("--format", "-f", default="pkl", help="导出格式")
 def export_model(model: str, format: str):
     """导出模型"""
-    console.print(f"\n📤 导出模型\n"
+    console.print(f"\n📤 导出模型\n")
 
     console.print(f"模型: {model or 'model.pkl'}")
     console.print(f"格式: {format}")
@@ -576,7 +576,7 @@ def export_model(model: str, format: str):
 @timeseries_cli.command(name="log")
 def forecast_log():
     """预测日志"""
-    console.print(f"\n📝 预测日志\n"
+    console.print(f"\n📝 预测日志\n")
 
     console.print("今日统计:")
     console.print("  预测次数: 50")

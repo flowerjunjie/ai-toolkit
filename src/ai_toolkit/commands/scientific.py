@@ -57,7 +57,7 @@ def optimize_function(function: str, method: str):
 @click.option("--method", "-m", default="quad", help="积分方法")
 def integrate_function(function: str, limits: str, method: str):
     """数值积分"""
-    console.print(f"\n∫ 数值积分\n"
+    console.print(f"\n∫ 数值积分\n")
 
     console.print(f"函数: {function or 'f(x) = exp(-x^2)'}")
     console.print(f"积分限: [{limits}]")
@@ -121,7 +121,7 @@ def differentiate(function: str, point: float, order: int):
 @click.option("--method", "-m", default="hybr", help="求解方法")
 def solve_equations(equations: str, method: str):
     """方程求解"""
-    console.print(f"\n🔢 方程求解\n"
+    console.print(f"\n🔢 方程求解\n")
 
     console.print(f"方程: {equations or 'x^2 - 4 = 0'}")
     console.print(f"方法: {method}")
@@ -150,7 +150,7 @@ def solve_equations(equations: str, method: str):
 @click.option("--method", "-m", default="cubic", help="插值方法")
 def interpolate_data(data: str, method: str):
     """数据插值"""
-    console.print(f"\n📈 数据插值\n"
+    console.print(f"\n📈 数据插值\n")
 
     console.print(f"数据: {data or '(0,1), (1,2), (2,0), (3,3)'}")
     console.print(f"方法: {method}")
@@ -178,7 +178,7 @@ def interpolate_data(data: str, method: str):
 @click.option("--model", "-m", default="polynomial", help="拟合模型")
 def fit_data(data: str, model: str):
     """曲线拟合"""
-    console.print(f"\n📊 曲线拟合\n"
+    console.print(f"\n📊 曲线拟合\n")
 
     console.print(f"数据: {data or '(0,1), (1,3), (2,2), (3,5)'}")
     console.print(f"模型: {model}")
@@ -437,7 +437,7 @@ def find_root(function: str, method: str):
 @click.option("--degree", "-deg", default=3, help="样条阶数")
 def spline_fit(data: str, degree: int):
     """样条拟合"""
-    console.print(f"\n📈 样条拟合\n"
+    console.print(f"\n📈 样条拟合\n")
 
     console.print(f"数据: {data or '散点数据'}")
     console.print(f"阶数: {degree}")
@@ -466,7 +466,7 @@ def spline_fit(data: str, degree: int):
 @click.option("--constraints", "-c", help="约束条件")
 def convex_optimize(objective: str, constraints: str):
     """凸优化"""
-    console.print(f"\n📊 凸优化\n"
+    console.print(f"\n📊 凸优化\n")
 
     console.print(f"目标: {objective or 'minimize f(x)'}")
     console.print(f"约束: {constraints or 'x ≥ 0'}")
@@ -525,7 +525,7 @@ def sparse_solve(matrix: str, solver: str):
 @click.option("--samples", "-sp", default=10000, help="样本数")
 def monte_carlo(simulation: str, samples: int):
     """蒙特卡洛模拟"""
-    console.print(f"\n🎲 蒙特卡洛模拟\n"
+    console.print(f"\n🎲 蒙特卡洛模拟\n")
 
     console.print(f"模拟: {simulation or 'pi estimation'}")
     console.print(f"样本: {samples:,}")
@@ -557,7 +557,7 @@ def monte_carlo(simulation: str, samples: int):
 @click.option("--op", "-o", default="simplify", help="符号运算")
 def symbolic_math(expr: str, op: str):
     """符号计算"""
-    console.print(f"\n🔣 符号计算\n"
+    console.print(f"\n🔣 符号计算\n")
 
     console.print(f"表达式: {expr or 'x² - 2x + 1'}")
     console.print(f"运算: {op}")

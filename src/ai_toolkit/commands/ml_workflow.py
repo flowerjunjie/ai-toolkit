@@ -46,7 +46,7 @@ def init_project(name: str, type: str):
 @click.option("--output", "-o", help="输出目录")
 def prepare_data(input: str, output: str):
     """准备数据"""
-    console.print(f"\n📊 准备数据\n"
+    console.print(f"\n📊 准备数据\n")
 
     console.print(f"输入: {input or 'data.csv'}")
     console.print(f"输出: {output or 'processed/'}")
@@ -102,7 +102,7 @@ def train_model(model: str, data: str, epochs: int):
 @click.option("--data", "-d", help="测试数据")
 def evaluate_model(model: str, data: str):
     """评估模型"""
-    console.print(f"\n📊 评估模型\n"
+    console.print(f"\n📊 评估模型\n")
 
     console.print(f"模型: {model or 'model.pkl'}")
     console.print(f"数据: {data or 'test.csv'}")
@@ -130,7 +130,7 @@ def evaluate_model(model: str, data: str):
 @click.option("--input", "-i", help="输入数据")
 def predict(model: str, input: str):
     """预测"""
-    console.print(f"\n🔮 预测\n"
+    console.print(f"\n🔮 预测\n")
 
     console.print(f"模型: {model or 'model.pkl'}")
     console.print(f"输入: {input or 'input.csv'}")
@@ -148,7 +148,7 @@ def predict(model: str, input: str):
 @click.option("--param", "-p", help="参数空间")
 def hyperparameter_tune(model: str, param: str):
     """超参数调优"""
-    console.print(f"\n🎛️ 超参数调优\n"
+    console.print(f"\n🎛️ 超参数调优\n")
 
     console.print(f"模型: {model or 'random-forest'}")
     console.print(f"参数: {param or 'n_estimators, max_depth'}")
@@ -171,12 +171,12 @@ def hyperparameter_tune(model: str, param: str):
     console.print("\n✅ 调优完成")
 
 
-@mlflow_cli.command(name="export"
+@mlflow_cli.command(name="export")
 @click.option("--model", "-m", help="模型路径")
 @click.option("--format", "-f", help="导出格式")
 def export_model(model: str, format: str):
     """导出模型"""
-    console.print(f"\n📤 导出模型\n"
+    console.print(f"\n📤 导出模型\n")
 
     console.print(f"模型: {model or 'model.pkl'}")
     console.print(f"格式: {format or 'onnx'}")
@@ -195,12 +195,12 @@ def export_model(model: str, format: str):
     console.print("\n✅ 导出完成")
 
 
-@mlflow_cli.command(name="deploy"
+@mlflow_cli.command(name="deploy")
 @click.option("--model", "-m", help="模型路径")
 @click.option("--platform", "-p", help="部署平台")
 def deploy_model(model: str, platform: str):
     """部署模型"""
-    console.print(f"\n🚀 部署模型\n"
+    console.print(f"\n🚀 部署模型\n")
 
     console.print(f"模型: {model or 'model.onnx'}")
     console.print(f"平台: {platform or 'docker'}")
@@ -231,7 +231,7 @@ def deploy_model(model: str, platform: str):
 @click.option("--model", "-m", help="模型名称")
 def monitor_model(model: str):
     """监控模型"""
-    console.print(f"\n📊 监控模型\n"
+    console.print(f"\n📊 监控模型\n")
 
     console.print(f"模型: {model or 'model-v1'}")
 
@@ -264,7 +264,7 @@ def monitor_model(model: str):
 @click.option("--data", "-d", help="新数据")
 def retrain_model(model: str, data: str):
     """重新训练"""
-    console.print(f"\n🔄 重新训练\n"
+    console.print(f"\n🔄 重新训练\n")
 
     console.print(f"模型: {model or 'model-v1'}")
     console.print(f"数据: {data or 'new-data.csv'}")
@@ -286,11 +286,11 @@ def retrain_model(model: str, data: str):
     console.print("\n✅ 重训练完成")
 
 
-@mlflow_cli.command(name="version"
+@mlflow_cli.command(name="version")
 @click.option("--model", "-m", help="模型名称")
 def version_model(model: str):
     """版本管理"""
-    console.print(f"\n🔢 版本管理\n"
+    console.print(f"\n🔢 版本管理\n")
 
     console.print(f"模型: {model or 'model'}")
 
@@ -313,7 +313,7 @@ def version_model(model: str):
     console.print("\n✅ 版本管理完成")
 
 
-@mlflow_cli.command(name="experiment"
+@mlflow_cli.command(name="experiment")
 @click.option("--name", "-n", help="实验名称")
 def create_experiment(name: str):
     """创建实验"""
@@ -335,11 +335,11 @@ def create_experiment(name: str):
     console.print("\n✅ 实验已创建")
 
 
-@mlflow_cli.command(name="compare"
+@mlflow_cli.command(name="compare")
 @click.option("--experiments", "-e", help="实验列表")
 def compare_experiments(experiments: str):
     """对比实验"""
-    console.print(f"\n🔍 对比实验\n"
+    console.print(f"\n🔍 对比实验\n")
 
     console.print(f"实验: {experiments or 'exp-001,exp-002,exp-003'}")
 
@@ -361,11 +361,11 @@ def compare_experiments(experiments: str):
     console.print("\n✅ 对比完成")
 
 
-@mlflow_cli.command(name="pipeline"
+@mlflow_cli.command(name="pipeline")
 @click.option("--config", "-c", help="配置文件")
 def run_pipeline(config: str):
     """运行管道"""
-    console.print(f"\n🔧 运行管道\n"
+    console.print(f"\n🔧 运行管道\n")
 
     console.print(f"配置: {config or 'pipeline.yaml'}")
 
@@ -383,12 +383,12 @@ def run_pipeline(config: str):
     console.print("\n✅ 管道已完成")
 
 
-@mlflow_cli.command(name="auto"
+@mlflow_cli.command(name="auto")
 @click.option("--task", "-t", help="任务类型")
 @click.option("--data", "-d", help="数据路径")
 def auto_ml(task: str, data: str):
     """AutoML"""
-    console.print(f"\n🤖 AutoML\n"
+    console.print(f"\n🤖 AutoML\n")
 
     console.print(f"任务: {task or 'classification'}")
     console.print(f"数据: {data or 'data.csv'}")
@@ -419,7 +419,7 @@ def auto_ml(task: str, data: str):
 @click.option("--port", "-p", default=8000, help="服务端口")
 def serve_model(model: str, port: int):
     """模型服务"""
-    console.print(f"\n🚀 模型服务\n"
+    console.print(f"\n🚀 模型服务\n")
 
     console.print(f"模型: {model or 'model.pkl'}")
     console.print(f"端口: {port}")
@@ -468,7 +468,7 @@ def batch_predict(model: str, input: str, output: str):
 @click.option("--method", "-me", default="shap", help="解释方法")
 def explain_model(model: str, input: str, method: str):
     """解释模型"""
-    console.print(f"\n💡 解释模型\n"
+    console.print(f"\n💡 解释模型\n")
 
     console.print(f"模型: {model or 'model.pkl'}")
     console.print(f"输入: {input or 'sample.json'}")
@@ -491,11 +491,11 @@ def explain_model(model: str, input: str, method: str):
 
 
 @mlflow_cli.command(name="fairness")
-@click.option("--model", "-m", help="模型路径"
+@click.option("--model", "-m", help="模型路径")
 @click.option("--data", "-d", help="测试数据")
 def check_fairness(model: str, data: str):
     """公平性检查"""
-    console.print(f"\n⚖️ 公平性检查\n"
+    console.print(f"\n⚖️ 公平性检查\n")
 
     console.print(f"模型: {model or 'model.pkl'}")
     console.print(f"数据: {data or 'test.csv'}")
@@ -519,11 +519,11 @@ def check_fairness(model: str, data: str):
 
 @mlflow_cli.command(name="drift")
 @click.option("--model", "-m", help="模型路径")
-@click.option("--baseline", "-b", help="基线数据"
+@click.option("--baseline", "-b", help="基线数据")
 @click.option("--current", "-c", help="当前数据")
 def detect_drift(model: str, baseline: str, current: str):
     """检测漂移"""
-    console.print(f"\n📊 检测漂移\n"
+    console.print(f"\n📊 检测漂移\n")
 
     console.print(f"模型: {model or 'model.pkl'}")
     console.print(f"基线: {baseline or 'baseline.csv'}")
@@ -549,7 +549,7 @@ def detect_drift(model: str, baseline: str, current: str):
 @mlflow_cli.command(name="governance")
 def model_governance():
     """模型治理"""
-    console.print(f"\n🏛️ 模型治理\n"
+    console.print(f"\n🏛️ 模型治理\n")
 
     console.print("治理框架:")
     console.print("  模型注册")
@@ -576,7 +576,7 @@ def model_governance():
 @mlflow_cli.command(name="lifecycle")
 def model_lifecycle():
     """模型生命周期"""
-    console.print(f"\n🔄 模型生命周期\n"
+    console.print(f"\n🔄 模型生命周期\n")
 
     console.print("生命周期阶段:")
     console.print("  1. 开发 → ✅")

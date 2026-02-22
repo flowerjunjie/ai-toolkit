@@ -32,7 +32,7 @@ def create_scene(name: str):
     console.print("\n✅ 场景已创建")
 
 
-@xr_cli.command(name="asset"
+@xr_cli.command(name="asset")
 @click.option("--type", "-t", help="资产类型")
 def import_asset(type: str):
     """导入资产"""
@@ -49,7 +49,7 @@ def import_asset(type: str):
     console.print("\n✅ 资产已导入")
 
 
-@xr_cli.command(name="render"
+@xr_cli.command(name="render")
 @click.option("--quality", "-q", type=click.Choice(["low", "medium", "high"]), help="渲染质量")
 def render_scene(quality: str):
     """渲染场景"""
@@ -83,7 +83,7 @@ def setup_vr(device: str):
     console.print("\n✅ VR已配置")
 
 
-@xr_cli.command(name="ar"
+@xr_cli.command(name="ar")
 @click.option("--mode", "-m", help="AR模式")
 def setup_ar(mode: str):
     """配置AR"""

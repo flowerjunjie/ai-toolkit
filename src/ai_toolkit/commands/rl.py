@@ -98,7 +98,7 @@ def dqn_train(layers: str, buffer: int):
 @click.option("--epochs", "-e", default=10, help="优化轮数")
 def ppo_train(clip: float, epochs: int):
     """PPO算法"""
-    console.print(f"\n🎯 PPO算法\n"
+    console.print(f"\n🎯 PPO算法\n")
 
     console.print(f"裁剪: {clip}")
     console.print(f"轮数: {epochs}")
@@ -127,7 +127,7 @@ def ppo_train(clip: float, epochs: int):
 @click.option("--lr", "-l", default=0.0001, help="学习率")
 def a3c_train(workers: int, lr: float):
     """A3C算法"""
-    console.print(f"\n🚀 A3C算法\n"
+    console.print(f"\n🚀 A3C算法\n")
 
     console.print(f"线程: {workers}")
     console.print(f"学习率: {lr}")
@@ -156,7 +156,7 @@ def a3c_train(workers: int, lr: float):
 @click.option("--buffer", "-b", default=1000000, help="经验池")
 def sac_train(alpha: float, buffer: int):
     """SAC算法"""
-    console.print(f"\n🔥 SAC算法\n"
+    console.print(f"\n🔥 SAC算法\n")
 
     console.print(f"温度参数: {alpha}")
     console.print(f"经验池: {buffer}")
@@ -185,7 +185,7 @@ def sac_train(alpha: float, buffer: int):
 @click.option("--delay", "-d", default=2, help="延迟更新")
 def td3_train(noise: float, delay: int):
     """TD3算法"""
-    console.print(f"\n🎯 TD3算法\n"
+    console.print(f"\n🎯 TD3算法\n")
 
     console.print(f"噪声: {noise}")
     console.print(f"延迟: {delay}")
@@ -244,7 +244,7 @@ def evaluate_agent(model: str, episodes: int):
 @click.option("--render", "-r", is_flag=True, help="渲染环境")
 def play_agent(model: str, episodes: int, render: bool):
     """运行智能体"""
-    console.print(f"\n🎮 运行智能体\n"
+    console.print(f"\n🎮 运行智能体\n")
 
     console.print(f"模型: {model or 'model.pt'}")
     console.print(f"轮数: {episodes}")
@@ -273,7 +273,7 @@ def play_agent(model: str, episodes: int, render: bool):
 @click.option("--output", "-o", help="输出路径")
 def record_video(model: str, output: str):
     """录制视频"""
-    console.print(f"\n🎬 录制视频\n"
+    console.print(f"\n🎬 录制视频\n")
 
     console.print(f"模型: {model or 'model.pt'}")
     console.print(f"输出: {output or 'video.mp4'}")
@@ -297,7 +297,7 @@ def record_video(model: str, output: str):
 @click.option("--format", "-f", default="onnx", help="导出格式")
 def export_model(model: str, format: str):
     """导出模型"""
-    console.print(f"\n📤 导出模型\n"
+    console.print(f"\n📤 导出模型\n")
 
     console.print(f"模型: {model or 'model.pt'}")
     console.print(f"格式: {format}")
@@ -320,7 +320,7 @@ def export_model(model: str, format: str):
 @click.option("--trials", "-t", default=50, help="试验次数")
 def tune_hyperparameter(param: str, trials: int):
     """超参数调优"""
-    console.print(f"\n🔧 超参数调优\n"
+    console.print(f"\n🔧 超参数调优\n")
 
     console.print(f"参数: {param or 'lr,buffer,batch'}")
     console.print(f"试验: {trials}")
@@ -381,7 +381,7 @@ def visualize_training(type: str):
 @click.option("--target", "-t", help="目标环境")
 def transfer_learning(source: str, target: str):
     """迁移学习"""
-    console.print(f"\n🔄 迁移学习\n"
+    console.print(f"\n🔄 迁移学习\n")
 
     console.print(f"源环境: {source or 'CartPole'}")
     console.print(f"目标环境: {target or 'MountainCar'}")
@@ -409,7 +409,7 @@ def transfer_learning(source: str, target: str):
 @click.option("--coop", "-c", is_flag=True, help="合作模式")
 def multi_agent(agents: int, coop: bool):
     """多智能体"""
-    console.print(f"\n👥 多智能体\n"
+    console.print(f"\n👥 多智能体\n")
 
     console.print(f"智能体: {agents}")
     console.print(f"合作: {'是' if coop else '否'}")
@@ -440,7 +440,7 @@ def multi_agent(agents: int, coop: bool):
 @click.option("--algorithm", "-a", default="bc", help="模仿算法")
 def imitation_learning(data: str, algorithm: str):
     """模仿学习"""
-    console.print(f"\n🎭 模仿学习\n"
+    console.print(f"\n🎭 模仿学习\n")
 
     console.print(f"数据: {data or 'expert.pkl'}")
     console.print(f"算法: {algorithm.upper()}")
@@ -468,7 +468,7 @@ def imitation_learning(data: str, algorithm: str):
 @click.option("--epochs", "-e", default=100, help="训练轮数")
 def inverse_rl(data: str, epochs: int):
     """逆向强化学习"""
-    console.print(f"\n🔄 逆向强化学习\n"
+    console.print(f"\n🔄 逆向强化学习\n")
 
     console.print(f"数据: {data or 'trajectories.pkl'}")
     console.print(f"轮数: {epochs}")
@@ -500,7 +500,7 @@ def inverse_rl(data: str, epochs: int):
 @click.option("--stages", "-s", default=5, help="课程阶段")
 def curriculum_learning(stages: int):
     """课程学习"""
-    console.print(f"\n📚 课程学习\n"
+    console.print(f"\n📚 课程学习\n")
 
     console.print(f"阶段: {stages}")
 
@@ -527,7 +527,7 @@ def curriculum_learning(stages: int):
 @click.option("--shots", "-s", default=5, help="样本数量")
 def meta_rl(tasks: int, shots: int):
     """元学习"""
-    console.print(f"\n🧠 元学习\n"
+    console.print(f"\n🧠 元学习\n")
 
     console.print(f"任务: {tasks}")
     console.print(f"样本: {shots}")
@@ -556,7 +556,7 @@ def meta_rl(tasks: int, shots: int):
 @click.option("--low", "-l", default="low_policy", help="底层策略")
 def hierarchical_rl(high: str, low: str):
     """层次强化学习"""
-    console.print(f"\n🏗️ 层次强化学习\n"
+    console.print(f"\n🏗️ 层次强化学习\n")
 
     console.print(f"高层: {high}")
     console.print(f"底层: {low}")
@@ -583,7 +583,7 @@ def hierarchical_rl(high: str, low: str):
 @click.option("--method", "-m", default="ucb", help="探索方法")
 def exploration_strategy(method: str):
     """探索策略"""
-    console.print(f"\n🔍 探索策略\n"
+    console.print(f"\n🔍 探索策略\n")
 
     console.print(f"方法: {method.upper()}")
 

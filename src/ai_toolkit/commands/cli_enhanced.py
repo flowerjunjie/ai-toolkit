@@ -19,7 +19,7 @@ def cli_cli():
     pass
 
 
-@cli_cli.command(name="wizard"
+@cli_cli.command(name="wizard")
 @click.option("--mode", "-m", help="向导模式")
 def start_wizard(mode: str):
     """交互式向导"""
@@ -71,7 +71,7 @@ def start_wizard(mode: str):
     console.print("\n🎉 向导完成！")
 
 
-@cli_cli.command(name="interactive"
+@cli_cli.command(name="interactive")
 @click.option("--shell", "-s", is_flag=True, help="交互式Shell")
 def start_interactive(shell: bool):
     """交互式模式"""
@@ -148,7 +148,7 @@ def custom_prompt():
     console.print("\n✅ 提示已完成")
 
 
-@cli_cli.command(name="alias"
+@cli_cli.command(name="alias")
 @click.option("--name", "-n", help="别名名称")
 @click.option("--command", "-c", help="目标命令")
 def create_alias(name: str, command: str):
@@ -170,7 +170,7 @@ def create_alias(name: str, command: str):
     console.print("\n✅ 别名已创建")
 
 
-@cli_cli.command(name="history"
+@cli_cli.command(name="history")
 @click.option("--count", "-c", default=10, help="显示数量")
 def show_history(count: int):
     """显示命令历史"""
@@ -214,7 +214,7 @@ def generate_completion():
     console.print("\n✅ 补全脚本已生成")
 
 
-@cli_cli.command(name="theme"
+@cli_cli.command(name="theme")
 @click.option("--mode", "-m", help="主题模式")
 def set_theme(mode: str):
     """设置主题"""
@@ -257,7 +257,7 @@ def ux_cli():
     pass
 
 
-@ux_cli.command(name="feedback"
+@ux_cli.command(name="feedback")
 @click.option("--type", "-t", help="反馈类型")
 def collect_feedback(type: str):
     """收集反馈"""

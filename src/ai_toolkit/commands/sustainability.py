@@ -16,7 +16,7 @@ def sustainability_cli():
     pass
 
 
-@sustainability_cli.command(name="carbon"
+@sustainability_cli.command(name="carbon")
 @click.option("--source", "-s", help="排放源")
 def carbon_footprint(source: str):
     """碳足迹计算"""
@@ -43,7 +43,7 @@ def carbon_footprint(source: str):
     console.print("\n✅ 计算完成")
 
 
-@sustainability_cli.command(name="energy"
+@sustainability_cli.command(name="energy")
 @click.option("--type", "-t", default("solar", help="能源类型")
 def renewable_energy(type: str):
     """可再生能源"""
@@ -79,7 +79,7 @@ def renewable_energy(type: str):
     console.print("\n✅ 能源已配置")
 
 
-@sustainability_cli.command(name="waste"
+@sustainability_cli.command(name="waste")
 @click.option("--type", "-t", default("recycle", help="废物类型")
 def waste_management(type: str):
     """废物管理"""
@@ -107,7 +107,7 @@ def waste_management(type: str):
     console.print("\n✅ 管理已优化")
 
 
-@sustainability_cli.command(name="water"
+@sustainability_cli.command(name="water")
 @click.option("--type", "-t", default("save", help="用水类型")
 def water_management(type: str):
     """水资源管理"""
@@ -133,7 +133,7 @@ def water_management(type: str):
     console.print("\n✅ 管理已优化")
 
 
-@sustainability_cli.command(name="green"
+@sustainability_cli.command(name="green")
 @click.option("--building", "-b", help="建筑类型")
 def green_building(building: str):
     """绿色建筑"""
@@ -161,7 +161,7 @@ def green_building(building: str):
     console.print("\n✅ 建筑已认证")
 
 
-@sustainability_cli.command(name="transport"
+@sustainability_cli.command(name="transport")
 @click.option("--mode", "-m", default("ev", help="交通方式")
 def green_transport(mode: str):
     """绿色交通"""
@@ -190,7 +190,7 @@ def green_transport(mode: str):
     console.print("\n✅ 交通已优化")
 
 
-@sustainability_cli.command(name="food"
+@sustainability_cli.command(name="food")
 @click.option("--type", "-t", default("plant", help="食品类型")
 def sustainable_food(type: str):
     """可持续食品"""
@@ -219,7 +219,7 @@ def sustainable_food(type: str):
     console.print("\n✅ 饮食已优化")
 
 
-@sustainability_cli.command(name="supply"
+@sustainability_cli.command(name="supply")
 @click.option("--product", "-p", help="产品类型")
 def sustainable_supply(product: str):
     """可持续供应链"""
@@ -248,7 +248,7 @@ def sustainable_supply(product: str):
     console.print("\n✅ 供应链已优化")
 
 
-@sustainability_cli.command(name="invest"
+@sustainability_cli.command(name="invest")
 @click.option("--type", "-t", default("esg", help="投资类型")
 def sustainable_invest(type: str):
     """可持续投资"""
@@ -279,7 +279,7 @@ def sustainable_invest(type: str):
     console.print("\n✅ 投资已配置")
 
 
-@sustainability_cli.command(name="report"
+@sustainability_cli.command(name="report")
 @click.option("--type", "-t", default("annual", help="报告类型")
 def sustainability_report(type: str):
     """可持续报告"""
@@ -313,7 +313,7 @@ def sustainability_report(type: str):
     console.print("\n✅ 报告已生成")
 
 
-@sustainability_cli.command(name="certify"
+@sustainability_cli.command(name="certify")
 @click.option("--standard", "-s", help="认证标准")
 def green_certification(standard: str):
     """绿色认证"""
@@ -343,7 +343,7 @@ def green_certification(standard: str):
     console.print("\n✅ 认证完成")
 
 
-@sustainability_cli.command(name="offset"
+@sustainability_cli.command(name="offset")
 @click.option("--type", "-t", default("tree", help="抵消类型")
 def carbon_offset(type: str):
     """碳抵消"""
@@ -370,7 +370,7 @@ def carbon_offset(type: str):
     console.print("\n✅ 抵消完成")
 
 
-@sustainability_cli.command(name="smart"
+@sustainability_cli.command(name="smart")
 @click.option("--city", "-c", help="城市名称")
 def smart_city(city: str):
     """智慧城市"""

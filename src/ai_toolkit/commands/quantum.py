@@ -18,7 +18,7 @@ def quantum_cli():
     pass
 
 
-@quantum_cli.command(name="circuit"
+@quantum_cli.command(name="circuit")
 @click.option("--qubits", "-q", default=2, help="量子比特数")
 def create_circuit(qubits: int):
     """创建量子电路"""
@@ -35,7 +35,7 @@ def create_circuit(qubits: int):
     console.print("\n✅ 电路已创建")
 
 
-@quantum_cli.command(name="simulate"
+@quantum_cli.command(name="simulate")
 @click.option("--shots", "-s", default=1000, help="模拟次数")
 def simulate_quantum(shots: int):
     """量子模拟"""
@@ -56,7 +56,7 @@ def simulate_quantum(shots: int):
     console.print("\n✅ 模拟完成")
 
 
-@quantum_cli.command(name="algorithm"
+@quantum_cli.command(name="algorithm")
 @click.option("--type", "-t", help="算法类型")
 def run_algorithm(type: str):
     """运行量子算法"""

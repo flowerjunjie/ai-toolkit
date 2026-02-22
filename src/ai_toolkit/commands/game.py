@@ -24,7 +24,7 @@ def game_cli():
 @click.option("--style", "-s", help="游戏风格")
 def generate_assets(prompt: str, style: str):
     """生成游戏资产"""
-    console.print(f"\n🎨 生成游戏资产\n"
+    console.print(f"\n🎨 生成游戏资产\n")
 
     console.print(f"提示: {prompt or '奇幻战士'}")
     console.print(f"风格: {style or '写实风格'}")
@@ -149,7 +149,7 @@ def generate_dialogue(characters: str, topic: str, length: int):
 @click.option("--length", "-l", default="short", help="故事长度")
 def generate_story(genre: str, length: str):
     """生成故事"""
-    console.print(f"\n📖 生成故事\n"
+    console.print(f"\n📖 生成故事\n")
 
     console.print(f"类型: {genre}")
     console.print(f"长度: {length}")
@@ -178,7 +178,7 @@ def generate_story(genre: str, length: str):
 @click.option("--difficulty", "-d", default="medium", help="难度")
 def generate_level(theme: str, difficulty: str):
     """生成关卡"""
-    console.print(f"\n🗺️ 生成关卡\n"
+    console.print(f"\n🗺️ 生成关卡\n")
 
     console.print(f"主题: {theme or '地下城'}")
     console.print(f"难度: {difficulty}")
@@ -209,7 +209,7 @@ def generate_level(theme: str, difficulty: str):
 @click.option("--duration", "-d", default=120, help="时长(秒)")
 def generate_music(mood: str, duration: int):
     """生成音乐"""
-    console.print(f"\n🎵 生成音乐\n"
+    console.print(f"\n🎵 生成音乐\n")
 
     console.print(f"情绪: {mood}")
     console.print(f"时长: {duration}秒")
@@ -267,7 +267,7 @@ def generate_voice(text: str, character: str, emotion: str):
 @click.option("--language", "-l", default="python", help="编程语言")
 def generate_code(feature: str, language: str):
     """生成游戏代码"""
-    console.print(f"\n💻 生成游戏代码\n"
+    console.print(f"\n💻 生成游戏代码\n")
 
     console.print(f"功能: {feature or '玩家移动'}")
     console.print(f"语言: {language}")
@@ -298,7 +298,7 @@ def generate_code(feature: str, language: str):
 @click.option("--style", "-s", help="UI风格")
 def generate_ui(type: str, style: str):
     """生成UI界面"""
-    console.print(f"\n🎨 生成UI界面\n"
+    console.print(f"\n🎨 生成UI界面\n")
 
     console.print(f"类型: {type or 'inventory'}")
     console.print(f"风格: {style or 'fantasy'}")
@@ -358,7 +358,7 @@ def create_item(name: str, type: str, rarity: str):
 @click.option("--damage", "-d", help="伤害数值")
 def create_skill(name: str, type: str, damage: str):
     """创建技能"""
-    console.print(f"\n⚔️ 创建技能\n"
+    console.print(f"\n⚔️ 创建技能\n")
 
     console.print(f"名称: {name or '火球术'}")
     console.print(f"类型: {type or '攻击魔法'}")
@@ -389,7 +389,7 @@ def create_skill(name: str, type: str, damage: str):
 @click.option("--type", "-t", help="敌人类型")
 def create_enemy(name: str, level: int, type: str):
     """创建敌人"""
-    console.print(f"\n👹 创建敌人\n"
+    console.print(f"\n👹 创建敌人\n")
 
     console.print(f"名称: {name or '暗影狼'}")
     console.print(f"等级: {level}")
@@ -420,7 +420,7 @@ def create_enemy(name: str, level: int, type: str):
 @click.option("--phase", "-p", default=3, help="战斗阶段")
 def create_boss(name: str, phase: int):
     """创建BOSS"""
-    console.print(f"\n👿 创建BOSS\n"
+    console.print(f"\n👿 创建BOSS\n")
 
     console.print(f"名称: {name or '黑暗领主'}")
     console.print(f"阶段: {phase}")
@@ -458,7 +458,7 @@ def create_boss(name: str, phase: int):
 @click.option("--condition", "-c", help="解锁条件")
 def create_achievement(name: str, condition: str):
     """创建成就"""
-    console.print(f"\n🏆 创建成就\n"
+    console.print(f"\n🏆 创建成就\n")
 
     console.print(f"名称: {name or '初出茅庐'}")
     console.print(f"条件: {condition or '达到10级'}")
@@ -510,7 +510,7 @@ def show_leaderboard(type: str):
 @click.option("--type", "-t", help="事件类型")
 def create_event(name: str, type: str):
     """创建游戏事件"""
-    console.print(f"\n🎪 创建游戏事件\n"
+    console.print(f"\n🎪 创建游戏事件\n")
 
     console.print(f"名称: {name or '双倍经验'}")
     console.print(f"类型: {type or '限时活动'}")
@@ -537,7 +537,7 @@ def create_event(name: str, type: str):
 @click.option("--action", "-a", default="balance", help="经济操作")
 def manage_economy(action: str):
     """游戏经济管理"""
-    console.print(f"\n💰 游戏经济管理\n"
+    console.print(f"\n💰 游戏经济管理\n")
 
     console.print(f"操作: {action}")
 
@@ -590,7 +590,7 @@ def game_analytics(metric: str):
 @game_cli.command(name="log")
 def game_log():
     """游戏日志"""
-    console.print(f"\n📝 游戏日志\n"
+    console.print(f"\n📝 游戏日志\n")
 
     console.print("今日统计:")
     console.print("  玩家数: 45,678")

@@ -56,7 +56,7 @@ def sequence_align(seq1: str, seq2: str, method: str):
 @click.option("--evalue", "-e", default=0.001, help="E值阈值")
 def blast_search(query: str, database: str, evalue: float):
     """BLAST搜索"""
-    console.print(f"\n🔍 BLAST搜索\n"
+    console.print(f"\n🔍 BLAST搜索\n")
 
     console.print(f"查询: {query or 'gene_sequence.fasta'}")
     console.print(f"数据库: {database or 'nr'}")
@@ -86,7 +86,7 @@ def blast_search(query: str, database: str, evalue: float):
 @click.option("--frame", "-f", default=1, help="阅读框")
 def translate_dna(dna: str, frame: int):
     """DNA翻译"""
-    console.print(f"\n🔄 DNA翻译\n"
+    console.print(f"\n🔄 DNA翻译\n")
 
     console.print(f"DNA: {dna or 'ATGGCCATTGTA'}")
     console.print(f"阅读框: +{frame}")
@@ -113,7 +113,7 @@ def translate_dna(dna: str, frame: int):
 @click.option("--dna", "-d", help="DNA序列")
 def reverse_complement(dna: str):
     """反向互补"""
-    console.print(f"\n🔄 反向互补\n"
+    console.print(f"\n🔄 反向互补\n")
 
     console.print(f"DNA: {dna or 'ACGTACGTACGT'}")
 
@@ -134,7 +134,7 @@ def reverse_complement(dna: str):
 @click.option("--sequence", "-s", help="DNA序列")
 def gc_content(sequence: str):
     """GC含量分析"""
-    console.print(f"\n📊 GC含量分析\n"
+    console.print(f"\n📊 GC含量分析\n")
 
     console.print(f"序列: {sequence or 'ACGTACGTACGT'}")
 
@@ -161,7 +161,7 @@ def gc_content(sequence: str):
 @click.option("--min", "-m", default=100, help="最小长度")
 def find_orf(sequence: str, min: int):
     """寻找开放阅读框"""
-    console.print(f"\n🔍 开放阅读框\n"
+    console.print(f"\n🔍 开放阅读框\n")
 
     console.print(f"序列: {sequence or 'ATG...'}")
     console.print(f"最小: {min} bp")
@@ -225,7 +225,7 @@ def design_primer(sequence: str, product: int):
 @click.option("--method", "-m", default="neighbor", help="建树方法")
 def build_tree(alignment: str, method: str):
     """构建系统发育树"""
-    console.print(f"\n🌳 系统发育树\n"
+    console.print(f"\n🌳 系统发育树\n")
 
     console.print(f"比对: {alignment or 'alignment.fasta'}")
     console.print(f"方法: {method}")
@@ -257,7 +257,7 @@ def build_tree(alignment: str, method: str):
 @click.option("--width", "-w", default=6, help="模体宽度")
 def find_motif(sequences: str, width: int):
     """序列模体"""
-    console.print(f"\n🔍 序列模体\n"
+    console.print(f"\n🔍 序列模体\n")
 
     console.print(f"序列: {sequences or 'motifs.fasta'}")
     console.print(f"宽度: {width}")
@@ -350,7 +350,7 @@ def analyze_variant(vcf: str, impact: str):
 @click.option("--method", "-m", default="deseq2", help="分析方法")
 def differential_expression(counts: str, method: str):
     """差异表达分析"""
-    console.print(f"\n📊 差异表达\n"
+    console.print(f"\n📊 差异表达\n")
 
     console.print(f"计数: {counts or 'counts.txt'}")
     console.print(f"方法: {method}")
@@ -382,7 +382,7 @@ def differential_expression(counts: str, method: str):
 @click.option("--database", "-d", default="kegg", help="通路数据库")
 def pathway_analysis(genes: str, database: str):
     """通路分析"""
-    console.print(f"\n🔗 通路分析\n"
+    console.print(f"\n🔗 通路分析\n")
 
     console.print(f"基因: {genes or 'gene_list.txt'}")
     console.print(f"数据库: {database}")
@@ -412,7 +412,7 @@ def pathway_analysis(genes: str, database: str):
 @click.option("--method", "-m", default="alpha", help="预测方法")
 def predict_structure(sequence: str, method: str):
     """蛋白质结构预测"""
-    console.print(f"\n🏗️ 蛋白质结构\n"
+    console.print(f"\n🏗️ 蛋白质结构\n")
 
     console.print(f"序列: {sequence or 'protein.fasta'}")
     console.print(f"方法: {method}")
@@ -445,7 +445,7 @@ def predict_structure(sequence: str, method: str):
 @click.option("--method", "-m", default="cluster", help="分析方法")
 def analyze_network(interactions: str, method: str):
     """基因网络分析"""
-    console.print(f"\n🕸️ 基因网络\n"
+    console.print(f"\n🕸️ 基因网络\n")
 
     console.print(f"互作: {interactions or 'network.txt'}")
     console.print(f"方法: {method}")
@@ -508,7 +508,7 @@ def assemble_genome(reads: str, method: str):
 @click.option("--type", "-t", default="species", help="分类级别")
 def classify_phylotype(sequences: str, type: str):
     """物种分类"""
-    console.print(f"\n🔬 物种分类\n"
+    console.print(f"\n🔬 物种分类\n")
 
     console.print(f"序列: {sequences or '16s.fasta'}")
     console.print(f"级别: {type}")
@@ -534,7 +534,7 @@ def classify_phylotype(sequences: str, type: str):
 @click.option("--library", "-l", help="化合物库")
 def drug_discovery(target: str, library: str):
     """药物发现"""
-    console.print(f"\n💊 药物发现\n"
+    console.print(f"\n💊 药物发现\n")
 
     console.print(f"靶点: {target or 'EGFR'}")
     console.print(f"化合物库: {library or 'ZINC'}")

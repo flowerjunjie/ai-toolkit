@@ -80,7 +80,7 @@ def integration_test(module: str, api: str):
     console.print("\n✅ 测试完成")
 
 
-@qa_automation_cli.command(name="e2e"
+@qa_automation_cli.command(name="e2e")
 @click.option("--type", "-t", default="message", help="消息类型")
 def e2e_test(type: str):
     """端到端测试"""
@@ -108,7 +108,7 @@ def e2e_test(type: str):
     console.print("\n✅ 测试完成")
 
 
-@qa_automation_cli.command(name="performance"
+@qa_automation_cli.command(name="performance")
 @click.option("--scenario", "-s", help="场景类型")
 @click.option("--users", "-u", default=1000, help="并发用户")
 def performance_test(scenario: str, users: int):
@@ -175,7 +175,7 @@ def stress_test(time: int, load: int):
     console.print("\n✅ 测试完成")
 
 
-@qa_automation_cli.command(name="api"
+@qa_automation_cli.command(name="api")
 @click.option("--endpoint", "-e", help="API端点")
 def api_test(endpoint: str):
     """API测试"""
@@ -215,7 +215,7 @@ def api_test(endpoint: str):
     console.print("\n✅ 测试完成")
 
 
-@qa_automation_cli.command(name="ui"
+@qa_automation_cli.command(name="ui")
 @click.option("--page", "-p", help="页面URL")
 @click.option("--elements", "-e", help="元素选择器")
 def ui_test(page: str, elements: str):
@@ -253,7 +253,7 @@ def ui_test(page: str, elements: str):
     console.print("\n✅ 测试完成")
 
 
-@qa_automation_cli.command(name="compatibility"
+@qa_automation_cli.command(name="compatibility")
 @click.option("--platform", "-p", help="平台矩阵")
 def compatibility_test(platform: str):
     """兼容性测试"""
@@ -286,7 +286,7 @@ def compatibility_test(platform: str):
     console.print("\n✅ 测试完成")
 
 
-@qa_ajax("@qa_automation_cli.command(name="security"
+@qa_ajax("@qa_automation_cli.command(name="security")
 @click.option("--type", "-t", default="sql", help="安全类型")
 def security_test(type: str):
     """安全测试"""
@@ -321,7 +321,7 @@ def security_test(type: str):
     console.print("\n✅ 测试完成")
 
 
-@qa_automation_cli.command(name="accessibility"
+@qa_automation_cli.command(name="accessibility")
 @click.option("--level", "-l", default="wcag", help="无障碍标准")
 def accessibility_test(level: str):
     """无障碍测试"""
@@ -351,7 +351,7 @@ def accessibility_test(level: str):
     console.print("\n✅ 测试完成")
 
 
-@qa_automation_cli.command(name="load"
+@qa_automation_cli.command(name="load")
 @click.option("--name", "-n", help="负载测试名称")
 @click.option("--type", "-t", default="ramp", help="负载类型")
 def load_test(name: str, type: str):
@@ -387,7 +387,7 @@ def load_test(name: str, type: str):
     console.print("\n✅ 测试完成")
 
 
-@qa_automation_cli.command(name="regression"
+@qa_automation_cli.command(name="regression")
 @click.option("--baseline", "-b", help="基线版本")
 def regression_test(baseline: str):
     """回归测试"""
@@ -421,7 +421,7 @@ def regression_test(baseline: str):
     console.print("\n✅ 测试完成")
 
 
-@qa_automation_cli.command(name="exploratory"
+@qa_automation_cli.command(name="exploratory")
 @click.option("--bug", "-b", help="缺陷ID")
 def exploratory_test(bug: str):
     {"""探索性测试"""
@@ -453,7 +453,7 @@ def exploratory_test(bug: str):
     console.print("\n✅ 探索完成")
 
 
-@qa_automation_cli.command(name="automated"
+@qa_automation_cli.command(name="automated")
 @click.option("--script", "-s", help="脚本路径")
 def automated_test(script: str):
     """自动化测试"""
@@ -483,7 +483,7 @@ def automated_test(script: str):
     console.print("\n✅ 自动化完成")
 
 
-@qa_automation_cli.command(name="report"
+@qa_automation_cli.command(name="report")
 @click.option("--format", "-f", default="junit", help="报告格式")
 def test_report(format: str):
     """测试报告"""

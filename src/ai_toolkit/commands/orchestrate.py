@@ -110,7 +110,7 @@ def execute_orchestration():
     console.print("\n✅ 编排执行中")
 
 
-@orchestrate_cli.command(name="retry"
+@orchestrate_cli.command(name="retry")
 @click.option("--task", "-t", help="任务名称")
 @click.option("--max", "-m", default=3, help="最大重试次数")
 def retry_task(task: str, max: int):
@@ -126,7 +126,7 @@ def retry_task(task: str, max: int):
     console.print("\n✅ 重试策略已设置")
 
 
-@orchestrate_cli.command(name="timeout"
+@orchestrate_cli.command(name="timeout")
 @click.option("--task", "-t", help="任务名称")
 @click.option("--duration", "-d", default=300, help="超时时间（秒）")
 def set_timeout(task: str, duration: int):
@@ -165,7 +165,7 @@ def manage_resources():
     console.print("\n✅ 资源已分配")
 
 
-@orchestrate_cli.command(name="scale"
+@orchestrate_cli.command(name="scale")
 @click.option("--workers", "-w", default=4, help="工作进程数")
 def scale_orchestration(workers: int):
     """扩展编排"""

@@ -37,7 +37,7 @@ def deploy_cloud(app: str, platform: str):
     console.print("\n✅ 应用已部署")
 
 
-@cloud_cli.command(name="scale"
+@cloud_cli.command(name="scale")
 @click.option("--service", "-s", help="服务名称")
 @click.option("--replicas", "-r", default=3, help="副本数")
 def scale_cloud(service: str, replicas: int):

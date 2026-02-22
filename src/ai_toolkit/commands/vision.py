@@ -19,7 +19,7 @@ def vision_cli():
     pass
 
 
-@vision_cli.command(name="classify"
+@vision_cli.command(name="classify")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--model", "-m", help="模型类型")
 def image_classify(image: str, model: str):
@@ -43,7 +43,7 @@ def image_classify(image: str, model: str):
     console.print("\n✅ 分类完成")
 
 
-@vision_cli.command(name="detect"
+@vision_cli.command(name="detect")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--objects", "-o", help="目标对象")
 def object_detection(image: str, objects: str):
@@ -67,7 +67,7 @@ def object_detection(image: str, objects: str):
     console.print("\n✅ 检测完成")
 
 
-@vision_cli.command(name="segment"
+@vision_cli.command(name="segment")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--method", "-m", default="maskrcnn", help="分割方法")
 def image_segmentation(image: str, method: str):
@@ -89,7 +89,7 @@ def image_segmentation(image: str, method: str):
     console.print("\n✅ 分割完成")
 
 
-@vision_cli.command(name="track"
+@vision_cli.command(name="track")
 @click.option("--video", "-v", help="视频路径")
 @click.option("--object", "-o", help="跟踪对象")
 def object_tracking(video: str, object: str):
@@ -112,7 +112,7 @@ def object_tracking(video: str, object: str):
     console.print("\n✅ 跟踪完成")
 
 
-@vision_cli.command(name="ocr"
+@vision_cli.command(name="ocr")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--language", "-l", help="语言")
 def ocr_text(image: str, language: str):
@@ -134,7 +134,7 @@ def ocr_text(image: str, language: str):
     console.print("\n✅ 识别完成")
 
 
-@vision_cli.command(name="embed"
+@vision_cli.command(name="embed")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--model", "-m", help="嵌入模型")
 def image_embedding(image: str, model: str):
@@ -155,7 +155,7 @@ def image_embedding(image: str, model: str):
     console.print("\n✅ 嵌入完成")
 
 
-@vision_cli.command(name="similarity"
+@vision_cli.command(name="similarity")
 @click.option("--image1", "-1", help="图片1")
 @click.option("--image2", "-2", help="图片2")
 def image_similarity(image1: str, image2: str):
@@ -179,7 +179,7 @@ def image_similarity(image1: str, image2: str):
     console.print("\n✅ 计算完成")
 
 
-@vision_cli.command(name="enhance"
+@vision_cli.command(name="enhance")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--method", "-m", help="增强方法")
 def enhance_image(image: str, method: str):
@@ -205,7 +205,7 @@ def enhance_image(image: str, method: str):
     console.print("\n✅ 增强完成")
 
 
-@vision_cli.command(name="restore"
+@vision_cli.command(name="restore")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--method", "-m", help="修复方法")
 def restore_image(image: str, method: str):
@@ -230,7 +230,7 @@ def restore_image(image: str, method: str):
     console.print("\n✅ 修复完成")
 
 
-@vision_cli.command(name="style"
+@vision_cli.command(name="style")
 @click.option("--content", "-c", help="内容图片")
 @click.option("--style", "-s", help="风格图片")
 def style_transfer(content: str, style: str):
@@ -252,7 +252,7 @@ def style_transfer(content: str, style: str):
     console.print("\n✅ 迁移完成")
 
 
-@vision_cli.command(name="colorize"
+@vision_cli.command(name="colorize")
 @click.option("--image", "-i", help="黑白图片")
 @click.option("--method", "-m", default="auto", help="上色方法")
 def colorize_image(image: str, method: str):
@@ -274,7 +274,7 @@ def colorize_image(image: str, method: str):
     console.print("\n✅ 上色完成")
 
 
-@vision_cli.command(name="depth"
+@vision_cli.command(name="depth")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--method", "-m", help="深度估计方法")
 def depth_estimation(image: str, method: str):
@@ -296,7 +296,7 @@ def depth_estimation(image: str, method: str):
     console.print("\n✅ 估计完成")
 
 
-@vision_cli.command(name="edge"
+@vision_cli.command(name="edge")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--method",("-m", help="边缘检测方法")
 def edge_detection(image: str, method: str):
@@ -321,8 +321,8 @@ def edge_detection(image: str, method: str):
     console.print("\n✅ 检测完成")
 
 
-@vision_cli.command(name="corner"
-@click.option("--image", "-i", help="图片路径"
+@vision_cli.command(name="corner")
+@click.option("--image", "-i", help="图片路径")
 @click.option("--method", "-m", help="角点检测方法")
 def corner_detection(image: str, method: str):
     """角点检测"""
@@ -344,7 +344,7 @@ def corner_detection(image: str, method: str):
     console.print("\n✅ 检测完成")
 
 
-@vision_cli.command(name="feature"
+@vision_cli.command(name="feature")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--detector", "-d", help="特征检测器")
 def feature_detection(image: str, detector: str):
@@ -367,9 +367,9 @@ def feature_detection(image: str, detector: str):
     console.print("\n✅ 检测完成")
 
 
-@vision_cli.command(name="match"
-@click.option("--image1", "-1", help="图片1"
-@click.option("--image2", "-2", help="图片2"
+@vision_cli.command(name="match")
+@click.option("--image1", "-1", help="图片1")
+@click.option("--image2", "-2", help="图片2")
 @click.option("--method", "-m", help="匹配方法")
 def feature_matching(image1: str, image2: str, method: str):
     """特征匹配"""
@@ -392,8 +392,8 @@ def feature_matching(image1: str, image2: str, method: str):
     console.print("\n✅ 匹配完成")
 
 
-@vision_cli.command(name="stitch"
-@click.option("--images", "-i", help="图片列表"
+@vision_cli.command(name="stitch")
+@click.option("--images", "-i", help="图片列表")
 @click.option("--method", "-m", help="拼接方法")
 def image_stitch(images: str, method: str):
     """图像拼接"""
@@ -415,7 +415,7 @@ def image_stitch(images: str, method: str):
     console.print("\n✅ 拼接完成")
 
 
-@vision_cli.command(name="recognize"
+@vision_cli.command(name="recognize")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--database", "-d", help="地标数据库")
 def landmark_recognition(image: str, database: str):
@@ -439,7 +439,7 @@ def landmark_recognition(image: str, database: str):
     console.print("\n✅ 识别完成")
 
 
-@vision_cli.command(name="face"
+@vision_cli.command(name="face")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--detect", "-d", is_flag=True, help="检测人脸")
 def face_recognition(image: str, detect: bool):
@@ -469,7 +469,7 @@ def face_recognition(image: str, detect: bool):
     console.print("\n✅ 识别完成")
 
 
-@vision_cli.command(name="pose"
+@vision_cli.command(name="pose")
 @click.option("--image", "-i", help="图片路径")
 def pose_estimation(image: str):
     """姿态估计"""
@@ -493,7 +493,7 @@ def pose_estimation(image: str):
     console.print("\n✅ 估计完成")
 
 
-@vision_cli.command(name="action"
+@vision_cli.command(name="action")
 @click.option("--video", "-v", help="视频路径")
 def action_recognition(video: str):
     """动作识别"""
@@ -514,7 +514,7 @@ def action_recognition(video: str):
     console.print("\n✅ 识别完成")
 
 
-@vision_cli.command(name="scene"
+@vision_cli.command(name="scene")
 @click.option("--image",("-i", help="图片路径")
 def scene_understanding(image: str):
     """场景理解")
@@ -540,7 +540,7 @@ def scene_understanding(image: str):
     console.print("\n✅ 理解完成")
 
 
-@vision_cli.command(name="caption"
+@vision_cli.command(name="caption")
 @click.option("--image", "-i", help="图片路径")
 def image_captioning(image: str):
     """图像描述"""
@@ -560,7 +560,7 @@ def image_captioning(image: str):
     console.print("\n✅ 描述完成")
 
 
-@vision_cli.command(name="vqa"
+@vision_cli.command(name="vqa")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--question", "-q", help="问题")
 def visual_qa(image: str, question: str):
@@ -581,8 +581,8 @@ def visual_qa(image: str, question: str):
     console.print("\n✅ 回答完成")
 
 
-@vision_cli.command(name="generate"
-@click.option("--text", "-t", help="文本描述"
+@vision_cli.command(name="generate")
+@click.option("--text", "-t", help="文本描述")
 @click.option("--style", "-s", help="图片风格")
 def image_generation(text: str, style: str):
     """图像生成"""
@@ -604,8 +604,8 @@ def image_generation(text: str, style: str):
     console.print("\n✅ 生成完成")
 
 
-@vision_cli.command(name="edit"
-@click.option("--image", "-i", help="图片路径"
+@vision_cli.command(name="edit")
+@click.option("--image", "-i", help="图片路径")
 @click.option("--mask", "-m", help="编辑mask")
 @click.option("--prompt", "-p", help="编辑提示")
 def image_edit(image: str, mask: str, prompt: str):
@@ -629,9 +629,9 @@ def image_edit(image: str, mask: str, prompt: str):
     console.print("\n✅ 编辑完成")
 
 
-@vision_cli.command(name="inpaint"
+@vision_cli.command(name="inpaint")
 @click.option("--image", "-i", help="图片路径")
-@click.option("--mask", "-m", help="修复mask"
+@click.option("--mask", "-m", help="修复mask")
 @click.option("--prompt", "-p", help="修复提示")
 def image_inpaint(image: str, mask: str, prompt: str):
     """图像修复"""
@@ -649,8 +649,8 @@ def image_inpaint(image: str, mask: str, prompt: str):
     console.print("\n✅ 修复完成")
 
 
-@vision_cli.command(name="upscale"
-@click.option("--image", "-i", help="图片路径"
+@vision_cli.command(name="upscale")
+@click.option("--image", "-i", help="图片路径")
 @click.option("--scale", "-s", default=2, help="放大倍数")
 def image_upscale(image: str, scale: int):
     """图像放大"""
@@ -672,8 +672,8 @@ def image_upscale(image: str, scale: int):
     console.print("\n✅ 放大完成")
 
 
-@vision_cli.command(name="denoise"
-@click.option("--image", "-i", help="图片路径"
+@vision_cli.command(name="denoise")
+@click.option("--image", "-i", help="图片路径")
 @click.option("--strength", "-s", default=0.5, help="降噪强度")
 def image_denoise(image: str, strength: float):
     """图像降噪"""
@@ -693,7 +693,7 @@ def image_denoise(image: str, strength: float):
     console.print("\n✅ 降噪完成")
 
 
-@vision_cli.command(name="compress"
+@vision_cli.command(name="compress")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--quality", "-q", default=85, help="压缩质量")
 def image_compress(image: str, quality: int):
@@ -714,7 +714,7 @@ def image_compress(image: str, quality: int):
     console.print("\n✅ 压缩完成")
 
 
-@vision_cli.command(name="format"
+@vision_cli.command(name="format")
 @click.option("--image", "-i", help="图片路径")
 @click.option("--format", "-f", help="目标格式")
 def convert_format(image: str, format: str):
@@ -732,7 +732,7 @@ def convert_format(image: str, format: str):
     console.print("\n✅ 转换完成")
 
 
-@vision_cli.command(name="metadata"
+@vision_cli.command(name="metadata")
 @click.option("--image", "-i", help="图片路径")
 def extract_metadata(image: str):
     """提取元数据"""
@@ -753,7 +753,7 @@ def extract_metadata(image: str):
     console.print("\n✅ 提取完成")
 
 
-@vision_cli.command(name="validate"
+@vision_cli.command(name="validate")
 @click.option("--image", "-i", help="图片路径")
 def validate_image(image: str):
     """图片验证"""

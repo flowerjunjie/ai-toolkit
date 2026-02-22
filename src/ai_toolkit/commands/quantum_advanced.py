@@ -222,7 +222,7 @@ def quantum_fft(qubits: int):
 @click.option("--number", "-n", default=15, help="待分解整数")
 def shor_factoring(number: int):
     """Shor质因数分解"""
-    console.print(f"\n🔢 Shor算法\n"
+    console.print(f"\n🔢 Shor算法\n")
 
     console.print(f"目标: {number}")
 
@@ -364,7 +364,7 @@ def visualize_state(amplitudes: str):
 @click.option("--layers", "-l", default=2, help="变分层")
 def variational_circuit(qubits: int, layers: int):
     """变分量子电路"""
-    console.print(f"\n🔄 变分量子电路\n"
+    console.print(f"\n🔄 变分量子电路\n")
 
     console.print(f"量子比特: {qubits}")
     console.print(f"层数: {layers}")

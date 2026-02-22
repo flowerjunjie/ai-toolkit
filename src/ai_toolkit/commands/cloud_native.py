@@ -158,7 +158,7 @@ def monitoring_setup(type: str):
     console.print("\n✅ 监控已配置")
 
 
-@cloud_native_cli.command(name="logging"
+@cloud_native_cli.command(name="logging")
 @click.option("--backend", "-b", default("elk", help="日志后端")
 def logging_setup(backend: str):
     """日志配置"""
@@ -195,7 +195,7 @@ def logging_setup(backend: str):
     console.print("\n✅ 日志已配置")
 
 
-@cloud_native_cli.command(name="ci"
+@cloud_native_cli.command(name="ci")
 @click.option("--platform", "-p", default("github", help="CI平台")
 def continuous_integration(platform: str):
     """持续集成"""
@@ -231,7 +231,7 @@ def continuous_integration(platform: str):
     console.print("\n✅ CI已配置")
 
 
-@cloud_native_cli.command(name="cd"
+@cloud_native_cli.command(name="cd")
 @click.option("--strategy", "-s", default("rolling", help="部署策略")
 def continuous_deployment(strategy: str):
     """持续部署"""
@@ -268,7 +268,7 @@ def continuous_deployment(strategy: str):
     console.print("\n✅ CD已配置")
 
 
-@cloud_native_cli.command(name="config"
+@cloud_native_cli.command(name="config")
 @click.option("--type", "-t", default("env", help="配置类型")
 def configuration_management(type: str):
     """配置管理"""
@@ -303,7 +303,7 @@ def configuration_management(type: str):
     console.print("\n✅ 配置已管理")
 
 
-@cloud_native_cli.command(name="secret"
+@cloud_native_cli.command(name="secret")
 @click.option("--name", "-n", help="密钥名称")
 def secret_management(name: str):
     """密钥管理"""
@@ -332,7 +332,7 @@ def secret_management(name: str):
     console.print("\n✅ 密钥已管理")
 
 
-@cloud_native_cli.command(name="scaling"
+@cloud_native_cli.command(name="scaling")
 @click.option("--type", "-t", default("hpa", help="扩缩容类型")
 def auto_scaling(type: str):
     """自动扩缩容"""
@@ -366,7 +366,7 @@ def auto_scaling(type: str):
     console.print("\n✅ 扩缩容已配置")
 
 
-@cloud_native_cli.command(name="service"
+@cloud_native_cli.command(name="service")
 @click.option("--type", "-t", default("cluster", help="服务类型")
 def service_mesh(type: str):
     """服务网格"""
@@ -395,7 +395,7 @@ def service_mesh(type: str):
     console.print("\n✅ 服务网格已配置")
 
 
-@cloud_native_cli.command(name="gateway"
+@cloud_native_cli.command(name="gateway")
 @click.option("--type", "-t", default("ingress", help="网关类型")
 def api_gateway(type: str):
     """API网关"""
@@ -423,7 +423,7 @@ def api_gateway(type: str):
     console.print("\n✅ 网关已配置")
 
 
-@cloud_native_cli.command(name="chaos"
+@cloud_native_cli.command(name="chaos")
 @click.option("--experiment", "-e", help="混沌实验")
 def chaos_engineering(experiment: str):
     """混沌工程"""
@@ -451,7 +451,7 @@ def chaos_engineering(experiment: str):
     console.print("\n✅ 实验已完成")
 
 
-@cloud_native_cli.command(name="optimize"
+@cloud_native_cli.command(name="optimize")
 @click.option("--type", "-t", help="优化类型")
 def resource_optimization(type: str):
     """资源优化"""
@@ -479,7 +479,7 @@ def resource_optimization(type: str):
     console.print("\n✅ 优化已完成")
 
 
-@cloud_native_cli.command(name="backup"
+@cloud_native_cli.command(name="backup")
 @click.option("--type", "-t", default("velero", help="备份类型")
 def disaster_recovery(type: str):
     """灾难恢复"""

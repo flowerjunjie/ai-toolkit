@@ -37,7 +37,7 @@ def emit_event(type: str, data: str):
     console.print("\n✅ 事件已发布")
 
 
-@event_cli.command(name="subscribe"
+@event_cli.command(name="subscribe")
 @click.option("--event", "-e", required=True, help="事件类型")
 @click.option("--handler", "-h", required=True, help="处理函数")
 def subscribe_event(event: str, handler: str):
@@ -122,7 +122,7 @@ def manage_queue():
     console.print("\n✅ 队列运行正常")
 
 
-@event_cli.command(name="replay"
+@event_cli.command(name="replay")
 @click.option("--event", "-e", help="事件类型")
 @click.option("--from", "-f", help="开始时间")
 def replay_events(event: str, from_: str):

@@ -47,7 +47,7 @@ def transcribe_audio(audio: str, language: str):
     console.print("\n✅ 转写完成")
 
 
-@asr_cli.command(name="translate"
+@asr_cli.command(name="translate")
 @click.option("--text", "-t", help="文本内容")
 @click.option("--target", "-t", help="目标语言")
 def translate_asr(text: str, target: str):
@@ -68,7 +68,7 @@ def translate_asr(text: str, target: str):
     console.print("\n✅ 翻译完成")
 
 
-@asr_cli.command(name="speaker"
+@asr_cli.command(name="speaker")
 @click.option("--audio", "-a", help="音频文件")
 def identify_speaker(audio: str):
    说话人识别
@@ -91,7 +91,7 @@ def identify_speaker(audio: str):
     console.print("\n✅ 识别完成")
 
 
-@asr_cli.command(name="diarize"
+@asr_cli.command(name="diarize")
 @click.option("--audio", "-a", help="音频文件")
 @click.option("--method", "-m", default="pyannote", help="分离算法")
 def diarization(audio: str, method: str):
@@ -119,7 +119,7 @@ def diarization(audio: str, method: str):
     console.print("\n✅ 分离完成")
 
 
-@asr_cli.command(name="segment"
+@asr_cli.command(name="segment")
 @click.option("--audio", "-a", help="音频文件")
 def segment_audio(audio: str):
     """音频分割"""
@@ -144,7 +144,7 @@ def segment_audio(audio: str):
     console.print("\n✅ 分割完成")
 
 
-@asr_cli.command(name="enhance"
+@asr_cli.command(name="enhance")
 @click.option("--audio", "-a", help="音频文件")
 @click.option("--method", "-m", default="specsub", help="增强方法")
 def enhance_asr(audio: str, method: str):
@@ -169,7 +169,7 @@ def enhance_asr(audio: str, method: str):
     console.print("\n✅ 增强完成")
 
 
-@asr_cli.command(name="confidence"
+@asr_cli.command(name="confidence")
 @click.option("--text", "-t", help="识别文本")
 @click.option("--scores", "-s", is_flag=True, help="显示分数")
 def confidence_score(text: str, scores: bool):
@@ -194,7 +194,7 @@ def confidence_score(text: str, scores: bool):
     console.print("\n✅ 评分完成")
 
 
-@asr_cli.command(name="evaluate"
+@asr_cli.command(name="evaluate")
 @click.option("--reference", "-r", help="参考文本")
 @click.option("--hypothesis", "-h", help="假设文本")
 def evaluate_asr(reference: str, hypothesis: str):
@@ -245,7 +245,7 @@ def realtime_asr(port: int):
     console.print("\n✅ 实时ASR服务已启动")
 
 
-@asr_cli.command(name="batch"
+@asr_cli.command(name="batch")
 @click.option("--audios", "-a", help="音频列表")
 @click.option("--output", "-o", help="输出目录")
 def batch_asr(audios: str, output: str):
@@ -271,7 +271,7 @@ def batch_asr(audios: str, output: str):
     console.print("\n✅ 批量ASR完成")
 
 
-@asr_cli.command(name="language"
+@asr_cli.command(name="language")
 @click.option("--audio", "-a", help="音频文件")
 def detect_language(audio: str):
     """语言检测"""
@@ -293,7 +293,7 @@ def detect_language(audio: str):
     console.print("\n✅ 检测完成")
 
 
-@asr_cli.command(name="domain"
+@asr_cli.command(name="domain")
 @click.option("--audio", "-a", help="音频文件")
 @click.option("--domains", "-d", help="领域列表")
 def classify_domain(audio: str, domains: str):
@@ -349,7 +349,7 @@ def train_asr(data: str, model: str):
     console.print("\n✅ 训练完成")
 
 
-@asr_cli.command(name="fine-tune"
+@asr_cli.command(name="fine-tune")
 @click.option("--model", "-m", help="基础模型")
 @click.option("--data", "-d", help="微调数据")
 @click.option("--epochs", "-e", default=10, help="微调轮数")
@@ -375,7 +375,7 @@ def fine_tune(model: str, data: str, epochs: int):
     console.print("\n✅ 微调完成")
 
 
-@asr_cli.command(name="optimize"
+@asr_cli.command(name="optimize")
 @click.option("--model", "-m", help="模型路径")
 @click.option("--beam", "-b", default="beam", help="束搜索算法")
 def optimize_asr(model: str, beam: str):
@@ -399,7 +399,7 @@ def optimize_asr(model: str, beam: str):
     console.print("\n✅ 优化完成")
 
 
-@asr_cli.command(name="deploy"
+@asr_cli.command(name="deploy")
 @click.option("--model", "-m", help="模型路径")
 @click.option("--port", "-p", default=8000, help="API端口")
 def deploy_asr(model: str, port: int):

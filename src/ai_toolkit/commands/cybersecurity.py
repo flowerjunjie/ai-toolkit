@@ -52,8 +52,8 @@ def scan_vulnerability(target: str, type: str):
     console.print("\n✅ 扫描完成")
 
 
-@cybersecurity_cli.command(name="pentest"
-@click.option("--target", "-t", help="目标系统"
+@cybersecurity_cli.command(name="pentest")
+@click.option("--target", "-t", help="目标系统")
 @click.option("--phase", "-p", default="recon", help="测试阶段")
 def penetration_test(target: str, phase: str):
     """渗透测试"""
@@ -124,7 +124,7 @@ def simulate_phishing(campaign: str):
     console.print("\n✅ 模拟完成")
 
 
-@cybersecurity_cli.command(name="network"
+@cybersecurity_cli.command(name="network")
 @click.option("--type", "-t", default="firewall", help="配置类型")
 def network_security(type: str):
     """网络安全"""
@@ -160,7 +160,7 @@ def network_security(type: str):
     console.print("\n✅ 配置完成")
 
 
-@cybersecurity_cli.command(name="malware"
+@cybersecurity_cli.command(name="malware")
 @click.option("--type", "-t", help="分析类型")
 def analyze_malware(type: str):
     """恶意软件分析"""
@@ -194,7 +194,7 @@ def analyze_malware(type: str):
     console.print("\n✅ 分析完成")
 
 
-@cybersecurity_cli.command(name="forensics"
+@cybersecurity_cli.command(name="forensics")
 @click.option("--type", "-t", help="取证类型")
 def digital_forensics(type: str):
     """数字取证"""
@@ -228,7 +228,7 @@ def digital_forensics(type: str):
     console.print("\n✅ 取证完成")
 
 
-@cybersecurity_cli.command(name="threat"
+@cybersecurity_cli.command(name="threat")
 @click.option("--source", "-s", help="情报源")
 def threat_intel(source: str):
     """威胁情报"""
@@ -262,7 +262,7 @@ def threat_intel(source: str):
     console.print("\n✅ 情报更新")
 
 
-@cybersecurity_cli.command(name="incident"
+@cybersecurity_cli.command(name="incident")
 @click.option("--type", "-t", help="事件类型")
 def incident_response(type: str):
     """事件响应"""
@@ -296,7 +296,7 @@ def incident_response(type: str):
     console.print("\n✅ 响应完成")
 
 
-@cybersecurity_cli.command(name="policy"
+@cybersecurity_cli.command(name="policy")
 @click.option("--type", "-t", help="策略类型")
 def security_policy(type: str):
     """安全策略"""
@@ -331,7 +331,7 @@ def security_policy(type: str):
     console.print("\n✅ 策略已发布")
 
 
-@cybersecurity_cli.command(name="audit"
+@cybersecurity_cli.command(name="audit")
 @click.option("--scope", "-s", help="审计范围")
 def security_audit(scope: str):
     """安全审计"""
@@ -365,7 +365,7 @@ def security_audit(scope: str):
     console.print("\n✅ 审计完成")
 
 
-@cybersecurity_cli.command(name="training"
+@cybersecurity_cli.command(name="training")
 @click.option("--level", "-l", default="basic", help="培训级别")
 def security_training(level: str):
     """安全培训"""
@@ -401,7 +401,7 @@ def security_training(level: str):
     console.print("\n✅ 培训完成")
 
 
-@cybersecurity_cli.command(name="monitor"
+@cybersecurity_cli.command(name="monitor")
 @click.option("--type", "-t", default("siem", help="监控类型")
 def security_monitor(type: str):
     """安全监控"""
@@ -437,7 +437,7 @@ def security_monitor(type: str):
     console.print("\n✅ 监控中")
 
 
-@cybersecurity_cli.command(name="compliance"
+@cybersecurity_cli.command(name="compliance")
 @click.option("--standard", "-s", help="合规标准")
 def check_compliance(standard: str):
     """合规检查"""

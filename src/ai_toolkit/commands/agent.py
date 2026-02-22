@@ -51,7 +51,7 @@ def create_agent(name: str, type: str):
     console.print("\n✅ 代理已创建")
 
 
-@agent_cli.command(name="deploy"
+@agent_cli.command(name="deploy")
 @click.option("--agent", "-a", required=True, help="代理名称")
 def deploy_agent(agent: str):
     """部署代理"""
@@ -89,7 +89,7 @@ def list_agents():
     console.print(table)
 
 
-@agent_cli.command(name="chat"
+@agent_cli.command(name="chat")
 @click.option("--agent", "-a", required=True, help="代理名称")
 def chat_with_agent(agent: str):
     """与代理对话"""
@@ -98,7 +98,7 @@ def chat_with_agent(agent: str):
     console.print("输入消息，按Ctrl+D结束")
 
 
-@agent_cli.command(name="task"
+@agent_cli.command(name="task")
 @click.option("--agent", "-a", required=True, help="代理名称")
 @click.option("--task", "-t", required=True, help="任务描述")
 def assign_task(agent: str, task: str):
@@ -165,7 +165,7 @@ def monitor_agents():
     console.print("\n✅ 所有代理运行正常")
 
 
-@agent_cli.command(name="scale"
+@agent_cli.command(name="scale")
 @click.option("--replicas", "-r", default=3, help="副本数")
 def scale_agents(replicas: int):
     """扩展代理"""

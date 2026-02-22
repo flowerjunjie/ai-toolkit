@@ -50,11 +50,11 @@ def explore_data(dataset: str):
     console.print("\n✅ 探索完成")
 
 
-@datascience_cli.command(name="clean"
+@datascience_cli.command(name="clean")
 @click.option("--dataset", "-d", help="数据集路径")
 def clean_data(dataset: str):
     """清洗数据"""
-    console.print(f"\n🧹 清洗数据\n"
+    console.print(f"\n🧹 清洗数据\n")
 
     console.print(f"数据集: {dataset or 'sales_data.csv'}")
 
@@ -87,7 +87,7 @@ def clean_data(dataset: str):
     console.print("\n✅ 清洗完成")
 
 
-@datascience_cli.command(name="visualize"
+@datascience_cli.command(name="visualize")
 @click.option("--column", "-c", help="列名")
 @click.option("--type", "-t", default="histogram", help="图表类型")
 def visualize_data(column: str, type: str):
@@ -125,11 +125,11 @@ def visualize_data(column: str, type: str):
     console.print("\n✅ 可视化完成")
 
 
-@datascience_cli.command(name="stats"
+@datascience_cli.command(name="stats")
 @click.option("--method", "-m", default="descriptive", help="统计方法")
 def statistical_analysis(method: str):
     """统计分析"""
-    console.print(f"\n📈 统计分析\n"
+    console.print(f"\n📈 统计分析\n")
 
     console.print(f"方法: {method}")
 
@@ -159,12 +159,12 @@ def statistical_analysis(method: str):
     console.print("\n✅ 分析完成")
 
 
-@datascience_cli.command(name="ml"
+@datascience_cli.command(name="ml")
 @click.option("--task", "-t", default="classification", help="任务类型")
 @click.option("--model", "-m", default="randomforest", help="模型类型")
 def machine_learning(task: str, model: str):
     """机器学习"""
-    console.print(f"\n🤖 机器学习\n"
+    console.print(f"\n🤖 机器学习\n")
 
     console.print(f"任务: {task}")
     console.print(f"模型: {model}")
@@ -197,7 +197,7 @@ def machine_learning(task: str, model: str):
     console.print("\n✅ 训练完成")
 
 
-@datascience_cli.command(name="nlp"
+@datascience_cli.command(name="nlp")
 @click.option("--task", "-t", default="sentiment", help="NLP任务")
 def nlp_analysis(task: str):
     """自然语言处理"""
@@ -232,11 +232,11 @@ def nlp_analysis(task: str):
     console.print("\n✅ 分析完成")
 
 
-@datascience_cli.command(name="cv"
+@datascience_cli.command(name="cv")
 @click.option("--task", "-t", default="classification", help="CV任务")
 def computer_vision(task: str):
     """计算机视觉"""
-    console.print(f"\n🖼️ 计算机视觉\n"
+    console.print(f"\n🖼️ 计算机视觉\n")
 
     console.print(f"任务: {task}")
 
@@ -267,11 +267,11 @@ def computer_vision(task: str):
     console.print("\n✅ 分析完成")
 
 
-@datascience_cli.command(name="time"
+@datascience_cli.command(name="time")
 @click.option("--freq", "-f", default="D", help="频率")
 def time_series_analysis(freq: str):
     """时间序列分析"""
-    console.print(f"\n⏰ 时间序列分析\n"
+    console.print(f"\n⏰ 时间序列分析\n")
 
     console.print(f"频率: {freq} (日)")
 
@@ -333,11 +333,11 @@ def clustering(method: str):
     console.print("\n✅ 聚类完成")
 
 
-@datascience_cli.command(name="recommend"
+@datascience_cli.command(name="recommend")
 @click.option("--method", "-m", default="collaborative", help="推荐方法")
 def recommendation(method: str):
     """推荐系统"""
-    console.print(f"\n💡 推荐系统\n"
+    console.print(f"\n💡 推荐系统\n")
 
     console.print(f"方法: {method}")
 
@@ -370,7 +370,7 @@ def recommendation(method: str):
 @click.option("--method", "-m", default="isolation", help="异常检测方法")
 def anomaly_detection(method: str):
     """异常检测"""
-    console.print(f"\n⚠️ 异常检测\n"
+    console.print(f"\n⚠️ 异常检测\n")
 
     console.print(f"方法: {method}")
 
@@ -398,7 +398,7 @@ def anomaly_detection(method: str):
     console.print("\n✅ 检测完成")
 
 
-@datascience_cli.command(name="feature"
+@datascience_cli.command(name="feature")
 @click.option("--method", "-m", default="importance", help="特征工程方法")
 def feature_engineering(method: str):
     """特征工程"""
@@ -431,11 +431,11 @@ def feature_engineering(method: str):
     console.print("\n✅ 工程完成")
 
 
-@datascience_cli.command(name="experiment"
+@datascience_cli.command(name="experiment")
 @click.option("--name", "-n", help="实验名称")
 def ml_experiment(name: str):
     """ML实验跟踪"""
-    console.print(f"\n🔬 ML实验跟踪\n"
+    console.print(f"\n🔬 ML实验跟踪\n")
 
     console.print(f"实验: {name or 'Exp_001'}")
 
@@ -469,7 +469,7 @@ def ml_experiment(name: str):
 @click.option("--platform", "-p", default="aws", help="部署平台")
 def model_deployment(model: str, platform: str):
     """模型部署"""
-    console.print(f"\n🚀 模型部署\n"
+    console.print(f"\n🚀 模型部署\n")
 
     console.print(f"模型: {model or 'sentiment_model.pkl'}")
     console.print(f"平台: {platform}")
@@ -502,7 +502,7 @@ def model_deployment(model: str, platform: str):
 @datascience_cli.command(name="log")
 def datascience_log():
     """数据科学日志"""
-    console.print(f"\n📝 数据科学日志\n"
+    console.print(f"\n📝 数据科学日志\n")
 
     console.print("今日统计:")
     console.print("  项目: 8个")

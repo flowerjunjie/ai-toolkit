@@ -171,12 +171,12 @@ def auto_restore(source: str, target: str):
     console.print("\n✅ 恢复完成")
 
 
-@ops_cli.command(name="update"
+@ops_cli.command(name="update")
 @click.option("--package", "-p", help="包名")
 @click.option("--version", "-v", help="版本号")
 def auto_update(package: str, version: str):
     """自动更新"""
-    console.print(f"\n⬆️ 自动更新\n"
+    console.print(f"\n⬆️ 自动更新\n")
 
     console.print(f"包: {package or 'all'}")
     console.print(f"版本: {version or 'latest'}")
@@ -192,11 +192,11 @@ def auto_update(package: str, version: str):
     console.print("\n✅ 更新完成")
 
 
-@ops_cli.command(name="health"
+@ops_cli.command(name="health")
 @click.option("--service", "-s", help="服务名称")
 def auto_health(service: str):
     """健康检查"""
-    console.print(f"\n❤️ 健康检查\n"
+    console.print(f"\n❤️ 健康检查\n")
 
     console.print(f"服务: {service or 'all'}")
 
@@ -221,7 +221,7 @@ def auto_health(service: str):
 @click.option("--tail", "-t", default=100, help="行数")
 def auto_log(service: str, tail: int):
     """日志管理"""
-    console.print(f"\n📝 日志管理\n"
+    console.print(f"\n📝 日志管理\n")
 
     console.print(f"服务: {service or 'all'}")
     console.print(f"行数: {tail}")
@@ -241,13 +241,13 @@ def auto_log(service: str, tail: int):
     console.print("\n✅ 日志管理完成")
 
 
-@ops_cli.command(name="clean"
+@ops_cli.command(name="clean")
 @click.option("--logs", "-l", is_flag=True, help="清理日志")
 @click.option("--cache", "-c", is_flag=True, help="清理缓存")
 @click.option("--temp", "-t", is_flag=True, help="清理临时文件")
 def auto_clean(logs: bool, cache: bool, temp: bool):
     """自动清理"""
-    console.print(f"\n🧹 自动清理\n"
+    console.print(f"\n🧹 自动清理\n")
 
     if logs:
         console.print("清理日志:")
@@ -273,7 +273,7 @@ def auto_clean(logs: bool, cache: bool, temp: bool):
 @ops_cli.command(name="optimize")
 def auto_optimize():
     """自动优化"""
-    console.print(f"\n⚡ 自动优化\n"
+    console.print(f"\n⚡ 自动优化\n")
 
     console.print("优化项目:")
     console.print("  数据库查询: 索引优化")
@@ -295,7 +295,7 @@ def auto_optimize():
 @click.option("--scan", "-s", is_flag=True, help="安全扫描")
 def auto_secure(scan: bool):
     """安全加固"""
-    console.print(f"\n🔒 安全加固\n"
+    console.print(f"\n🔒 安全加固\n")
 
     if scan:
         console.print("安全扫描:")
@@ -315,11 +315,11 @@ def auto_secure(scan: bool):
     console.print("\n✅ 安全加固完成")
 
 
-@ops_cli.command(name="incident"
+@ops_cli.command(name="incident")
 @click.option("--type", "-t", help="事件类型")
 def auto_incident(type: str):
     """事件响应"""
-    console.print(f"\n🚨 事件响应\n"
+    console.print(f"\n🚨 事件响应\n")
 
     console.print(f"事件类型: {type or '服务宕机'}")
 
@@ -344,7 +344,7 @@ def auto_incident(type: str):
 @click.option("--type", "-t", help="报告类型")
 def auto_report(type: str):
     """运维报告"""
-    console.print(f"\n📊 运维报告\n"
+    console.print(f"\n📊 运维报告\n")
 
     console.print(f"类型: {type or 'daily'}")
 
@@ -368,7 +368,7 @@ def auto_report(type: str):
 @ops_cli.command(name="sla")
 def check_sla():
     """SLA监控"""
-    console.print(f"\n📈 SLA监控\n"
+    console.print(f"\n📈 SLA监控\n")
 
     console.print("SLA指标:")
     console.print("  可用性: 99.9% (目标: 99.9%)")

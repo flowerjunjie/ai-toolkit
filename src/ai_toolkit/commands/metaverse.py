@@ -191,7 +191,7 @@ def create_nft(type: str):
     console.print("\n✅ NFT已创建")
 
 
-@metaverse_cli.command(name="market"
+@metaverse_cli.command(name="market")
 @click.option("--platform", "-p", default("opensea", help="市场平台")
 def nft_marketplace(platform: str):
     """NFT市场"""
@@ -219,7 +219,7 @@ def nft_marketplace(platform: str):
     console.print("\n✅ 市场已加载")
 
 
-@metaverse_cli.command(name="social"
+@metaverse_cli.command(name="social")
 @click.option("--feature", "-f", default("chat", help="社交功能")
 def social_interaction(feature: str):
     """社交互动"""
@@ -306,7 +306,7 @@ def virtual_realestate(location: str):
     console.print("\n✅ 房产已加载")
 
 
-@metaverse_cli.command(name="gaming"
+@metaverse_cli.command(name="gaming")
 @click.option("--genre", "-g", default("rpg", help="游戏类型")
 def metaverse_gaming(genre: str):
     """元宇宙游戏"""
@@ -394,7 +394,7 @@ def virtual_work(type: str):
     console.print("\n✅ 办公已配置")
 
 
-@metaverse_cli.command(name="ai"
+@metaverse_cli.command(name="ai")
 @click.option("--type", "-t", default("npc", help="AI类型")
 def metaverse_ai(type: str):
     """元宇宙AI"""
@@ -424,7 +424,7 @@ def metaverse_ai(type: str):
     console.print("\n✅ AI已配置")
 
 
-@metaverse_cli.command(name="render"
+@metaverse_cli.command(name="render")
 @click.option("--quality", "-q", default("high", help="渲染质量")
 def rendering_engine(quality: str):
     """渲染引擎"""

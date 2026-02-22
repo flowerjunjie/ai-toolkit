@@ -18,7 +18,7 @@ def datalake_cli():
     pass
 
 
-@datalake_cli.command(name="ingest"
+@datalake_cli.command(name="ingest")
 @click.option("--source", "-s", required=True, help="数据源")
 @click.option("--format", "-f", help="数据格式")
 def ingest_data(source: str, format: str):
@@ -98,7 +98,7 @@ def warehouse_cli():
     pass
 
 
-@warehouse_cli.command(name="design"
+@warehouse_cli.command(name="design")
 @click.option("--schema", "-s", help="模式名称")
 def design_warehouse(schema: str):
     """设计仓库"""

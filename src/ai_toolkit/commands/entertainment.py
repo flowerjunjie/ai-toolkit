@@ -365,7 +365,7 @@ def write_novel(genre: str):
 
 
 @entertainment_cli.command(name="lyrics")
-@click.option("--topic", "-t", help="歌词主题"
+@click.option("--topic", "-t", help="歌词主题")
 @click.option("--style", "-s", help="歌词风格")
 def write_lyrics(topic: str, style: str):
     """歌词创作"""

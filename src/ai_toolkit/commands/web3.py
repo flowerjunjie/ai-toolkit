@@ -60,7 +60,7 @@ def query_transaction(hash: str):
     console.print("  费用: 0.001 ETH")
 
 
-@web3_cli.command(name="contract"
+@web3_cli.command(name="contract")
 @click.option("--address", "-a", help="合约地址")
 def interact_contract(address: str):
     """交互合约"""
@@ -76,7 +76,7 @@ def interact_contract(address: str):
     console.print("\n✅ 合约已加载")
 
 
-@web3_cli.command(name="nft"
+@web3_cli.command(name="nft")
 @click.option("--token", "-t", help="NFT合约")
 def manage_nft(token: str):
     """管理NFT"""
@@ -103,7 +103,7 @@ def manage_nft(token: str):
     console.print("\n✅ 总计: 3 NFT")
 
 
-@web3_cli.command(name="dex"
+@web3_cli.command(name="dex")
 @click.option("--pair", "-p", help="交易对")
 def trade_dex(pair: str):
     """DEX交易"""

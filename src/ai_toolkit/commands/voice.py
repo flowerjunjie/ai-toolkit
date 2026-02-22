@@ -19,7 +19,7 @@ def voice_cli():
     pass
 
 
-@voice_cli.command(name="chat"
+@voice_cli.command(name="chat")
 @click.option("--mode", "-m", default="voice", help="交互模式")
 def voice_chat(mode: str):
     """语音对话"""
@@ -55,7 +55,7 @@ def voice_chat(mode: str):
     console.print("\n✅ 对话完成")
 
 
-@voice_cli.command(name="assistant"
+@voice_cli.command(name="assistant")
 @click.option("--name", "-n", default="AI助手", help="助手名称")
 @click.option("--personality", "-p", default="helpful", help="个性")
 @click.option("--voice", "-v", default="female", help="声音类型")
@@ -89,7 +89,7 @@ def create_assistant(name: str, personality: str, voice: str):
     console.print("\n✅ 助手已创建")
 
 
-@voice_cli.command(name="wake"
+@voice_cli.command(name="wake")
 @click.option("--word", "-w", default="你好", help="唤醒词")
 def set_wake_word(word: str):
     """设置唤醒词"""
@@ -109,7 +109,7 @@ def set_wake_word(word: str):
     console.print("\n✅ 唤醒词已设置")
 
 
-@voice_cli.command(name="conversation"
+@voice_cli.command(name="conversation")
 @click.option("--topic", "-t", help="对话主题")
 @click.option("--style", "-s", help="对话风格")
 def create_conversation(topic: str, style: str):
@@ -178,7 +178,7 @@ def intelligent_voice():
     console.print("\n✅ 智能语音助手已激活")
 
 
-@voice_cli.command(name="record"
+@voice_cli.command(name="record")
 @click.option("--duration", "-d", default=60, help="录音时长")
 @click.option("--format", "-f", default="mp3", help="录音格式")
 def record_voice(duration: int, format: str):
@@ -200,7 +200,7 @@ def record_voice(duration: int, format: str):
     console.print("\n✅ 录音完成")
 
 
-@voice_cli.command(name="transcribe"
+@voice_cli.command(name="transcribe")
 @click.option("--audio", "-a", help="音频文件")
 @click.option("--speaker", "-s", help="说话人识别")
 def voice_transcribe(audio: str, speaker: str):
@@ -263,7 +263,7 @@ def voice_translate(text: str, target: str):
     console.print("\n✅ 翻译完成")
 
 
-@voice_cli.command(name="detect"
+@voice_cli.command(name="detect")
 @click.option("--audio", "-a", help="音频文件")
 def detect_emotion(audio: str):
     """情感识别"""
@@ -288,7 +288,7 @@ def detect_emotion(audio: str):
     console.print("\n✅ 识别完成")
 
 
-@voice_cli.command(name="segment"
+@voice_cli.command(name="segment")
 @click.option("--audio", "-a", help="音频文件")
 @click.option("--method", "-m", default="vad", help="分割方法")
 def segment_voice(audio: str, method: str):
@@ -355,7 +355,7 @@ def realtime_voice(port: int):
     console.print("\n✅ 实时语音服务已启动")
 
 
-@voice_cli.command(name="telephony"
+@voice_cli.command(name="telephony")
 @click.option("--phone", "-p", help="电话号码")
 @click.option("--message", "-m", help="消息内容")
 def voice_telephony(phone: str, message: str):
@@ -380,7 +380,7 @@ def voice_telephony(phone: str, message: str):
     console.print("\n✅ 语音电话完成")
 
 
-@voice_cli.command(name="ivr"
+@voice_cli.command(name="ivr")
 @click.option("--flow", "-f", help="IVR流程")
 def create_ivr(flow: str):
     """IVR系统"""
@@ -470,7 +470,7 @@ def optimize_voice(model: str):
     console.print("\n✅ 优化完成")
 
 
-@voice_cli.command(name="deploy"
+@voice_cli.command(name="deploy")
 @click.option("--port", "-p", default=8000, help="API端口")
 def deploy_voice(port: int):
     """部署语音服务"""

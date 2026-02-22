@@ -20,7 +20,7 @@ def iot_cli():
 @click.option("--type", "-t", default="sensor", help="设备类型")
 def connect_device(type: str):
     """连接设备"""
-    console.print(f"\n🔌 连接设备\n"
+    console.print(f"\n🔌 连接设备\n")
 
     console.print(f"类型: {type}")
 
@@ -54,7 +54,7 @@ def connect_device(type: str):
 @click.option("--name", "-n", help="传感器名称")
 def read_sensor(name: str):
     """读取传感器"""
-    console.print(f"\n📊 读取传感器\n"
+    console.print(f"\n📊 读取传感器\n")
 
     console.print(f"传感器: {name or '温湿度传感器'}")
 
@@ -83,7 +83,7 @@ def read_sensor(name: str):
 @click.option("--broker", "-b", default="localhost", help="MQTT Broker")
 def mqtt_setup(broker: str):
     """MQTT配置"""
-    console.print(f"\n📡 MQTT配置\n"
+    console.print(f"\n📡 MQTT配置\n")
 
     console.print(f"Broker: {broker}")
 
@@ -118,7 +118,7 @@ def mqtt_setup(broker: str):
 @click.option("--version", "-v", default="1.0.0", help="固件版本")
 def update_firmware(device: str, version: str):
     """固件更新"""
-    console.print(f"\n🔄 固件更新\n"
+    console.print(f"\n🔄 固件更新\n")
 
     console.print(f"设备: {device or 'ESP32'}")
     console.print(f"版本: {version}")
@@ -190,7 +190,7 @@ def monitor_device(device: str):
 @click.option("--action", "-a", help="执行动作")
 def create_automation(trigger: str, action: str):
     """创建自动化"""
-    console.print(f"\n🤖 创建自动化\n"
+    console.print(f"\n🤖 创建自动化\n")
 
     console.print(f"触发: {trigger or '温度>28°C'}")
     console.print(f"动作: {action or '开启风扇'}")
@@ -329,7 +329,7 @@ def security_setup(level: str):
 @click.option("--type", "-t", default="overview", help="仪表板类型")
 def create_dashboard(type: str):
     """创建仪表板"""
-    console.print(f"\n📊 创建仪表板\n"
+    console.print(f"\n📊 创建仪表板\n")
 
     console.print(f"类型: {type}")
 
@@ -359,7 +359,7 @@ def create_dashboard(type: str):
 @click.option("--threshold", "-th", help="阈值")
 def setup_alert(type: str, threshold: str):
     """告警配置"""
-    console.print(f"\n🚨 告警配置\n"
+    console.print(f"\n🚨 告警配置\n")
 
     console.print(f"类型: {type or '温度告警'}")
     console.print(f"阈值: {threshold or '>30°C'}")
@@ -422,7 +422,7 @@ def track_location(device: str):
 @click.option("--device", "-d", help="设备名称")
 def monitor_energy(device: str):
     """能耗监控"""
-    console.print(f"\n⚡ 能耗监控\n"
+    console.print(f"\n⚡ 能耗监控\n")
 
     console.print(f"设备: {device or '智能电表'}")
 
@@ -456,7 +456,7 @@ def monitor_energy(device: str):
 @click.option("--device", "-d", help="设备名称")
 def predictive_maintenance(device: str):
     """预测性维护"""
-    console.print(f"\n🔮 预测性维护\n"
+    console.print(f"\n🔮 预测性维护\n")
 
     console.print(f"设备: {device or '工业电机'}")
 
@@ -489,7 +489,7 @@ def predictive_maintenance(device: str):
 @iot_cli.command(name="log")
 def iot_log():
     """IoT日志"""
-    console.print(f"\n📝 IoT日志\n"
+    console.print(f"\n📝 IoT日志\n")
 
     console.print("今日统计:")
     console.print("  设备: 45个在线")

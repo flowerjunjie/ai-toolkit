@@ -81,7 +81,7 @@ def filter_signal(type: str, low: int, high: int):
 @bci_cli.command(name="artifact")
 def remove_artifact():
     """伪迹去除"""
-    console.print(f"\n🔧 伪迹去除\n"
+    console.print(f"\n🔧 伪迹去除\n")
 
     console.print("伪迹类型:")
     console.print("  眼电 (EOG)")
@@ -148,7 +148,7 @@ def extract_features(method: str):
 @click.option("--trials", "-t", default=20, help="试验次数")
 def p300_speller(trials: int):
     """P300拼写器"""
-    console.print(f"\n⌨️ P300拼写器\n"
+    console.print(f"\n⌨️ P300拼写器\n")
 
     console.print(f"试验: {trials}次")
 
@@ -181,7 +181,7 @@ def p300_speller(trials: int):
 @click.option("--imagery", "-i", default="left", help="运动想象")
 def motor_imagery(imagery: str):
     """运动想象"""
-    console.print(f"\n🏃 运动想象\n"
+    console.print(f"\n🏃 运动想象\n")
 
     console.print(f"想象: {imagery}手")
 
@@ -218,7 +218,7 @@ def motor_imagery(imagery: str):
 @click.option("--frequency", "-f", default=15, help="刺激频率")
 def ssvep_paradigm(frequency: int):
     """SSVEP范式"""
-    console.print(f"\n💫 SSVEP范式\n"
+    console.print(f"\n💫 SSVEP范式\n")
 
     console.print(f"频率: {frequency} Hz")
 
@@ -256,7 +256,7 @@ def ssvep_paradigm(frequency: int):
 @click.option("--model", "-m", default="cnn", help="模型类型")
 def emotion_recognition(model: str):
     """情感识别"""
-    console.print(f"\n😊 情感识别\n"
+    console.print(f"\n😊 情感识别\n")
 
     console.print(f"模型: {model}")
 
@@ -338,7 +338,7 @@ def neurofeedback(protocol: str):
 @click.option("--method", "-m", default="reconstruction", help="解码方法")
 def decode_thought(method: str):
     """思维解码"""
-    console.print(f"\n🔮 思维解码\n"
+    console.print(f"\n🔮 思维解码\n")
 
     console.print(f"方法: {method}")
 
@@ -378,7 +378,7 @@ def decode_thought(method: str):
 @click.option("--intensity", "-i", default=2, help="刺激强度")
 def brain_stimulation(target: str, intensity: int):
     """脑刺激"""
-    console.print(f"\n⚡ 脑刺激\n"
+    console.print(f"\n⚡ 脑刺激\n")
 
     console.print(f"靶点: {target or 'M1 (运动皮层)'}")
     console.print(f"强度: {intensity} mA")
@@ -416,7 +416,7 @@ def brain_stimulation(target: str, intensity: int):
 @click.option("--device", "-d", default="arm", help="控制设备")
 def brain_interface(device: str):
     """脑机接口控制"""
-    console.print(f"\n🤖 脑机接口\n"
+    console.print(f"\n🤖 脑机接口\n")
 
     console.print(f"设备: {device}")
 
@@ -494,7 +494,7 @@ def sleep_monitoring():
 @bci_cli.command(name="alert")
 def fatigue_detection():
     """疲劳检测"""
-    console.print(f"\n😴 疲劳检测\n"
+    console.print(f"\n😴 疲劳检测\n")
 
     console.print("检测指标:")
     console.print("  Alpha/Theta比")
