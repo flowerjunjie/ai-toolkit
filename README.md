@@ -11,13 +11,17 @@
 
 ## 💖 感谢支持
 
-**如果这个项目对您有帮助，请考虑赞赏支持我们的持续开发！**
+**如果AI Toolkit对您有帮助，请考虑赞赏支持我们的持续开发！**
 
 <div align="center">
 
 ### 微信赞赏
 
-<img src="https://github.com/flowerjunjie/ai-toolkit/raw/main/docs/sponsor-wechat.jpg" alt="微信赞赏" width="200"/>
+📱 **请扫码或点击查看赞赏详情**：
+
+[📱 获取赞赏码](https://github.com/flowerjunjie/ai-toolkit/blob/main/docs/SPONSOR.md)
+
+或直接联系我们获取赞赏码！
 
 **您的支持是我们持续更新的动力！** 🙏
 
