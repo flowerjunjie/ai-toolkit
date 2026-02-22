@@ -19,10 +19,6 @@
 
 <img src="https://github.com/flowerjunjie/ai-toolkit/raw/main/docs/sponsor-wechat.jpg" alt="微信赞赏" width="200"/>
 
-### 支付宝
-
-<img src="https://github.com/flowerjunjie/ai-toolkit/raw/main/docs/sponsor-alipay.jpg" alt="支付宝赞赏" width="200"/>
-
 **您的支持是我们持续更新的动力！** 🙏
 
 </div>
