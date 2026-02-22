@@ -319,6 +319,92 @@ def get_editor() -> Optional[str]:
     return os.environ.get("EDITOR") or os.environ.get("VISUAL") or None
 
 
+def format_duration(seconds: float) -> str:
+    """
+    格式化时间 duration
+    
+    Args:
+        seconds: 秒数
+        
+    Returns:
+        格式化的时间字符串
+    """
+    if seconds < 60:
+        return f"{seconds:.0f}秒"
+    elif seconds < 3600:
+        minutes = seconds / 60
+        return f"{minutes:.0f}分钟"
+    else:
+        hours = seconds / 3600
+        return f"{hours:.1f}小时"
+
+
+def format_size(size_bytes: int) -> str:
+    """
+    格式化文件大小
+    
+    Args:
+        size_bytes: 字节数
+        
+    Returns:
+        格式化的大小字符串
+    """
+    for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
+        if size_bytes < 1024:
+            return f"{size_bytes} {unit}"
+        size_bytes /= 1024
+    return f"{size_bytes:.1f} PB"
+
+
+def sanitize_filename(filename: str) -> str:
+    """
+    清理文件名，移除不安全字符
+    
+    Args:
+        filename: 原始文件名
+        
+    Returns:
+        清理后的文件名
+    """
+    # 移除不安全字符
+    unsafe_chars = '<>:"/\\|?*'
+    for char in unsafe_chars:
+        filename = filename.replace(char, '_')
+    
+    # 移除前后空格
+    filename = filename.strip()
+    
+    # 限制长度
+    if len(filename) > 255:
+        name, ext = os.path.splitext(filename)
+        filename = name[:250] + ext
+    
+    return filename
+
+
+def validate_model_name(model_name: str) -> bool:
+    """
+    验证模型名称
+    
+    Args:
+        model_name: 模型名称
+        
+    Returns:
+        是否有效
+    """
+    if not model_name:
+        return False
+    
+    # 检查长度
+    if len(model_name) > 100:
+        return False
+    
+    # 检查字符
+    import re
+    pattern = r'^[a-zA-Z0-9._-]+$'
+    return bool(re.match(pattern, model_name))
+
+
 def open_in_editor(file_path: Path) -> bool:
     """
     在编辑器中打开文件
