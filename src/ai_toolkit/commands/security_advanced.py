@@ -19,7 +19,7 @@ def security_cli():
     pass
 
 
-@security_cli.command(name("scan")
+@security_cli.command(name="scan"
 @click.option("--target", "-t", help="扫描目标")
 @click.option("--type", "-t", help="扫描类型")
 def security_scan(target: str, type: str):
@@ -50,11 +50,11 @@ def security_scan(target: str, type: str):
     console.print("\n✅ 扫描完成")
 
 
-@security_cli.command(name("audit")
+@security_cli.command(name="audit"
 @click.option("--scope", "-s", help="审计范围")
 def security_audit(scope: str):
     """安全审计"""
-    console.print(f("\n📋 安全审计\n")
+    console.print(f"\n📋 安全审计\n"
 
     console.print(f"范围: {scope or 'full'}")
 
@@ -77,12 +77,12 @@ def security_audit(scope: str):
     console.print("\n✅ 审计完成")
 
 
-@security_cli.command(name("penetration")
+@security_cli.command(name="penetration"
 @click.option("--target", "-t", help="测试目标")
 @click.option("--level", "-l", default="medium", help="测试级别")
 def penetration_test(target: str, level: str):
     """渗透测试"""
-    console.print(f("\n🔓 渗透测试\n")
+    console.print(f"\n🔓 渗透测试\n"
 
     console.print(f"目标: {target or 'production'}")
     console.print(f"级别: {level}")
@@ -104,11 +104,11 @@ def penetration_test(target: str, level: str):
     console.print("\n✅ 测试完成")
 
 
-@security_cli.command(name("compliance")
+@security_cli.command(name="compliance"
 @click.option("--standard", "-s", help="合规标准")
 def check_compliance(standard: str):
     """合规检查"""
-    console.print(f("\n✅ 合规检查\n")
+    console.print(f"\n✅ 合规检查\n"
 
     console.print(f"标准: {standard or 'all'}")
 
@@ -129,13 +129,13 @@ def check_compliance(standard: str):
     console.print("\n✅ 检查完成")
 
 
-@security_cli.command(name("encrypt")
+@security_cli.command(name="encrypt"
 @click.option("--input", "-i", help="输入文件")
 @click.option("--output", "-o", help="输出文件")
 @click.option("--key", "-k", help="加密密钥")
 def encrypt_data(input: str, output: str, key: str):
     """数据加密"""
-    console.print(f("\n🔐 数据加密\n")
+    console.print(f"\n🔐 数据加密\n"
 
     console.print(f"输入: {input or 'data.json'}")
     console.print(f"输出: {output or 'encrypted.dat'}")
@@ -156,13 +156,13 @@ def encrypt_data(input: str, output: str, key: str):
     console.print("\n✅ 加密完成")
 
 
-@security_cli.command(name("decrypt")
+@security_cli.command(name="decrypt"
 @click.option("--input", "-i", help="输入文件")
 @click.option("--output", "-o", help="输出文件")
 @click.option("--key", "-k", help="解密密钥")
 def decrypt_data(input: str, output: str, key: str):
     """数据解密"""
-    console.print(f("\n🔓 数据解密\n")
+    console.print(f"\n🔓 数据解密\n"
 
     console.print(f"输入: {input or 'encrypted.dat'}")
     console.print(f"输出: {output or 'decrypted.json'}")
@@ -182,12 +182,12 @@ def decrypt_data(input: str, output: str, key: str):
     console.print("\n✅ 解密完成")
 
 
-@security_cli.command(name("key")
+@security_cli.command(name="key"
 @click.option("--action", "-a", help="密钥操作")
 @click.option("--type", "-t", help="密钥类型")
 def manage_keys(action: str, type: str):
     """密钥管理"""
-    console.print(f("\n🔑 密钥管理\n")
+    console.print(f"\n🔑 密钥管理\n"
 
     console.print(f"操作: {action or 'generate'}")
     console.print(f"类型: {type or 'RSA-4096'}")
@@ -206,12 +206,12 @@ def manage_keys(action: str, type: str):
     console.print("\n✅ 密钥管理完成")
 
 
-@security_cli.command(name("certificate")
+@security_cli.command(name="certificate"
 @click.option("--domain", "-d", help="域名")
 @click.option("--type", "-t", help="证书类型")
 def manage_certificate(domain: str, type: str):
     """证书管理"""
-    console.print(f("\n📜 证书管理\n")
+    console.print(f"\n📜 证书管理\n"
 
     console.print(f"域名: {domain or 'example.com'}")
     console.print(f"类型: {type or 'letsencrypt'}")
@@ -231,12 +231,12 @@ def manage_certificate(domain: str, type: str):
     console.print("\n✅ 证书管理完成")
 
 
-@security_cli.command(name("firewall")
+@security_cli.command(name="firewall"
 @click.option("--action", "-a", help="防火墙操作")
 @click.option("--rule", "-r", help="防火墙规则")
 def manage_firewall(action: str, rule: str):
     """防火墙管理"""
-    console.print(f("\n🔥 防火墙管理\n")
+    console.print(f"\n🔥 防火墙管理\n"
 
     console.print(f"操作: {action or 'add'}")
     console.print(f"规则: {rule or 'allow 80'}")
@@ -255,13 +255,13 @@ def manage_firewall(action: str, rule: str):
     console.print("\n✅ 防火墙管理完成")
 
 
-@security_cli.command(name("access")
+@security_cli.command(name="access"
 @click.option("--user", "-u", help="用户名")
 @click.option("--resource", "-r", help="资源")
 @click.option("--permission", "-p", help="权限")
 def manage_access(user: str, resource: str, permission: str):
     """访问控制"""
-    console.print(f("\n🔐 访问控制\n")
+    console.print(f"\n🔐 访问控制\n"
 
     console.print(f"用户: {user or 'alice'}")
     console.print(f"资源: {resource or '/api/models'}")
@@ -281,12 +281,12 @@ def manage_access(user: str, resource: str, permission: str):
     console.print("\n✅ 访问控制完成")
 
 
-@security_cli.command(name("iam")
+@security_cli.command(name="iam"
 @click.option("--user", "-u", help="用户名")
 @click.option("--role", "-r", help="角色")
 def manage_iam(user: str, role: str):
     """IAM管理"""
-    console.print(f("\n👥 IAM管理\n")
+    console.print(f"\n👥 IAM管理\n"
 
     console.print(f"用户: {user or 'alice'}")
     console.print(f"角色: {role or 'developer'}")
@@ -306,12 +306,12 @@ def manage_iam(user: str, role: str):
     console.print("\n✅ IAM管理完成")
 
 
-@security_cli.command(name("log")
+@security_cli.command(name="log"
 @click.option("--event", "-e", help="事件类型")
 @click.option("--filter", "-f", help="过滤条件")
 def security_log(event: str, filter: str):
     """安全日志"""
-    console.print(f("\n📝 安全日志\n")
+    console.print(f"\n📝 安全日志\n"
 
     console.print(f"事件: {event or 'all'}")
     console.print(f"过滤: {filter or 'today'}")
@@ -333,12 +333,12 @@ def security_log(event: str, filter: str):
     console.print("\n✅ 日志查询完成")
 
 
-@security_cli.command(name("alert")
+@security_cli.command(name="alert"
 @click.option("--type", "-t", help="告警类型")
 @click.option("--threshold", "-t", help="阈值")
 def security_alert(type: str, threshold: str):
     """安全告警"""
-    console.print(f("\n🚨 安全告警\n")
+    console.print(f"\n🚨 安全告警\n"
 
     console.print(f"类型: {type or 'all'}")
     console.print(f"阈值: {threshold or 'high'}")
@@ -357,11 +357,11 @@ def security_alert(type: str, threshold: str):
     console.print("\n✅ 告警查询完成")
 
 
-@security_cli.command(name("incident")
+@security_cli.command(name="incident"
 @click.option("--type", "-t", help="事件类型")
 def incident_response(type: str):
     """事件响应"""
-    console.print(f("\n⚡ 事件响应\n")
+    console.print(f"\n⚡ 事件响应\n"
 
     console.print(f"类型: {type or 'data-breach'}")
 
@@ -381,12 +381,12 @@ def incident_response(type: str):
     console.print("\n✅ 响应流程已启动")
 
 
-@security_cli.command(name("backup")
+@security_cli.command(name="backup"
 @click.option("--target", "-t", help="备份目标")
 @click.option("--frequency", "-f", help="备份频率")
 def security_backup(target: str, frequency: str):
     """安全备份"""
-    console.print(f("\n💾 安全备份\n")
+    console.print(f"\n💾 安全备份\n"
 
     console.print(f"目标: {target or 'all'}")
     console.print(f"频率: {frequency or 'daily'}")
@@ -408,11 +408,11 @@ def security_backup(target: str, frequency: str):
     console.print("\n✅ 备份已配置")
 
 
-@security_cli.command(name("disaster")
+@security_cli.command(name="disaster"
 @click.option("--scenario", "-s", help="灾难场景")
 def disaster_recovery(scenario: str):
     """灾难恢复"""
-    console.print(f("\n🌪️ 灾难恢复\n")
+    console.print(f"\n🌪️ 灾难恢复\n"
 
     console.print(f"场景: {scenario or 'data-center-failure'}")
 
@@ -434,12 +434,12 @@ def disaster_recovery(scenario: str):
     console.print("\n✅ 恢复计划已准备")
 
 
-@security_cli.command(name("training")
+@security_cli.command(name="training"
 @click.option("--audience", "-a", help="培训对象")
 @click.option("--topic", "-t", help="培训主题")
 def security_training(audience: str, topic: str):
     """安全培训"""
-    console.print(f("\n📚 安全培训\n")
+    console.print(f"\n📚 安全培训\n"
 
     console.print(f"对象: {audience or 'all'}")
     console.print(f"主题: {topic or 'phishing'}")
@@ -464,11 +464,11 @@ def security_training(audience: str, topic: str):
     console.print("\n✅ 培训已配置")
 
 
-@security_cli.command(name("policy")
+@security_cli.command(name="policy"
 @click.option("--type", "-t", help="策略类型")
 def security_policy(type: str):
     """安全策略"""
-    console.print(f("\n📜 安全策略\n")
+    console.print(f"\n📜 安全策略\n"
 
     console.print(f"类型: {type or 'all'}")
 
@@ -487,10 +487,10 @@ def security_policy(type: str):
     console.print("\n✅ 策略已加载")
 
 
-@security_cli.command(name("gdpr")
+@security_cli.command(name="gdpr")
 def gdpr_compliance():
     """GDPR合规"""
-    console.print(f("\n🇪🇺 GDPR合规\n")
+    console.print(f"\n🇪🇺 GDPR合规\n"
 
     console.print("GDPR要求:")
     console.print("  数据最小化")
@@ -509,10 +509,10 @@ def gdpr_compliance():
     console.print("\n✅ GDPR合规")
 
 
-@security_cli.command(name("soc2")
+@security_cli.command(name="soc2")
 def soc2_compliance():
     """SOC2合规"""
-    console.print(f("\n🇺🇸 SOC2合规\n")
+    console.print(f"\n🇺🇸 SOC2合规\n"
 
     console.print("SOC2原则:")
     console.print("  安全")

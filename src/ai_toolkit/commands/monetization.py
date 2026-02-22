@@ -70,7 +70,7 @@ def show_strategy():
     console.print("\n✅ 策略已显示")
 
 
-@monetization_cli.command(name("conversion")
+@monetization_cli.command(name="conversion")
 def optimize_conversion():
     """转化率优化"""
     console.print(f"\n📈 转化率优化\n")
@@ -125,7 +125,7 @@ def sales_cli():
     pass
 
 
-@sales_cli.command(name("pipeline")
+@sales_cli.command(name="pipeline")
 def show_pipeline():
     """销售漏斗"""
     console.print(f"\n🔍 销售漏斗\n")
@@ -147,7 +147,7 @@ def show_pipeline():
     console.print("\n✅ 销售漏斗已显示")
 
 
-@sales_cli.command(name("outreach")
+@sales_cli.command(name="outreach")
 def customer_outreach():
     """客户外联"""
     console.print(f"\n📧 客户外联\n")
@@ -175,7 +175,7 @@ def customer_outreach():
     console.print("\n✅ 客户外联已显示")
 
 
-@sales_cli.command(name("demo")
+@sales_cli.command(name="demo")
 def prepare_demo():
     """演示准备"""
     console.print(f"\n🎯 演示准备\n")
@@ -207,7 +207,7 @@ def growth_cli():
     pass
 
 
-@growth_cli.command(name("viral")
+@growth_cli.command(name="viral")
 def viral_growth():
     """病毒式增长"""
     console.print(f"\n🚀 病毒式增长\n")
@@ -234,7 +234,7 @@ def viral_growth():
     console.print("\n✅ 病毒式增长已显示")
 
 
-@growth_cli.command(name("retention")
+@growth_cli.command(name="retention")
 def improve_retention():
     """留存率优化"""
     console.print(f"\n📊 留存率优化\n")
@@ -258,7 +258,7 @@ def improve_retention():
     console.print("\n✅ 留存率优化已显示")
 
 
-@growth_cli.command(name("upsell")
+@growth_cli.command(name="upsell")
 def upsell_users():
     """追加销售"""
     console.print(f"\n💰 追加销售\n")
@@ -290,7 +290,7 @@ def metrics_cli():
     pass
 
 
-@metrics_cli.command(name("kpi")
+@metrics_cli.command(name="kpi")
 def show_kpi():
     """显示KPI"""
     console.print(f"\n📊 关键指标\n")
@@ -318,7 +318,7 @@ def show_kpi():
     console.print("\n✅ KPI已显示")
 
 
-@metrics_cli.command(name("dashboard")
+@metrics_cli.command(name="dashboard")
 def show_dashboard():
     """显示仪表板"""
     console.print(f"\n📈 实时仪表板\n")

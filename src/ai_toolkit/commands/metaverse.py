@@ -57,7 +57,7 @@ def create_world(name: str, type: str):
 @click.option("--style", "-s", default("realistic", help="头像风格")
 def create_avatar(name: str, style: str):
     """创建虚拟形象"""
-    console.print(f("\n👤 创建虚拟形象\n")
+    console.print(f"\n👤 创建虚拟形象\n"
 
     console.print(f"名称: {name or 'MyAvatar'}")
     console.print(f"风格: {style}")
@@ -125,10 +125,10 @@ def create_space(type: str):
 
 
 @metaverse_cli.command(name="event")
-@click.option("--type", "-t", default("conference", help("活动类型")
+@click.option("--type", "-t", default("conference", help="活动类型")
 def host_event(type: str):
     """举办虚拟活动"""
-    console.print(f("\n🎪 举办虚拟活动\n")
+    console.print(f"\n🎪 举办虚拟活动\n"
 
     console.print(f"类型: {type}")
 
@@ -162,10 +162,10 @@ def host_event(type: str):
 
 
 @metaverse_cli.command(name="nft")
-@click.option("--type", "-t", help("NFT类型")
+@click.option("--type", "-t", help="NFT类型")
 def create_nft(type: str):
     """创建NFT资产"""
-    console.print(f("\n🎨 创建NFT资产\n")
+    console.print(f"\n🎨 创建NFT资产\n"
 
     console.print(f"类型: {type or 'art'}")
 
@@ -191,11 +191,11 @@ def create_nft(type: str):
     console.print("\n✅ NFT已创建")
 
 
-@metaverse_cli.command(name("market")
-@click.option("--platform", "-p", default("opensea", help("市场平台")
+@metaverse_cli.command(name="market"
+@click.option("--platform", "-p", default("opensea", help="市场平台")
 def nft_marketplace(platform: str):
     """NFT市场"""
-    console.print(f("\n🏪 NFT市场\n")
+    console.print(f"\n🏪 NFT市场\n"
 
     console.print(f"平台: {platform}")
 
@@ -219,11 +219,11 @@ def nft_marketplace(platform: str):
     console.print("\n✅ 市场已加载")
 
 
-@metaverse_cli.command(name("social")
-@click.option("--feature", "-f", default("chat", help("社交功能")
+@metaverse_cli.command(name="social"
+@click.option("--feature", "-f", default("chat", help="社交功能")
 def social_interaction(feature: str):
     """社交互动"""
-    console.print(f("\n💬 社交互动\n")
+    console.print(f"\n💬 社交互动\n"
 
     console.print(f"功能: {feature}")
 
@@ -249,10 +249,10 @@ def social_interaction(feature: str):
 
 
 @metaverse_cli.command(name="ecommerce")
-@click.option("--type", "-t", default("virtual", help("商务类型")
+@click.option("--type", "-t", default("virtual", help="商务类型")
 def virtual_commerce(type: str):
     """虚拟商务"""
-    console.print(f("\n🛒 虚拟商务\n")
+    console.print(f"\n🛒 虚拟商务\n"
 
     console.print(f"类型: {type}")
 
@@ -278,10 +278,10 @@ def virtual_commerce(type: str):
 
 
 @metaverse_cli.command(name="realestate")
-@click.option("--location", "-l", help("位置坐标")
+@click.option("--location", "-l", help="位置坐标")
 def virtual_realestate(location: str):
     """虚拟房地产"""
-    console.print(f("\n🏠 虚拟房地产\n")
+    console.print(f"\n🏠 虚拟房地产\n"
 
     console.print(f"位置: {location or '市中心'}")
 
@@ -306,11 +306,11 @@ def virtual_realestate(location: str):
     console.print("\n✅ 房产已加载")
 
 
-@metaverse_cli.command(name("gaming")
-@click.option("--genre", "-g", default("rpg", help("游戏类型")
+@metaverse_cli.command(name="gaming"
+@click.option("--genre", "-g", default("rpg", help="游戏类型")
 def metaverse_gaming(genre: str):
     """元宇宙游戏"""
-    console.print(f("\n🎮 元宇宙游戏\n")
+    console.print(f"\n🎮 元宇宙游戏\n"
 
     console.print(f"类型: {genre}")
 
@@ -337,10 +337,10 @@ def metaverse_gaming(genre: str):
 
 
 @metaverse_cli.command(name="education")
-@click.option("--subject", "-s", help("学科科目")
+@click.option("--subject", "-s", help="学科科目")
 def virtual_education(subject: str):
     """虚拟教育"""
-    console.print(f("\n🎓 虚拟教育\n")
+    console.print(f"\n🎓 虚拟教育\n"
 
     console.print(f"科目: {subject or '科学'}")
 
@@ -366,10 +366,10 @@ def virtual_education(subject: str):
 
 
 @metaverse_cli.command(name="work")
-@click.option("--type", "-t", default("office", help("工作类型")
+@click.option("--type", "-t", default("office", help="工作类型")
 def virtual_work(type: str):
     """虚拟办公"""
-    console.print(f("\n💼 虚拟办公\n")
+    console.print(f"\n💼 虚拟办公\n"
 
     console.print(f"类型: {type}")
 
@@ -394,11 +394,11 @@ def virtual_work(type: str):
     console.print("\n✅ 办公已配置")
 
 
-@metaverse_cli.command(name("ai")
-@click.option("--type", "-t", default("npc", help("AI类型")
+@metaverse_cli.command(name="ai"
+@click.option("--type", "-t", default("npc", help="AI类型")
 def metaverse_ai(type: str):
     """元宇宙AI"""
-    console.print(f("\n🤖 元宇宙AI\n")
+    console.print(f"\n🤖 元宇宙AI\n"
 
     console.print(f"类型: {type}")
 
@@ -424,11 +424,11 @@ def metaverse_ai(type: str):
     console.print("\n✅ AI已配置")
 
 
-@metaverse_cli.command(name("render")
-@click.option("--quality", "-q", default("high", help("渲染质量")
+@metaverse_cli.command(name="render"
+@click.option("--quality", "-q", default("high", help="渲染质量")
 def rendering_engine(quality: str):
     """渲染引擎"""
-    console.print(f("\n🎨 渲染引擎\n")
+    console.print(f"\n🎨 渲染引擎\n"
 
     console.print(f"质量: {quality}")
 
@@ -455,7 +455,7 @@ def rendering_engine(quality: str):
 @metaverse_cli.command(name="log")
 def metaverse_log():
     """元宇宙日志"""
-    console.print(f("\n📝 元宇宙日志\n")
+    console.print(f"\n📝 元宇宙日志\n"
 
     console.print("今日统计:")
     console.print("  世界: 5个虚拟世界")

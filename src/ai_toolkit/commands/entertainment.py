@@ -177,7 +177,7 @@ def design_game(type: str):
         console.print("  世界: 奇幻世界")
         console.print("  职业: 战士/法师/射手")
     elif type == "strategy":
-        console print("  类型: 策略游戏")
+        console.print("  类型: 策略游戏")
         console.print("  资源: 采集/建造/战斗")
     elif type == "casual":
         console.print("  类型: 休闲游戏")
@@ -202,7 +202,7 @@ def design_game(type: str):
 @click.option("--style", "-s", default="anime", help="动画风格")
 def create_animation(style: str):
     """动画制作"""
-    console.print(f("\n🎞 动画制作\n")
+    console.print(f"\n🎞 动画制作\n"
 
     console.print(f"风格: {style}")
 
@@ -307,7 +307,7 @@ def create_vtuber(name: str, model: str):
 @click.option("--type", "-t", default="standup", help="喜剧类型")
 def write_comedy(type: str):
     """喜剧创作"""
-    console.print(f("\n😄 喜剧创作\n")
+    console.print(f"\n😄 喜剧创作\n"
 
     console.print(f"类型: {type}")
 
@@ -331,7 +331,7 @@ def write_comedy(type: str):
 
 
 @entertainment_cli.command(name="novel")
-@click.option("--genre", "-g", default="scifi", help("小说类型")
+@click.option("--genre", "-g", default="scifi", help="小说类型")
 def write_novel(genre: str):
     """小说创作"""
     console.print(f"\n📖 小说创作\n")
@@ -365,7 +365,7 @@ def write_novel(genre: str):
 
 
 @entertainment_cli.command(name="lyrics")
-@click.option("--topic", "-t", help("歌词主题")
+@click.option("--topic", "-t", help="歌词主题"
 @click.option("--style", "-s", help="歌词风格")
 def write_lyrics(topic: str, style: str):
     """歌词创作"""
@@ -436,7 +436,7 @@ def plan_show(format: str):
 @click.option("--style", "-s", help="舞蹈风格")
 def choreograph(style: str):
     """编舞设计"""
-    console.print(f("\n💃 编舞设计\n")
+    console.print(f"\n💃 编舞设计\n"
 
     console.print(f"风格: {style or '街舞'}")
 
@@ -467,7 +467,7 @@ def choreograph(style: str):
 @click.option("--trick", "-t", help="魔术类型")
 def design_magic(trick: str):
     """魔术设计"""
-    console.print(f("\n🎩 魔术设计\n")
+    console.print(f"\n🎩 魔术设计\n"
 
     console.print(f"魔术: {trick or '消失术'}")
 
@@ -494,7 +494,7 @@ def design_magic(trick: str):
 @click.option("--type", "-t", default="song", help="节目类型")
 def variety_show(type: str):
     """综艺晚会"""
-    console.print(f("\�� 综艺晚会\n")
+    console.print(f"\�� 综艺晚会\n"
 
     console.print(f"类型: {type}")
 

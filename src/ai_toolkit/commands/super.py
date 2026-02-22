@@ -114,7 +114,7 @@ def search_commands(keyword: str):
     console.print(f"\n✅ 找到相关命令\n")
 
 
-@super_cli.command(name("stats")
+@super_cli.command(name="stats")
 def show_statistics():
     """显示统计信息"""
     console.print("\n📊 AI Toolkit 统计信息\n")
@@ -145,7 +145,7 @@ def show_statistics():
     console.print("\n💰 产品为王: 持续迭代中\n")
 
 
-@super_cli.command(name("quick")
+@super_cli.command(name="quick")
 @click.argument("task")
 def quick_start(task: str):
     """快速启动"""
@@ -173,7 +173,7 @@ def quick_start(task: str):
         console.print(f"\n可用任务: {', '.join(quick_commands.keys())}")
 
 
-@super_cli.command(name("workflow")
+@super_cli.command(name="workflow")
 @click.option("--name", "-n", default="default", help="工作流名称")
 def create_workflow(name: str):
     """创建工作流"""
@@ -196,7 +196,7 @@ def create_workflow(name: str):
         console.print(f"\n可用工作流: {', '.join(workflows.keys())}")
 
 
-@super_cli.command(name("batch")
+@super_cli.command(name="batch"
 @click.option("--file", "-f", help="批处理文件")
 def batch_execute(file: str):
     """批处理执行"""
@@ -219,7 +219,7 @@ def batch_execute(file: str):
     console.print("\n✅ 批处理完成")
 
 
-@super_cli.command(name("pipeline")
+@super_cli.command(name="pipeline"
 @click.option("--config", "-c", help="配置文件")
 def create_pipeline(config: str):
     """创建数据流水线"""
@@ -242,7 +242,7 @@ def create_pipeline(config: str):
     console.print("\n✅ 流水线已创建")
 
 
-@super_cli.command(name("template")
+@super_cli.command(name="template"
 @click.option("--type", "-t", help="模板类型")
 def use_template(type: str):
     """使用模板"""
@@ -266,8 +266,8 @@ def use_template(type: str):
     console.print("\n✅ 模板已应用")
 
 
-@super_cli.command(name("plugin")
-@click.option("--name", "-n", help("插件名称")
+@super_cli.command(name="plugin"
+@click.option("--name", "-n", help="插件名称")
 def manage_plugin(name: str):
     """管理插件"""
     console.print(f"\n🔌 管理插件\n")
@@ -289,7 +289,7 @@ def manage_plugin(name: str):
     console.print("\n✅ 插件已管理")
 
 
-@super_cli.command(name("config")
+@super_cli.command(name="config"
 @click.option("--key", "-k", help="配置键")
 @click.option("--value", "-v", help="配置值")
 def manage_config(key: str, value: str):
@@ -307,7 +307,7 @@ def manage_config(key: str, value: str):
         console.print("  log_level: INFO")
 
 
-@super_cli.command(name("log")
+@super_cli.command(name="log"
 @click.option("--lines", "-n", default=50, help="日志行数")
 def show_log(lines: int):
     """显示日志"""
@@ -367,10 +367,10 @@ def upgrade_system():
     console.print("\n✅ 升级完成")
 
 
-@super_cli.command(name("version")
+@super_cli.command(name="version")
 def show_version():
     """显示版本"""
-    console.print(f("\n📌 AI Toolkit 版本信息\n")
+    console.print(f"\n📌 AI Toolkit 版本信息\n"
 
     console.print("版本: 0.3.0")
     console.print("代号: \"永远beta\"")
@@ -381,10 +381,10 @@ def show_version():
     console.print("\n✨ 121个模块 | 1600+命令 | 520k+行代码")
 
 
-@super_cli.command(name("help")
+@super_cli.command(name="help")
 def show_help():
     """显示帮助"""
-    console.print(f("\n❓ AI Toolkit 帮助\n")
+    console.print(f"\n❓ AI Toolkit 帮助\n"
 
     console.print("快速开始:")
     console.print("  ai-toolkit super:all        - 显示所有模块")

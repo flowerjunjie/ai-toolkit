@@ -18,7 +18,7 @@ def commercial_cli():
     pass
 
 
-@commercial_cli.command(name("license")
+@commercial_cli.command(name="license"
 @click.option("--type", "-t", help="许可证类型")
 def manage_license(type: str):
     """许可证管理"""

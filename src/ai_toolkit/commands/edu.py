@@ -91,7 +91,7 @@ def generate_lesson(topic: str, duration: int):
 @click.option("--difficulty", "-d", default="medium", help="难度")
 def generate_quiz(subject: str, difficulty: str):
     """生成测验"""
-    console.print(f("\n❓ 生成测验\n")
+    console.print(f"\n❓ 生成测验\n"
 
     console.print(f"学科: {subject or 'Python'}")
     console.print(f"难度: {difficulty}")

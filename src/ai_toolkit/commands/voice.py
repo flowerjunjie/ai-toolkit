@@ -19,7 +19,7 @@ def voice_cli():
     pass
 
 
-@voice_cli.command(name("chat")
+@voice_cli.command(name="chat"
 @click.option("--mode", "-m", default="voice", help="交互模式")
 def voice_chat(mode: str):
     """语音对话"""
@@ -55,7 +55,7 @@ def voice_chat(mode: str):
     console.print("\n✅ 对话完成")
 
 
-@voice_cli.command(name("assistant")
+@voice_cli.command(name="assistant"
 @click.option("--name", "-n", default="AI助手", help="助手名称")
 @click.option("--personality", "-p", default="helpful", help="个性")
 @click.option("--voice", "-v", default="female", help="声音类型")
@@ -89,11 +89,11 @@ def create_assistant(name: str, personality: str, voice: str):
     console.print("\n✅ 助手已创建")
 
 
-@voice_cli.command(name("wake")
+@voice_cli.command(name="wake"
 @click.option("--word", "-w", default="你好", help="唤醒词")
 def set_wake_word(word: str):
     """设置唤醒词"""
-    console.print(f("\n⏰ 设置唤醒词\n")
+    console.print(f"\n⏰ 设置唤醒词\n"
 
     console.print(f"唤醒词: {word}")
 
@@ -109,12 +109,12 @@ def set_wake_word(word: str):
     console.print("\n✅ 唤醒词已设置")
 
 
-@voice_cli.command(name("conversation")
+@voice_cli.command(name="conversation"
 @click.option("--topic", "-t", help="对话主题")
 @click.option("--style", "-s", help="对话风格")
 def create_conversation(topic: str, style: str):
     """创建对话"""
-    console.print(f("\n💬 创建对话\n")
+    console.print(f"\n💬 创建对话\n"
 
     console.print(f"主题: {topic or 'AI Toolkit介绍'}")
     console.print(f"风格: {style or 'professional'}")
@@ -138,10 +138,10 @@ def create_conversation(topic: str, style: str):
     console.print("\n✅ 对话已创建")
 
 
-@voice_cli.command(name("multimodal")
+@voice_cli.command(name="multimodal")
 def voice_multimodal():
     """多模态交互"""
-    console.print(f("\n🎭 多模态交互\n")
+    console.print(f"\n🎭 多模态交互\n"
 
     console.print("支持模式:")
     console.print("  语音 → 文本")
@@ -158,10 +158,10 @@ def voice_multimodal():
     console.print("\n✅ 多模态交互完成")
 
 
-@voice_cli.command(name("intelligent")
+@voice_cli.command(name="intelligent")
 def intelligent_voice():
     """智能语音助手"""
-    console.print(f("\n🤖 智能语音助手\n")
+    console.print(f"\n🤖 智能语音助手\n"
 
     console.print("核心能力:")
     console.print("  🎯 意图识别意图")
@@ -178,12 +178,12 @@ def intelligent_voice():
     console.print("\n✅ 智能语音助手已激活")
 
 
-@voice_cli.command(name("record")
+@voice_cli.command(name="record"
 @click.option("--duration", "-d", default=60, help="录音时长")
 @click.option("--format", "-f", default="mp3", help="录音格式")
 def record_voice(duration: int, format: str):
     """录音"""
-    console.print(f("\n🎙️ 录音\n")
+    console.print(f"\n🎙️ 录音\n"
 
     console.print(f"时长: {duration}秒")
     console.print(f"格式: {format}")
@@ -200,12 +200,12 @@ def record_voice(duration: int, format: str):
     console.print("\n✅ 录音完成")
 
 
-@voice_cli.command(name("transcribe")
+@voice_cli.command(name="transcribe"
 @click.option("--audio", "-a", help="音频文件")
 @click.option("--speaker", "-s", help="说话人识别")
 def voice_transcribe(audio: str, speaker: str):
     """语音转文字"""
-    console.print(f("\n🎤 语音转文字\n")
+    console.print(f"\n🎤 语音转文字\n"
 
     console.print(f"音频: {audio or 'audio.wav'}")
     console.print(f"说话人: {speaker or 'speaker1'}")
@@ -229,7 +229,7 @@ def voice_transcribe(audio: str, speaker: str):
 @click.option("--emotion", "-e", help="情感")
 def voice_synthesize(text: str, speaker: str, emotion: str):
     """语音合成"""
-    console.print(f("\n🔊 语音合成\n")
+    console.print(f"\n🔊 语音合成\n"
 
     console.print(f"文本: {text or '你好！'}")
     console.print(f"说话人: {speaker or 'AI助手'}")
@@ -247,7 +247,7 @@ def voice_synthesize(text: str, speaker: str, emotion: str):
 @click.option("--target", "-t", default="en", help="目标语言")
 def voice_translate(text: str, target: str):
     """语音翻译"""
-    console.print(f("\n🌍 语音翻译\n")
+    console.print(f"\n🌍 语音翻译\n"
 
     console.print(f"文本: {text or '你好！'}")
     console.print(f"目标语言: {target}")
@@ -263,11 +263,11 @@ def voice_translate(text: str, target: str):
     console.print("\n✅ 翻译完成")
 
 
-@voice_cli.command(name("detect")
+@voice_cli.command(name="detect"
 @click.option("--audio", "-a", help="音频文件")
 def detect_emotion(audio: str):
     """情感识别"""
-    console.print(f("\n😊 情感识别\n")
+    console.print(f"\n😊 情感识别\n"
 
     console.print(f"音频: {audio or 'speech.wav'}")
 
@@ -288,12 +288,12 @@ def detect_emotion(audio: str):
     console.print("\n✅ 识别完成")
 
 
-@voice_cli.command(name("segment")
+@voice_cli.command(name="segment"
 @click.option("--audio", "-a", help="音频文件")
 @click.option("--method", "-m", default="vad", help="分割方法")
 def segment_voice(audio: str, method: str):
     """说话人分离"""
-    console.print(f("\n🗣️ 说话人分离\n")
+    console.print(f"\n🗣️ 说话人分离\n"
 
     console.print(f"音频: {audio or 'meeting.wav'}")
     console.print(f"方法: {method}")
@@ -316,7 +316,7 @@ def segment_voice(audio: str, method: str):
 @click.option("--denoise", "-n", is_flag=True, help="降噪处理")
 def enhance_voice(audio: str, noise: bool):
     """语音增强"""
-    console.print(f("\n🔊 语音增强\n")
+    console.print(f"\n🔊 语音增强\n"
 
     console.print(f"音频: {audio or 'audio.wav'}")
 
@@ -338,7 +338,7 @@ def enhance_voice(audio: str, noise: bool):
 @click.option("--port", "-p", default=9000, help="WebSocket端口")
 def realtime_voice(port: int):
     """实时语音服务"""
-    console.print(f("\n⚡ 实时语音服务\n")
+    console.print(f"\n⚡ 实时语音服务\n"
 
     console.print(f"端口: {port}")
 
@@ -355,7 +355,7 @@ def realtime_voice(port: int):
     console.print("\n✅ 实时语音服务已启动")
 
 
-@voice_cli.command(name("telephony")
+@voice_cli.command(name="telephony"
 @click.option("--phone", "-p", help="电话号码")
 @click.option("--message", "-m", help="消息内容")
 def voice_telephony(phone: str, message: str):
@@ -380,11 +380,11 @@ def voice_telephony(phone: str, message: str):
     console.print("\n✅ 语音电话完成")
 
 
-@voice_cli.command(name("ivr")
+@voice_cli.command(name="ivr"
 @click.option("--flow", "-f", help="IVR流程")
 def create_ivr(flow: str):
     """IVR系统"""
-    console.print(f("\n📞 IVR系统\n")
+    console.print(f"\n📞 IVR系统\n"
 
     console.print(f"流程: {flow or 'menu'}")
 
@@ -429,10 +429,10 @@ def test_voice(text: str, model: str):
     console.print("\n✅ 测试完成")
 
 
-@voice_cli.command(name("log")
+@voice_cli.command(name="log")
 def voice_log():
     """语音日志"""
-    console.print(f("\n📝 语音日志\n")
+    console.print(f"\n📝 语音日志\n"
 
     console.print("今日统计:")
     console.print("  语音合成: 50次")
@@ -452,7 +452,7 @@ def voice_log():
 @click.option("--model", "-m", help="模型路径")
 def optimize_voice(model: str):
     """优化语音模型"""
-    console.print(f("\n⚡ 优化语音模型\n")
+    console.print(f"\n⚡ 优化语音模型\n"
 
     console.print(f"模型: {model or 'model.pt'}")
 
@@ -470,11 +470,11 @@ def optimize_voice(model: str):
     console.print("\n✅ 优化完成")
 
 
-@voice_cli.command(name("deploy")
+@voice_cli.command(name="deploy"
 @click.option("--port", "-p", default=8000, help="API端口")
 def deploy_voice(port: int):
     """部署语音服务"""
-    console.print(f("\n🚀 部署语音服务\n")
+    console.print(f"\n🚀 部署语音服务\n"
 
     console.print(f"端口: {port}")
 
@@ -492,10 +492,10 @@ def deploy_voice(port: int):
     console.print("\n✅ 部署完成")
 
 
-@voice_cli.command(name("monitor")
+@voice_cli.command(name="monitor")
 def monitor_voice():
     """监控语音服务"""
-    console.print(f("\n📊 监控语音服务\n")
+    console.print(f"\n📊 监控语音服务\n"
 
     console.print("服务状态:")
     console.print("  运行中: ✅")

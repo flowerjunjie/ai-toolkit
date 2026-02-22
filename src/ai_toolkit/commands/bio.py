@@ -18,7 +18,7 @@ def bio_cli():
     pass
 
 
-@bio_cli.command(name("sequence")
+@bio_cli.command(name="sequence"
 @click.option("--file", "-f", required=True, help="序列文件")
 def analyze_sequence(file: str):
     """分析序列"""
@@ -34,7 +34,7 @@ def analyze_sequence(file: str):
     console.print("\n✅ 分析完成")
 
 
-@bio_cli.command(name("align")
+@bio_cli.command(name="align"
 @click.option("--method", "-m", type=click.Choice(["global", "local"]), help="比对方法")
 def align_sequences(method: str):
     """序列比对"""
@@ -50,7 +50,7 @@ def align_sequences(method: str):
     console.print("\n✅ 比对完成")
 
 
-@bio_cli.command(name("blast")
+@bio_cli.command(name="blast"
 @click.option("--query", "-q", help="查询序列")
 def run_blast(query: str):
     """BLAST搜索"""
@@ -66,7 +66,7 @@ def run_blast(query: str):
     console.print("\n✅ 搜索完成")
 
 
-@bio_cli.command(name("tree")
+@bio_cli.command(name="tree")
 def build_tree():
     """构建系统树"""
     console.print(f"\n🌳 系统树\n")
@@ -86,7 +86,7 @@ def build_tree():
     console.print("\n✅ 树已构建")
 
 
-@bio_cli.command(name("translate")
+@bio_cli.command(name="translate"
 @click.option("--frame", "-f", default=1, help="读码框")
 def translate_dna(frame: int):
     """翻译DNA"""
@@ -102,7 +102,7 @@ def translate_dna(frame: int):
     console.print("\n✅ 翻译完成")
 
 
-@bio_cli.command(name("variant")
+@bio_cli.command(name="variant")
 def find_variants():
     """查找变异"""
     console.print(f"\n🧬 查找变异\n")
@@ -119,7 +119,7 @@ def find_variants():
     console.print("\n✅ 完成")
 
 
-@bio_cli.command(name("annotation")
+@bio_cli.command(name="annotation")
 def annotate_genome():
     """基因组注释"""
     console.print(f"\n📝 基因组注释\n")
@@ -132,7 +132,7 @@ def annotate_genome():
     console.print("\n✅ 注释完成")
 
 
-@bio_cli.command(name("pathway")
+@bio_cli.command(name="pathway")
 def analyze_pathway():
     """分析通路"""
     console.print(f"\n🛤️ 通路分析\n")

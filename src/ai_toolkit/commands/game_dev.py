@@ -52,7 +52,7 @@ def init_game(name: str, engine: str):
 @click.option("--type", "-t", default("platformer", help="2D游戏类型")
 def game_2d(type: str):
     """2D游戏开发"""
-    console.print(f("\n🕹️ 2D游戏开发\n")
+    console.print(f"\n🕹️ 2D游戏开发\n"
 
     console.print(f"类型: {type}")
 
@@ -82,7 +82,7 @@ def game_2d(type: str):
 @click.option("--type", "-t", default("fps", help="3D游戏类型")
 def game_3d(type: str):
     """3D游戏开发"""
-    console.print(f("\n🎯 3D游戏开发\n")
+    console.print(f"\n🎯 3D游戏开发\n"
 
     console.print(f"类型: {type}")
 
@@ -109,11 +109,11 @@ def game_3d(type: str):
     console.print("\n✅ 3D游戏已创建")
 
 
-@game_dev_cli.command(name("physics")
-@click.option("--engine", "-e", default("physx", help("物理引擎")
+@game_dev_cli.command(name="physics"
+@click.option("--engine", "-e", default("physx", help="物理引擎")
 def physics_system(engine: str):
     """物理系统"""
-    console.print(f("\n⚙️ 物理系统\n")
+    console.print(f"\n⚙️ 物理系统\n"
 
     console.print(f"引擎: {engine}")
 
@@ -138,8 +138,8 @@ def physics_system(engine: str):
     console.print("\n✅ 物理系统已配置")
 
 
-@game_dev_cli.command(name("ai")
-@click.option("--type", "-t", default("behavior", help("AI类型")
+@game_dev_cli.command(name="ai"
+@click.option("--type", "-t", default("behavior", help="AI类型")
 def game_ai(type: str):
     """游戏AI"""
     console.print(f"\n🤖 游戏AI\n")
@@ -174,11 +174,11 @@ def game_ai(type: str):
     console.print("\n✅ AI已实现")
 
 
-@game_dev_cli.command(name("multiplayer")
-@click.option("--type", "-t", default("matchmaking", help("多人游戏类型")
+@game_dev_cli.command(name="multiplayer"
+@click.option("--type", "-t", default("matchmaking", help="多人游戏类型")
 def multiplayer_system(type: str):
     """多人游戏"""
-    console.print(f("\n🌐 多人游戏\n")
+    console.print(f"\n🌐 多人游戏\n"
 
     console.print(f"类型: {type}")
 
@@ -209,11 +209,11 @@ def multiplayer_system(type: str):
     console.print("\n✅ 多人游戏已实现")
 
 
-@game_dev_cli.command(name("ui")
-@click.option("--style", "-s", default("modern", help("UI风格")
+@game_dev_cli.command(name="ui"
+@click.option("--style", "-s", default("modern", help="UI风格")
 def game_ui(style: str):
     """游戏UI"""
-    console.print(f("\n🎨 游戏UI\n")
+    console.print(f"\n🎨 游戏UI\n"
 
     console.print(f"风格: {style}")
 
@@ -245,11 +245,11 @@ def game_ui(style: str):
     console.print("\n✅ UI已创建")
 
 
-@game_dev_cli.command(name("audio")
-@click.option("--type", "-t", default("3d", help("音频类型")
+@game_dev_cli.command(name="audio"
+@click.option("--type", "-t", default("3d", help="音频类型")
 def game_audio(type: str):
     """游戏音频"""
-    console.print(f("\n🔊 游戏音频\n")
+    console.print(f"\n🔊 游戏音频\n"
 
     console.print(f"类型: {type}")
 
@@ -279,11 +279,11 @@ def game_audio(type: str):
     console.print("\n✅ 音频已配置")
 
 
-@game_dev_cli.command(name("animation")
-@click.option("--type", "-t", default="skeletal", help("动画类型")
+@game_dev_cli.command(name="animation"
+@click.option("--type", "-t", default="skeletal", help="动画类型")
 def game_animation(type: str):
     """游戏动画"""
-    console.print(f("\n🎭 游戏动画\n")
+    console.print(f"\n🎭 游戏动画\n"
 
     console.print(f"类型: {type}")
 
@@ -313,7 +313,7 @@ def game_animation(type: str):
     console.print("\n✅ 动画已创建")
 
 
-@game_dev_cli.command(name("shader")
+@game_dev_cli.command(name="shader"
 @click.option("--type", "-t", default("pbr", help="着色器类型")
 def game_shader(type: str):
     """游戏着色器"""
@@ -347,7 +347,7 @@ def game_shader(type: str):
     console.print("\n✅ 着色器已创建")
 
 
-@game_dev_cli.command(name("vr")
+@game_dev_cli.command(name="vr"
 @click.option("--sdk", "-s", default="openxr", help="VR SDK")
 def vr_development(sdk: str):
     """VR开发"""
@@ -376,11 +376,11 @@ def vr_development(sdk: str):
     console.print("\n✅ VR已开发")
 
 
-@game_dev_cli.command(name("ar")
+@game_dev_cli.command(name="ar"
 @click.option("--sdk", "-s", default("arkit", help="AR SDK")
 def ar_development(sdk: str):
     """AR开发"""
-    console.print(f("\n📱 AR开发\n")
+    console.print(f"\n📱 AR开发\n"
 
     console.print(f"SDK: {sdk}")
 
@@ -406,11 +406,11 @@ def ar_development(sdk: str):
     console.print("\n✅ AR已开发")
 
 
-@game_dev_cli.command(name("particle")
-@click.option("--type", "-t", default("billboard", help("粒子类型")
+@game_dev_cli.command(name="particle"
+@click.option("--type", "-t", default("billboard", help="粒子类型")
 def particle_system(type: str):
     """粒子系统"""
-    console.print(f("\n✨ 粒子系统\n")
+    console.print(f"\n✨ 粒子系统\n"
 
     console.print(f"类型: {type}")
 
@@ -439,7 +439,7 @@ def particle_system(type: str):
 @click.option("--type", "-t", default("performance", help="优化类型")
 def game_optimization(type: str):
     """游戏优化"""
-    console.print(f("\n⚡ 游戏优化\n")
+    console.print(f"\n⚡ 游戏优化\n"
 
     console.print(f"类型: {type}")
 
@@ -464,8 +464,8 @@ def game_optimization(type: str):
     console.print("\n✅ 优化完成")
 
 
-@game_dev_cli.command(name("monetization")
-@click.option("--type", "-t", default("iap", help("变现类型")
+@game_dev_cli.command(name="monetization"
+@click.option("--type", "-t", default("iap", help="变现类型")
 def game_monetization(type: str):
     """游戏变现"""
     console.print(f"\n💰 游戏变现\n")
@@ -492,11 +492,11 @@ def game_monetization(type: str):
     console.print("\n✅ 变现已配置")
 
 
-@game_dev_cli.command(name("build")
+@game_dev_cli.command(name="build"
 @click.option("--platform", "-p", default="windows", help="构建平台")
 def build_game(platform: str):
     """构建游戏"""
-    console.print(f("\n🔨 构建游戏\n")
+    console.print(f"\n🔨 构建游戏\n"
 
     console.print(f"平台: {platform}")
 
@@ -520,10 +520,10 @@ def build_game(platform: str):
     console.print("\n✅ 游戏已构建")
 
 
-@game_dev_cli.command(name("log")
+@game_dev_cli.command(name="log")
 def game_dev_log():
     """游戏开发日志"""
-    console.print(f("\n📝 游戏开发日志\n")
+    console.print(f"\n📝 游戏开发日志\n"
 
     console.print("今日统计:")
     console.print("  场景: 8个")

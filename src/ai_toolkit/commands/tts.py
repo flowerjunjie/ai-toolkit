@@ -54,7 +54,7 @@ def synthesize_speech(text: str, voice: str, speed: float):
     console.print("\n✅ 合成完成")
 
 
-@tts_cli.command(name("batch")
+@tts_cli.command(name="batch"
 @click.option("--file", "-f", help="文本文件")
 @click.option("--voice", "-v", default="female", help="声音类型")
 def batch_synthesize(file: str, voice: str):
@@ -84,12 +84,12 @@ def batch_synthesize(file: str, voice: str):
     console.print("\n✅ 批量合成完成")
 
 
-@tts_cli.command(name("clone")
+@tts_cli.command(name="clone"
 @click.option("--source", "-s", help="源声音")
 @click.option("--text", "-t", help="目标文本")
 def voice_clone(source: str, text: str):
     """声音克隆"""
-    console.print(f("\n🎤 声音克隆\n")
+    console.print(f"\n🎤 声音克隆\n"
 
     console.print(f"源声音: {source or 'voice-sample.wav'}")
     console.print(f"目标文本: {text or '克隆测试'}")
@@ -107,12 +107,12 @@ def voice_clone(source: str, text: str):
     console.print("\n✅ 克隆完成")
 
 
-@tts_cli.command(name("sing")
+@tts_cli.command(name="sing"
 @click.option("--lyrics", "-l", help="歌词文件")
 @click.option("--melody", "-m", help="旋律")
 def sing_song(lyrics: str, melody: str):
     """歌曲合成"""
-    console.print(f("\n🎵 歌曲合成\n")
+    console.print(f"\n🎵 歌曲合成\n"
 
     console.print(f"歌词: {lyrics or '歌词.txt'}")
     console.print(f"旋律: {melody or 'happy'}")
@@ -133,12 +133,12 @@ def sing_song(lyrics: str, melody: str):
     console.print("\n✅ 合成完成")
 
 
-@tts_cli.command(name("voice")
+@tts_cli.command(name="voice"
 @click.option("--character", "-c", help="角色音")
 @click.option("--emotion", "-e", help="情感")
 def character_voice(character: str, emotion: str):
     """角色音合成"""
-    console.print(f("\🎭 角色音合成\n")
+    console.print(f"\🎭 角色音合成\n"
 
     console.print(f"角色: {character or 'narrator'}")
     console.print(f"情感: {emotion or 'calm'}")
@@ -165,12 +165,12 @@ def character_voice(character: str, emotion: str):
     console.print("\n✅ 合成完成")
 
 
-@tts_cli.command(name("multilingual")
+@tts_cli.command(name="multilingual"
 @click.option("--text", "-t", help="多语言文本")
 @click.option("--lang", "-l", default="auto", help="目标语言")
 def multilingual_tts(text: str, lang: str):
     """多语言TTS"""
-    console.print(f("\n🌍 多语言TTS\n")
+    console.print(f"\n🌍 多语言TTS\n"
 
     console.print(f"文本: {text or 'Hello World'}")
     console.print(f"语言: {lang}")
@@ -194,11 +194,11 @@ def multilingual_tts(text: str, lang: str):
     console.print("\n✅ 合成完成")
 
 
-@tts_cli.command(name("realtime")
+@tts_cli.command(name="realtime"
 @click.option("--port", "-p", default=8888, help="服务端口")
 def realtime_tts(port: int):
     """实时TTS服务"""
-    console.print(f("\n⚡ 实时TTS服务\n")
+    console.print(f"\n⚡ 实时TTS服务\n"
 
     console.print(f"端口: {port}")
 
@@ -216,12 +216,12 @@ def realtime_tts(port: int):
     console.print("\n✅ 服务已启动")
 
 
-@tts_cli.command(name("rnn")
+@tts_cli.command(name="rnn"
 @click.option("--model", "-m", help="模型类型")
 @click.option("--epochs", "-e", default=1000, help="训练轮数")
 def train_rnn_model(model: str, epochs: int):
     """训练RNN模型"""
-    console.print(f("\n🧠 训练RNN模型\n")
+    console.print(f"\n🧠 训练RNN模型\n"
 
     console.print(f"模型: {model or 'tacotron2'}")
     console.print(f"轮数: {epochs}")
@@ -244,11 +244,11 @@ def train_rnn_model(model: str, epochs: int):
     console.print("\n✅ 训练完成")
 
 
-@tts_cli.command(name("vocoder")
+@tts_cli.command(name="vocoder"
 @click.option("--audio", "-a", help="音频文件")
 def audio_vocoder(audio: str):
     """语音编码器"""
-    console.print(f("\n🎙️ 语音编码器\n")
+    console.print(f"\n🎙️ 语音编码器\n"
 
     console.print(f"音频: {audio or 'speech.wav'}")
 
@@ -266,12 +266,12 @@ def audio_vocoder(audio: str):
     console.print("\n✅ 编码完成")
 
 
-@tts_cli.command(name("prosody")
+@tts_cli.command(name="prosody"
 @click.option("--text", "-t", help="文本内容")
 @click.option("--style", "-s", help="韵律风格")
 def prosody_control(text: str, style: str):
     """韵律控制"""
-    console.print(f("\n🎵 韵律控制\n")
+    console.print(f"\n🎵 韵律控制\n"
 
     console.print(f"文本: {text or '这是一个测试句子'}")
     console.print(f"风格: {style or 'neutral'}")
@@ -292,12 +292,12 @@ def prosody_control(text: str, style: str):
     console.print("\n✅ 韵律控制完成")
 
 
-@tts_cli.command(name("emotion")
+@tts_cli.command(name="emotion"
 @click.option("--text", "-t", help="文本内容")
 @click.option("--emotion", "-e", help="情感类型")
 def emotion_tts(text: str, emotion: str):
     """情感TTS"""
-    console.print(f("\n😊 情感TTS\n")
+    console.print(f"\n😊 情感TTS\n"
 
     console.print(f"文本: {text or '今天天气真好！'}")
     console.print(f"情感: {emotion or 'happy'}")
@@ -317,12 +317,12 @@ def emotion_tts(text: str, emotion: str):
     console.print("\n✅ 情感TTS完成")
 
 
-@tts_cli.command(name("dialogue")
+@tts_cli.command(name="dialogue"
 @click.option("--file", "-f", help="对话文件")
 @click.option("--format", "-ft", help="输出格式")
 def dialogue_tts(file: str, format: str):
     """对话生成"""
-    console.print(f("\n💬 对话生成\n")
+    console.print(f"\n💬 对话生成\n"
 
     console.print(f"文件: {file or 'dialogue.txt'}")
     console.print(f"格式: {format or 'audio'}")
@@ -341,12 +341,12 @@ def dialogue_tts(file: str, format: str):
     console.print("\n✅ 对话生成完成")
 
 
-@tts_cli.command(name("audiobook")
+@tts_cli.command(name="audiobook"
 @click.option("--chapters", "-c", help="章节数量")
 @click.option("--format", "-f", default="mp3", help="音频格式")
 def create_audiobook(chapters: int, format: str):
     """创建有声书"""
-    console.print(f("\n📚 创建有声书\n")
+    console.print(f"\n📚 创建有声书\n"
 
     console.print(f"章节: {chapters or '10'}")
     console.print(f"格式: {format}")
@@ -371,12 +371,12 @@ def create_audiobook(chapters: int, format: str):
     console.print("\n✅ 有声书已创建")
 
 
-@tts_cli.command(name("podcast")
+@tts_cli.command(name="podcast"
 @click.option("--script", "-s", help="播客脚本")
 @click.option("--guest", "-g", help="嘉宾介绍")
 def create_podcast(script: str, guest: str):
     """创建播客"""
-    console.print(f("\��️ 创建播客\n")
+    console.print(f"\��️ 创建播客\n"
 
     console.print(f"脚本: {script or 'podcast.txt'}")
     console.print(f"嘉宾: {guest or 'AI专家'}")
@@ -401,12 +401,12 @@ def create_podcast(script: str, guest: str):
     console.print("\n✅ 播客已创建")
 
 
-@tts_cli.command(name("ad")
+@tts_cli.command(name="ad"
 @click.option("--script", "-s", help="广告文案")
 @click.option("--duration", "-d", default=30, help="广告时长")
 def create_ad(script: str, duration: int):
     """创建广告"""
-    console.print(f("\n📺 创建广告\n")
+    console.print(f"\n📺 创建广告\n"
 
     console.print(f"文案: {script or 'AI Toolkit让AI更简单'}")
     console.print(f"时长: {duration}秒")
@@ -430,7 +430,7 @@ def create_ad(script: str, duration: int):
 @click.option("--speed", "-sp", default=1.0, help="语速")
 def narrate_story(script: str, speed: float):
     """旁白解说"""
-    console.print(f("\n📖 旁白解说\n")
+    console.print(f"\n📖 旁白解说\n"
 
     console.print(f"脚本: {script or 'narration.txt'}")
     console.print(f"语速: {speed}x")
@@ -449,12 +449,12 @@ def narrate_story(script: str, speed: float):
     console.print("\n✅ 旁白已生成")
 
 
-@tts_cli.command(name("guide")
+@tts_cli.command(name="guide"
 @click.option("--topic", "-t", help="主题")
 @click.option("--style", "-s", help="解说风格")
 def create_guide(topic: str, style: str):
     """创建教程解说"""
-    console.print(f("\n🎓 创建教程解说\n")
+    console.print(f"\n🎓 创建教程解说\n"
 
     console.print(f"主题: {topic or 'AI Toolkit快速开始'}")
     console.print(f"风格: {style or 'tutorial'}")
@@ -473,7 +473,7 @@ def create_guide(topic: str, style: str):
     console.print("\n✅ 教程解说已生成")
 
 
-@tts_cli.command(name("alert")
+@tts_cli.command(name="alert"
 @click.option("--text", "-t", help="告警文本")
 @click.option("--type", "-ty", help="告警类型")
 def create_alert(text: str, type: str):
@@ -502,12 +502,12 @@ def create_alert(text: str, type: str):
     console.print("\n✅ 告警已创建")
 
 
-@tts_cli.command(name("demo")
+@tts_cli.command(name="demo"
 @click.option("--product", "-p", help="产品名称")
 @click.option("--features", "-f", help="功能列表")
 def create_demo(product: str, features: str):
     """产品演示"""
-    console.print(f("\n🎬 产品演示\n")
+    console.print(f"\n🎬 产品演示\n"
 
     console.print(f"产品: {product or 'AI Toolkit'}")
     console.print(f"功能: {features or '790+命令，企业级功能'}")
@@ -531,7 +531,7 @@ def create_demo(product: str, features: str):
 @click.option("--style", "-s", help="故事风格")
 def create_story(plot: str, style: str):
     """故事讲述"""
-    console.print(f("\n📖 故事讲述\n")
+    console.print(f"\n📖 故事讲述\n"
 
     console.print(f"情节: {plot or '一个AI工程师的冒险'}")
     console.print(f"风格: {style or 'adventure'}")
@@ -556,7 +556,7 @@ def create_story(plot: str, style: str):
 @click.option("--anchor", "-a", help="主播名")
 def create_news(script: str, anchor: str):
     """新闻播报"""
-    console.print(f("\n📰 新闻播报\n")
+    console.print(f"\n📰 新闻播报\n"
 
     console.print(f"脚本: {script or 'news.txt'}")
     console.print(f"主播: {anchor or '新闻主播'}")
@@ -580,7 +580,7 @@ def create_news(script: str, anchor: str):
 @click.option("--model", "-m", help="模型类型")
 def train_tts_model(data: str, model: str):
     """训练TTS模型"""
-    console.print(f("\n🎓 训练TTS模型\n")
+    console.print(f"\n🎓 训练TTS模型\n"
 
     console.print(f"数据: {data or 'librittspeech'}")
     console.print(f"模型: {model or 'vits'}")
@@ -603,12 +603,12 @@ def train_tts_model(data: str, model: str):
     console.print("\n✅ 训练完成")
 
 
-@tts_cli.command(name("export")
+@tts_cli.command(name="export"
 @click.option("--model", "-m", help="模型路径")
 @click.option("--format", "-f", help="导出格式")
 def export_model(model: str, format: str):
     """导出模型"""
-    console.print(f("\n📤 导出模型\n")
+    console.print(f"\n📤 导出模型\n"
 
     console.print(f"模型: {model or 'model.pt'}")
     console.print(f"格式: {format or 'onnx'}")
@@ -627,11 +627,11 @@ def export_model(model: str, format: str):
     console.print("\n✅ 导出完成")
 
 
-@tts_cli.command(name("stream")
+@tts_cli.command(name="stream"
 @click.option("--port", "-p", default=8888, help="流式服务端口")
 def stream_tts(port: int):
     """流式TTS服务"""
-    console.print(f("\n⚡ 流式TTS服务\n")
+    console.print(f"\n⚡ 流式TTS服务\n"
 
     console.print(f"端口: {port}")
 
@@ -653,7 +653,7 @@ def stream_tts(port: int):
 @click.option("--port", "-p", default=8080, help="API端口")
 def tts_api(port: int):
     """TTS API服务"""
-    console.print(f("\n🔌 TTS API服务\n")
+    console.print(f"\n🔌 TTS API服务\n"
 
     console.print(f"端口: {port}")
 
@@ -674,7 +674,7 @@ def tts_api(port: int):
 @click.option("--audio", "-a", help="音频文件")
 def assess_quality(audio: str):
     """音频质量评估"""
-    console.print(f("\n🔊 音频质量评估\n")
+    console.print(f"\n🔊 音频质量评估\n"
 
     console.print(f"音频: {audio or 'audio.wav'}")
 
@@ -695,12 +695,12 @@ def assess_quality(audio: str):
     console.print("\n✅ 评估完成")
 
 
-@tts_cli.command(name("concat")
+@tts_cli.command(name="concat"
 @click.option("--audios", "-a", help="音频列表")
 @click.option("--output", "-o", help="输出文件")
 def concat_audio(audios: str, output: str):
     """音频拼接"""
-    console.print(f("\n🔊 音频拼接\n")
+    console.print(f"\n🔊 音频拼接\n"
 
     console.print(f"音频: {audios or 'audio1.mp3,audio2.mp3'}")
     console.print(f"输出: {output or 'combined.mp3'}")
@@ -717,12 +717,12 @@ def concat_audio(audios: str, output: str):
     console.print("\n✅ 拼接完成")
 
 
-@tts_cli.command(name("normalize")
+@tts_cli.command(name="normalize"
 @click.option("--audio", "-a", help="音频文件")
-@click.option("--level", "-l", default="-3dB", help("目标电平")
+@click.option("--level", "-l", default="-3dB", help="目标电平")
 def normalize_audio(audio: str, level: str):
     """音量归一化"""
-    console.print(f("\n🔊 音量归一化\n")
+    console.print(f"\n🔊 音量归一化\n"
 
     console.print(f"音频: {audio or 'audio.wav'}")
     console.print(f"目标电平: {level}")
@@ -745,7 +745,7 @@ def normalize_audio(audio: str, level: str):
 @click.option("--method", "-m", default="spectral", help="降噪方法")
 def noise_reduction(audio: str, method: str):
     """降噪处理"""
-    console.print(f("\n🔇 降噪处理\n")
+    console.print(f"\n🔇 降噪处理\n"
 
     console.print(f"音频: {audio or 'noisy.wav'}")
     console.print(f"方法: {method}")
@@ -768,7 +768,7 @@ def noise_reduction(audio: str, method: str):
 @click.option("--format", "-f", help="目标格式")
 def convert_audio(input: str, format: str):
     """格式转换"""
-    console.print(f("\n🔄 格式转换\n")
+    console.print(f"\n🔄 格式转换\n"
 
     console.print(f"输入: {input or 'audio.wav'}")
     console.print(f"目标格式: {format or 'mp3'}")
@@ -788,11 +788,11 @@ def convert_audio(input: str, format: str):
     console.print("\n✅ 转换完成")
 
 
-@tts.command(name("record")
+@tts.command(name="record"
 @click.option("--duration", "-d", default=60, help="录音时长")
 def record_audio(duration: int):
     """录音"""
-    console.print(f("\n🎙️ 录音\n")
+    console.print(f"\n🎙️ 录音\n"
 
     console.print(f"时长: {duration}秒")
 
@@ -816,11 +816,11 @@ def record_audio(duration: int):
     console.print("\n✅ 录音完成")
 
 
-@tts_cli.command(name("play")
+@tts_cli.command(name="play"
 @click.option("--audio", "-a", help="音频文件")
 def play_audio(audio: str):
     """播放音频"""
-    console.print(f("\n▶️ 播放音频\n")
+    console.print(f"\n▶️ 播放音频\n"
 
     console.print(f"音频: {audio or 'audio.mp3'}")
 
@@ -842,7 +842,7 @@ def play_audio(audio: str):
 @click.option("--audio", "-a", help="音频文件")
 def analyze_audio(audio: str):
     """音频分析"""
-    console.print(f("\n📊 音频分析\n")
+    console.print(f"\n📊 音频分析\n"
 
     console.print(f"音频: {audio or 'audio.mp3'}")
 
@@ -866,10 +866,10 @@ def analyze_audio(audio: str):
     console.print("\n✅ 分析完成")
 
 
-@tts_cli.command(name("metrics")
+@tts_cli.command(name="metrics")
 def tts_metrics():
     """TTS指标"""
-    console.print(f("\n📊 TTS指标\n")
+    console.print(f"\n📊 TTS指标\n"
 
     console.print("性能指标:")
     console.print("  合成速度: 100x实时")

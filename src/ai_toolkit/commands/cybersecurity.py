@@ -52,12 +52,12 @@ def scan_vulnerability(target: str, type: str):
     console.print("\n✅ 扫描完成")
 
 
-@cybersecurity_cli.command(name("pentest")
-@click.option("--target", "-t", help("目标系统")
+@cybersecurity_cli.command(name="pentest"
+@click.option("--target", "-t", help="目标系统"
 @click.option("--phase", "-p", default="recon", help="测试阶段")
 def penetration_test(target: str, phase: str):
     """渗透测试"""
-    console.print(f("\n🎯 渗透测试\n")
+    console.print(f"\n🎯 渗透测试\n"
 
     console.print(f"目标: {target or 'web.example.com'}")
     console.print(f"阶段: {phase}")
@@ -96,7 +96,7 @@ def penetration_test(target: str, phase: str):
 @click.option("--campaign", "-c", help="钓鱼活动")
 def simulate_phishing(campaign: str):
     """钓鱼模拟"""
-    console.print(f("\n🎣 钓鱼模拟\n")
+    console.print(f"\n🎣 钓鱼模拟\n"
 
     console.print(f"活动: {campaign or '员工安全培训'}")
 
@@ -124,11 +124,11 @@ def simulate_phishing(campaign: str):
     console.print("\n✅ 模拟完成")
 
 
-@cybersecurity_cli.command(name("network")
-@click.option("--type", "-t", default="firewall", help("配置类型")
+@cybersecurity_cli.command(name="network"
+@click.option("--type", "-t", default="firewall", help="配置类型")
 def network_security(type: str):
     """网络安全"""
-    console.print(f("\n🛡️ 网络安全\n")
+    console.print(f"\n🛡️ 网络安全\n"
 
     console.print(f"类型: {type}")
 
@@ -160,11 +160,11 @@ def network_security(type: str):
     console.print("\n✅ 配置完成")
 
 
-@cybersecurity_cli.command(name("malware")
-@click.option("--type", "-t", help("分析类型")
+@cybersecurity_cli.command(name="malware"
+@click.option("--type", "-t", help="分析类型")
 def analyze_malware(type: str):
     """恶意软件分析"""
-    console.print(f("\n🦠 恶意软件分析\n")
+    console.print(f"\n🦠 恶意软件分析\n"
 
     console.print(f"类型: {type or '勒索软件'}")
 
@@ -194,11 +194,11 @@ def analyze_malware(type: str):
     console.print("\n✅ 分析完成")
 
 
-@cybersecurity_cli.command(name("forensics")
-@click.option("--type", "-t", help("取证类型")
+@cybersecurity_cli.command(name="forensics"
+@click.option("--type", "-t", help="取证类型")
 def digital_forensics(type: str):
     """数字取证"""
-    console.print(f("\n🔬 数字取证\n")
+    console.print(f"\n🔬 数字取证\n"
 
     console.print(f"类型: {type or '磁盘取证'}")
 
@@ -228,11 +228,11 @@ def digital_forensics(type: str):
     console.print("\n✅ 取证完成")
 
 
-@cybersecurity_cli.command(name("threat")
-@click.option("--source", "-s", help("情报源")
+@cybersecurity_cli.command(name="threat"
+@click.option("--source", "-s", help="情报源")
 def threat_intel(source: str):
     """威胁情报"""
-    console.print(f("\n🎭 威胁情报\n")
+    console.print(f"\n🎭 威胁情报\n"
 
     console.print(f"来源: {source or '多源聚合'}")
 
@@ -262,11 +262,11 @@ def threat_intel(source: str):
     console.print("\n✅ 情报更新")
 
 
-@cybersecurity_cli.command(name("incident")
-@click.option("--type", "-t", help("事件类型")
+@cybersecurity_cli.command(name="incident"
+@click.option("--type", "-t", help="事件类型")
 def incident_response(type: str):
     """事件响应"""
-    console.print(f("\n🚨 事件响应\n")
+    console.print(f"\n🚨 事件响应\n"
 
     console.print(f"类型: {type or '数据泄露'}")
 
@@ -296,11 +296,11 @@ def incident_response(type: str):
     console.print("\n✅ 响应完成")
 
 
-@cybersecurity_cli.command(name("policy")
-@click.option("--type", "-t", help("策略类型")
+@cybersecurity_cli.command(name="policy"
+@click.option("--type", "-t", help="策略类型")
 def security_policy(type: str):
     """安全策略"""
-    console.print(f("\n📜 安全策略\n")
+    console.print(f"\n📜 安全策略\n"
 
     console.print(f"类型: {type or '密码策略'}")
 
@@ -331,11 +331,11 @@ def security_policy(type: str):
     console.print("\n✅ 策略已发布")
 
 
-@cybersecurity_cli.command(name("audit")
+@cybersecurity_cli.command(name="audit"
 @click.option("--scope", "-s", help="审计范围")
 def security_audit(scope: str):
     """安全审计"""
-    console.print(f("\n📋 安全审计\n")
+    console.print(f"\n📋 安全审计\n"
 
     console.print(f"范围: {scope or '全系统'}")
 
@@ -365,11 +365,11 @@ def security_audit(scope: str):
     console.print("\n✅ 审计完成")
 
 
-@cybersecurity_cli.command(name("training")
+@cybersecurity_cli.command(name="training"
 @click.option("--level", "-l", default="basic", help="培训级别")
 def security_training(level: str):
     """安全培训"""
-    console.print(f("\n🎓 安全培训\n")
+    console.print(f"\n🎓 安全培训\n"
 
     console.print(f"级别: {level}")
 
@@ -401,11 +401,11 @@ def security_training(level: str):
     console.print("\n✅ 培训完成")
 
 
-@cybersecurity_cli.command(name("monitor")
+@cybersecurity_cli.command(name="monitor"
 @click.option("--type", "-t", default("siem", help="监控类型")
 def security_monitor(type: str):
     """安全监控"""
-    console.print(f("\n📡 安全监控\n")
+    console.print(f"\n📡 安全监控\n"
 
     console.print(f"类型: {type}")
 
@@ -437,11 +437,11 @@ def security_monitor(type: str):
     console.print("\n✅ 监控中")
 
 
-@cybersecurity_cli.command(name("compliance")
+@cybersecurity_cli.command(name="compliance"
 @click.option("--standard", "-s", help="合规标准")
 def check_compliance(standard: str):
     """合规检查"""
-    console.print(f("\n✅ 合规检查\n")
+    console.print(f"\n✅ 合规检查\n"
 
     console.print(f"标准: {standard or 'ISO27001'}")
 
@@ -471,10 +471,10 @@ def check_compliance(standard: str):
     console.print("\n✅ 检查完成")
 
 
-@cybersecurity_cli.command(name("log")
+@cybersecurity_cli.command(name="log")
 def security_log():
     """安全日志"""
-    console.print(f("\n📝 安全日志\n")
+    console.print(f"\n📝 安全日志\n"
 
     console.print("今日统计:")
     console.print("  事件: 50起")

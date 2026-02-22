@@ -13,7 +13,7 @@ from datetime import datetime
 console = Console()
 
 
-@click.group(name("event")
+@@click.group.command(name="event")
 def event_cli():
     """事件驱动架构工具"""
     pass
@@ -37,7 +37,7 @@ def emit_event(type: str, data: str):
     console.print("\n✅ 事件已发布")
 
 
-@event_cli.command(name("subscribe")
+@event_cli.command(name="subscribe"
 @click.option("--event", "-e", required=True, help="事件类型")
 @click.option("--handler", "-h", required=True, help="处理函数")
 def subscribe_event(event: str, handler: str):
@@ -54,7 +54,7 @@ def subscribe_event(event: str, handler: str):
     console.print("\n✅ 订阅已创建")
 
 
-@event_cli.command(name("list")
+@event_cli.command(name="list")
 def list_events():
     """列出事件"""
     console.print("\n📋 事件类型\n")
@@ -77,7 +77,7 @@ def list_events():
     console.print(table)
 
 
-@event_cli.command(name("bus")
+@event_cli.command(name="bus")
 def show_event_bus():
     """显示事件总线"""
     console.print("\n🚌 事件总线\n")
@@ -98,7 +98,7 @@ def show_event_bus():
     console.print("  事件流: 实时处理")
 
 
-@event_cli.command(name("queue")
+@event_cli.command(name="queue")
 def manage_queue():
     """管理队列"""
     console.print("\n📬 消息队列\n")
@@ -122,7 +122,7 @@ def manage_queue():
     console.print("\n✅ 队列运行正常")
 
 
-@event_cli.command(name("replay")
+@event_cli.command(name="replay"
 @click.option("--event", "-e", help="事件类型")
 @click.option("--from", "-f", help="开始时间")
 def replay_events(event: str, from_: str):
@@ -140,7 +140,7 @@ def replay_events(event: str, from_: str):
     console.print("\n✅ 重放已启动")
 
 
-@event_cli.command(name("store")
+@event_cli.command(name="store")
 def show_event_store():
     """显示事件存储"""
     console.print("\n💾 事件存储\n")
@@ -158,7 +158,7 @@ def show_event_store():
     console.print("\n✅ 存储正常")
 
 
-@event_cli.command(name("trace")
+@event_cli.command(name="trace")
 def trace_events():
     """追踪事件"""
     console.print("\n🔍 事件追踪\n")

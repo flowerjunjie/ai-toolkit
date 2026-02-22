@@ -164,7 +164,7 @@ def monitor_workflows():
     console.print(table)
 
 
-@workflow_cli.command(name("template")
+@workflow_cli.command(name="template")
 def show_templates():
     """显示模板"""
     console.print("\n📋 工作流模板\n")

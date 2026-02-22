@@ -100,7 +100,7 @@ def collect_data(sensor: str, interval: int):
 @click.option("--device", "-d", help="目标设备")
 def deploy_edge(model: str, device: str):
     """边缘部署"""
-    console.print(f("\n🎯 边缘部署\n")
+    console.print(f"\n🎯 边缘部署\n"
 
     console.print(f"模型: {model or 'model.tflite'}")
     console.print(f"设备: {device or 'edge-001'}")
@@ -131,7 +131,7 @@ def deploy_edge(model: str, device: str):
 @click.option("--model", "-m", help="模型名称")
 def edge_inference(input: str, model: str):
     """边缘推理"""
-    console.print(f("\n🧠 边缘推理\n")
+    console.print(f"\n🧠 边缘推理\n"
 
     console.print(f"输入: {input or 'sensor_data.json'}")
     console.print(f"模型: {model or 'anomaly'}")
@@ -160,7 +160,7 @@ def edge_inference(input: str, model: str):
 @click.option("--firmware", "-f", help="固件版本")
 def ota_update(device: str, firmware: str):
     """OTA升级"""
-    console.print(f("\n⬆️ OTA升级\n")
+    console.print(f"\n⬆️ OTA升级\n"
 
     console.print(f"设备: {device or 'device-001'}")
     console.print(f"固件: {firmware or 'v2.2.0'}")
@@ -187,7 +187,7 @@ def ota_update(device: str, firmware: str):
 @click.option("--devices", "-d", help="设备列表")
 def manage_group(name: str, devices: str):
     """设备分组"""
-    console.print(f("\n📁 设备分组\n")
+    console.print(f"\n📁 设备分组\n"
 
     console.print(f"分组: {name or 'living-room'}")
     console.print(f"设备: {devices or 'device-001,device-002'}")
@@ -211,7 +211,7 @@ def manage_group(name: str, devices: str):
 @click.option("--actions", "-a", help="执行动作")
 def create_scene(name: str, triggers: str, actions: str):
     """场景自动化"""
-    console.print(f("\n🎬 场景自动化\n")
+    console.print(f"\n🎬 场景自动化\n"
 
     console.print(f"场景: {name or '回家模式'}")
     console.print(f"触发: {triggers or 'GPS到达'}")
@@ -236,7 +236,7 @@ def create_scene(name: str, triggers: str, actions: str):
 @click.option("--then", "then_action", help="THEN动作")
 def automation_rule(if_condition: str, then_action: str):
     """自动化规则"""
-    console.print(f("\n⚙️ 自动化规则\n")
+    console.print(f"\n⚙️ 自动化规则\n"
 
     console.print(f"IF: {if_condition or '温度>30°C'}")
     console.print(f"THEN: {then_action or '打开空调'}")
@@ -263,7 +263,7 @@ def automation_rule(if_condition: str, then_action: str):
 @click.option("--type", "-t", default="overview", help="仪表板类型")
 def iot_dashboard(type: str):
     """IoT仪表板"""
-    console.print(f("\n📊 IoT仪表板\n")
+    console.print(f"\n📊 IoT仪表板\n"
 
     console.print(f"类型: {type}")
 
@@ -297,7 +297,7 @@ def iot_dashboard(type: str):
 @click.option("--metric", "-m", help="监控指标")
 def monitor_device(device: str, metric: str):
     """设备监控"""
-    console.print(f("\n👁️ 设备监控\n")
+    console.print(f"\n👁️ 设备监控\n"
 
     console.print(f"设备: {device or 'device-001'}")
     console.print(f"指标: {metric or 'all'}")
@@ -333,7 +333,7 @@ def monitor_device(device: str, metric: str):
 @click.option("--condition", "-c", help="触发条件")
 def set_alert(type: str, condition: str):
     """设置告警"""
-    console.print(f("\n🚨 设置告警\n")
+    console.print(f"\n🚨 设置告警\n"
 
     console.print(f"类型: {type}")
     console.print(f"条件: {condition or 'temperature>35°C'}")
@@ -391,7 +391,7 @@ def manage_firmware(device: str, version: str):
 @click.option("--type", "-t", default="mqtt", help="协议类型")
 def test_protocol(type: str):
     """协议测试"""
-    console.print(f("\n🔌 协议测试\n")
+    console.print(f"\n🔌 协议测试\n"
 
     console.print(f"协议: {type}")
 
@@ -453,7 +453,7 @@ def iot_security(action: str):
 @click.option("--mode", "-m", default="balanced", help="优化模式")
 def optimize_device(device: str, mode: str):
     """设备优化"""
-    console.print(f("\n⚡ 设备优化\n")
+    console.print(f"\n⚡ 设备优化\n"
 
     console.print(f"设备: {device or 'device-001'}")
     console.print(f"模式: {mode}")
@@ -478,7 +478,7 @@ def optimize_device(device: str, mode: str):
 @click.option("--interval", "-i", default=300, help="同步间隔")
 def sync_cloud(cloud: str, interval: int):
     """云端同步"""
-    console.print(f("\n☁️ 云端同步\n")
+    console.print(f"\n☁️ 云端同步\n"
 
     console.print(f"平台: {cloud or 'aws-iot'}")
     console.print(f"间隔: {interval}秒")

@@ -101,7 +101,7 @@ def social_post(platform: str, content: str):
     elif platform == "douyin":
         console.print("  视频: 15-60秒")
         console.print("  音乐: 原创/翻唱")
-        console print("  挑战: 话题挑战")
+        console.print("  挑战: 话题挑战")
 
     console.print("\n热门话题:")
     console.print("  AI技术: 热门")
@@ -123,7 +123,7 @@ def social_post(platform: str, content: str):
 @click.option("--audience", "-a", help="受众")
 def write_email(type: str, audience: str):
     """邮件文案"""
-    console.print(f("\n✉️ 邮件文案\n")
+    console.print(f"\n✉️ 邮件文案\n"
 
     console.print(f"类型: {type}")
     console.print(f"受众: {audience or '潜在客户'}")
@@ -162,8 +162,8 @@ def write_email(type: str, audience: str):
     console.print("\n✅ 文案已生成")
 
 
-@writing_cli.command(name("novel")
-@click.option("--genre", "-g", default="scifi", help("小说类型")
+@writing_cli.command(name="novel"
+@click.option("--genre", "-g", default="scifi", help="小说类型"
 @click.option("--length", "-l", default=50000, help="字数")
 def write_novel(genre: str, length: int):
     """写小说"""
@@ -238,7 +238,7 @@ def write_script(type: str,  duration: int):
 @click.option("--video", "-v", help="视频文件")
 def generate_captions(video: str):
     """字幕生成"""
-    console.print(f("\n💬 字幕生成\n")
+    console.print(f"\n💬 字幕生成\n"
 
     console.print(f"视频: {video or 'tutorial.mp4'}")
 
@@ -362,7 +362,7 @@ def write_seo_content(keyword: str, content: str):
 @click.option("--audience", "-a", help="受众")
 def write_newsletter(type: str, audience: str):
     """新闻订阅"""
-    console.print(f("\n📧 新闻订阅\n")
+    console.print(f"\n📧 新闻订阅\n"
 
     console.print(f"类型: {type or 'weekly'")
     console.print(f"受众: {audience or '开发者社区'}")
@@ -394,7 +394,7 @@ def write_newsletter(type: str, audience: str):
 @click.option("--length", "-l", default=20, help="页数")
 def create_whitepaper(topic: str, length: int):
     """创建白皮书"""
-    console.print(f("\n📄 创建白皮书\n")
+    console.print(f"\n📄 创建白皮书\n"
 
     console.print(f"主题: {topic or 'AI Toolkit技术白皮书'}")
     console.print(f"页数: {length}页")

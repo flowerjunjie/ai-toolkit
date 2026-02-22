@@ -12,7 +12,7 @@ import json
 console = Console()
 
 
-@click.group(name("xr")
+@@click.group.command(name="xr")
 def xr_cli():
     """AR/VR和元宇宙工具"""
     pass
@@ -32,7 +32,7 @@ def create_scene(name: str):
     console.print("\n✅ 场景已创建")
 
 
-@xr_cli.command(name("asset")
+@xr_cli.command(name="asset"
 @click.option("--type", "-t", help="资产类型")
 def import_asset(type: str):
     """导入资产"""
@@ -49,7 +49,7 @@ def import_asset(type: str):
     console.print("\n✅ 资产已导入")
 
 
-@xr_cli.command(name("render")
+@xr_cli.command(name="render"
 @click.option("--quality", "-q", type=click.Choice(["low", "medium", "high"]), help="渲染质量")
 def render_scene(quality: str):
     """渲染场景"""
@@ -83,7 +83,7 @@ def setup_vr(device: str):
     console.print("\n✅ VR已配置")
 
 
-@xr_cli.command(name("ar")
+@xr_cli.command(name="ar"
 @click.option("--mode", "-m", help="AR模式")
 def setup_ar(mode: str):
     """配置AR"""
@@ -100,7 +100,7 @@ def setup_ar(mode: str):
     console.print("\n✅ AR已配置")
 
 
-@xr_cli.command(name("haptics")
+@xr_cli.command(name="haptics")
 def setup_haptics():
     """触觉反馈"""
     console.print("\n🎯 触觉反馈\n")
@@ -113,7 +113,7 @@ def setup_haptics():
     console.print("\n✅ 触觉已启用")
 
 
-@xr_cli.command(name("performance")
+@xr_cli.command(name="performance")
 def optimize_performance():
     """优化性能"""
     console.print(f"\n⚡ 性能优化\n")
@@ -127,7 +127,7 @@ def optimize_performance():
     console.print("\n✅ 性能已优化")
 
 
-@xr_cli.command(name("analytics")
+@xr_cli.command(name="analytics")
 def show_analytics():
     """显示分析"""
     console.print(f"\n📊 XR分析\n")

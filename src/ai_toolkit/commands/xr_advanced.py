@@ -141,7 +141,7 @@ def create_world():
 @click.option("--type", "-t", default="art", help="NFT类型")
 def create_nft(name: str, type: str):
     """创建NFT"""
-    console.print(f("\n🖼️ 创建NFT\n")
+    console.print(f"\n🖼️ 创建NFT\n"
 
     console.print(f"名称: {name or '数字艺术品'}")
     console.print(f"类型: {type}")

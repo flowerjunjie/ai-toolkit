@@ -40,7 +40,7 @@ def start_webui(port: int, host: str):
     console.print(f"\n🌐 访问: http://{host}:{port}")
 
 
-@ui_cli.command(name("dashboard")
+@ui_cli.command(name="dashboard")
 def show_dashboard():
     """显示仪表板"""
     console.print(f"\n📊 实时仪表板\n")
@@ -105,7 +105,7 @@ def show_dashboard():
     console.print(layout)
 
 
-@ui_cli.command(name("models")
+@ui_cli.command(name="models")
 def show_models_ui():
     """显示模型管理UI"""
     console.print(f"\n🤖 模型管理界面\n")
@@ -124,7 +124,7 @@ def show_models_ui():
     console.print(table)
 
 
-@ui_cli.command(name("rag")
+@ui_cli.command(name="rag")
 def show_rag_ui():
     """显示RAG管理界面"""
     console.print(f"\n📚 RAG管理界面\n")
@@ -143,7 +143,7 @@ def show_rag_ui():
     console.print(table)
 
 
-@ui_cli.command(name("chat")
+@ui_cli.command(name="chat")
 def show_chat_ui():
     """显示聊天界面"""
     console.print(f"\n💬 Chat界面\n")
@@ -161,7 +161,7 @@ def show_chat_ui():
     console.print("\n✅ Chat界面已显示")
 
 
-@ui_cli.command(name("logs")
+@ui_cli.command(name="logs"
 @click.option("--lines", "-l", default=50, help="显示行数")
 def show_logs(lines: int):
     """显示日志"""
@@ -182,7 +182,7 @@ def show_logs(lines: int):
     console.print(f"✅ 已显示最近 {lines} 条日志")
 
 
-@ui_cli.command(name("analytics")
+@ui_cli.command(name="analytics")
 def show_analytics():
     """显示数据分析"""
     console.print(f"\n📊 数据分析\n")
@@ -214,7 +214,7 @@ def show_analytics():
     console.print(revenue_table)
 
 
-@ui_cli.command(name("settings")
+@ui_cli.command(name="settings")
 def show_settings():
     """显示设置界面"""
     console.print(f"\n⚙️ 设置界面\n")
@@ -237,7 +237,7 @@ def show_settings():
     console.print("\n✅ 设置已显示")
 
 
-@ui_cli.command(name("export")
+@ui_cli.command(name="export"
 @click.option("--format", "-f", default="json", help="导出格式")
 def export_data(format: str):
     """导出数据"""
@@ -288,7 +288,7 @@ def show_timeline():
     console.print("\n✅ 时间线已显示")
 
 
-@viz_cli.command(name("graph")
+@viz_cli.command(name="graph")
 def show_graph():
     """显示关系图"""
     console.print(f"\n🔗 关系图谱\n")
@@ -315,7 +315,7 @@ def show_graph():
     console.print("\n✅ 关系图已显示")
 
 
-@viz_cli.command(name("heatmap")
+@viz_cli.command(name="heatmap")
 def show_heatmap():
     """显示热力图"""
     console.print(f"\n🌡️ 使用热力图\n")
@@ -363,7 +363,7 @@ def generate_weekly(week: int):
     console.print("\n✅ 周报已生成")
 
 
-@report_cli.command(name("monthly")
+@report_cli.command(name="monthly"
 @click.option("--month", "-m", help="月份")
 def generate_monthly(month: int):
     """生成月报"""

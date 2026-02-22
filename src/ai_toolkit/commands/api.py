@@ -18,7 +18,7 @@ def api_cli():
     pass
 
 
-@api_cli.command(name("openai")
+@api_cli.command(name="openai"
 @click.option("--key", "-k", help="API密钥")
 def integrate_openai(key: str):
     """集成OpenAI API"""
@@ -39,7 +39,7 @@ def integrate_openai(key: str):
     console.print("\n✅ OpenAI API已集成")
 
 
-@api_cli.command(name("anthropic")
+@api_cli.command(name="anthropic"
 @click.option("--key", "-k", help="API密钥")
 def integrate_anthropic(key: str):
     """集成Anthropic Claude"""
@@ -60,7 +60,7 @@ def integrate_anthropic(key: str):
     console.print("\n✅ Anthropic API已集成")
 
 
-@api_cli.command(name("cohere")
+@api_cli.command(name="cohere"
 @click.option("--key", "-k", help="API密钥")
 def integrate_cohere(key: str):
     """集成Cohere"""
@@ -76,7 +76,7 @@ def integrate_cohere(key: str):
     console.print("\n✅ Cohere API已集成")
 
 
-@api_cli.command(name("huggingface")
+@api_cli.command(name="huggingface"
 @click.option("--token", "-t", help="访问令牌")
 def integrate_huggingface(token: str):
     """集成Hugging Face"""
@@ -113,7 +113,7 @@ def integrate_replicate(endpoint: str):
     console.print("\n✅ Replicate已集成")
 
 
-@api_cli.command(name("together")
+@api_cli.command(name="together"
 @click.option("--key", "-k", help="API密钥")
 def integrate_together(key: str):
     """Together AI"""
@@ -129,7 +129,7 @@ def integrate_together(key: str):
     console.print("\n✅ Together AI已集成")
 
 
-@api_cli.command(name("groq")
+@api_cli.command(name="groq"
 @click.option("--key", "-k", help="API密钥")
 def integrate_groq(key: str):
     """Groq API"""
@@ -165,11 +165,11 @@ def integrate_deepseek(key: str):
     console.print("\n✅ DeepSeek已集成")
 
 
-@api_cli.command(name("perplexity")
-@click.option("--key", "-k", help("API密钥")
+@api_cli.command(name="perplexity"
+@click.option("--key", "-k", help="API密钥")
 def integrate_perplexity(key: str):
     """Perplexity API"""
-    console.print(f("\n🟣 Perplexity集成\n")
+    console.print(f"\n🟣 Perplexity集成\n"
 
     console.print(f"API密钥: {key or 'pplx-...'}")
 
@@ -181,7 +181,7 @@ def integrate_perplexity(key: str):
     console.print("\n✅ Perplexity已集成")
 
 
-@api_cli.command(name("banzaai")
+@api_cli.command(name="banzaai"
 @click.option("--key",(""), help="API密钥")
 def integrate_banzaai(key: str):
     """百川智能BanzaiAI"""
@@ -221,7 +221,7 @@ def integrate_moonshot(key: str):
     console.print("\n✅ Moonshot AI已集成")
 
 
-@api_cli.command(name("ai21")
+@api_cli.command(name="ai21"
 @click.option("--key", "-k", help="API密钥")
 def integrate_ai21(key: str):
     """AI21 Labs"""
@@ -241,7 +241,7 @@ def integrate_ai21(key: str):
     console.print("\n✅ AI21 Labs已集成")
 
 
-@api_cli.command(name("mistral")
+@api_cli.command(name="mistral"
 @click.option("--key", "-k", help="API密钥")
 def integrate_mistral(key: str):
     """Mistral AI"""
@@ -257,7 +257,7 @@ def integrate_mistral(key: str):
     console.print("\n✅ Mistral AI已集成")
 
 
-@api_cli.command(name("voyage")
+@api_cli.command(name="voyage"
 @click.option("--key", "-k", help="API密钥")
 def integrate_voyage(key: str):
     """Voyage AI"""
@@ -275,7 +275,7 @@ def integrate_voyage(key: str):
     console.print("\n✅ Voyage AI已集成")
 
 
-@api_cli.command(name("nvidia")
+@api_cli.command(name="nvidia")
 def integrate_nvidia():
     """NVIDIA NIM"""
     console.print(f"\n🟢 NVIDIA NIM集成\n")
@@ -288,7 +288,7 @@ def integrate_nvidia():
     console.print("\n✅ NVIDIA NIM已集成")
 
 
-@api_cli.command(name("google")
+@api_cli.command(name="google")
 def integrate_google():
     """Google Vertex AI"""
     console.print(f\n🔵 Google Vertex AI集成\n")
@@ -301,7 +301,7 @@ def integrate_google():
     console.print("\n✅ Google Vertex AI已集成")
 
 
-@api_cli.command(name("amazon")
+@api_cli.command(name="amazon")
 def integrate_amazon():
     """Amazon Bedrock"""
     console.print(f"\n🟠 Amazon Bedrock集成\n")
@@ -314,10 +314,10 @@ def integrate_amazon():
     console.print("\n✅ Amazon Bedrock已集成")
 
 
-@api_cli.command(name("azure")
+@api_cli.command(name="azure")
 def integrate_azure():
     """Azure OpenAI"""
-    console.print(f("\n🔵 Azure OpenAI集成\n")
+    console.print(f"\n🔵 Azure OpenAI集成\n"
 
     console.print("功能:")
     console.print("  GPT-4")
@@ -327,7 +327,7 @@ def integrate_azure():
     console.print("\n✅ Azure OpenAI已集成")
 
 
-@api_cli.command(name(" Watsonx")
+@api_cli.command(name=" Watsonx")
 def integrate_watsonx():
     """IBM watsonx.ai"""
     console.print(f"\n🟣 IBM watsonx.ai集成\n")
@@ -340,7 +340,7 @@ def integrate_watsonx():
     console.print("\n✅ IBM watsonx.ai已集成")
 
 
-@api_cli.command(name("cohere")
+@api_cli.command(name="cohere")
 def integrate_cohere():
     """Cohere API"""
     console.print(f"\n🔵 Cohere API集成\n")
@@ -353,7 +353,7 @@ def integrate_cohere():
     console.print("\n✅ Cohere API已集成")
 
 
-@api_cli.command(name("config")
+@api_cli.command(name="config"
 @click.option("--provider", "-p", help="提供商")
 @click.option("--key", "-k", help="API密钥")
 def config_api(provider: str, key: str):
@@ -370,7 +370,7 @@ def config_api(provider: str, key: str):
     console.print("\n✅ API已配置")
 
 
-@api_cli.command(name("test")
+@api_cli.command(name="test"
 @click.option("--provider", "-p", required=True, help="提供商")
 def test_api(provider: str):
     """测试API连接"""
@@ -386,7 +386,7 @@ def test_api(provider: str):
     console.print("\n✅ 测试完成")
 
 
-@api_cli.command(name("list")
+@api_cli.command(name="list")
 def list_apis():
     """列出所有API"""
     console.print(f"\n📋 已集成的API\n")
@@ -425,7 +425,7 @@ def list_apis():
     console.print(f"\n总计: {len(apis)} 个API提供商")
 
 
-@api_cli.command(name("compare")
+@api_cli.command(name="compare")
 def compare_apis():
     """对比API"""
     console.print(f"\n📊 API对比\n")
@@ -446,7 +446,7 @@ def compare_apis():
     console.print("\n✅ 对比完成")
 
 
-@api_cli.command(name("router")
+@api_cli.command(name="router"
 @click.option("--strategy", "-s", default="cost", help="路由策略")
 def setup_router(strategy: str):
     """API路由"""
@@ -469,7 +469,7 @@ def setup_router(strategy: str):
     console.print("\n✅ 路由已配置")
 
 
-@api_cli.command(name("fallback")
+@api_cli.command(name="fallback"
 @click.option("--primary", "-p", help="主API")
 @click.option("--backup", "-b", help="备用API")
 def setup_fallback(primary: str, backup: str):
@@ -487,7 +487,7 @@ def setup_fallback(primary: str, backup: str):
     console.print("\n✅ 故障转移已配置")
 
 
-@api_cli.command(name("quota")
+@api_cli.command(name="quota")
 def check_quota():
     """检查配额"""
     console.print(f"\n📊 配额检查\n")
@@ -508,7 +508,7 @@ def check_quota():
     console.print("\n✅ 配额检查完成")
 
 
-@api_cli.command(name("logging")
+@api_cli.command(name="logging")
 def enable_logging():
     """启用日志"""
     console.print(f"\n📝 API日志\n")
@@ -524,7 +524,7 @@ def enable_logging():
     console.print("\n✅ 日志已启用")
 
 
-@api_cli.command(name("analytics")
+@api_cli.command(name="analytics")
 def show_analytics():
     """显示分析"""
     console.print(f"\n📊 API分析\n")
@@ -545,7 +545,7 @@ def show_analytics():
     console.print("\n✅ 分析已显示")
 
 
-@api_cli.command(name("optimize")
+@api_cli.command(name="optimize")
 def optimize_apis():
     """优化API调用"""
     console.print(f"\n⚡ API优化\n")

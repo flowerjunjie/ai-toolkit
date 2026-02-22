@@ -127,7 +127,7 @@ def aggregate_stream(field: str, func: str):
     console.print("\n✅ 聚合已应用")
 
 
-@stream_cli.command(name("checkpoint"))
+@stream_cli.command(name="checkpoint")
 def set_checkpoint():
     """设置检查点"""
     console.print("\n💾 检查点\n")
@@ -159,7 +159,7 @@ def recover_stream(checkpoint: str):
     console.print("\n✅ 流已恢复")
 
 
-@stream_cli.command(name("monitor")
+@stream_cli.command(name="monitor")
 def monitor_stream():
     """监控流"""
     console.print("\n📊 流监控\n")

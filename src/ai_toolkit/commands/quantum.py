@@ -12,13 +12,13 @@ import json
 console = Console()
 
 
-@click.group(name("quantum")
+@@click.group.command(name="quantum")
 def quantum_cli():
     """量子计算工具"""
     pass
 
 
-@quantum_cli.command(name("circuit")
+@quantum_cli.command(name="circuit"
 @click.option("--qubits", "-q", default=2, help="量子比特数")
 def create_circuit(qubits: int):
     """创建量子电路"""
@@ -35,7 +35,7 @@ def create_circuit(qubits: int):
     console.print("\n✅ 电路已创建")
 
 
-@quantum_cli.command(name("simulate")
+@quantum_cli.command(name="simulate"
 @click.option("--shots", "-s", default=1000, help="模拟次数")
 def simulate_quantum(shots: int):
     """量子模拟"""
@@ -56,7 +56,7 @@ def simulate_quantum(shots: int):
     console.print("\n✅ 模拟完成")
 
 
-@quantum_cli.command(name("algorithm")
+@quantum_cli.command(name="algorithm"
 @click.option("--type", "-t", help="算法类型")
 def run_algorithm(type: str):
     """运行量子算法"""
@@ -73,7 +73,7 @@ def run_algorithm(type: str):
     console.print("\n✅ 算法已运行")
 
 
-@quantum_cli.command(name("noise")
+@quantum_cli.command(name="noise")
 def model_noise():
     """模拟噪声"""
     console.print(f"\n🔇 噪声模型\n")
@@ -87,7 +87,7 @@ def model_noise():
     console.print("\n✅ 噪声已建模")
 
 
-@quantum_cli.command(name("correction")
+@quantum_cli.command(name="correction")
 def apply_correction():
     """量子纠错"""
     console.print(f"\n🔧 量子纠错\n")
@@ -100,7 +100,7 @@ def apply_correction():
     console.print("\n✅ 纠错已应用")
 
 
-@quantum_cli.command(name("optimize")
+@quantum_cli.command(name="optimize")
 def optimize_quantum():
     """量子优化"""
     console.print(f"\n⚡ 量子优化\n")
@@ -113,7 +113,7 @@ def optimize_quantum():
     console.print("\n✅ 优化完成")
 
 
-@quantum_cli.command(name("hardware")
+@quantum_cli.command(name="hardware")
 def show_hardware():
     """显示量子硬件"""
     console.print(f"\n🖥️ 量子硬件\n")

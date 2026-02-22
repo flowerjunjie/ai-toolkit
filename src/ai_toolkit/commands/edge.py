@@ -18,7 +18,7 @@ def edge_cli():
     pass
 
 
-@edge_cli.command(name("device")
+@edge_cli.command(name="device"
 @click.option("--id", required=True, help="设备ID")
 @click.option("--type", help="设备类型")
 def register_device(id: str, type: str):
@@ -61,7 +61,7 @@ def list_devices():
     console.print(f"\n总设备: {len(devices)}")
 
 
-@edge_cli.command(name("collect")
+@edge_cli.command(name="collect"
 @click.option("--device", "-d", help="设备ID")
 def collect_data(device: str):
     """收集数据"""
@@ -77,7 +77,7 @@ def collect_data(device: str):
     console.print("\n✅ 数据已收集")
 
 
-@edge_cli.command(name("deploy")
+@edge_cli.command(name="deploy"
 @click.option("--service", "-s", help="服务名称")
 def deploy_edge(service: str):
     """部署边缘服务"""
@@ -94,7 +94,7 @@ def deploy_edge(service: str):
     console.print("\n✅ 服务已部署")
 
 
-@edge_cli.command(name("monitor")
+@edge_cli.command(name="monitor")
 def monitor_edge():
     """监控边缘"""
     console.print("\n📊 边缘监控\n")
@@ -118,7 +118,7 @@ def monitor_edge():
     console.print("\n✅ 边缘运行正常")
 
 
-@edge_cli.command(name("sync")
+@edge_cli.command(name="sync")
 def sync_edge():
     """同步数据"""
     console.print("\n🔄 同步数据\n")
@@ -135,7 +135,7 @@ def sync_edge():
     console.print("\n✅ 同步正常")
 
 
-@edge_cli.command(name("ota")
+@edge_cli.command(name="ota"
 @click.option("--device", "-d", help="设备ID")
 def ota_update(device: str):
     """OTA升级"""
@@ -153,7 +153,7 @@ def ota_update(device: str):
     console.print("\n✅ 升级完成")
 
 
-@edge_cli.command(name("telemetry")
+@edge_cli.command(name="telemetry")
 def show_telemetry():
     """遥测数据"""
     console.print("\n📡 遥测数据\n")

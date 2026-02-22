@@ -326,7 +326,7 @@ def food_sensor(type: str):
 @click.option("--material", "-m", default="plastic", help="包装材料")
 def food_packaging(material: str):
     """食品包装"""
-    console.print(f("\n📦 食品包装\n")
+    console.print(f"\n📦 食品包装\n"
 
     console.print(f"材料: {material}")
 

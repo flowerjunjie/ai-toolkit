@@ -40,7 +40,7 @@ def test_all(verbose: bool, coverage: bool):
         console.print(f"\n[red]❌ 测试失败，返回码: {result.returncode}[/red]")
 
 
-@test_cli.command(name("unit")
+@test_cli.command(name="unit"
 @click.argument("name", required=False)
 @click.option("--verbose", "-v", is_flag=True)
 def test_unit(name: str, verbose: bool):
@@ -142,7 +142,7 @@ def test_fix():
     console.print("\n✅ 代码已自动修复！")
 
 
-@test_cli.command(name("watch")
+@test_cli.command(name="watch")
 def test_watch():
     """监听模式（文件改动自动测试）"""
     console.print("\n👀️ 监听模式（文件改动自动测试）")

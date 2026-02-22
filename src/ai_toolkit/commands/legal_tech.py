@@ -16,11 +16,11 @@ def legal_tech_cli():
     pass
 
 
-@legal_tech_cli.command(name("contract")
-@click.option("--type", "-t", default("employment", help("合同类型")
+@legal_tech_cli.command(name="contract"
+@click.option("--type", "-t", default("employment", help="合同类型")
 def generate_contract(type: str):
     """生成合同"""
-    console.print(f("\n📄 生成合同\n")
+    console.print(f"\n📄 生成合同\n"
 
     console.print(f"类型: {type}")
 
@@ -55,11 +55,11 @@ def generate_contract(type: str):
     console.print("\n✅ 合同已生成")
 
 
-@legal_tech_cli.command(name("review")
-@click.option("--document", "-d", help("文档路径")
+@legal_tech_cli.command(name="review"
+@click.option("--document", "-d", help="文档路径")
 def legal_review(document: str):
     """法律审查"""
-    console.print(f("\n⚖️ 法律审查\n")
+    console.print(f"\n⚖️ 法律审查\n"
 
     console.print(f"文档: {document or 'contract.pdf'}")
 
@@ -87,12 +87,12 @@ def legal_review(document: str):
     console.print("\n✅ 审查完成")
 
 
-@legal_tech_cli.command(name("search")
+@legal_tech_cli.command(name="search"
 @click.option("--query", "-q", help="搜索查询")
-@click.option("--database", "-d", default("all", help("法律数据库")
+@click.option("--database", "-d", default("all", help="法律数据库")
 def legal_search(query: str, database: str):
     """法律检索"""
-    console.print(f("\n🔍 法律检索\n")
+    console.print(f"\n🔍 法律检索\n"
 
     console.print(f"查询: {query or '劳动合同 解除'}")
     console.print(f"数据库: {database}")
@@ -122,8 +122,8 @@ def legal_search(query: str, database: str):
     console.print("\n✅ 检索完成")
 
 
-@legal_tech_cli.command(name("template")
-@click.option("--category", "-c", help("合同类别")
+@legal_tech_cli.command(name="template"
+@click.option("--category", "-c", help="合同类别")
 def legal_template(category: str):
     """合同模板"""
     console.print(f"\n📋 合同模板\n")
@@ -152,11 +152,11 @@ def legal_template(category: str):
     console.print("\n✅ 模板已加载")
 
 
-@legal_tech_cli.command(name("consultation")
-@click.option("--type", "-t", default("general", help("咨询类型")
+@legal_tech_cli.command(name="consultation"
+@click.option("--type", "-t", default("general", help="咨询类型")
 def legal_consultation(type: str):
     """法律咨询"""
-    console.print(f("\n💼 法律咨询\n")
+    console.print(f"\n💼 法律咨询\n"
 
     console.print(f"类型: {type}")
 
@@ -184,11 +184,11 @@ def legal_consultation(type: str):
     console.print("\n✅ 咨询完成")
 
 
-@legal_tech_cli.command(name("ip")
-@click.option("--type", "-t", help("知识产权类型")
+@legal_tech_cli.command(name="ip"
+@click.option("--type", "-t", help="知识产权类型")
 def ip_protection(type: str):
     """知识产权保护"""
-    console.print(f("\n©️ 知识产权保护\n")
+    console.print(f"\n©️ 知识产权保护\n"
 
     console.print(f"类型: {type or 'trademark'}")
 
@@ -220,11 +220,11 @@ def ip_protection(type: str):
     console.print("\n✅ 保护已配置")
 
 
-@legal_tech_cli.command(name("dispute")
-@click.option("--type", "-t", default("mediation", help("纠纷解决方式")
+@legal_tech_cli.command(name="dispute"
+@click.option("--type", "-t", default("mediation", help="纠纷解决方式")
 def dispute_resolution(type: str):
     """纠纷解决"""
-    console.print(f("\n⚖️ 纠纷解决\n")
+    console.print(f"\n⚖️ 纠纷解决\n"
 
     console.print(f"方式: {type}")
 
@@ -256,8 +256,8 @@ def dispute_resolution(type: str):
     console.print("\n✅ 解决方案已生成")
 
 
-@legal_tech_cli.command(name("compliance")
-@click.option("--industry", "-i", help("行业类型")
+@legal_tech_cli.command(name="compliance"
+@click.option("--industry", "-i", help="行业类型")
 def compliance_check(industry: str):
     """合规检查"""
     console.print(f"\n✅ 合规检查\n")
@@ -290,11 +290,11 @@ def compliance_check(industry: str):
     console.print("\n✅ 检查完成")
 
 
-@legal_tech_cli.command(name("filing")
-@click.option("--type", "-t", help("文件类型")
+@legal_tech_cli.command(name="filing"
+@click.option("--type", "-t", help="文件类型")
 def document_filing(type: str):
     """文件归档"""
-    console.print(f("\n📁 文件归档\n")
+    console.print(f"\n📁 文件归档\n"
 
     console.print(f"类型: {type or 'all'}")
 
@@ -320,11 +320,11 @@ def document_filing(type: str):
     console.print("\n✅ 归档完成")
 
 
-@legal_tech_cli.command(name("signature")
-@click.option("--type", "-t", default("electronic", help("签名类型")
+@legal_tech_cli.command(name="signature"
+@click.option("--type", "-t", default("electronic", help="签名类型")
 def digital_signature(type: str):
     """数字签名"""
-    console.print(f("\n✍️ 数字签名\n")
+    console.print(f"\n✍️ 数字签名\n"
 
     console.print(f"类型: {type}")
 
@@ -356,11 +356,11 @@ def digital_signature(type: str):
     console.print("\n✅ 签名完成")
 
 
-@legal_tech_cli.command(name("smart")
-@click.option("--type", "-t", default("erc20", help("智能合约类型")
+@legal_tech_cli.command(name="smart"
+@click.option("--type", "-t", default("erc20", help="智能合约类型")
 def smart_contract(type: str):
     """智能合约"""
-    console.print(f("\n📜 智能合约\n")
+    console.print(f"\n📜 智能合约\n"
 
     console.print(f"类型: {type}")
 
@@ -395,11 +395,11 @@ def smart_contract(type: str):
     console.print("\n✅ 合约已部署")
 
 
-@legal_tech_cli.command(name("evidence")
-@click.option("--type", "-t", help("证据类型")
+@legal_tech_cli.command(name="evidence"
+@click.option("--type", "-t", help="证据类型")
 def evidence_management(type: str):
     """证据管理"""
-    console.print(f("\n🔍 证据管理\n")
+    console.print(f"\n🔍 证据管理\n"
 
     console.print(f"类型: {type or 'all'}")
 
@@ -431,11 +431,11 @@ def evidence_management(type: str):
     console.print("\n✅ 管理完成")
 
 
-@legal_tech_cli.command(name("court")
-@click.option("--type", "-t", default("civil", help("法院类型")
+@legal_tech_cli.command(name="court"
+@click.option("--type", "-t", default("civil", help="法院类型")
 def court_filing(type: str):
     """网上立案"""
-    console.print(f("\n🏛️ 网上立案\n")
+    console.print(f"\n🏛️ 网上立案\n"
 
     console.print(f"类型: {type}")
 
@@ -466,11 +466,11 @@ def court_filing(type: str):
     console.print("\n✅ 立案申请已提交")
 
 
-@legal_tech_cli.command(name("notarization")
-@click.option("--type", "-t", help("公证类型")
+@legal_tech_cli.command(name="notarization"
+@click.option("--type", "-t", help="公证类型")
 def notarization_service(type: str):
     """公证服务"""
-    console.print(f("\n📜 公证服务\n")
+    console.print(f"\n📜 公证服务\n"
 
     console.print(f"类型: {type or 'electronic'}")
 
@@ -500,11 +500,11 @@ def notarization_service(type: str):
     console.print("\n✅ 公证完成")
 
 
-@legal_tech_cli.command(name("training")
-@click.option("--topic", "-t", help("培训主题")
+@legal_tech_cli.command(name="training"
+@click.option("--topic", "-t", help="培训主题")
 def legal_training(topic: str):
     """法律培训"""
-    console.print(f("\n🎓 法律培训\n")
+    console.print(f"\n🎓 法律培训\n"
 
     console.print(f"主题: {topic or '企业合规'}")
 
@@ -530,10 +530,10 @@ def legal_training(topic: str):
     console.print("\n✅ 培训完成")
 
 
-@legal_tech_cli.command(name("log")
+@legal_tech_cli.command(name="log")
 def legal_tech_log():
     """法律科技日志"""
-    console.print(f("\n📝 法律科技日志\n")
+    console.print(f"\n📝 法律科技日志\n"
 
     console.print("今日统计:")
     console.print("  合同生成: 25份")

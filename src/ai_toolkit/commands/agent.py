@@ -51,7 +51,7 @@ def create_agent(name: str, type: str):
     console.print("\n✅ 代理已创建")
 
 
-@agent_cli.command(name("deploy")
+@agent_cli.command(name="deploy"
 @click.option("--agent", "-a", required=True, help="代理名称")
 def deploy_agent(agent: str):
     """部署代理"""
@@ -67,7 +67,7 @@ def deploy_agent(agent: str):
     console.print(f"\n端点: http://localhost:9000/agents/{agent}")
 
 
-@agent_cli.command(name("list")
+@agent_cli.command(name="list")
 def list_agents():
     """列出代理"""
     console.print("\n🤖 代理列表\n")
@@ -89,7 +89,7 @@ def list_agents():
     console.print(table)
 
 
-@agent_cli.command(name("chat")
+@agent_cli.command(name="chat"
 @click.option("--agent", "-a", required=True, help="代理名称")
 def chat_with_agent(agent: str):
     """与代理对话"""
@@ -98,7 +98,7 @@ def chat_with_agent(agent: str):
     console.print("输入消息，按Ctrl+D结束")
 
 
-@agent_cli.command(name("task")
+@agent_cli.command(name="task"
 @click.option("--agent", "-a", required=True, help="代理名称")
 @click.option("--task", "-t", required=True, help="任务描述")
 def assign_task(agent: str, task: str):
@@ -117,7 +117,7 @@ def assign_task(agent: str, task: str):
     console.print("\n✅ 任务已分配")
 
 
-@agent_cli.command(name("swarm")
+@agent_cli.command(name="swarm")
 def create_swarm():
     """创建代理群"""
     console.print("\n🐝 代理群\n")
@@ -141,7 +141,7 @@ def create_swarm():
     console.print("\n✅ 代理群已创建")
 
 
-@agent_cli.command(name("monitor")
+@agent_cli.command(name="monitor")
 def monitor_agents():
     """监控代理"""
     console.print("\n📊 代理监控\n")
@@ -165,7 +165,7 @@ def monitor_agents():
     console.print("\n✅ 所有代理运行正常")
 
 
-@agent_cli.command(name("scale")
+@agent_cli.command(name="scale"
 @click.option("--replicas", "-r", default=3, help="副本数")
 def scale_agents(replicas: int):
     """扩展代理"""

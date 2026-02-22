@@ -90,7 +90,7 @@ def ai_diagnose(patient: str, symptoms: str):
 @click.option("--dosage", "-d", help="剂量信息")
 def drug_info(name: str, dosage: str):
     """药物信息"""
-    console.print(f("\n💊 药物信息\n")
+    console.print(f"\n💊 药物信息\n"
 
     console.print(f"药品: {name or '阿司匹林'}")
     console.print(f"剂量: {dosage or '100mg'}")
@@ -157,7 +157,7 @@ def manage_prescription(drug: str, usage: str):
 
 
 @medical_cli.command(name="checkup")
-@click.option("--type", "-t", default="general", help("体检类型")
+@click.option("--type", "-t", default="general", help="体检类型")
 def health_checkup(type: str):
     """体检套餐"""
     console.print(f"\n🏥 体检套餐\n")
@@ -222,7 +222,7 @@ def mental_health_test(test: str):
 @click.option("--calories", "-c", default=2000, help="目标热量")
 def diet_plan(goal: str, calories: int):
     """饮食方案"""
-    console.print(f("\n🍽️ 饮食方案\n")
+    console.print(f"\n🍽️ 饮食方案\n"
 
     console.print(f"目标: {goal or '减重5公斤'}")
     console.print(f"热量: {calories}kcal/天")
@@ -387,7 +387,7 @@ def emergency_guide(type: str):
 @click.option("--type", "-t", help="疫苗类型")
 def vaccine_info(type: str):
     """疫苗信息"""
-    console.print(f("\n💉 疫苗信息\n")
+    console.print(f"\n💉 疫苗信息\n"
 
     console.print(f"疫苗: {type or '流感疫苗'}")
 

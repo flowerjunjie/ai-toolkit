@@ -149,7 +149,7 @@ def assess_risk():
     console.print("\n✅ 评估完成")
 
 
-@project_advanced_cli.command(name("optimize")
+@project_advanced_cli.command(name="optimize")
 def optimize_workflow():
     """工作流优化"""
     console.print(f"\n⚡ 工作流优化\n")

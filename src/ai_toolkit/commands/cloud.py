@@ -37,7 +37,7 @@ def deploy_cloud(app: str, platform: str):
     console.print("\n✅ 应用已部署")
 
 
-@cloud_cli.command(name("scale")
+@cloud_cli.command(name="scale"
 @click.option("--service", "-s", help="服务名称")
 @click.option("--replicas", "-r", default=3, help="副本数")
 def scale_cloud(service: str, replicas: int):
@@ -54,7 +54,7 @@ def scale_cloud(service: str, replicas: int):
     console.print("\n✅ 服务已扩展")
 
 
-@cloud_cli.command(name("monitor")
+@cloud_cli.command(name="monitor")
 def monitor_cloud():
     """云监控"""
     console.print("\n📊 云监控\n")
@@ -78,7 +78,7 @@ def monitor_cloud():
     console.print("\n✅ 云服务运行正常")
 
 
-@cloud_cli.command(name("cost")
+@cloud_cli.command(name="cost")
 def estimate_cost():
     """成本估算"""
     console.print("\n💰 成本估算\n")
@@ -103,7 +103,7 @@ def estimate_cost():
     console.print("\n✅ 总计: $200/月")
 
 
-@cloud_cli.command(name("backup")
+@cloud_cli.command(name="backup")
 def cloud_backup():
     """云备份"""
     console.print("\n💾 云备份\n")
@@ -121,7 +121,7 @@ def cloud_backup():
     console.print("\n✅ 备份已启用")
 
 
-@cloud_cli.command(name("cdn")
+@cloud_cli.command(name="cdn")
 def setup_cdn():
     """CDN配置"""
     console.print("\n🌐 CDN配置\n")
@@ -134,7 +134,7 @@ def setup_cdn():
     console.print("\n✅ CDN已启用")
 
 
-@cloud_cli.command(name("dns")
+@cloud_cli.command(name="dns")
 def manage_dns():
     """DNS管理"""
     console.print("\n🌍 DNS管理\n")
@@ -158,7 +158,7 @@ def manage_dns():
     console.print("\n✅ DNS已配置")
 
 
-@cloud_cli.command(name("ssl")
+@cloud_cli.command(name="ssl")
 def manage_ssl():
     """SSL证书"""
     console.print("\n🔒 SSL证书\n")

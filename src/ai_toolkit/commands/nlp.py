@@ -36,12 +36,12 @@ def tokenize_text(text: str, lang: str):
     console.print("\n✅ 分词完成")
 
 
-@nlp_cli.command(name("tag")
+@nlp_cli.command(name="tag"
 @click.option("--text", "-t", help="输入文本")
 @click.option("--model", "-m", help="标注模型")
 def pos_tagging(text: str, model: str):
     """词性标注"""
-    console.print(f("\n🏷️ 词性标注\n")
+    console.print(f"\n🏷️ 词性标注\n"
 
     console.print(f"文本: {text or '我爱北京天安门'}")
     console.print(f"模型: {model or 'bert-base-chinese'}")
@@ -59,12 +59,12 @@ def pos_tagging(text: str, model: str):
     console.print("\n✅ 标注完成")
 
 
-@nlp_cli.command(name("ner")
+@nlp_cli.command(name="ner"
 @click.option("--text", "-t", help="输入文本")
 @click.option("--model", "-m", help="NER模型")
 def named_entity_recognition(text: str, model: str):
     """命名实体识别"""
-    console.print(f("\n🏷️ 命名实体识别\n")
+    console.print(f"\n🏷️ 命名实体识别\n"
 
     console.print(f"文本: {text or '马云在杭州创立了阿里巴巴'}")
     console.print(f"模型: {model or 'bert-base-chinese-ner'}")
@@ -88,7 +88,7 @@ def named_entity_recognition(text: str, model: str):
 @click.option("--pattern", "-p", help="提取模式")
 def extract_info(text: str, pattern: str):
     """信息抽取"""
-    console.print(f("\n📤 信息抽取\n")
+    console.print(f"\n📤 信息抽取\n"
 
     console.print(f"文本: {text or '张三，电话13800138000，邮箱zhangsan@example.com'}")
     console.print(f"模式: {pattern or 'phone,email'}")
@@ -124,12 +124,12 @@ def sentiment_analysis(text: str, model: str):
     console.print("\n✅ 分析完成")
 
 
-@nlp_cli.command(name("keyword")
+@nlp_cli.command(name="keyword"
 @click.option("--text", "-t", help="输入文本")
 @click.option("--topk", "-k", default=10, help="TopK关键词")
 def extract_keywords(text: str, topk: int):
     """关键词提取"""
-    console.print(f("\n🔑 关键词提取\n")
+    console.print(f"\n🔑 关键词提取\n"
 
     console.print(f"文本: {text or 'AI Toolkit是一个强大的本地AI工具箱，让AI开发更简单'}")
     console.print(f"TopK: {topk}")
@@ -149,7 +149,7 @@ def extract_keywords(text: str, topk: int):
 @click.option("--length", "-l", default=100, help="摘要长度")
 def summarize_text(text: str, length: int):
     """文本摘要"""
-    console.print(f("\n📝 文本摘要\n")
+    console.print(f"\n📝 文本摘要\n"
 
     console.print(f"文本: {text or '长文本...'}")
     console.print(f"长度: {length}")
@@ -167,13 +167,13 @@ def summarize_text(text: str, length: int):
     console.print("\n✅ 摘要完成")
 
 
-@nlp_cli.command(name("translate")
+@nlp_cli.command(name="translate"
 @click.option("--text", "-t", help="输入文本")
 @click.option("--source", "-s", default="zh", help="源语言")
 @click.option("--target", "-t", default="en", help="目标语言")
 def translate_text(text: str, source: str, target: str):
     """机器翻译"""
-    console.print(f("\n🌐 机器翻译\n")
+    console.print(f"\n🌐 机器翻译\n"
 
     console.print(f"文本: {text or '你好，世界'}")
     console.print(f"源语言: {source}")
@@ -191,13 +191,13 @@ def translate_text(text: str, source: str, target: str):
     console.print("\n✅ 翻译完成")
 
 
-@nlp_cli.command(name("similarity")
+@nlp_cli.command(name="similarity"
 @click.option("--text1", "-1", help="文本1")
 @click.option("--text2", "-2", help="文本2")
 @click.option("--method", "-m", default="cosine", help="相似度方法")
 def text_similarity(text1: str, text2: str, method: str):
     """文本相似度"""
-    console.print(f("\n📊 文本相似度\n")
+    console.print(f"\n📊 文本相似度\n"
 
     console.print(f"文本1: {text1 or 'AI Toolkit是本地AI工具'}")
     console.print(f"文本2: {text2 or 'AI Toolkit是AI开发工具'}")
@@ -214,12 +214,12 @@ def text_similarity(text1: str, text2: str, method: str):
     console.print("\n✅ 计算完成")
 
 
-@nlp_cli.command(name("classify")
+@nlp_cli.command(name="classify"
 @click.option("--text", "-t", help="输入文本")
 @click.option("--categories", "-c", help="分类列表")
 def classify_text(text: str, categories: str):
     """文本分类"""
-    console.print(f("\n📂 文本分类\n")
+    console.print(f"\n📂 文本分类\n"
 
     console.print(f"文本: {text or '今天天气真不错'}")
     console.print(f"分类: {categories or '科技,财经,体育,娱乐'}")
@@ -236,7 +236,7 @@ def classify_text(text: str, categories: str):
     console.print("\n✅ 分类完成")
 
 
-@nlp_cli.command(name("embed")
+@nlp_cli.command(name="embed"
 @click.option("--text", "-t", help="输入文本")
 @click.option("--model", "-m", help="嵌入模型")
 def text_embedding(text: str, model: str):
@@ -257,12 +257,12 @@ def text_embedding(text: str, model: str):
     console.print("\n✅ 嵌入完成")
 
 
-@nlp_cli.command(name("parse")
+@nlp_cli.command(name="parse"
 @click.option("--text", "-t", help="输入文本")
 @click.option("--parser", "-p", help="解析器")
 def parse_text(text: str, parser: str):
     """句法分析"""
-    console.print(f("\n🌳 句法分析\n")
+    console.print(f"\n🌳 句法分析\n"
 
     console.print(f"文本: {text or '我喜欢编程'}")
     console.print(f"解析器: {parser or 'stanza'}")
@@ -284,7 +284,7 @@ def parse_text(text: str, parser: str):
 @click.option("--text", "-t", help="输入文本")
 def coreference_resolution(text: str):
     """指代消解"""
-    console.print(f("\n🎯 指代消解\n")
+    console.print(f"\n🎯 指代消解\n"
 
     console.print(f"文本: {text or '小明说他在学习。他很开心。'}")
 
@@ -298,11 +298,11 @@ def coreference_resolution(text: str):
     console.print("\n✅ 消解完成")
 
 
-@nlp_cli.command(name("segment")
+@nlp_cli.command(name="segment"
 @click.option("--text",("-t", help="输入文本")
 def segment_text(text: str):
     """文本分句"""
-    console.print(f("\n📝 文本分句\n")
+    console.print(f"\n📝 文本分句\n"
 
     console.print(f"文本: {text or '今天天气很好。明天可能下雨。后天会晴天。'}")
 
@@ -316,12 +316,12 @@ def segment_text(text: str):
     console.print("\n✅ 分句完成")
 
 
-@nlp_cli.command(name("spell")
+@nlp_cli.command(name="spell"
 @click.option("--text", "-t", help="输入文本")
-@click.option("--lang", "-l", help("语言")
+@click.option("--lang", "-l", help="语言")
 def spell_check(text: str, lang: str):
     """拼写检查"""
-    console.print(f("\n✏️ 拼写检查\n")
+    console.print(f"\n✏️ 拼写检查\n"
 
     console.print(f"文本: {text or '我喜欢编程'}")
     console.print(f"语言: {lang or 'zh'}")
@@ -339,7 +339,7 @@ def spell_check(text: str, lang: str):
 @click.option("--text", "-t", help="输入文本")
 def correct_text(text: str):
     """文本纠错"""
-    console.print(f("\n🔧 文本纠错\n")
+    console.print(f"\n🔧 文本纠错\n"
 
     console.print(f"文本: {text or '我喜罕编程'}")
 
@@ -351,11 +351,11 @@ def correct_text(text: str):
     console.print("\n✅ 纠错完成")
 
 
-@nlp_cli.command(name("detect")
+@nlp_cli.command(name="detect"
 @click.option("--text", "-t", help="输入文本")
 def detect_language(text: str):
     """语言检测"""
-    console.print(f("\n🌍 语言检测\n")
+    console.print(f"\n🌍 语言检测\n"
 
     console.print(f"文本: {text or '你好，世界'}")
 
@@ -373,11 +373,11 @@ def detect_language(text: str):
 
 
 @nlp_cli.command(name="vector")
-@click.option("--texts", "-t", help("文本列表")
-@click.option("--model", "-m", help("向量化模型")
+@click.option("--texts", "-t", help="文本列表"
+@click.option("--model", "-m", help="向量化模型")
 def vectorize_texts(texts: str, model: str):
     """文本向量化"""
-    console.print(f("\n📊 文本向量化\n")
+    console.print(f"\n📊 文本向量化\n"
 
     console.print(f"文本: {texts or 'text1,text2'}")
     console.print(f"模型: {model or 'text-embedding-ada-002'}")
@@ -393,12 +393,12 @@ def vectorize_texts(texts: str, model: str):
     console.print("\n✅ 向量化完成")
 
 
-@nlp_cli.command(name("cluster")
+@nlp_cli.command(name="cluster"
 @click.option("--texts", "-t", help="文本列表")
-@click.option("--method", "-m", default="kmeans", help("聚类方法")
+@click.option("--method", "-m", default="kmeans", help="聚类方法")
 def cluster_texts(texts: str, method: str):
     """文本聚类"""
-    console.print(f("\n🔗 文本聚类\n")
+    console.print(f"\n🔗 文本聚类\n"
 
     console.print(f"文本: {texts or 'text1,text2,text3'}")
     console.print(f"方法: {method}")
@@ -414,12 +414,12 @@ def cluster_texts(texts: str, method: str):
     console.print("\n✅ 聚类完成")
 
 
-@nlp_cli.command(name("entity")
-@click.option("--text", "-t", help("输入文本")
+@nlp_cli.command(name="entity"
+@click.option("--text", "-t", help="输入文本"
 @click.option("--types", "-tp", help="实体类型")
 def entity_extraction(text: str, types: str):
     """实体抽取"""
-    console.print(f("\n🏷️ 实体抽取\n")
+    console.print(f"\n🏷️ 实体抽取\n"
 
     console.print(f"文本: {text or 'Apple成立于1976年，总部位于加利福尼亚州'}")
     console.print(f"类型: {types or 'organization,location,date'}")
@@ -437,10 +437,10 @@ def entity_extraction(text: str, types: str):
 
 @nlp_cli.command(name="relation")
 @click.option("--text", "-t", help="输入文本")
-@click.option("--model", "-m", help("关系抽取模型")
+@click.option("--model", "-m", help="关系抽取模型")
 def relation_extraction(text: str, model: str):
     """关系抽取"""
-    console.print(f("\n🔗 关系抽取\n")
+    console.print(f"\n🔗 关系抽取\n"
 
     console.print(f"文本: {text or '乔布斯创立了Apple公司'}")
     console.print(f"模型: {model or 'bert-base-chinese-re'}")
@@ -457,10 +457,10 @@ def relation_extraction(text: str, model: str):
 
 
 @nlp.cli.command(name("event")
-@click.option("--text", "-t", help("输入文本")
+@click.option("--text", "-t", help="输入文本")
 def event_extraction(text: str):
     """事件抽取"""
-    console.print(f("\n📅 事件抽取\n")
+    console.print(f"\n📅 事件抽取\n"
 
     console.print(f"文本: {text or 'Apple将于2024年6月发布新产品'}")
 
@@ -478,12 +478,12 @@ def event_extraction(text: str):
     console.print("\n✅ 抽取完成")
 
 
-@nlp_cli.command(name("aspect")
-@click.option("--text", "-t", help("输入文本")
-@click.option("--aspect", "-a", help("方面词")
+@nlp_cli.command(name="aspect"
+@click.option("--text", "-t", help="输入文本"
+@click.option("--aspect", "-a", help="方面词")
 def aspect_extraction(text: str, aspect: str):
     """方面抽取"""
-    console.print(f("\n🎯 方面抽取\n")
+    console.print(f"\n🎯 方面抽取\n"
 
     console.print(f"文本: {text or '这个手机的电池续航很好，但屏幕一般'}")
     console.print(f"方面: {aspect or '电池,屏幕'}")
@@ -499,11 +499,11 @@ def aspect_extraction(text: str, aspect: str):
     console.print("\n✅ 抽取完成")
 
 
-@nlp_cli.command(name("opinion")
+@nlp_cli.command(name="opinion"
 @click.option("--text", "-t", help="输入文本")
 def opinion_mining(text: str):
     """观点挖掘"""
-    console.print(f("\n💭 观点挖掘\n")
+    console.print(f"\n💭 观点挖掘\n"
 
     console.print(f"文本: {text or '我认为AI Toolkit很有用，但价格有点贵'}")
 
@@ -519,12 +519,12 @@ def opinion_mining(text: str):
     console.print("\n✅ 挖掘完成")
 
 
-@nlp_cli.command(name("intent")
+@nlp_cli.command(name="intent"
 @click.option("--text", "-t", help="输入文本")
 @click.option("--domain", "-d", help="领域")
 def intent_recognition(text: str, domain: str):
     """意图识别"""
-    console.print(f("\n🎯 意图识别\n")
+    console.print(f"\n🎯 意图识别\n"
 
     console.print(f"文本: {text or '帮我查一下北京的天气'}")
     console.print(f"领域: {domain or 'weather'}")
@@ -542,12 +542,12 @@ def intent_recognition(text: str, domain: str):
     console.print("\n✅ 识别完成")
 
 
-@nlp_cli.command(name("slot")
-@click.option("--text",("-t", help("输入文本")
-@click.option("--intent", "-i", help("意图类型")
+@nlp_cli.command(name="slot"
+@click.option("--text",("-t", help="输入文本"
+@click.option("--intent", "-i", help="意图类型")
 def slot_filling(text: str, intent: str):
     """槽位填充"""
-    console.print(f("\n🔲 槽位填充\n")
+    console.print(f"\n🔲 槽位填充\n"
 
     console.print(f"文本: {text or '播放周杰伦的七里香'}")
     console.print(f"意图: {intent or 'play_music'}")
@@ -568,12 +568,12 @@ def slot_filling(text: str, intent: str):
     console.print("\n✅ 填充完成")
 
 
-@nlp_cli.command(name("responser")
+@nlp_cli.command(name="responser"
 @click.option("--context", "-c", help="上下文")
-@click.option("--query", "-q", help("查询文本")
+@click.option("--query", "-q", help="查询文本")
 def response_generation(context: str, query: str):
     """回复生成"""
-    console.print(f("\n💬 回复生成\n")
+    console.print(f"\n💬 回复生成\n"
 
     console.print(f"上下文: {context or '用户讨论AI Toolkit的功能'}")
     console.print(f"查询: {query or '它支持哪些模型？'}")
@@ -591,12 +591,12 @@ def response_generation(context: str, query: str):
     console.print("\n✅ 生成完成")
 
 
-@nlp_cli.command(name("rewrite")
-@click.option("--text", "-t", help("输入文本")
+@nlp_cli.command(name="rewrite"
+@click.option("--text", "-t", help="输入文本"
 @click.option("--style", "-s", help="写作风格")
 def text_rewrite(text: str, style: str):
     """文本改写"""
-    console.print(f("\n✏️ 文本改写\n")
+    console.print(f"\n✏️ 文本改写\n"
 
     console.print(f"原文: {text or '这个产品不错'}")
     console.print(f"风格: {style or 'formal'}")
@@ -612,12 +612,12 @@ def text_rewrite(text: str, style: str):
     console.print("\n✅ 改写完成")
 
 
-@nlp_cli.command(name("expand")
-@click.option("--text", "-t", help("输入文本")
+@nlp_cli.command(name="expand"
+@click.option("--text", "-t", help="输入文本"
 @click.option("--detail", "-d", default="medium", help="详细程度")
 def text_expand(text: str, detail: str):
     """文本扩写"""
-    console.print(f("\n📝 文本扩写\n")
+    console.print(f"\n📝 文本扩写\n"
 
     console.print(f"原文: {text or 'AI Toolkit很好'}")
     console.print(f"详细度: {detail}")
@@ -636,12 +636,12 @@ def text_expand(text: str, detail: str):
     console.print("\n✅ 扩写完成")
 
 
-@nlp_cli.command(name("simplify")
-@click.option("--text", "-t", help("输入文本")
-@click.option("--level", "-l", default="medium", help("简化级别")
+@nlp_cli.command(name="simplify"
+@click.option("--text", "-t", help="输入文本"
+@click.option("--level", "-l", default="medium", help="简化级别")
 def text_simplify(text: str, level: str):
     """文本简化"""
-    console.print(f("\n🔤 文本简化\n")
+    console.print(f"\n🔤 文本简化\n"
 
     console.print(f"原文: {text or '这是一个基于深度学习技术的自然语言处理系统'}")
     console.print(f"级别: {level}")
@@ -658,11 +658,11 @@ def text_simplify(text: str, level: str):
 
 
 @nlp_cli.command(name="generate")
-@click.option("--topic", "-t", help("主题")
+@click.option("--topic", "-t", help="主题"
 @click.option("--length", "-l", default=200, help="文本长度")
 def generate_text(topic: str, length: int):
     """文本生成"""
-    console.print(f("\n✍️ 文本生成\n")
+    console.print(f"\n✍️ 文本生成\n"
 
     console.print(f"主题: {topic or 'AI Toolkit介绍'}")
     console.print(f"长度: {length}")

@@ -16,8 +16,8 @@ def edtech_cli():
     pass
 
 
-@edtech_cli.command(name("course")
-@click.option("--subject", "-s", help("课程科目")
+@edtech_cli.command(name="course"
+@click.option("--subject", "-s", help="课程科目"
 @click.option("--level", "-l", default("beginner", help="难度级别")
 def create_course(subject: str, level: str):
     """创建课程"""
@@ -56,12 +56,12 @@ def create_course(subject: str, level: str):
     console.print("\n✅ 课程已创建")
 
 
-@edtech_cli.command(name("lesson")
-@click.option("--topic", "-t", help("课程主题")
+@edtech_cli.command(name="lesson"
+@click.option("--topic", "-t", help="课程主题"
 @click.option("--duration", "-d", default=30, help="时长(分钟)")
 def create_lesson(topic: str, duration: int):
     """创建课程"""
-    console.print(f("\n📖 创建课程\n")
+    console.print(f"\n📖 创建课程\n"
 
     console.print(f"主题: {topic or 'Python变量'}")
     console.print(f"时长: {duration}分钟")
@@ -88,11 +88,11 @@ def create_lesson(topic: str, duration: int):
     console.print("\n✅ 课程已创建")
 
 
-@edtech_cli.command(name("quiz")
-@click.option("--type", "-t", default="multiple", help("题型")
+@edtech_cli.command(name="quiz"
+@click.option("--type", "-t", default="multiple", help="题型")
 def create_quiz(type: str):
     """创建测验"""
-    console.print(f("\n❓ 创建测验\n")
+    console.print(f"\n❓ 创建测验\n"
 
     console.print(f"类型: {type}")
 
@@ -119,11 +119,11 @@ def create_quiz(type: str):
     console.print("\n✅ 测验已创建")
 
 
-@edtech_cli.command(name("assignment")
-@click.option("--type", "-t", default("code", help("作业类型")
+@edtech_cli.command(name="assignment"
+@click.option("--type", "-t", default("code", help="作业类型")
 def create_assignment(type: str):
     """创建作业"""
-    console.print(f("\n📝 创建作业\n")
+    console.print(f"\n📝 创建作业\n"
 
     console.print(f"类型: {type}")
 
@@ -149,11 +149,11 @@ def create_assignment(type: str):
     console.print("\n✅ 作业已创建")
 
 
-@edtech_cli.command(name("exam")
-@click.option("--type", "-t", default("final", help("考试类型")
+@edtech_cli.command(name="exam"
+@click.option("--type", "-t", default("final", help="考试类型")
 def create_exam(type: str):
     """创建考试"""
-    console.print(f("\n🎯 创建考试\n")
+    console.print(f"\n🎯 创建考试\n"
 
     console.print(f"类型: {type}")
 
@@ -177,11 +177,11 @@ def create_exam(type: str):
     console.print("\n✅ 考试已创建")
 
 
-@edtech_cli.command(name("grade")
-@click.option("--type", "-t", default("auto", help("批改类型")
+@edtech_cli.command(name="grade"
+@click.option("--type", "-t", default("auto", help="批改类型")
 def auto_grade(type: str):
     """自动批改"""
-    console.print(f("\n✅ 自动批改\n")
+    console.print(f"\n✅ 自动批改\n"
 
     console.print(f"类型: {type}")
 
@@ -205,11 +205,11 @@ def auto_grade(type: str):
     console.print("\n✅ 批改完成")
 
 
-@edtech_cli.command(name("progress")
-@click.option("--student", "-s", help("学生ID")
+@edtech_cli.command(name="progress"
+@click.option("--student", "-s", help="学生ID")
 def track_progress(student: str):
     """学习进度"""
-    console.print(f("\n📊 学习进度\n")
+    console.print(f"\n📊 学习进度\n"
 
     console.print(f"学生: {student or 'Student_001'}")
 
@@ -238,11 +238,11 @@ def track_progress(student: str):
     console.print("\n✅ 进度已追踪")
 
 
-@edtech_cli.command(name("certificate")
-@click.option("--type", "-t", default("completion", help("证书类型")
+@edtech_cli.command(name="certificate"
+@click.option("--type", "-t", default("completion", help="证书类型")
 def generate_certificate(type: str):
     """生成证书"""
-    console.print(f("\n🎓 生成证书\n")
+    console.print(f"\n🎓 生成证书\n"
 
     console.print(f"类型: {type}")
 
@@ -268,11 +268,11 @@ def generate_certificate(type: str):
     console.print("\n✅ 证书已生成")
 
 
-@edtech_cli.command(name("classroom")
-@click.option("--type", "-t", default("virtual", help("教室类型")
+@edtech_cli.command(name="classroom"
+@click.option("--type", "-t", default("virtual", help="教室类型")
 def manage_classroom(type: str):
     """管理教室"""
-    console.print(f("\n🏫 管理教室\n")
+    console.print(f"\n🏫 管理教室\n"
 
     console.print(f"类型: {type}")
 
@@ -295,11 +295,11 @@ def manage_classroom(type: str):
     console.print("\n✅ 教室已管理")
 
 
-@edtech_cli.command(name("library")
-@click.option("--type", "-t", help("资源类型")
+@edtech_cli.command(name="library"
+@click.option("--type", "-t", help="资源类型")
 def resource_library(type: str):
     """资源库"""
-    console.print(f("\n📚 资源库\n")
+    console.print(f"\n📚 资源库\n"
 
     console.print(f"类型: {type or 'all'}")
 
@@ -324,11 +324,11 @@ def resource_library(type: str):
     console.print("\n✅ 资源已加载")
 
 
-@edtech_cli.command(name("study")
-@click.option("--plan", "-p", help("学习计划")
+@edtech_cli.command(name="study"
+@click.option("--plan", "-p", help="学习计划")
 def study_plan(plan: str):
     """学习计划"""
-    console.print(f("\n📅 学习计划\n")
+    console.print(f"\n📅 学习计划\n"
 
     console.print(f"计划: {plan or 'Python学习路线'}")
 
@@ -352,8 +352,8 @@ def study_plan(plan: str):
     console.print("\n✅ 计划已生成")
 
 
-@edtech_cli.command(name("tutor")
-@click.option("--subject", "-s", help("辅导科目")
+@edtech_cli.command(name="tutor"
+@click.option("--subject", "-s", help="辅导科目")
 def ai_tutor(subject: str):
     """AI辅导"""
     console.print(f"\n🤖 AI辅导\n")
@@ -382,10 +382,10 @@ def ai_tutor(subject: str):
 
 
 @edtech_cli.command(name="forum")
-@click.option("--type", "-t", default("discussion", help("论坛类型")
+@click.option("--type", "-t", default("discussion", help="论坛类型")
 def discussion_forum(type: str):
     """讨论论坛"""
-    console.print(f("\n💬 讨论论坛\n")
+    console.print(f"\n💬 讨论论坛\n"
 
     console.print(f"类型: {type}")
 
@@ -409,8 +409,8 @@ def discussion_forum(type: str):
     console.print("\n✅ 论坛已加载")
 
 
-@edtech_cli.command(name("analytics")
-@click.option("--type", "-t", default("learning", help("分析类型")
+@edtech_cli.command(name="analytics"
+@click.option("--type", "-t", default("learning", help="分析类型")
 def learning_analytics(type: str):
     """学习分析"""
     console.print(f"\n📊 学习分析\n")
@@ -443,11 +443,11 @@ def learning_analytics(type: str):
     console.print("\n✅ 分析完成")
 
 
-@edtech_cli.command(name("gamification")
-@click.option("--feature", "-f", help("游戏化功能")
+@edtech_cli.command(name="gamification"
+@click.option("--feature", "-f", help="游戏化功能")
 def gamification(feature: str):
     """游戏化学习"""
-    console.print(f("\n🎮 游戏化学习\n")
+    console.print(f"\n🎮 游戏化学习\n"
 
     console.print(f"功能: {feature or 'all'}")
 
@@ -476,11 +476,11 @@ def gamification(feature: str):
     console.print("\n✅ 游戏化已配置")
 
 
-@edtech_cli.command(name("mobile")
-@click.option("--feature", "-f", help("移动功能")
+@edtech_cli.command(name="mobile"
+@click.option("--feature", "-f", help="移动功能")
 def mobile_learning(feature: str):
     """移动学习"""
-    console.print(f("\n📱 移动学习\n")
+    console.print(f"\n📱 移动学习\n"
 
     console.print(f"功能: {feature or 'all'}")
 
@@ -504,7 +504,7 @@ def mobile_learning(feature: str):
     console.print("\n✅ 移动学习已配置")
 
 
-@edtech_cli.command(name("log")
+@edtech_cli.command(name="log")
 def edtech_log():
     """教育日志"""
     console.print(f"\n📝 教育日志\n")

@@ -18,7 +18,7 @@ def orchestrate_cli():
     pass
 
 
-@orchestrate_cli.command(name("graph")
+@orchestrate_cli.command(name="graph")
 def create_graph():
     """创建依赖图"""
     console.print("\n🕸️ 依赖图\n")
@@ -61,7 +61,7 @@ def show_dag():
     console.print("\n✅ DAG已创建")
 
 
-@orchestrate_cli.command(name("schedule")
+@orchestrate_cli.command(name="schedule")
 def schedule_tasks():
     """调度任务"""
     console.print("\n⏰ 任务调度\n")
@@ -88,7 +88,7 @@ def schedule_tasks():
     console.print("\n✅ 调度器已配置")
 
 
-@orchestrate_cli.command(name("execute")
+@orchestrate_cli.command(name="execute")
 def execute_orchestration():
     """执行编排"""
     console.print("\n▶️ 执行编排\n")
@@ -110,7 +110,7 @@ def execute_orchestration():
     console.print("\n✅ 编排执行中")
 
 
-@orchestrate_cli.command(name("retry")
+@orchestrate_cli.command(name="retry"
 @click.option("--task", "-t", help="任务名称")
 @click.option("--max", "-m", default=3, help="最大重试次数")
 def retry_task(task: str, max: int):
@@ -126,7 +126,7 @@ def retry_task(task: str, max: int):
     console.print("\n✅ 重试策略已设置")
 
 
-@orchestrate_cli.command(name("timeout")
+@orchestrate_cli.command(name="timeout"
 @click.option("--task", "-t", help="任务名称")
 @click.option("--duration", "-d", default=300, help="超时时间（秒）")
 def set_timeout(task: str, duration: int):
@@ -139,7 +139,7 @@ def set_timeout(task: str, duration: int):
     console.print("\n✅ 超时已设置")
 
 
-@orchestrate_cli.command(name("resource")
+@orchestrate_cli.command(name="resource")
 def manage_resources():
     """资源管理"""
     console.print("\n💾 资源管理\n")
@@ -165,7 +165,7 @@ def manage_resources():
     console.print("\n✅ 资源已分配")
 
 
-@orchestrate_cli.command(name("scale")
+@orchestrate_cli.command(name="scale"
 @click.option("--workers", "-w", default=4, help="工作进程数")
 def scale_orchestration(workers: int):
     """扩展编排"""

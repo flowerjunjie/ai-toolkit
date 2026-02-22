@@ -54,7 +54,7 @@ def docker_setup(name: str, image: str):
 @click.option("--replicas", "-r", default=3, help="副本数量")
 def kubernetes_deploy(deployment: str, replicas: int):
     """Kubernetes部署"""
-    console.print(f("\n☸️ Kubernetes部署\n")
+    console.print(f"\n☸️ Kubernetes部署\n"
 
     console.print(f"部署: {deployment or 'ai-toolkit'}")
     console.print(f"副本: {replicas}")
@@ -89,7 +89,7 @@ def kubernetes_deploy(deployment: str, replicas: int):
 @click.option("--release", "-r", help="发布名称")
 def helm_chart(chart: str, release: str):
     """Helm Chart"""
-    console.print(f("\n⛵ Helm Chart\n")
+    console.print(f"\n⛵ Helm Chart\n"
 
     console.print(f"Chart: {chart or 'ai-toolkit'}")
     console.print(f"发布: {release or 'ai-toolkit-prod'}")
@@ -125,7 +125,7 @@ def helm_chart(chart: str, release: str):
 @click.option("--type", "-t", default="prometheus", help="监控类型")
 def monitoring_setup(type: str):
     """监控配置"""
-    console.print(f("\n📊 监控配置\n")
+    console.print(f"\n📊 监控配置\n"
 
     console.print(f"类型: {type}")
 
@@ -158,11 +158,11 @@ def monitoring_setup(type: str):
     console.print("\n✅ 监控已配置")
 
 
-@cloud_native_cli.command(name("logging")
-@click.option("--backend", "-b", default("elk", help("日志后端")
+@cloud_native_cli.command(name="logging"
+@click.option("--backend", "-b", default("elk", help="日志后端")
 def logging_setup(backend: str):
     """日志配置"""
-    console.print(f("\n📝 日志配置\n")
+    console.print(f"\n📝 日志配置\n"
 
     console.print(f"后端: {backend}")
 
@@ -195,11 +195,11 @@ def logging_setup(backend: str):
     console.print("\n✅ 日志已配置")
 
 
-@cloud_native_cli.command(name("ci")
-@click.option("--platform", "-p", default("github", help("CI平台")
+@cloud_native_cli.command(name="ci"
+@click.option("--platform", "-p", default("github", help="CI平台")
 def continuous_integration(platform: str):
     """持续集成"""
-    console.print(f("\n🔄 持续集成\n")
+    console.print(f"\n🔄 持续集成\n"
 
     console.print(f"平台: {platform}")
 
@@ -231,11 +231,11 @@ def continuous_integration(platform: str):
     console.print("\n✅ CI已配置")
 
 
-@cloud_native_cli.command(name("cd")
-@click.option("--strategy", "-s", default("rolling", help("部署策略")
+@cloud_native_cli.command(name="cd"
+@click.option("--strategy", "-s", default("rolling", help="部署策略")
 def continuous_deployment(strategy: str):
     """持续部署"""
-    console.print(f("\n🚀 持续部署\n")
+    console.print(f"\n🚀 持续部署\n"
 
     console.print(f"策略: {strategy}")
 
@@ -268,11 +268,11 @@ def continuous_deployment(strategy: str):
     console.print("\n✅ CD已配置")
 
 
-@cloud_native_cli.command(name("config")
-@click.option("--type", "-t", default("env", help("配置类型")
+@cloud_native_cli.command(name="config"
+@click.option("--type", "-t", default("env", help="配置类型")
 def configuration_management(type: str):
     """配置管理"""
-    console.print(f("\n⚙️ 配置管理\n")
+    console.print(f"\n⚙️ 配置管理\n"
 
     console.print(f"类型: {type}")
 
@@ -303,8 +303,8 @@ def configuration_management(type: str):
     console.print("\n✅ 配置已管理")
 
 
-@cloud_native_cli.command(name("secret")
-@click.option("--name", "-n", help("密钥名称")
+@cloud_native_cli.command(name="secret"
+@click.option("--name", "-n", help="密钥名称")
 def secret_management(name: str):
     """密钥管理"""
     console.print(f"\n🔐 密钥管理\n")
@@ -332,11 +332,11 @@ def secret_management(name: str):
     console.print("\n✅ 密钥已管理")
 
 
-@cloud_native_cli.command(name("scaling")
-@click.option("--type", "-t", default("hpa", help("扩缩容类型")
+@cloud_native_cli.command(name="scaling"
+@click.option("--type", "-t", default("hpa", help="扩缩容类型")
 def auto_scaling(type: str):
     """自动扩缩容"""
-    console.print(f("\n📈 自动扩缩容\n")
+    console.print(f"\n📈 自动扩缩容\n"
 
     console.print(f"类型: {type}")
 
@@ -366,11 +366,11 @@ def auto_scaling(type: str):
     console.print("\n✅ 扩缩容已配置")
 
 
-@cloud_native_cli.command(name("service")
-@click.option("--type", "-t", default("cluster", help("服务类型")
+@cloud_native_cli.command(name="service"
+@click.option("--type", "-t", default("cluster", help="服务类型")
 def service_mesh(type: str):
     """服务网格"""
-    console.print(f("\n🔗 服务网格\n")
+    console.print(f"\n🔗 服务网格\n"
 
     console.print(f"类型: {type}")
 
@@ -395,11 +395,11 @@ def service_mesh(type: str):
     console.print("\n✅ 服务网格已配置")
 
 
-@cloud_native_cli.command(name("gateway")
-@click.option("--type", "-t", default("ingress", help("网关类型")
+@cloud_native_cli.command(name="gateway"
+@click.option("--type", "-t", default("ingress", help="网关类型")
 def api_gateway(type: str):
     """API网关"""
-    console.print(f("\n🚪 API网关\n")
+    console.print(f"\n🚪 API网关\n"
 
     console.print(f"类型: {type}")
 
@@ -423,11 +423,11 @@ def api_gateway(type: str):
     console.print("\n✅ 网关已配置")
 
 
-@cloud_native_cli.command(name("chaos")
-@click.option("--experiment", "-e", help("混沌实验")
+@cloud_native_cli.command(name="chaos"
+@click.option("--experiment", "-e", help="混沌实验")
 def chaos_engineering(experiment: str):
     """混沌工程"""
-    console.print(f("\n🌀 混沌工程\n")
+    console.print(f"\n🌀 混沌工程\n"
 
     console.print(f"实验: {experiment or 'pod-failure'}")
 
@@ -451,11 +451,11 @@ def chaos_engineering(experiment: str):
     console.print("\n✅ 实验已完成")
 
 
-@cloud_native_cli.command(name("optimize")
-@click.option("--type", "-t", help("优化类型")
+@cloud_native_cli.command(name="optimize"
+@click.option("--type", "-t", help="优化类型")
 def resource_optimization(type: str):
     """资源优化"""
-    console.print(f("\n⚡ 资源优化\n")
+    console.print(f"\n⚡ 资源优化\n"
 
     console.print(f"类型: {type or 'all'}")
 
@@ -479,11 +479,11 @@ def resource_optimization(type: str):
     console.print("\n✅ 优化已完成")
 
 
-@cloud_native_cli.command(name("backup")
-@click.option("--type", "-t", default("velero", help("备份类型")
+@cloud_native_cli.command(name="backup"
+@click.option("--type", "-t", default("velero", help="备份类型")
 def disaster_recovery(type: str):
     """灾难恢复"""
-    console.print(f("\n💾 灾难恢复\n")
+    console.print(f"\n💾 灾难恢复\n"
 
     console.print(f"类型: {type}")
 
@@ -513,7 +513,7 @@ def disaster_recovery(type: str):
     console.print("\n✅ 灾难恢复已配置")
 
 
-@cloud_native_cli.command(name("log")
+@cloud_native_cli.command(name="log")
 def cloud_native_log():
     """云原生日志"""
     console.print(f"\n📝 云原生日志\n")

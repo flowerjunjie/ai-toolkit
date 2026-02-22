@@ -343,7 +343,7 @@ def analytics_cli():
     pass
 
 
-@analytics_cli.command(name("track")
+@analytics_cli.command(name="track")
 def track_metrics():
     """跟踪指标"""
     console.print(f"\n📊 跟踪指标\n")

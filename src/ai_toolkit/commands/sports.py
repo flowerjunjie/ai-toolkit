@@ -48,7 +48,7 @@ def track_performance(sport: str, duration: int):
     console.print("\n✅ 追踪完成")
 
 
-@sports_cli.command(name("biomechanics")
+@sports_cli.command(name="biomechanics"
 @click.option("--movement", "-m", help="动作类型")
 def analyze_biomechanics(movement: str):
     """生物力学分析"""
@@ -77,7 +77,7 @@ def analyze_biomechanics(movement: str):
     console.print("\n✅ 分析完成")
 
 
-@sports_cli.command(name("strategy")
+@sports_cli.command(name="strategy"
 @click.option("--game", "-g", help="比赛类型")
 @click.option("--opponent", "-o", help="对手信息")
 def analyze_strategy(game: str, opponent: str):
@@ -108,7 +108,7 @@ def analyze_strategy(game: str, opponent: str):
     console.print("\n✅ 分析完成")
 
 
-@sports_cli.command(name("injury")
+@sports_cli.command(name="injury"
 @click.option("--type", "-t", help="损伤类型")
 def assess_injury(type: str):
     """损伤评估"""
@@ -137,7 +137,7 @@ def assess_injury(type: str):
     console.print("\n✅ 评估完成")
 
 
-@sports_cli.command(name("recovery")
+@sports_cli.command(name="recovery"
 @click.option("--intensity", "-i", default="medium", help="恢复强度")
 def recovery_plan(intensity: str):
     """康复计划"""
@@ -172,8 +172,8 @@ def recovery_plan(intensity: str):
     console.print("\n✅ 计划已生成")
 
 
-@sports_cli.command(name("tactics")
-@click.option("--formation", "-f", help("阵型")
+@sports_cli.command(name="tactics"
+@click.option("--formation", "-f", help="阵型"
 @click.option("--style", "-s", help="打法风格")
 def design_tactics(formation: str, style: str):
     """战术设计"""
@@ -203,8 +203,8 @@ def design_tactics(formation: str, style: str):
     console.print("\n✅ 设计完成")
 
 
-@sports_cli.command(name("match")
-@click.option("--video", "-v", help("视频文件")
+@sports_cli.command(name="match"
+@click.option("--video", "-v", help="视频文件")
 def analyze_match(video: str):
     """比赛分析"""
     console.print(f"\n🎥 比赛分析\n")
@@ -265,7 +265,7 @@ def referee_training(match: str):
     console.print("\n✅ 培训完成")
 
 
-@sports_cli.command(name("nutrition")
+@sports_cli.command(name="nutrition"
 @click.option("--sport", "-s", help="运动类型")
 @click.option("--goal", "-g", default="performance", help="营养目标")
 def sports_nutrition(sport: str, goal: str):
@@ -289,7 +289,7 @@ def sports_nutrition(sport: str, goal: str):
     console.print("  避免: 高纤维/高脂肪")
 
     console.print("\n赛中补充:")
-    console print("  运动饮料: 每15-20分钟")
+    console.print("  运动饮料: 每15-20分钟")
     console.print("  电解质: 补充电解质")
     console.print("  能量胶: 快速能量")
     console.print("  水分: 适量补充")
@@ -394,7 +394,7 @@ def ai_coach(task: str):
 @click.option("--type", "-t", help="器材类型")
 def select_equipment(type: str):
     """器材选择"""
-    console.print(f("\n🎾 器材选择\n")
+    console.print(f"\n🎾 器材选择\n"
 
     console.print(f"类型: {type or '跑鞋'}")
 
@@ -446,11 +446,11 @@ def plan_schedule(event: str):
     console.print("\n✅ 安排完成")
 
 
-@sports_cli.command(name("scout")
+@sports_cli.command(name="scout"
 @click.option("--player", "-p", help="球员信息")
 def scout_player(player: str):
     """球探分析"""
-    console.print(f("\n🔭 球探分析\n")
+    console.print(f"\n🔭 球探分析\n"
 
     console.print(f"球员: {player or '潜在新星'}")
 
@@ -490,7 +490,7 @@ def live_streaming():
     console.print("直播配置:")
     console.print("  平台: 抖音/快手")
     console.print("  分辨率: 1080p")
-    console print("  帧宽: 4Mbps")
+    console.print("  帧宽: 4Mbps")
     console.print("  延迟: <5秒")
 
     console.print("\n解说准备:")
@@ -508,7 +508,7 @@ def live_streaming():
     console.print("\n✅ 直播中")
 
 
-@sports_cli.command(name("log")
+@sports_cli.command(name="log")
 def sports_log():
     """体育日志"""
     console.print(f"\n📝 体育日志\n")

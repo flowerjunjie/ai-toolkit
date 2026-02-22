@@ -202,7 +202,7 @@ def defi_operate(protocol: str, action: str):
 @click.option("--proposal", "-p", help="提案ID")
 def dao_participate(action: str, proposal: str):
     """DAO参与"""
-    console.print(f("\n🗳️ DAO参与\n")
+    console.print(f"\n🗳️ DAO参与\n"
 
     console.print(f"操作: {action}")
     console.print(f"提案: {proposal or '123'}")
@@ -267,7 +267,7 @@ def token_manage(action: str, name: str, symbol: str, supply: int):
 @click.option("--amount", "-a", default="1.0", help="金额")
 def cross_bridge(from_chain: str, to: str, amount: float):
     """跨链桥"""
-    console.print(f("\n🌉 跨链桥\n")
+    console.print(f"\n🌉 跨链桥\n"
 
     console.print(f"源链: {from_chain}")
     console.print(f"目标链: {to}")
@@ -492,7 +492,7 @@ def dex_trade(dex: str, pair: str):
 @click.option("--protocol", "-p", help="协议名称")
 def yield_farming(protocol: str):
     """收益耕作"""
-    console.print(f("\n🌾 收益耕作\n")
+    console.print(f"\n🌾 收益耕作\n"
 
     console.print(f"协议: {protocol or 'Aave'}")
 
@@ -519,7 +519,7 @@ def yield_farming(protocol: str):
 @click.option("--validator", "-v", help="验证者节点")
 def stake_eth(amount: float, validator: str):
     """ETH质押"""
-    console.print(f("\n🔐 ETH质押\n")
+    console.print(f"\n🔐 ETH质押\n"
 
     console.print(f"金额: {amount} ETH")
     console.print(f"验证者: {validator or '自建'}")
@@ -575,7 +575,7 @@ def create_multisig(owners: int, threshold: int):
 @click.option("--typed", "-t", is_flag=True, help="类型化数据")
 def sign_message(message: str, typed: bool):
     """签名消息"""
-    console.print(f("\n✍️ 签名消息\n")
+    console.print(f"\n✍️ 签名消息\n"
 
     if typed:
         console.print("类型化数据:")

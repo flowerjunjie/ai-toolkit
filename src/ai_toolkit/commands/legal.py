@@ -144,7 +144,7 @@ def intellectual_property(type: str):
 @click.option("--regulation", "-r", help="法规名称")
 def check_compliance(regulation: str):
     """合规检查"""
-    console.print(f("\n✅ 合规检查\n")
+    console.print(f"\n✅ 合规检查\n"
 
     console.print(f"法规: {regulation or 'GDPR'}")
 
@@ -176,7 +176,7 @@ def check_compliance(regulation: str):
 @click.option("--type", "-t", help="诉讼类型")
 def litigation_risk(type: str):
     """诉讼风险评估"""
-    console.print(f("\n⚖️ 诉讼风险评估\n")
+    console.print(f"\n⚖️ 诉讼风险评估\n"
 
     console.print(f"类型: {type or '合同纠纷'}")
 
@@ -287,7 +287,7 @@ def due_diligence(target: str, scope: str):
 @click.option("--dispute", "-d", help="争议事项")
 def mediation_process(dispute: str):
     """调解流程"""
-    console.print(f("\n🤝 调解流程\n")
+    console.print(f"\n🤝 调解流程\n"
 
     console.print(f"争议: {dispute or '合同纠纷'}")
 
@@ -395,7 +395,7 @@ def blockchain_title(title: str, asset: str):
 @click.option("--category", "-c", help="合同类别")
 def contract_template(category: str):
     """合同模板"""
-    console.print(f("\n📋 合同模板\n")
+    console.print(f"\n📋 合同模板\n"
 
     console.print(f"类别: {category or '服务合同'}")
 
@@ -544,7 +544,7 @@ def legal_advice(issue: str):
 @legal_cli.command(name="log")
 def legal_log():
     """法律日志"""
-    console.print(f("\n📝 法律日志\n")
+    console.print(f"\n📝 法律日志\n"
 
     console.print("今日统计:")
     console.print("  合同审查: 8份")

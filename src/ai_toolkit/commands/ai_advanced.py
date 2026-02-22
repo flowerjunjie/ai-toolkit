@@ -77,7 +77,7 @@ def evaluate_model(model: str, benchmark: str):
 @click.option("--bits", "-b", default=4, help="量化位数")
 def quantize_model(model: str, bits: int):
     """量化模型"""
-    console.print(f("\n⚡ 模型量化\n")
+    console.print(f"\n⚡ 模型量化\n"
 
     console.print(f"模型: {model or 'Llama-2-7B'}")
     console.print(f"量化位数: {bits}bit")
@@ -104,7 +104,7 @@ def quantize_model(model: str, bits: int):
 @click.option("--ratio", "-r", default=0.5, help="剪枝比例")
 def prune_model(model: str, ratio: float):
     """剪枝模型"""
-    console.print(f("\n✂️ 模型剪枝\n")
+    console.print(f"\n✂️ 模型剪枝\n"
 
     console.print(f"模型: {model or 'Llama-2-7B'}")
     console.print(f"剪枝比例: {ratio*100}%")
@@ -131,7 +131,7 @@ def prune_model(model: str, ratio: float):
 @click.option("--lora", "-l", help="LoRA适配器")
 def merge_models(base: str, lora: str):
     """合并模型"""
-    console.print(f("\n🔀 模型合并\n")
+    console.print(f"\n🔀 模型合并\n"
 
     console.print(f"基础模型: {base or 'Llama-2-7B'}")
     console.print(f"LoRA适配器: {lora or 'adapter.safetensors'}")
@@ -156,7 +156,7 @@ def merge_models(base: str, lora: str):
 @click.option("--format", "-f", help="目标格式")
 def convert_model(model: str, format: str):
     """转换模型格式"""
-    console.print(f("\n🔄 格式转换\n")
+    console.print(f"\n🔄 格式转换\n"
 
     console.print(f"模型: {model or 'model.pth'}")
     console.print(f"目标格式: {format or 'GGUF'}")
@@ -183,7 +183,7 @@ def convert_model(model: str, format: str):
 @click.option("--quantization", "-q", default=4, help="量化位数")
 def serve_model(model: str, port: int, quantization: int):
     """部署模型服务"""
-    console.print(f("\n🚀 模型服务\n")
+    console.print(f"\n🚀 模型服务\n"
 
     console.print(f"模型: {model or 'Llama-2-7B'}")
     console.print(f"端口: {port}")
@@ -207,7 +207,7 @@ def serve_model(model: str, port: int, quantization: int):
 @click.option("--output", "-o", help="输出文件")
 def batch_inference(input: str, output: str):
     """批量推理"""
-    console.print(f("\n⚡ 批量推理\n")
+    console.print(f"\n⚡ 批量推理\n"
 
     console.print(f"输入: {input or 'input.jsonl'}")
     console.print(f"输出: {output or 'output.jsonl'}")
@@ -230,7 +230,7 @@ def batch_inference(input: str, output: str):
 @click.option("--interactive", "-i", is_flag=True, help="交互模式")
 def chat_model(model: str, interactive: bool):
     """模型对话"""
-    console.print(f("\n💬 模型对话\n")
+    console.print(f"\n💬 模型对话\n"
 
     console.print(f"模型: {model or 'Llama-2-7B'}")
 
@@ -251,7 +251,7 @@ def chat_model(model: str, interactive: bool):
 @click.option("--text", "-t", help="文本输入")
 def multimodal_inference(image: str, text: str):
     """多模态推理"""
-    console.print(f("\n🖼️ 多模态推理\n")
+    console.print(f"\n🖼️ 多模态推理\n"
 
     console.print(f"图片: {image or 'image.jpg'}")
     console.print(f"文本: {text or '描述这张图片'}")
@@ -270,7 +270,7 @@ def multimodal_inference(image: str, text: str):
 @click.option("--input", "-i", help="输入图片")
 def vision_task(task: str, input: str):
     """视觉任务"""
-    console.print(f("\n👁️ 视觉任务\n")
+    console.print(f"\n👁️ 视觉任务\n"
 
     console.print(f"任务: {task or 'object-detection'}")
     console.print(f"输入: {input or 'image.jpg'}")
@@ -294,7 +294,7 @@ def vision_task(task: str, input: str):
 @click.option("--input", "-i", help="输入文件")
 def speech_task(task: str, input: str):
     """语音任务"""
-    console.print(f("\n🎤 语音任务\n")
+    console.print(f"\n🎤 语音任务\n"
 
     console.print(f"任务: {task or 'asr'}")
     console.print(f"输入: {input or 'audio.wav'}")
@@ -318,7 +318,7 @@ def speech_task(task: str, input: str):
 @click.option("--tools", "-t", help="可用工具")
 def ai_agent(task: str, tools: str):
     """AI Agent"""
-    console.print(f("\n🤖 AI Agent\n")
+    console.print(f"\n🤖 AI Agent\n"
 
     console.print(f"任务: {task or '搜索并总结最新AI新闻'}")
     console.print(f"工具: {tools or 'search, summarize'}")
@@ -348,7 +348,7 @@ def ai_agent(task: str, tools: str):
 @click.option("--config", "-c", help="链配置")
 def chain_workflow(config: str):
     """Chain工作流"""
-    console.print(f("\n🔗 Chain工作流\n")
+    console.print(f"\n🔗 Chain工作流\n"
 
     console.print(f"配置: {config or 'chain.json'}")
 
@@ -371,7 +371,7 @@ def chain_workflow(config: str):
 @click.option("--type", "-t", help="记忆类型")
 def ai_memory(type: str):
     """AI记忆"""
-    console.print(f("\n🧠 AI记忆\n")
+    console.print(f"\n🧠 AI记忆\n"
 
     console.print(f"类型: {type or 'vector'}")
 
@@ -393,7 +393,7 @@ def ai_memory(type: str):
 @click.option("--name", "-n", help="工具名称")
 def ai_tool(name: str):
     """AI工具"""
-    console.print(f("\n🔧 AI工具\n")
+    console.print(f"\n🔧 AI工具\n"
 
     console.print(f"工具: {name or 'calculator'}")
 
@@ -417,7 +417,7 @@ def ai_tool(name: str):
 @click.option("--model", "-m", help="嵌入模型")
 def embed_text(text: str, model: str):
     """文本嵌入"""
-    console.print(f("\n📊 文本嵌入\n")
+    console.print(f"\n📊 文本嵌入\n"
 
     console.print(f"文本: {text or '你好，世界'}")
     console.print(f"模型: {model or 'text-embedding-ada-002'}")
@@ -438,7 +438,7 @@ def embed_text(text: str, model: str):
 @click.option("--documents", "-d", help="文档列表")
 def rerank_documents(query: str, documents: str):
     """文档重排序"""
-    console.print(f("\n🔢 文档重排序\n")
+    console.print(f"\n🔢 文档重排序\n"
 
     console.print(f"查询: {query or 'AI技术的发展'}")
     console.print(f"文档数: {documents or '10'}")
@@ -458,7 +458,7 @@ def rerank_documents(query: str, documents: str):
 @click.option("--schema", "-s", help="提取模式")
 def extract_data(text: str, schema: str):
     """数据提取"""
-    console.print(f("\n📤 数据提取\n")
+    console.print(f"\n📤 数据提取\n"
 
     console.print(f"文本: {text or '文本内容...'}")
     console.print(f"模式: {schema or 'json'}")
@@ -478,7 +478,7 @@ def extract_data(text: str, schema: str):
 @click.option("--schema", "-s", help="验证模式")
 def validate_data(data: str, schema: str):
     """数据验证"""
-    console.print(f("\n✅ 数据验证\n")
+    console.print(f"\n✅ 数据验证\n"
 
     console.print(f"数据: {data or 'data.json'}")
     console.print(f"模式: {schema or 'schema.json'}")
@@ -499,7 +499,7 @@ def validate_data(data: str, schema: str):
 @click.option("--operation", "-o", help="转换操作")
 def transform_data(input: str, operation: str):
     """数据转换"""
-    console.print(f("\n🔄 数据转换\n")
+    console.print(f"\n🔄 数据转换\n"
 
     console.print(f"输入: {input or 'data.json'}")
     console.print(f"操作: {operation or 'normalize'}")
@@ -520,7 +520,7 @@ def transform_data(input: str, operation: str):
 @click.option("--params", "-p", help="生成参数")
 def generate_content(type: str, params: str):
     """内容生成"""
-    console.print(f("\n✨ 内容生成\n")
+    console.print(f"\n✨ 内容生成\n"
 
     console.print(f"类型: {type or 'text'}")
     console.print(f"参数: {params or '{}'}")

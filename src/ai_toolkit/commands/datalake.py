@@ -12,13 +12,13 @@ import json
 console = Console()
 
 
-@click.group(name("datalake")
+@@click.group.command(name="datalake")
 def datalake_cli():
     """数据湖工具"""
     pass
 
 
-@datalake_cli.command(name("ingest")
+@datalake_cli.command(name="ingest"
 @click.option("--source", "-s", required=True, help="数据源")
 @click.option("--format", "-f", help="数据格式")
 def ingest_data(source: str, format: str):
@@ -36,7 +36,7 @@ def ingest_data(source: str, format: str):
     console.print("\n✅ 数据已摄入")
 
 
-@datalake_cli.command(name("catalog")
+@datalake_cli.command(name="catalog")
 def create_catalog():
     """创建目录"""
     console.print("\n📑 数据目录\n")
@@ -65,7 +65,7 @@ def query_lake(sql: str):
     console.print("\n✅ 查询完成")
 
 
-@datalake_cli.command(name("govern")
+@datalake_cli.command(name="govern")
 def apply_governance():
     """数据治理"""
     console.print(f"\n📊 数据治理\n")
@@ -79,7 +79,7 @@ def apply_governance():
     console.print("\n✅ 治理已应用")
 
 
-@datalake_cli.command(name("lineage")
+@datalake_cli.command(name="lineage")
 def track_lineage():
     """数据血缘"""
     console.print(f"\n🔗 数据血缘\n")
@@ -92,13 +92,13 @@ def track_lineage():
     console.print("\n✅ 血缘已建立")
 
 
-@click.group(name("warehouse")
+@@click.group.command(name="warehouse")
 def warehouse_cli():
     """数据仓库工具"""
     pass
 
 
-@warehouse_cli.command(name("design")
+@warehouse_cli.command(name="design"
 @click.option("--schema", "-s", help="模式名称")
 def design_warehouse(schema: str):
     """设计仓库"""
@@ -114,7 +114,7 @@ def design_warehouse(schema: str):
     console.print("\n✅ 设计完成")
 
 
-@warehouse_cli.command(name("etl")
+@warehouse_cli.command(name="etl")
 def run_etl():
     """运行ETL"""
     console.print(f"\n🔄 运行ETL\n")
@@ -127,7 +127,7 @@ def run_etl():
     console.print("\n✅ ETL完成")
 
 
-@warehouse_cli.command(name("bi")
+@warehouse_cli.command(name="bi")
 def create_bi():
     """创建BI报表"""
     console.print(f"\n📊 创建BI报表\n")
@@ -140,7 +140,7 @@ def create_bi():
     console.print("\n✅ 报表已创建")
 
 
-@warehouse_cli.command(name("optimize")
+@warehouse_cli.command(name="optimize")
 def optimize_warehouse():
     """优化仓库"""
     console.print(f"\n⚡ 优化数据仓库\n")

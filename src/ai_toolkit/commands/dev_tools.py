@@ -44,7 +44,7 @@ def create_project(type: str, name: str):
 @click.option("--optimize", "-o", is_flag=True, help="优化构建")
 def build_project(target: str, optimize: bool):
     """构建项目"""
-    console.print(f("\n🔨 构建项目\n")
+    console.print(f"\n🔨 构建项目\n"
 
     console.print(f"目标: {target or 'production'}")
 
@@ -66,7 +66,7 @@ def build_project(target: str, optimize: bool):
 @click.option("--port", "-p", default=5678, help="调试端口")
 def debug_server(port: int):
     """调试服务器"""
-    console.print(f("\n🐛 调试服务器\n")
+    console.print(f"\n🐛 调试服务器\n"
 
     console.print(f"端口: {port}")
 
@@ -82,11 +82,11 @@ def debug_server(port: int):
     console.print("\n✅ 调试服务器已启动")
 
 
-@dev_cli.command(name("profile")
+@dev_cli.command(name="profile"
 @click.option("--duration", "-d", default=60, help="持续时间")
 def profile_code(duration: int):
     """性能分析"""
-    console.print(f("\n📊 性能分析\n")
+    console.print(f"\n📊 性能分析\n"
 
     console.print(f"持续时间: {duration}秒")
 
@@ -109,7 +109,7 @@ def profile_code(duration: int):
 @click.option("--rule", "-r", help="重构规则")
 def refactor_code(file: str, rule: str):
     """代码重构"""
-    console.print(f("\n♻️ 代码重构\n")
+    console.print(f"\n♻️ 代码重构\n"
 
     console.print(f"文件: {file or 'all'}")
     console.print(f"规则: {rule or 'simplify'}")
@@ -133,7 +133,7 @@ def refactor_code(file: str, rule: str):
 @click.option("--format", "-f", default="html", help="文档格式")
 def generate_docs(format: str):
     """生成文档"""
-    console.print(f("\n📚 生成文档\n")
+    console.print(f"\n📚 生成文档\n"
 
     console.print(f"格式: {format}")
 
@@ -155,7 +155,7 @@ def generate_docs(format: str):
 @click.option("--service", "-s", help="服务名称")
 def mock_service(service: str):
     """Mock服务"""
-    console.print(f("\n🎭 Mock服务\n")
+    console.print(f"\n🎭 Mock服务\n"
 
     console.print(f"服务: {service or 'all'}")
 
@@ -177,7 +177,7 @@ def mock_service(service: str):
 @click.option("--coverage", "-c", is_flag=True, help="生成覆盖率")
 def run_dev_tests(watch: bool, coverage: bool):
     """运行测试"""
-    console.print(f("\n🧪 运行测试\n")
+    console.print(f"\n🧪 运行测试\n"
 
     if watch:
         console.print("监听模式: 启用")
@@ -200,7 +200,7 @@ def run_dev_tests(watch: bool, coverage: bool):
 @click.option("--fix", "-f", is_flag=True, help="自动修复")
 def lint_dev(fix: bool):
     """代码检查"""
-    console.print(f("\n🔍 代码检查\n")
+    console.print(f"\n🔍 代码检查\n"
 
     if fix:
         console.print("自动修复: 启用")
@@ -218,11 +218,11 @@ def lint_dev(fix: bool):
     console.print("\n✅ 检查完成")
 
 
-@dev_cli.command(name("format")
+@dev_cli.command(name="format"
 @click.option("--check", "-c", is_flag=True, help="仅检查")
 def format_code(check: bool):
     """代码格式化"""
-    console.print(f("\n✨ 代码格式化\n")
+    console.print(f"\n✨ 代码格式化\n"
 
     if check:
         console.print("模式: 仅检查")
@@ -248,7 +248,7 @@ def format_code(check: bool):
 @click.option("--tag", "-t", help="标签")
 def manage_snippets(language: str, tag: str):
     """代码片段管理"""
-    console.print(f("\n📋 代码片段\n")
+    console.print(f"\n📋 代码片段\n"
 
     console.print(f"语言: {language or 'all'}")
     console.print(f"标签: {tag or 'all'}")
@@ -266,7 +266,7 @@ def manage_snippets(language: str, tag: str):
 @click.option("--type", "-t", help="模板类型")
 def manage_templates(type: str):
     """模板管理"""
-    console.print(f("\n📄 模板管理\n")
+    console.print(f"\n📄 模板管理\n"
 
     console.print(f"类型: {type or 'all'}")
 
@@ -284,7 +284,7 @@ def manage_templates(type: str):
 @click.option("--save", "-s", help="保存环境")
 def manage_env(load: str, save: str):
     """环境管理"""
-    console.print(f("\n🔧 环境管理\n")
+    console.print(f"\n🔧 环境管理\n"
 
     if load:
         console.print(f"加载环境: {load}")
@@ -308,7 +308,7 @@ def manage_env(load: str, save: str):
 @click.option("--target", "-t", help="打包目标")
 def package_project(target: str):
     """打包项目"""
-    console.print(f("\n📦 打包项目\n")
+    console.print(f"\n📦 打包项目\n"
 
     console.print(f"目标: {target or 'pypi'}")
 
@@ -329,7 +329,7 @@ def package_project(target: str):
 @click.option("--target", "-t", help="发布目标")
 def publish_project(target: str):
     """发布项目"""
-    console.print(f("\n🚀 发布项目\n")
+    console.print(f"\n🚀 发布项目\n"
 
     console.print(f"目标: {target or 'pypi'}")
 
@@ -346,7 +346,7 @@ def publish_project(target: str):
 @click.option("--version", "-v", help="版本号")
 def generate_changelog(version: str):
     """生成变更日志"""
-    console.print(f("\n📝 生成变更日志\n")
+    console.print(f"\n📝 生成变更日志\n"
 
     console.print(f"版本: {version or 'v0.3.0'}")
 
@@ -364,7 +364,7 @@ def generate_changelog(version: str):
 @click.option("--notes", "-n", help="发布说明")
 def create_release(version: str, notes: str):
     """创建发布"""
-    console.print(f("\n🎉 创建发布\n")
+    console.print(f"\n🎉 创建发布\n"
 
     console.print(f"版本: {version or 'v0.3.0'}")
 
@@ -381,7 +381,7 @@ def create_release(version: str, notes: str):
 @dev_cli.command(name="contrib")
 def list_contributors():
     """贡献者列表"""
-    console.print(f("\n👥 贡献者\n")
+    console.print(f"\n👥 贡献者\n"
 
     console.print("核心贡献者:")
     console.print("  @flowerjunjie - 创始人")
@@ -399,7 +399,7 @@ def list_contributors():
 @dev_cli.command(name="sponsor")
 def show_sponsors():
     """赞助商列表"""
-    console.print(f("\n💖 赞助商\n")
+    console.print(f"\n💖 赞助商\n"
 
     console.print("金牌赞助:")
     console.print("  Company A - $1000/月")
@@ -419,7 +419,7 @@ def show_sponsors():
 @dev_cli.command(name="awesome")
 def show_awesome():
     """Awesome列表"""
-    console.print(f("\n⭐ Awesome项目\n")
+    console.print(f"\n⭐ Awesome项目\n"
 
     console.print("相关项目:")
     console.print("  langchain - LangChain框架")

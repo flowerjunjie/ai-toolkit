@@ -142,7 +142,7 @@ def mood_diary(prompt: str):
 @click.option("--type", "-t", default="mindfulness", help="冥想类型")
 def guided_meditation(duration: int, type: str):
     """引导冥想"""
-    console.print(f("\n🧘 引导冥想\n")
+    console.print(f"\n🧘 引导冥想\n"
 
     console.print(f"时长: {duration}分钟")
     console.print(f"类型: {type}")

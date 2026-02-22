@@ -471,7 +471,7 @@ def test_contract(network: str):
 @click.option("--tx", "-t", help="交易类型")
 def estimate_gas(tx: str):
     """Gas估算"""
-    console.print(f("\n⛽ Gas估算\n")
+    console.print(f"\n⛽ Gas估算\n"
 
     console.print(f"交易: {tx or 'ERC20 Transfer'}")
 
@@ -533,7 +533,7 @@ def fork_chain(block: str):
 @blockchain_cli.command(name="log")
 def blockchain_log():
     """区块链日志"""
-    console.print(f("\n📝 区块链日志\n")
+    console.print(f"\n📝 区块链日志\n"
 
     console.print("今日统计:")
     console.print("  交易: 45笔")

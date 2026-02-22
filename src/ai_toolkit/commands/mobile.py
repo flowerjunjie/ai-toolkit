@@ -52,7 +52,7 @@ def init_app(name: str, platform: str):
 @click.option("--style", "-s", default="material", help="UI风格")
 def ui_design(style: str):
     """UI设计"""
-    console.print(f("\n🎨 UI设计\n")
+    console.print(f"\n🎨 UI设计\n"
 
     console.print(f"风格: {style}")
 
@@ -85,7 +85,7 @@ def ui_design(style: str):
 @click.option("--method", "-m", default="rest", help="网络方法")
 def network_setup(method: str):
     """网络请求"""
-    console.print(f("\n🌐 网络请求\n")
+    console.print(f"\n🌐 网络请求\n"
 
     console.print(f"方法: {method}")
 
@@ -118,7 +118,7 @@ def network_setup(method: str):
 @click.option("--type", "-t", default="sqlite", help="存储类型")
 def data_storage(type: str):
     """数据存储"""
-    console.print(f("\n💾 数据存储\n")
+    console.print(f"\n💾 数据存储\n"
 
     console.print(f"类型: {type}")
 
@@ -147,11 +147,11 @@ def data_storage(type: str):
     console.print("\n✅ 存储已配置")
 
 
-@mobile_cli.command(name("auth")
-@click.option("--method", "-m", default("jwt", help("认证方式")
+@mobile_cli.command(name="auth"
+@click.option("--method", "-m", default("jwt", help="认证方式")
 def authentication(method: str):
     """用户认证"""
-    console.print(f("\n🔐 用户认证\n")
+    console.print(f"\n🔐 用户认证\n"
 
     console.print(f"方式: {method}")
 
@@ -182,10 +182,10 @@ def authentication(method: str):
 
 
 @mobile_cli.command(name="push")
-@click.option("--platform", "-p", default="fcm", help("推送平台")
+@click.option("--platform", "-p", default="fcm", help="推送平台")
 def push_notification(platform: str):
     """推送通知"""
-    console.print(f("\n📬 推送通知\n")
+    console.print(f"\n📬 推送通知\n"
 
     console.print(f"平台: {platform}")
 
@@ -214,10 +214,10 @@ def push_notification(platform: str):
 
 
 @mobile_cli.command(name="media")
-@click.option("--type", "-t", help("媒体类型")
+@click.option("--type", "-t", help="媒体类型")
 def media_handling(type: str):
     """媒体处理"""
-    console.print(f("\n🎵 媒体处理\n")
+    console.print(f"\n🎵 媒体处理\n"
 
     console.print(f"类型: {type or 'all'}")
 
@@ -243,10 +243,10 @@ def media_handling(type: str):
 
 
 @mobile_cli.command(name="location")
-@click.option("--accuracy", "-a", default="high", help("定位精度")
+@click.option("--accuracy", "-a", default="high", help="定位精度")
 def location_service(accuracy: str):
     """定位服务"""
-    console.print(f("\n📍 定位服务\n")
+    console.print(f"\n📍 定位服务\n"
 
     console.print(f"精度: {accuracy}")
 
@@ -276,10 +276,10 @@ def location_service(accuracy: str):
 
 
 @mobile_cli.command(name="camera")
-@click.option("--mode", "-m", default("photo", help("相机模式")
+@click.option("--mode", "-m", default("photo", help="相机模式")
 def camera_integration(mode: str):
     """相机集成"""
-    console.print(f("\n📷 相机集成\n")
+    console.print(f"\n📷 相机集成\n"
 
     console.print(f"模式: {mode}")
 
@@ -307,7 +307,7 @@ def camera_integration(mode: str):
 @click.option("--type", "-t", help="传感器类型")
 def sensor_access(type: str):
     """传感器访问"""
-    console.print(f("\n📡 传感器访问\n")
+    console.print(f"\n📡 传感器访问\n"
 
     console.print(f"类型: {type or 'all'}")
 
@@ -327,11 +327,11 @@ def sensor_access(type: str):
     console.print("\n✅ 传感器已访问")
 
 
-@mobile_cli.command(name("animation")
-@click.option("--type", "-t", default("view", help("动画类型")
+@mobile_cli.command(name="animation"
+@click.option("--type", "-t", default("view", help="动画类型")
 def animations(type: str):
     """动画效果"""
-    console.print(f("\n🎭 动画效果\n")
+    console.print(f"\n🎭 动画效果\n"
 
     console.print(f"类型: {type}")
 
@@ -359,7 +359,7 @@ def animations(type: str):
 @click.option("--language", "-l", default="zh", help="默认语言")
 def internationalization(language: str):
     """国际化"""
-    console.print(f("\n🌍 国际化\n")
+    console.print(f"\n🌍 国际化\n"
 
     console.print(f"语言: {language}")
 
@@ -384,10 +384,10 @@ def internationalization(language: str):
 
 
 @mobile_cli.command(name="test")
-@click.option("--type", "-t", default("unit", help("测试类型")
+@click.option("--type", "-t", default("unit", help="测试类型")
 def testing(type: str):
     """应用测试"""
-    console.print(f("\n🧪 应用测试\n")
+    console.print(f"\n🧪 应用测试\n"
 
     console.print(f"类型: {type}")
 
@@ -416,7 +416,7 @@ def testing(type: str):
 @click.option("--mode", "-m", default="release", help="构建模式")
 def build_app(platform: str, mode: str):
     """构建应用"""
-    console.print(f("\n🔨 构建应用\n")
+    console.print(f"\n🔨 构建应用\n"
 
     console.print(f"平台: {platform}")
     console.print(f"模式: {mode}")
@@ -443,11 +443,11 @@ def build_app(platform: str, mode: str):
     console.print("\n✅ 应用已构建")
 
 
-@mobile_cli.command(name("deploy")
-@click.option("--platform", "-p", default("play_store", help("发布平台")
+@mobile_cli.command(name="deploy"
+@click.option("--platform", "-p", default("play_store", help="发布平台")
 def deploy_app(platform: str):
     """发布应用"""
-    console.print(f("\n🚀 发布应用\n")
+    console.print(f"\n🚀 发布应用\n"
 
     console.print(f"平台: {platform}")
 
@@ -479,11 +479,11 @@ def deploy_app(platform: str):
     console.print("\n✅ 应用已发布")
 
 
-@mobile_cli.command(name("analyze")
-@click.option("--type", "-t", default("performance", help("分析类型")
+@mobile_cli.command(name="analyze"
+@click.option("--type", "-t", default("performance", help="分析类型")
 def app_analytics(type: str):
     """应用分析"""
-    console.print(f("\n📊 应用分析\n")
+    console.print(f"\n📊 应用分析\n"
 
     console.print(f"类型: {type}")
 
@@ -508,10 +508,10 @@ def app_analytics(type: str):
     console.print("\n✅ 分析完成")
 
 
-@mobile_cli.command(name("log")
+@mobile_cli.command(name="log")
 def mobile_log():
     """移动开发日志"""
-    console.print(f("\n📝 移动开发日志\n")
+    console.print(f"\n📝 移动开发日志\n"
 
     console.print("今日统计:")
     console.print("  构建: 8次")

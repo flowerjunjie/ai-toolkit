@@ -150,7 +150,7 @@ def analyze_climate(location: str, variable: str):
 @click.option("--forecast", "-f", default=7, help="预报天数")
 def weather_forecast(location: str, forecast: int):
     """天气预报"""
-    console.print(f("\n🌤️ 天气预报\n")
+    console.print(f"\n🌤️ 天气预报\n"
 
     console.print(f"位置: {location or 'Beijing'}")
     console.print(f"预报: {forecast}天")
@@ -182,7 +182,7 @@ def weather_forecast(location: str, forecast: int):
 @click.option("--parameter", "-p", default="pm25", help="污染参数")
 def monitor_pollution(location: str, parameter: str):
     """污染监测"""
-    console.print(f("\n💨 污染监测\n")
+    console.print(f"\n💨 污染监测\n"
 
     console.print(f"位置: {location or 'Beijing'}")
     console.print(f"参数: {parameter}")
@@ -217,7 +217,7 @@ def monitor_pollution(location: str, parameter: str):
 @click.option("--return_period", "-r", default=100, help="重现期(年)")
 def assess_flood_risk(area: str, return_period: int):
     """洪水风险评估"""
-    console.print(f("\n🌊 洪水风险评估\n")
+    console.print(f"\n🌊 洪水风险评估\n"
 
     console.print(f"区域: {area or 'Yangtze River Basin'}")
     console.print(f"重现期: {return_period}年")
@@ -251,7 +251,7 @@ def assess_flood_risk(area: str, return_period: int):
 @click.option("--magnitude", "-m", default=7.0, help="震级")
 def assess_quake_risk(location: str, magnitude: float):
     """地震风险评估"""
-    console.print(f("\n🌍 地震风险评估\n")
+    console.print(f"\n🌍 地震风险评估\n"
 
     console.print(f"位置: {location or 'Beijing'}")
     console.print(f"震级: M{magnitude}")
@@ -284,7 +284,7 @@ def assess_quake_risk(location: str, magnitude: float):
 @click.option("--rainfall", "-r", default=100, help="降雨量(mm)")
 def assess_landslide(area: str, rainfall: int):
     """滑坡风险评估"""
-    console.print(f("\n⛰️ 滑坡风险评估\n")
+    console.print(f"\n⛰️ 滑坡风险评估\n"
 
     console.print(f"区域: {area or 'Mountainous Area'}")
     console.print(f"降雨: {rainfall} mm")
@@ -318,7 +318,7 @@ def assess_landslide(area: str, rainfall: int):
 @click.option("--period", "-p", default=90, help="时间(天)")
 def monitor_drought(region: str, period: int):
     """干旱监测"""
-    console.print(f("\n🏜️ 干旱监测\n")
+    console.print(f"\n🏜️ 干旱监测\n"
 
     console.print(f"区域: {region or 'North China'}")
     console.print(f"周期: {period}天")
@@ -352,7 +352,7 @@ def monitor_drought(region: str, period: int):
 @click.option("--depth", "-d", default=100, help="深度(cm)")
 def analyze_soil(location: str, depth: int):
     """土壤分析"""
-    console.print(f("\n🌱 土壤分析\n")
+    console.print(f"\n🌱 土壤分析\n"
 
     console.print(f"位置: {location or 'Beijing'}")
     console.print(f"深度: 0-{depth} cm")
@@ -416,7 +416,7 @@ def analyze_vegetation(area: str, index: str):
 @click.option("--type", "-t", default="surface", help="水体类型")
 def analyze_water(location: str, type: str):
     """水资源分析"""
-    console.print(f("\n💧 水资源分析\n")
+    console.print(f"\n💧 水资源分析\n"
 
     console.print(f"位置: {location or 'Beijing'}")
     console.print(f"类型: {type}")
@@ -447,7 +447,7 @@ def analyze_water(location: str, type: str):
 @click.option("--type", "-t", help="矿种类型")
 def explore_mineral(area: str, type: str):
     """矿产资源勘探"""
-    console.print(f("\n⛏️ 矿产勘探\n")
+    console.print(f"\n⛏️ 矿产勘探\n"
 
     console.print(f"区域: {area or 'Hebei Province'}")
     console.print(f"矿种: {type or 'Iron'}")
@@ -480,7 +480,7 @@ def explore_mineral(area: str, type: str):
 @click.option("--location", "-l", help="位置")
 def assess_energy(type: str, location: str):
     """能源评估"""
-    console.print(f("\n⚡ 能源评估\n")
+    console.print(f"\n⚡ 能源评估\n"
 
     console.print(f"类型: {type or 'solar'}")
     console.print(f"位置: {location or 'Beijing'}")
@@ -511,7 +511,7 @@ def assess_energy(type: str, location: str):
 @click.option("--method", "-m", help="处理方法")
 def remote_sense(image: str, method: str):
     """遥感处理"""
-    console.print(f("\n🛰️ 遥感处理\n")
+    console.print(f"\n🛰️ 遥感处理\n"
 
     console.print(f"影像: {image or 'sentinel2.tif'}")
     console.print(f"方法: {method or 'classification'}")
