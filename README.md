@@ -17,11 +17,7 @@
 
 ### 微信赞赏
 
-📱 **请扫码或点击查看赞赏详情**：
-
-[📱 获取赞赏码](https://github.com/flowerjunjie/ai-toolkit/blob/main/docs/SPONSOR.md)
-
-或直接联系我们获取赞赏码！
+<img src="https://github.com/flowerjunjie/ai-toolkit/raw/main/docs/sponsor-wechat.jpg" alt="微信赞赏" width="200"/>
 
 **您的支持是我们持续更新的动力！** 🙏
 
