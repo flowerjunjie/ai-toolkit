@@ -80,6 +80,9 @@ from ai_toolkit.commands.web3 import web3_cli
 from ai_toolkit.commands.webui import webui
 from ai_toolkit.commands.workflow import workflow_cli
 from ai_toolkit.commands.xr import xr_cli
+from ai_toolkit.commands.ai_advanced import ai_cli
+from ai_toolkit.commands.perf_advanced import perf_cli as perf_advanced_cli
+from ai_toolkit.commands.security_advanced import security_cli as security_advanced_cli
 
 console = Console()
 
@@ -205,6 +208,9 @@ main.add_command(api_cli)
 main.add_command(ops_cli)
 main.add_command(dev_cli)
 main.add_command(enterprise_cli)
+main.add_command(ai_cli)
+main.add_command(perf_advanced_cli)
+main.add_command(security_advanced_cli)
 
 
 if __name__ == "__main__":
