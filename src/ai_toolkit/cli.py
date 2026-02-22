@@ -12,6 +12,7 @@ from ai_toolkit.commands.agent import agent_cli
 from ai_toolkit.commands.alias import alias_cli
 from ai_toolkit.commands.analytics import analytics_cli
 from ai_toolkit.commands.api import api_cli
+from ai_toolkit.commands.async_ import async_cli
 from ai_toolkit.commands.backup import backup_cli
 from ai_toolkit.commands.batch import batch
 from ai_toolkit.commands.benchmark import benchmark_cli
@@ -25,12 +26,11 @@ from ai_toolkit.commands.config_cmd import config_cli
 from ai_toolkit.commands.community import community_cli
 from ai_toolkit.commands.content import content_cli
 from ai_toolkit.commands.datalake import datalake_cli
-from ai_toolkit.commands.dev_tools import dev_cli
 from ai_toolkit.commands.diag import diag_cli
 from ai_toolkit.commands.docs import docs_cli
 from ai_toolkit.commands.docker import docker_cli
 from ai_toolkit.commands.edge import edge_cli
-from ai_toolkit.commands.enterprise import enterprise_cli
+from ai_toolkit.enterprise import enterprise_cli
 from ai_toolkit.commands.event import event_cli
 from ai_toolkit.commands.export_cmd import export_cli
 from ai_toolkit.commands.feedback import feedback_cli
@@ -81,10 +81,12 @@ from ai_toolkit.commands.webui import webui
 from ai_toolkit.commands.workflow import workflow_cli
 from ai_toolkit.commands.xr import xr_cli
 from ai_toolkit.commands.ai_advanced import ai_cli
+from ai_toolkit.commands.asr import asr_cli
+from ai_toolkit.commands.data_processing import data_cli
 from ai_toolkit.commands.perf_advanced import perf_cli as perf_advanced_cli
 from ai_toolkit.commands.security_advanced import security_cli as security_advanced_cli
-from ai_toolkit.commands.data_processing import data_cli
 from ai_toolkit.commands.ml_workflow import mlflow_cli
+from ai_toolkit.commands.tts import tts_cli
 from ai_toolkit.commands.nlp import nlp_cli
 from ai_toolkit.commands.vision import vision_cli
 
@@ -101,7 +103,7 @@ def main(verbose: bool = False, completion: bool = False):
 
     一个强大的本地AI模型管理和工具集，让AI开发更简单。
 
-    官方文档: https://github.com/flowerjunjie/ai-toolkit
+    官方文档: https://github.com/flowerjunjie/⭐️
 
     快速开始:
     pip install ai-toolkit
@@ -115,7 +117,6 @@ def main(verbose: bool = False, completion: bool = False):
 
     if verbose:
         console.print("[dim]调试模式已启用[/dim]")
-
 
 @main.command()
 def status():
@@ -135,7 +136,6 @@ def status():
     table.add_row("模型目录", str(config.models_dir), "本地模型存储")
 
     console.print(table)
-
 
 # 添加所有子命令
 main.add_command(models_cli)
@@ -209,6 +209,7 @@ main.add_command(growth_cli)
 main.add_command(metrics_cli)
 main.add_command(cli_cli)
 main.add_command(api_cli)
+main.add_command(cloud_cli)
 main.add_command(ops_cli)
 main.add_command(dev_cli)
 main.add_command(enterprise_cli)
@@ -219,6 +220,8 @@ main.add_command(data_cli)
 main.add_command(mlflow_cli)
 main.add_command(nlp_cli)
 main.add_command(vision_cli)
+main.add_command(asr_cli)
+main.add_command(tts_cli)
 
 
 if __name__ == "__main__":
