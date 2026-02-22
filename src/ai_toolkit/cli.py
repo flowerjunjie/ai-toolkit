@@ -11,6 +11,7 @@ from rich.table import Table
 from ai_toolkit.commands.agent import agent_cli
 from ai_toolkit.commands.alias import alias_cli
 from ai_toolkit.commands.analytics import analytics_cli
+from ai_toolkit.commands.api import api_cli
 from ai_toolkit.commands.backup import backup_cli
 from ai_toolkit.commands.batch import batch
 from ai_toolkit.commands.benchmark import benchmark_cli
@@ -54,6 +55,7 @@ from ai_toolkit.commands.project import project_cli
 from ai_toolkit.commands.promote import promote_cli
 from ai_toolkit.commands.prompts import prompts_cli
 from ai_toolkit.commands.qa import qa_cli
+from ai_toolkit.commands.qa_enhanced import qa_cli as qa_enhanced_cli
 from ai_toolkit.commands.quantum import quantum_cli
 from ai_toolkit.commands.rag import rag_cli
 from ai_toolkit.commands.rag_v2 import rag2_cli
@@ -70,6 +72,8 @@ from ai_toolkit.commands.template import template_cli
 from ai_toolkit.commands.test import test
 from ai_toolkit.commands.transaction import transaction_cli
 from ai_toolkit.commands.ux import ux_cli
+from ai_toolkit.commands.upgrade import upgrade_command
+from ai_toolkit.commands.web3 import web3_cli
 from ai_toolkit.commands.webui import webui
 from ai_toolkit.commands.workflow import workflow_cli
 from ai_toolkit.commands.xr import xr_cli
@@ -161,6 +165,7 @@ main.add_command(security_cli)
 main.add_command(i18n_cli)
 main.add_command(docs_cli)
 main.add_command(qa_cli)
+main.add_command(qa_enhanced_cli)
 main.add_command(cicd_cli)
 main.add_command(docker_cli)
 main.add_command(analytics_cli)
@@ -193,6 +198,8 @@ main.add_command(sales_cli)
 main.add_command(growth_cli)
 main.add_command(metrics_cli)
 main.add_command(cli_cli)
+main.add_command(api_cli)
+main.add_command(cloud_cli)
 
 
 if __name__ == "__main__":
