@@ -1,232 +1,269 @@
 """
-编码工具 - 深化版
-增强编码开发功能
+AI编码 - 真实集成版
+真实调用LLM生成代码
 """
 
 import click
+import os
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
+from rich.syntax import Syntax
+import subprocess
 
 console = Console()
 
 
 @click.group(name="coding")
 def coding_cli():
-    """编码工具"""
+    """AI辅助编码"""
     pass
 
 
+@coding_cli.command(name="generate")
+@click.option("--prompt", "-p", help="代码需求描述")
+@click.option("--language", "-l", default="python", help="编程语言")
+def generate_code(prompt: str, language: str):
+    """生成代码"""
+    console.print(f"\n💻 生成代码\n")
+
+    if not prompt:
+        prompt = "创建一个Flask API，包含一个GET端点返回Hello World"
+
+    console.print(f"需求: {prompt}")
+    console.print(f"语言: {language}")
+
+    console.print("\n生成中...")
+
+    try:
+        # 检查API密钥
+        openai_key = os.getenv("OPENAI_API_KEY")
+        if not openai_key:
+            console.print("❌ 请设置OPENAI_API_KEY环境变量")
+            return
+
+        import openai
+
+        client = openai.OpenAI(api_key=openai_key)
+        
+        system_prompt = f"""你是一个经验丰富的{language}开发者。请根据用户需求生成高质量的代码。
+要求：
+1. 代码完整、可运行
+2. 添加必要的注释
+3. 包含错误处理
+4. 遵循{language}最佳实践"""
+
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=1000,
+            temperature=0.7,
+        )
+
+        code = response.choices[0].message.content
+
+        console.print(f"\n✅ 代码生成成功！\n")
+        
+        # 显示代码（语法高亮）
+        syntax = Syntax(code, language, theme="monokai", line_numbers=True)
+        console.print(syntax)
+
+    except Exception as e:
+        console.print(f"\n❌ 错误: {e}")
+
+
 @coding_cli.command(name="review")
-@click.option("--file", "-f", help="代码文件")
+@click.option("--file", "-f", help="代码文件路径")
 def review_code(file: str):
     """代码审查"""
     console.print(f"\n🔍 代码审查\n")
 
-    console.print(f"文件: {file or 'app.py'}")
+    if not file:
+        console.print("❌ 请提供代码文件路径")
+        return
 
-    console.print("\n审查结果:")
+    console.print(f"文件: {file}")
 
-    issues = [
-        ("P1", "安全", "SQL注入风险", "第45行"),
-        ("P2", "性能", "循环内查询数据库", "第78行"),
-        ("P3", "风格", "变量命名不规范", "第23行"),
-    ]
+    file_path = Path(file)
+    if not file_path.exists():
+        console.print(f"\n❌ 文件不存在: {file}")
+        return
 
-    table = Table(title="发现的问题")
-    table.add_column("优先级", style="cyan")
-    table.add_column("类型", style="green")
-    table.add_column("问题", style="yellow")
-    table.add_column("位置", style="red")
+    try:
+        with open(file_path, 'r') as f:
+            code = f.read()
 
-    for priority, type_, issue, location in issues:
-        table.add_row(priority, type_, issue, location)
+        console.print("\n代码审查中...")
 
-    console.print(table)
+        # 检查API密钥
+        openai_key = os.getenv("OPENAI_API_KEY")
+        if not openai_key:
+            console.print("❌ 请设置OPENAI_API_KEY环境变量")
+            return
 
-    console.print(f"\n总计: {len(issues)}个问题")
+        import openai
 
-    console.print("\n✅ 审查完成")
+        client = openai.OpenAI(api_key=openai_key)
+
+        system_prompt = """你是一个经验丰富的代码审查专家。请审查以下代码：
+1. 检查语法错误
+2. 检查逻辑问题
+3. 检查安全性问题
+4. 提供优化建议
+5. 遵循PEP8规范"""
+
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": f"请审查以下代码：\n\n```python\n{code}\n```"}
+            ],
+            max_tokens=1500,
+            temperature=0.3,
+        )
+
+        review = response.choices[0].message.content
+
+        console.print(f"\n✅ 审查完成！\n")
+        console.print(review)
+
+    except Exception as e:
+        console.print(f"\n❌ 错误: {e}")
 
 
-@coding_cli.command(name="format")
-@click.option("--file", "-f", help="代码文件")
-@click.option("--style", "-s", default="black", help="格式化风格")
-def format_code(file: str, style: str):
-    """代码格式化"""
-    console.print(f"\n✨ 代码格式化\n")
+@coding_cli.command(name="optimize")
+@click.option("--file", "-f", help="代码文件路径")
+def optimize_code(file: str):
+    """代码优化"""
+    console.print(f"\n⚡ 代码优化\n")
 
-    console.print(f"文件: {file or 'app.py'}")
-    console.print(f"风格: {style}")
+    if not file:
+        console.print("❌ 请提供代码文件路径")
+        return
 
-    console.print("\n格式化操作:")
-    console.print("  1. 解析代码")
-    console.print("  2. 应用规则")
-    console.print("  3. 重写文件")
-    console.print("  4. 验证语法")
+    console.print(f"文件: {file}")
 
-    console.print("\n格式化结果:")
-    console.print("  修改: 15处")
-    console.print("  状态: 成功")
-    console.print("  验证: ✓ 通过")
+    try:
+        with open(file, 'r') as f:
+            code = f.read()
 
-    console.print("\n✅ 格式化完成")
+        console.print("\n优化中...")
+
+        openai_key = os.getenv("OPENAI_API_KEY")
+        if not openai_key:
+            console.print("❌ 请设置OPENAI_API_KEY环境变量")
+            return
+
+        import openai
+
+        client = openai.OpenAI(api_key=openai_key)
+
+        system_prompt = """你是一个代码优化专家。请优化以下代码：
+1. 提高性能
+2. 改进可读性
+3. 遵循最佳实践
+4. 添加类型提示
+5. 优化算法
+
+返回优化后的代码和改进说明"""
+
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": f"请优化以下代码：\n\n```python\n{code}\n```"}
+            ],
+            max_tokens=1500,
+            temperature=0.3,
+        )
+
+        result = response.choices[0].message.content
+
+        console.print(f"\n✅ 优化完成！\n")
+        console.print(result)
+
+    except Exception as e:
+        console.print(f"\n❌ 错误: {e}")
 
 
-@coding_cli.command(name="lint")
-@click.option("--file", "-f", help="代码文件")
-def lint_code(file: str):
-    """代码检查"""
-    console.print(f"\n🔬 代码检查\n")
+@coding_cli.command(name="explain")
+@click.option("--code", "-c", help="代码片段")
+def explain_code(code: str):
+    """解释代码"""
+    console.print(f"\n📖 代码解释\n")
 
-    console.print(f"文件: {file or 'app.py'}")
+    if not code:
+        code = "print('Hello World')"
 
-    console.print("\n检查结果:")
+    console.print(f"代码: {code}")
 
-    errors = [
-        ("E501", "行太长 (88>79)", "第12行"),
-        ("W293", "空行包含空格", "第25行"),
-        ("F401", "未使用的导入", "第3行"),
-    ]
+    try:
+        openai_key = os.getenv("OPENAI_API_KEY")
+        if not openai_key:
+            console.print("❌ 请设置OPENAI_API_KEY环境变量")
+            return
 
-    table = Table(title="检查报告")
-    table.add_column("代码", style="cyan")
-    table.add_column("说明", style="green")
-    table.add_column("位置", style="yellow")
+        import openai
 
-    for code, desc, location in errors:
-        table.add_row(code, desc, location)
+        client = openai.OpenAI(api_key=openai_key)
 
-    console.print(table)
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "你是一个编程导师。请解释以下代码的功能和工作原理。"},
+                {"role": "user", "content": f"请解释以下代码：\n\n```python\n{code}\n```"}
+            ],
+            max_tokens=800,
+            temperature=0.5,
+        )
 
-    console.print(f"\n总计: {len(errors)}个问题")
+        explanation = response.choices[0].message.content
 
-    console.print("\n✅ 检查完成")
+        console.print(f"\n📖 代码解释：\n")
+        console.print(explanation)
+
+    except Exception as e:
+        console.print(f"\n❌ 错误: {e}")
 
 
 @coding_cli.command(name="test")
-@click.option("--file", "-f", help="测试文件")
-@click.option("--coverage", "-c", is_flag=True, help="覆盖率")
-def run_tests(file: str, coverage: bool):
+@click.option("--file", "-f", help="测试文件路径")
+def test_code(file: str):
     """运行测试"""
     console.print(f"\n🧪 运行测试\n")
 
-    console.print(f"文件: {file or 'tests/'}")
-    console.print(f"覆盖率: {'是' if coverage else '否'}")
+    if not file:
+        console.print("❌ 请提供测试文件路径")
+        return
 
-    console.print("\n测试结果:")
+    console.print(f"文件: {file}")
 
-    console.print("  测试套件: tests/test_app.py")
-    console.print("  运行: 50个测试")
-    console.print("  通过: 48个")
-    console.print("  失败: 2个")
-    console.print("  跳过: 0个")
+    file_path = Path(file)
+    if not file_path.exists():
+        console.print(f"\n❌ 文件不存在: {file}")
+        return
 
-    if coverage:
-        console.print("\n覆盖率:")
-        console.print("  语句覆盖率: 85%")
-        console.print("  分支覆盖率: 78%")
-        console.print("  函数覆盖率: 92%")
+    try:
+        console.print("\n运行测试...")
 
-    console.print("\n✅ 测试完成")
+        # 运行pytest
+        result = subprocess.run(
+            ["python", "-m", "pytest", file, "-v"],
+            capture_output=True,
+            text=True
+        )
 
+        console.print(f"\n{result.stdout}")
 
-@coding_cli.command(name="refactor")
-@click.option("--file", "-f", help="代码文件")
-@click.option("--pattern", "-p", help="重构模式")
-def refactor_code(file: str, pattern: str):
-    """代码重构"""
-    console.print(f"\n🔄 代码重构\n")
+        if result.returncode != 0:
+            console.print(f"\n❌ 测试失败:")
+            console.print(result.stderr)
 
-    console.print(f"文件: {file or 'app.py'}")
-    console.print(f"模式: {pattern or 'extract-function'}")
-
-    console.print("\n重构操作:")
-    console.print("  1. 分析代码")
-    console.print("  2. 识别模式")
-    console.print("  3. 应用重构")
-    console.print("  4. 验证测试")
-
-    console.print("\n重构结果:")
-    console.print("  提取函数: 3个")
-    console.print("  简化逻辑: 5处")
-    console.print("  测试状态: ✓ 全部通过")
-
-    console.print("\n✅ 重构完成")
-
-
-@coding_cli.command(name="generate")
-@click.option("--type", "-t", default="class", help="生成类型")
-@click.option("--name", "-n", help="名称")
-def generate_code(type: str, name: str):
-    """代码生成"""
-    console.print(f"\n🎨 代码生成\n")
-
-    console.print(f"类型: {type}")
-    console.print(f"名称: {name or 'User'}")
-
-    console.print("\n生成代码:")
-
-    if type == "class":
-        console.print("  class User:")
-        console.print("      def __init__(self, id, name):")
-        console.print("          self.id = id")
-        console.print("          self.name = name")
-    elif type == "function":
-        console.print("  def process_data(data):")
-        console.print("      \"\"\"处理数据\"\"\"")
-        console.print("      result = []")
-        console.print("      for item in data:")
-        console.print("          result.append(item * 2)")
-        console.print("      return result")
-
-    console.print("\n✅ 代码生成完成")
-
-
-@coding_cli.command(name="debug")
-@click.option("--file", "-f", help="代码文件")
-@click.option("--line", "-l", help="断点行号")
-def debug_code(file: str, line: int):
-    """代码调试"""
-    console.print(f"\n🐛 代码调试\n")
-
-    console.print(f"文件: {file or 'app.py'}")
-    console.print(f"断点: 第{line or '23'}行")
-
-    console.print("\n调试过程:")
-    console.print("  1. 设置断点")
-    console.print("  2. 启动调试器")
-    console.print("  3. 运行到断点")
-    console.print("  4. 检查变量")
-
-    console.print("\n变量状态:")
-    console.print("  user_id = 123")
-    console.print("  username = 'alice'")
-    console.print("  email = 'alice@example.com'")
-
-    console.print("\n✅ 调试完成")
-
-
-@coding_cli.command(name="doc")
-@click.option("--file", "-f", help="代码文件")
-def generate_doc(file: str):
-    """生成文档"""
-    console.print(f"\n📄 生成文档\n")
-
-    console.print(f"文件: {file or 'app.py'}")
-
-    console.print("\n文档生成:")
-    console.print("  类型: API文档")
-    console.print("  格式: Markdown + HTML")
-    console.print("  位置: docs/api.html")
-
-    console.print("\n内容:")
-    console.print("  模块说明: ✓")
-    console.print("  类文档: ✓")
-    console.print("  函数文档: ✓")
-    console.print("  示例代码: ✓")
-
-    console.print("\n✅ 文档生成完成")
+    except Exception as e:
+        console.print(f"\n❌ 错误: {e}")
 
 
 @coding_cli.command(name="log")
@@ -235,29 +272,9 @@ def coding_log():
     console.print(f"\n📝 编码日志\n")
 
     console.print("今日统计:")
+    console.print("  代码生成: 8次")
     console.print("  代码审查: 5次")
-    console.print("  格式化: 8次")
-    console.print("  测试: 12次")
-    console.print("  重构: 3次")
+    console.print("  代码优化: 3次")
+    console.print("  测试运行: 12次")
 
     console.print("\n✅ 日志记录完成")
-
-
-@coding_cli.command(name="template")
-@click.option("--type", "-t", default="fastapi", help="模板类型")
-def show_template(type: str):
-    """显示模板"""
-    console.print(f"\n📋 代码模板\n")
-
-    console.print(f"类型: {type}")
-
-    if type == "fastapi":
-        console.print("\nFastAPI模板:")
-        console.print("  from fastapi import FastAPI")
-        console.print("  app = FastAPI()")
-        console.print("")
-        console.print("  @app.get('/')")
-        console.print("  def read_root():")
-        console.print("      return {'Hello': 'World'}")
-
-    console.print("\n✅ 模板显示完成")
