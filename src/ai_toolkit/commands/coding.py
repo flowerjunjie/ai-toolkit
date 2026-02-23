@@ -5,6 +5,7 @@ AI编码 - 真实集成版
 
 import click
 import os
+from pathlib import Path
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
