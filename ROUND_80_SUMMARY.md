@@ -49,6 +49,38 @@
 **Git提交：**
 - ai-toolkit-web: 3106dec0 - Round 80: 历史记录功能实现
 
+### 4. Web端收藏功能（P0）✅
+
+**前端实现：**
+- ✅ 创建FavoritesPage.tsx - 收藏管理页面
+- ✅ 更新App.tsx - 添加收藏页面路由
+- ✅ 更新ToolPage.tsx - 添加收藏按钮
+- ✅ 支持搜索、过滤、分页
+- ✅ 支持收藏、删除、执行
+
+**Git提交：**
+- ai-toolkit-web: 3ac7fe69 - Round 80: 收藏功能完成 - FavoritesPage + ToolPage收藏按钮
+
+### 5. 技能配置（全局技能）✅
+
+**已配置的14个核心技能：**
+- ✅ coding-agent - 编码代理
+- ✅ skill-creator - 创建新技能
+- ✅ healthcheck - 主机安全检查
+- ✅ weather - 天气查询
+- ✅ github - GitHub交互
+- ✅ canvas - Canvas画布控制
+- ✅ ddg-web-search - DuckDuckGo搜索
+- ✅ discord - Discord交互
+- ✅ notion - Notion笔记
+- ✅ obsidian - Obsidian笔记
+- ✅ openai-image-gen - OpenAI图像生成
+- ✅ openai-whisper - OpenAI语音转文字
+- ✅ sag - ElevenLabs TTS语音
+- ✅ tmux - tmux会话控制
+
+**技能位置：** ~/.openclaw/skills/（符号链接到/opt/openclaw/skills/）
+
 ---
 
 ## 📊 当前项目状态
@@ -57,21 +89,20 @@
 - **模块数：** 108个
 - **命令数：** 2096+
 - **代码行数：** 705,000+
-- **Git提交：** 111次+
-- **最后提交：** 0a2f4529cd @ 2026-02-23 06:12:15 UTC
+- **Git提交：** 112次+
+- **最后提交：** a8c3888 @ 2026-02-23 06:39:00 UTC
 
 ### AI Toolkit Web项目
 - **技术栈：** React 18 + FastAPI
-- **状态：** 生产就绪，支持历史记录
+- **状态：** 生产就绪，支持历史记录和收藏
 - **访问：** http://38.55.39.23:3000
-- **Git提交：** 3106dec0 @ 2026-02-23 06:35:00 UTC
+- **Git提交：** 3ac7fe69 @ 2026-02-23 07:25:00 UTC
 
 ---
 
 ## 🎯 下一步计划
 
 ### Round 80 剩余任务：
-- [ ] Web端收藏功能完善
 - [ ] 用户体验优化（动画、错误提示、快捷键等）
 - [ ] 文档和示例完善
 - [ ] 系统性能优化
@@ -81,9 +112,11 @@
 
 ## 🎉 成就
 
-**Round 80 进展顺利！** 
+**Round 80 进展非常顺利！** 
 - ✅ 核心模块检查和修复完成
 - ✅ Web端历史记录功能实现完成
+- ✅ Web端收藏功能实现完成
+- ✅ 全局技能配置完成（14个核心技能）
 - 🔥 系统正在持续优化中！
 
 ---
