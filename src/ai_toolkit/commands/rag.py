@@ -1,3 +1,4 @@
+
 """
 RAG向量检索 - 真实集成版
 真实集成ChromaDB，支持向量检索
@@ -6,16 +7,26 @@ RAG向量检索 - 真实集成版
 import click
 import os
 from pathlib import Path
+from typing import Optional
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
-import chromadb
-from chromadb.config import Settings
-from chromadb.utils import embedding_functions
 import requests
 import json
 
 console = Console()
+
+# 尝试导入chromadb，如果失败则设为None
+chromadb = None
+Settings = None
+embedding_functions = None
+
+try:
+    import chromadb
+    from chromadb.config import Settings
+    from chromadb.utils import embedding_functions
+except ImportError:
+    console.print("⚠️  警告: chromadb未安装，RAG功能将不可用")
 
 
 @click.group(name="rag")
@@ -24,11 +35,23 @@ def rag_cli():
     pass
 
 
+def check_chromadb():
+    """检查chromadb是否已安装"""
+    if chromadb is None:
+        console.print("\n❌ 错误: chromadb未安装")
+        console.print("请运行: pip install chromadb sentence-transformers langchain")
+        return False
+    return True
+
+
 @rag_cli.command(name="create")
 @click.option("--name", "-n", help="知识库名称")
 @click.option("--path", "-p", help="文档目录")
 def create_knowledge(name: str, path: str):
     """创建知识库"""
+    if not check_chromadb():
+        return
+
     console.print(f"\n📚 创建知识库\n")
 
     if not name:
@@ -48,134 +71,145 @@ def create_knowledge(name: str, path: str):
     console.print("\n处理中...")
 
     try:
-        # 创建ChromaDB客户端
-        client = chromadb.PersistentClient(path="./chroma_db")
-        
-        # 创建collection
-        collection = client.get_or_create_collection(name=name)
-        
-        # 收集文档
-        documents = []
-        metadatas = []
-        
-        for file_path in docs_path.rglob("*.md"):
-            with open(file_path, 'r') as f:
-                content = f.read()
-                documents.append(content)
-                metadatas.append({"source": str(file_path)})
+        client = chromadb.Client(Settings(
+            chroma_db_impl="duckdb+parquet",
+            persist_directory="./.chroma"
+        ))
 
-        if documents:
-            # 添加文档
-            collection.add(
-                documents=documents,
-                metadatas=metadatas
-            )
-            
-            console.print(f"\n✅ 知识库创建成功！")
-            console.print(f"\n统计:")
-            console.print(f"  文档数: {len(documents)}")
-            console.print(f"  Collection: {name}")
-            console.print(f"  数据库路径: ./chroma_db")
-        else:
-            console.print(f"\n⚠️ 未找到文档: {path}")
+        collection = client.create_collection(
+            name=name,
+            embedding_function=embedding_functions.DefaultEmbeddingFunction()
+        )
+
+        console.print(f"\n✅ 知识库创建成功！")
+        console.print(f"集合名称: {name}")
+        console.print(f"持久化位置: ./.chroma")
 
     except Exception as e:
         console.print(f"\n❌ 错误: {e}")
-        console.print("\n请确保已安装ChromaDB:")
-        console.print("  pip install chromadb")
+
+
+@rag_cli.command(name="index")
+@click.option("--name", "-n", help="知识库名称")
+@click.option("--path", "-p", help="文档路径")
+def index_documents(name: str, path: str):
+    """索引文档"""
+    if not check_chromadb():
+        return
+
+    console.print(f"\n📄 索引文档\n")
+
+    if not name:
+        name = "my-knowledge"
+
+    if not path:
+        console.print("❌ 请指定文档路径")
+        return
+
+    console.print(f"知识库: {name}")
+    console.print(f"文档: {path}")
+
+    console.print("\n索引中...")
+
+    try:
+        client = chromadb.Client(Settings(
+            chroma_db_impl="duckdb+parquet",
+            persist_directory="./.chroma"
+        ))
+
+        collection = client.get_collection(
+            name=name,
+            embedding_function=embedding_functions.DefaultEmbeddingFunction()
+        )
+
+        doc_path = Path(path)
+        if doc_path.exists():
+            content = doc_path.read_text()
+            collection.add(
+                documents=[content],
+                ids=[doc_path.name]
+            )
+            console.print(f"\n✅ 文档索引成功！")
+        else:
+            console.print(f"\n❌ 文件不存在: {path}")
+
+    except Exception as e:
+        console.print(f"\n❌ 错误: {e}")
 
 
 @rag_cli.command(name="search")
 @click.option("--name", "-n", help="知识库名称")
 @click.option("--query", "-q", help="搜索查询")
-@click.option("--top", "-t", default=5, help="返回结果数")
-def search_knowledge(name: str, query: str, top: int):
-    """语义搜索"""
-    console.print(f"\n🔍 语义搜索\n")
+def search_documents(name: str, query: str):
+    """搜索文档"""
+    if not check_chromadb():
+        return
+
+    console.print(f"\n🔍 搜索文档\n")
 
     if not name:
         name = "my-knowledge"
 
     if not query:
-        console.print("❌ 请输入查询内容")
+        console.print("❌ 请指定搜索查询")
         return
 
     console.print(f"知识库: {name}")
     console.print(f"查询: {query}")
-    console.print(f"结果数: {top}")
+
+    console.print("\n搜索中...")
 
     try:
-        client = chromadb.PersistentClient(path="./chroma_db")
-        collection = client.get_collection(name)
+        client = chromadb.Client(Settings(
+            chroma_db_impl="duckdb+parquet",
+            persist_directory="./.chroma"
+        ))
 
-        # 查询
-        results = collection.query(
-            query_texts=[query],
-            n_results=top
+        collection = client.get_collection(
+            name=name,
+            embedding_function=embedding_functions.DefaultEmbeddingFunction()
         )
 
-        console.print(f"\n找到 {len(results['ids'][0])}个结果:\n")
+        results = collection.query(
+            query_texts=[query],
+            n_results=3
+        )
 
-        table = Table(title="搜索结果")
-        table.add_column("#", style="cyan")
-        table.add_column("相似度", style="green")
-        table.add_column("来源", style="yellow")
+        console.print(f"\n✅ 搜索完成！")
+        console.print(f"\n结果:")
 
-        ids = results['ids'][0]
-        distances = results['distances'][0]
-        metadatas = results['metadatas'][0]
-
-        for i, (doc_id, distance, metadata) in enumerate(zip(ids, distances, metadatas), 1):
-            similarity = f"{1-distance:.2%}"
-            source = metadata.get('source', 'unknown') if metadata else 'unknown'
-            table.add_row(str(i), similarity, source)
-
-        console.print(table)
-
-    except Exception as e:
-        console.print(f"\n❌ 错误: {e}")
-        console.print("\n可能原因:")
-        console.print("  1. 知识库不存在")
-        console.print("  2. ChromaDB未启动")
-        console.print("  3. 数据库路径错误")
-
-
-@rag_cli.command(name="delete")
-@click.option("--name", "-n", help="知识库名称")
-def delete_knowledge(name: str):
-    """删除知识库"""
-    console.print(f"\n🗑️ 删除知识库\n")
-
-    console.print(f"知识库: {name}")
-
-    try:
-        client = chromadb.PersistentClient(path="./chroma_db")
-        client.delete_collection(name=name)
-        
-        console.print(f"\n✅ 知识库 {name} 已删除")
+        if results['documents']:
+            for i, doc in enumerate(results['documents'][0]):
+                console.print(f"\n{i+1}. {doc[:100]}...")
+        else:
+            console.print("无结果")
 
     except Exception as e:
         console.print(f"\n❌ 错误: {e}")
 
 
 @rag_cli.command(name="list")
-def list_knowledges():
+def list_collections():
     """列出知识库"""
+    if not check_chromadb():
+        return
+
     console.print(f"\n📋 知识库列表\n")
 
     try:
-        client = chromadb.PersistentClient(path="./chroma_db")
+        client = chromadb.Client(Settings(
+            chroma_db_impl="duckdb+parquet",
+            persist_directory="./.chroma"
+        ))
+
         collections = client.list_collections()
 
         if collections:
-            table = Table(title="知识库列表")
+            table = Table(title="知识库")
             table.add_column("名称", style="cyan")
-            table.add_column("文档数", style="green")
-            table.add_column("创建时间", style="yellow")
 
-            for collection in collections:
-                count = collection.count()
-                table.add_row(collection.name, str(count), "未知")
+            for coll in collections:
+                table.add_row(coll.name)
 
             console.print(table)
             console.print(f"\n总计: {len(collections)}个知识库")
@@ -186,56 +220,50 @@ def list_knowledges():
         console.print(f"\n❌ 错误: {e}")
 
 
-@rag_cli.command(name="import")
-@click.option("--file", "-f", help="文件路径")
+@rag_cli.command(name="delete")
 @click.option("--name", "-n", help="知识库名称")
-def import_documents(file: str, name: str):
-    """导入文档"""
-    console.print(f"\n📥 导入文档\n")
-
-    if not file:
-        console.print("❌ 请提供文件路径")
+def delete_collection(name: str):
+    """删除知识库"""
+    if not check_chromadb():
         return
+
+    console.print(f"\n🗑️ 删除知识库\n")
 
     if not name:
-        name = "my-knowledge"
-
-    console.print(f"文件: {file}")
-    console.print(f"知识库: {name}")
-
-    file_path = Path(file)
-    if not file_path.exists():
-        console.print(f"\n❌ 文件不存在: {file}")
+        console.print("❌ 请指定知识库名称")
         return
 
+    console.print(f"知识库: {name}")
+
     try:
-        # 读取文档
-        with open(file_path, 'r') as f:
-            content = f.read()
+        client = chromadb.Client(Settings(
+            chroma_db_impl="duckdb+parquet",
+            persist_directory="./.chroma"
+        ))
 
-        # 添加到知识库
-        client = chromadb.PersistentClient(path="./chroma_db")
-        collection = client.get_or_create_collection(name=name)
-        collection.add(
-            documents=[content],
-            metadatas={"source": str(file_path)}
-        )
-
-        console.print(f"\n✅ 文档导入成功！")
-        console.print(f"  添加到: {name}")
+        client.delete_collection(name=name)
+        console.print(f"\n✅ 知识库删除成功！")
 
     except Exception as e:
         console.print(f"\n❌ 错误: {e}")
 
 
-@rag_cli.command(name="log")
-def rag_log():
-    """RAG使用日志"""
-    console.print(f"\n📝 RAG日志\n")
+@rag_cli.command(name="help")
+def rag_help():
+    """帮助信息"""
+    console.print(f"\n📖 RAG帮助\n")
 
-    console.print("今日统计:")
-    console.print("  知识库: 2个")
-    console.print("  查询次数: 25次")
-    console.print("  文档数: 150个")
+    console.print("快速开始:")
+    console.print("  1. 安装依赖:")
+    console.print("     pip install chromadb sentence-transformers langchain")
+    console.print("")
+    console.print("  2. 创建知识库:")
+    console.print("     ai-toolkit rag create --name my-kb --path ./docs")
+    console.print("")
+    console.print("  3. 索引文档:")
+    console.print("     ai-toolkit rag index --name my-kb --path document.txt")
+    console.print("")
+    console.print("  4. 搜索:")
+    console.print("     ai-toolkit rag search --name my-kb --query '我的问题'")
 
-    console.print("\n✅ 日志记录完成")
+    console.print("\n✅ 帮助信息显示完成")
