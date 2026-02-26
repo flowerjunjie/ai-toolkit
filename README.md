@@ -11,6 +11,18 @@
 
 **永远beta - 持续迭代中** 💰
 
+---
+
+## 💰 支持项目
+
+如果这个工具对你有帮助，欢迎打赏支持！
+
+**以太坊钱包**: `0x09c18DEa8A2b2cf596D58056F74DACe14Ea7196d`
+
+<img src="https://raw.githubusercontent.com/flowerjunjie/ai-toolkit/main/assets/donate-qr.png" width="200" alt="打赏二维码">
+
+---
+
 </div>
 
 ## 📖 简介
@@ -221,6 +233,14 @@ MIT License - 详见 [LICENSE](LICENSE)
 ---
 
 <div align="center">
+
+## 💰 支持项目
+
+**以太坊钱包**: `0x09c18DEa8A2b2cf596D58056F74DACe14Ea7196d`
+
+<img src="https://raw.githubusercontent.com/flowerjunjie/ai-toolkit/main/assets/donate-qr.png" width="200" alt="打赏二维码">
+
+---
 
 **产品为王** 💰 | **永远beta - 持续迭代中！**
 
